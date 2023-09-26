@@ -1,0 +1,14 @@
+^LICENSE.md$
+^_pkgdown.yml$
+^pkgdown$
+^Rakefile$
+^README.Rmd$
+^README.html$
+^raw-data$
+^tmp$
+^\.github$
+^cran-comments\.md$
+^codecov\.yml$
+^toml-test-v1.3.0-linux-amd64$
+^test.json$
+^test.out$

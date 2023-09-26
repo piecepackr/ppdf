@@ -1,0 +1,33 @@
+destination: "../../websites/R/ppdf/"
+url: "https://trevorldavis.com/R/ppdf"
+development:
+    mode: auto
+reference:
+    - title: "Info about games supported by this package"
+      desc: "Functions that generate data frames with information about the games whose setups are provided by this package."
+      contents:
+        - games_checkers
+    - title: "Setups for checkers/draughts sets"
+      desc: "Functions that generate data frames to setup checkers/draughts sets."
+      contents:
+        - checkers_board
+        - checkers_american_checkers
+        - checkers_lines_of_action
+    - title: "Setups for chess sets"
+      desc: "Functions that generate data frames to setup chess sets."
+      contents:
+        - chess_board
+        - chess_international_chess
+    - title: "Setups for domino sets"
+      desc: "Functions that generate data frames to setup dominoes."
+      contents:
+        - dominoes_fujisan
+    - title: "Setups for piecepack decks"
+      desc: "Functions that generate data frames to setup piecepack pieces."
+      contents:
+        - piecepack_rect_board_tiles
+        - piecepack_easy_slider
+        - piecepack_checkers
+        - piecepack_chess
+        - piecepack_lines_of_action
+        - piecepack_alquerque
