@@ -189,3 +189,4 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Pagat](https://www.pagat.com/)
 * [The Piecepack Wiki](https://ludism.org/ppwiki/HomePage)
 * [Wikipedia](https://en.wikipedia.org/)
+* [The World of Abstract Games](http://www.di.fc.ul.pt/~jpn/gv/)

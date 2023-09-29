@@ -169,9 +169,10 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="checkers">Checkers Sets</a>
 
-`{ppdf}` supports the following 19 games playable with a (possibly non-8x8) checkers set:
+`{ppdf}` supports the following 23 games playable with a (possibly non-8x8) checkers set:
 
 * [(American) Checkers AKA (English) Draughts](https://en.wikipedia.org/wiki/Draughts)
+* [American Pool Checkers](https://draughts.github.io/american-pool-checkers.html)
 * [Brazilian Checkers AKA Brazilian Draughts](https://en.wikipedia.org/wiki/Brazilian_draughts)
 * [Breakthrough](https://en.wikipedia.org/wiki/Breakthrough_(board_game))
 * [Canadian Checkers AKA Canadian Draughts](https://en.wikipedia.org/wiki/Canadian_checkers)
@@ -181,13 +182,16 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Focus](https://en.wikipedia.org/wiki/Focus_(board_game))
 * [Four Field Kono](https://en.wikipedia.org/wiki/Four_Field_Kono)
 * [Frisian Checkers AKA Frisian Draughts](https://en.wikipedia.org/wiki/Frisian_draughts)
+* [Gothic Checkers AKA Gothic Draughts](http://mlwi.magix.net/bg/gothiccheckersvariants.htm)
 * [Grasshopper](http://www.cyningstan.com/game/71/grasshopper)
 * [International Checkers AKA International Draughts](https://en.wikipedia.org/wiki/International_draughts)
 * [Italian Checkers AKA Italian Draughts](https://en.wikipedia.org/wiki/Italian_draughts)
+* [Jamaican Checkers AKA Jamaican Draughts](https://web.archive.org/web/20230605023244/http://poolcheckers.com/jamaica/)
 * [Jul-Gonu](https://en.wikipedia.org/wiki/Jul-Gonu)
 * [Lines of Action](https://en.wikipedia.org/wiki/Lines_of_Action)
 * [Portuguese Checkers AKA Portuguese Draughts](http://www.fpdamas.pt/regras/)
 * [Russian Checkers AKA Russian Draughts](https://en.wikipedia.org/wiki/Russian_draughts)
+* [Spanish Checkers AKA Spanish Draughts](https://mindsports.nl/index.php/on-the-evolution-of-draughts-variants/draughts-variants/497-dama_s)
 * [Thai Checkers AKA Thai Draughts AKA Mak-hot AKA Makhos](https://checkers.fandom.com/wiki/Mak-hot)
 * [Turkish Checkers AKA Turkish Draughts AKA Dama](https://en.wikipedia.org/wiki/Turkish_draughts)
 
@@ -206,13 +210,14 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following 83 games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following 87 games playable with a piecepack deck (plus possibly additional components):
 
 * [(American) Checkers AKA (English) Draughts](https://www.ludism.org/ppwiki/Checkers)
 * [(International) Chess](https://www.ludism.org/ppwiki/Chess)
 * [Alice Chess](https://en.wikipedia.org/wiki/Alice_chess)
 * [Alien City](https://www.ludism.org/ppwiki/AlienCity)
 * [Alquerque AKA Qirkat](https://en.wikipedia.org/wiki/Alquerque)
+* [American Pool Checkers](https://draughts.github.io/american-pool-checkers.html)
 * [Awithlaknannai Mosona](https://en.wikipedia.org/wiki/Awithlaknannai_Mosona)
 * [Backgammon](https://www.ludism.org/ppwiki/Backgammon)
 * [Black Pawn Trucking](https://www.ludism.org/ppwiki/BlackPawnTrucking)
@@ -243,10 +248,12 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Froggy Bottom](https://www.ludism.org/ppwiki/FroggyBottom)
 * [Fuji-san](https://www.ludism.org/ppwiki/Fuji-san)
 * [Galaxy Express](https://www.ludism.org/ppwiki/GalaxyExpress)
+* [Gothic Checkers AKA Gothic Draughts](http://mlwi.magix.net/bg/gothiccheckersvariants.htm)
 * [Grasshopper](http://www.cyningstan.com/game/71/grasshopper)
 * [Ice Floe](https://www.ludism.org/ppwiki/IceFloe)
 * [Iceberg](https://www.ludism.org/ppwiki/Iceberg)
 * [Italian Checkers AKA Italian Draughts](https://en.wikipedia.org/wiki/Italian_draughts)
+* [Jamaican Checkers AKA Jamaican Draughts](https://web.archive.org/web/20230605023244/http://poolcheckers.com/jamaica/)
 * [Japan](https://www.ludism.org/ppwiki/Japan)
 * [Jul-Gonu](https://www.ludism.org/ppwiki/JulGonu)
 * [Lab Rats](https://www.ludism.org/ppwiki/LabRats)
@@ -275,6 +282,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Shopping Mall](https://www.ludism.org/ppwiki/ShoppingMall)
 * [Skyscrapers](https://www.ludism.org/ppwiki/Skyscrapers)
 * [Slides of Action](https://www.ludism.org/ppwiki/SlidesOfAction)
+* [Spanish Checkers AKA Spanish Draughts](https://mindsports.nl/index.php/on-the-evolution-of-draughts-variants/draughts-variants/497-dama_s)
 * [Speedy Towers](https://ludism.org/ppwiki/SpeedyTowers)
 * [Steppin' Stones](https://ludism.org/ppwiki/Steppin'_Stones)
 * [Tablut](https://www.ludism.org/ppwiki/Tablut)
@@ -310,3 +318,4 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Pagat](https://www.pagat.com/)
 * [The Piecepack Wiki](https://ludism.org/ppwiki/HomePage)
 * [Wikipedia](https://en.wikipedia.org/)
+* [The World of Abstract Games](http://www.di.fc.ul.pt/~jpn/gv/)

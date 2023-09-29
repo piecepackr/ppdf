@@ -3,18 +3,24 @@
 \name{piecepack_games_checkers}
 \alias{piecepack_games_checkers}
 \alias{piecepack_american_checkers}
+\alias{piecepack_american_pool_checkers}
 \alias{piecepack_checkers}
 \alias{piecepack_brazilian_checkers}
 \alias{piecepack_czech_checkers}
 \alias{piecepack_english_checkers}
+\alias{piecepack_gothic_checkers}
 \alias{piecepack_italian_checkers}
+\alias{piecepack_jamaican_checkers}
 \alias{piecepack_portuguese_checkers}
 \alias{piecepack_russian_checkers}
+\alias{piecepack_spanish_checkers}
 \alias{piecepack_thai_checkers}
 \alias{piecepack_turkish_checkers}
 \title{Setups for checkers variants playable with a piecepack}
 \usage{
 piecepack_american_checkers()
+
+piecepack_american_pool_checkers()
 
 piecepack_checkers()
 
@@ -24,29 +30,39 @@ piecepack_czech_checkers()
 
 piecepack_english_checkers()
 
+piecepack_gothic_checkers()
+
 piecepack_italian_checkers()
+
+piecepack_jamaican_checkers()
 
 piecepack_portuguese_checkers()
 
 piecepack_russian_checkers()
+
+piecepack_spanish_checkers()
 
 piecepack_thai_checkers()
 
 piecepack_turkish_checkers()
 }
 \description{
-\code{tibble} data frames of setups for 8 checkers variants playable with a piecepack.
+\code{tibble} data frames of setups for 12 checkers variants playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
 Here are links for more information about the various checkers variants:\tabular{ll}{
    \strong{Game} \tab \strong{URL} \cr
    (American) Checkers AKA (English) Draughts \tab \url{https://www.ludism.org/ppwiki/Checkers} \cr
+   American Pool Checkers \tab \url{https://draughts.github.io/american-pool-checkers.html} \cr
    Brazilian Checkers AKA Brazilian Draughts \tab \url{https://en.wikipedia.org/wiki/Brazilian_draughts} \cr
    Czech Checkers AKA Czech Draughts \tab \url{https://en.wikipedia.org/wiki/Czech_draughts} \cr
+   Gothic Checkers AKA Gothic Draughts \tab \url{http://mlwi.magix.net/bg/gothiccheckersvariants.htm} \cr
    Italian Checkers AKA Italian Draughts \tab \url{https://en.wikipedia.org/wiki/Italian_draughts} \cr
+   Jamaican Checkers AKA Jamaican Draughts \tab \url{https://web.archive.org/web/20230605023244/http://poolcheckers.com/jamaica/} \cr
    Portuguese Checkers AKA Portuguese Draughts \tab \url{http://www.fpdamas.pt/regras/} \cr
    Russian Checkers AKA Russian Draughts \tab \url{https://en.wikipedia.org/wiki/Russian_draughts} \cr
+   Spanish Checkers AKA Spanish Draughts \tab \url{https://mindsports.nl/index.php/on-the-evolution-of-draughts-variants/draughts-variants/497-dama_s} \cr
    Thai Checkers AKA Thai Draughts AKA Mak-hot AKA Makhos \tab \url{https://checkers.fandom.com/wiki/Mak-hot} \cr
    Turkish Checkers AKA Turkish Draughts AKA Dama \tab \url{https://en.wikipedia.org/wiki/Turkish_draughts} \cr
 }

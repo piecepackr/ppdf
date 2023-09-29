@@ -51,19 +51,7 @@ games_piecepack_other <- function() {
 
 #' @rdname piecepack_games_other
 #' @export
-piecepack_breakthrough <- function() {
-    df_t <- piecepack_rect_board_tiles(8, 8)
-    df_p <- tibble(piece_side = "pawn_face", x = c(1, 8, 8, 1),
-                   y = c(7, 7, 2, 2), angle = c(180, 180, 0, 0), suit = 1:4)
-    df_d <- tibble(piece_side = "die_face", x = c(1, 8, 8, 1),
-                   y = c(8, 8, 1, 1), angle = c(180, 180, 0, 0),
-                   suit = 1:4, rank = 2)
-    df_c <- tibble(piece_side = "coin_back", x = rep(c(2:7, 7:2), each=2),
-                   y = c(rep(c(8, 7), 6), rep(c(2, 1), 6)),
-                   angle = rep(c(180, 0), each=12),
-                   suit = rep(1:4, each = 6), rank = rep(1:6, 4))
-    bind_rows(df_t, df_p, df_d, df_c)
-}
+piecepack_breakthrough <- piecepack_gothic_checkers
 
 #' @rdname piecepack_games_other
 #' @export

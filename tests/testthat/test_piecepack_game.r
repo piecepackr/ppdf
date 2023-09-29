@@ -2,7 +2,7 @@ test_that("game diagrams work as expected", {
     skip_if_not_installed("ppgames")
     skip_on_os("windows")
 
-    expect_equal(nrow(games_piecepack()), 83L)
+    expect_equal(nrow(games_piecepack()), 87L)
 
     cat_piece <- function(df, ..., color = FALSE) ppgames::cat_piece(df, ..., color = color)
 

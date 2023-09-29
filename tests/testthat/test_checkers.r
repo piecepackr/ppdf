@@ -2,11 +2,12 @@ test_that("game diagrams work as expected", {
     skip_if_not_installed("ppgames")
     skip_on_os("windows")
 
-    expect_equal(nrow(games_checkers()), 19L)
+    expect_equal(nrow(games_checkers()), 23L)
 
     cat_piece <- function(df, ..., color = FALSE) ppgames::cat_piece(df, ..., color = color)
 
     expect_snapshot(cat_piece(checkers_american_checkers()))
+    expect_snapshot(cat_piece(checkers_american_pool_checkers()))
     expect_snapshot(cat_piece(checkers_canadian_checkers()))
     expect_snapshot(cat_piece(checkers_crossings())) # covers Breakthrough as well
     expect_snapshot(cat_piece(checkers_dameo()))

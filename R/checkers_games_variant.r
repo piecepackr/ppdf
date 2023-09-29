@@ -17,6 +17,14 @@ games_checkers_variant <- function() {
             , ~methods
             , ~comment
             , ~url
+            , "(American) Checkers AKA (English) Draughts"
+            , "``checkers_american_checkers()`` aka ``checkers_english_checkers()`` aka ``checkers_checkers()``"
+            , NA_character_
+            , "https://en.wikipedia.org/wiki/Draughts"
+            , "American Pool Checkers"
+            , "``checkers_american_pool_checkers()``"
+            , NA_character_
+            , "https://draughts.github.io/american-pool-checkers.html"
             , "Brazilian Checkers AKA Brazilian Draughts"
             , "``checkers_brazilian_checkers()``"
             , NA_character_
@@ -29,10 +37,6 @@ games_checkers_variant <- function() {
             , "``checkers_czech_checkers()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Czech_draughts"
-            , "(American) Checkers AKA (English) Draughts"
-            , "``checkers_american_checkers()`` aka ``checkers_english_checkers()`` aka ``checkers_checkers()``"
-            , NA_character_
-            , "https://en.wikipedia.org/wiki/Draughts"
             , "Dameo"
             , "``checkers_dameo()``"
             , NA_character_
@@ -41,6 +45,10 @@ games_checkers_variant <- function() {
             , "``checkers_frisian_checkers()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Frisian_draughts"
+            , "Gothic Checkers AKA Gothic Draughts"
+            , "``checkers_gothic_checkers()``"
+            , NA_character_
+            , "http://mlwi.magix.net/bg/gothiccheckersvariants.htm"
             , "International Checkers AKA International Draughts"
             , "``checkers_international_checkers()``"
             , NA_character_
@@ -49,6 +57,10 @@ games_checkers_variant <- function() {
             , "``checkers_italian_checkers()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Italian_draughts"
+            , "Jamaican Checkers AKA Jamaican Draughts"
+            , "``checkers_jamaican_checkers()``"
+            , NA_character_
+            , "https://web.archive.org/web/20230605023244/http://poolcheckers.com/jamaica/"
             , "Portuguese Checkers AKA Portuguese Draughts"
             , "``checkers_portuguese_checkers()``"
             , NA_character_
@@ -57,6 +69,10 @@ games_checkers_variant <- function() {
             , "``checkers_russian_checkers()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Russian_draughts"
+            , "Spanish Checkers AKA Spanish Draughts"
+            , "``piecepack_spanish_checkers()``"
+            , NA_character_
+            , "https://mindsports.nl/index.php/on-the-evolution-of-draughts-variants/draughts-variants/497-dama_s"
             , "Thai Checkers AKA Thai Draughts AKA Mak-hot AKA Makhos"
             , "``piecepack_thai_checkers()``"
             , NA_character_
@@ -72,6 +88,11 @@ games_checkers_variant <- function() {
 #' @export
 checkers_american_checkers <- function(cell_width = 1)
     to_checkers(piecepack_american_checkers(), cell_width)
+
+#' @rdname checkers_games_variant
+#' @export
+checkers_american_pool_checkers <- function(cell_width = 1)
+    to_checkers(piecepack_american_checkers(), cell_width, black_first = TRUE)
 
 #' @rdname checkers_games_variant
 #' @export
@@ -135,12 +156,20 @@ checkers_frisian_checkers <- function(cell_width = 1) {
 
 #' @rdname checkers_games_variant
 #' @export
+checkers_gothic_checkers <- checkers_crossings
+
+#' @rdname checkers_games_variant
+#' @export
 checkers_international_checkers <- checkers_frisian_checkers
 
 #' @rdname checkers_games_variant
 #' @export
 checkers_italian_checkers <- function(cell_width = 1)
     to_checkers(piecepack_italian_checkers(), cell_width, angle = 90)
+
+#' @rdname checkers_games_variant
+#' @export
+checkers_jamaican_checkers <- checkers_italian_checkers
 
 #' @rdname checkers_games_variant
 #' @export
@@ -152,8 +181,12 @@ checkers_russian_checkers <- checkers_american_checkers
 
 #' @rdname checkers_games_variant
 #' @export
+checkers_spanish_checkers <- checkers_italian_checkers
+
+#' @rdname checkers_games_variant
+#' @export
 checkers_thai_checkers <- function(cell_width = 1)
-    to_checkers(piecepack_thai_checkers(), cell_width)
+    to_checkers(piecepack_thai_checkers(), cell_width, black_first = TRUE)
 
 #' @rdname checkers_games_variant
 #' @export

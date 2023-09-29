@@ -16,15 +16,19 @@ ppdf 0.1.0 (development)
 * The following functions generate data frames to setup checkers/draughts variants:
 
   + `checkers_american_checkers()` aka `checkers_english_checkers()` aka `checkers_checkers()`
+  + `checkers_american_pool_checkers()`
   + `checkers_brazilian_checkers()`
   + `checkers_canadian_checkers()`
   + `checkers_czech_checkers()`
   + `checkers_dameo()`
   + `checkers_frisian_checkers()`
+  + `checkers_gothic_checkers()`
   + `checkers_international_checkers()`
   + `checkers_italian_checkers()`
+  + `checkers_jamaican_checkers()`
   + `checkers_portuguese_checkers()`
   + `checkers_russian_checkers()`
+  + `checkers_spanish_checkers()`
   + `checkers_thai_checkers()`
   + `checkers_turkish_checkers()`
 
@@ -58,11 +62,15 @@ ppdf 0.1.0 (development)
 * The following functions generate data frames to setup checkers variants playable with piecepack sets:
 
   + `piecepack_american_checkers()` aka `piecepack_english_checkers()` aka `piecepack_checkers()`
+  + `piecepack_american_pool_checkers()`
   + `piecepack_brazilian_checkers()`
   + `piecepack_czech_checkers()`
+  + `piecepack_gothic_checkers()`
   + `piecepack_italian_checkers()`
+  + `piecepack_jamaican_checkers()`
   + `piecepack_portuguese_checkers()`
   + `piecepack_russian_checkers()`
+  + `piecepack_spanish_checkers()`
   + `piecepack_thai_checkers()`
   + `piecepack_turkish_checkers()`
 

@@ -3,8 +3,8 @@ README.html
 tmp/
 pkgdown/
 .rake_tasks~
-test.out
-toml-test-v1.3.0-linux-amd64
+codecov.yml
+
  
 # History files
 .Rhistory

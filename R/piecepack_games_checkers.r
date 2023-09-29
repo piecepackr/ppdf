@@ -20,6 +20,10 @@ games_piecepack_checkers <- function() {
             , "``piecepack_american_checkers()``, ``piecepack_english_checkers()``, ``piecepack_checkers()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Checkers"
+            , "American Pool Checkers"
+            , "``checkers_american_pool_checkers()``"
+            , NA_character_
+            , "https://draughts.github.io/american-pool-checkers.html"
             , "Brazilian Checkers AKA Brazilian Draughts"
             , "``checkers_brazilian_checkers()``"
             , NA_character_
@@ -28,10 +32,18 @@ games_piecepack_checkers <- function() {
             , "``checkers_czech_checkers()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Czech_draughts"
+            , "Gothic Checkers AKA Gothic Draughts"
+            , "``checkers_gothic_checkers()``"
+            , NA_character_
+            , "http://mlwi.magix.net/bg/gothiccheckersvariants.htm"
             , "Italian Checkers AKA Italian Draughts"
             , "``piecepack_italian_checkers()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Italian_draughts"
+            , "Jamaican Checkers AKA Jamaican Draughts"
+            , "``checkers_jamaican_checkers()``"
+            , NA_character_
+            , "https://web.archive.org/web/20230605023244/http://poolcheckers.com/jamaica/"
             , "Portuguese Checkers AKA Portuguese Draughts"
             , "``checkers_portuguese_checkers()``"
             , NA_character_
@@ -40,6 +52,10 @@ games_piecepack_checkers <- function() {
             , "``checkers_russian_checkers()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Russian_draughts"
+            , "Spanish Checkers AKA Spanish Draughts"
+            , "``piecepack_spanish_checkers()``"
+            , NA_character_
+            , "https://mindsports.nl/index.php/on-the-evolution-of-draughts-variants/draughts-variants/497-dama_s"
             , "Thai Checkers AKA Thai Draughts AKA Mak-hot AKA Makhos"
             , "``piecepack_thai_checkers()``"
             , NA_character_
@@ -67,6 +83,10 @@ piecepack_american_checkers <- function() {
 
 #' @rdname piecepack_games_checkers
 #' @export
+piecepack_american_pool_checkers <- piecepack_american_checkers
+
+#' @rdname piecepack_games_checkers
+#' @export
 piecepack_checkers <- piecepack_american_checkers
 
 #' @rdname piecepack_games_checkers
@@ -80,6 +100,22 @@ piecepack_czech_checkers <- piecepack_american_checkers
 #' @rdname piecepack_games_checkers
 #' @export
 piecepack_english_checkers <- piecepack_american_checkers
+
+#' @rdname piecepack_games_checkers
+#' @export
+piecepack_gothic_checkers <- function() {
+    df_t <- piecepack_rect_board_tiles(8, 8)
+    df_p <- tibble(piece_side = "pawn_face", x = c(1, 8, 8, 1),
+                   y = c(7, 7, 2, 2), angle = c(180, 180, 0, 0), suit = 1:4)
+    df_d <- tibble(piece_side = "die_face", x = c(1, 8, 8, 1),
+                   y = c(8, 8, 1, 1), angle = c(180, 180, 0, 0),
+                   suit = 1:4, rank = 2)
+    df_c <- tibble(piece_side = "coin_back", x = rep(c(2:7, 7:2), each=2),
+                   y = c(rep(c(8, 7), 6), rep(c(2, 1), 6)),
+                   angle = rep(c(180, 0), each=12),
+                   suit = rep(1:4, each = 6), rank = rep(1:6, 4))
+    bind_rows(df_t, df_p, df_d, df_c)
+}
 
 #' @rdname piecepack_games_checkers
 #' @export
@@ -97,11 +133,19 @@ piecepack_italian_checkers <- function() {
 
 #' @rdname piecepack_games_checkers
 #' @export
+piecepack_jamaican_checkers <- piecepack_italian_checkers
+
+#' @rdname piecepack_games_checkers
+#' @export
 piecepack_portuguese_checkers <- piecepack_italian_checkers
 
 #' @rdname piecepack_games_checkers
 #' @export
 piecepack_russian_checkers <- piecepack_american_checkers
+
+#' @rdname piecepack_games_checkers
+#' @export
+piecepack_spanish_checkers <- piecepack_italian_checkers
 
 #' @rdname piecepack_games_checkers
 #' @export
