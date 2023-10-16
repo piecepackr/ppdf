@@ -31,7 +31,7 @@
 ## <a name="overview">Overview</a>
 
 * This package contains *functions* that return `{tibble}` data frames with (possibly random) setup data for over a hundred board games playable with public domain game systems.  
-* This board game data can be visualized by [{piecepackr}](https://www.github.com/piecepackr/piecepackr) using the `{grid}`, `{ggplot2}`, `{rayrender}`, `{rayvertex}`, or `{rgl}` graphics systems or in a command-line interface by `ppgames::cat_piece()` (optionally) using `{crayon}`.  
+* This board game data can be visualized by [{piecepackr}](https://www.github.com/piecepackr/piecepackr) using the `{grid}`, `{ggplot2}`, `{rayrender}`, `{rayvertex}`, or `{rgl}` graphics systems or in a command-line interface by `ppcli::cat_piece()` (optionally) using `{crayon}`.
 * If you use [Portable Piecepack Notation (PPN)](https://trevorldavis.com/piecepackr/portable-piecepack-notation.html) to record the moves for any of games supported by this package then you can visualize any/all of the moves for that game with the help of the PPN parser in [{ppgames}](https://www.github.com/piecepackr/ppgames) (**NB. PPN support for most recently added games is TODO**).  
 * The package name "ppdf" is an acronym for **p**iece**p**ackr **d**ata **f**rames".  
 * Many of these functions were originally contained (under a slightly different name) in the experimental [{ppgames}](https://www.github.com/piecepackr/ppgames) and [{tradgames}](https://www.github.com/piecepackr/tradgames) packages.

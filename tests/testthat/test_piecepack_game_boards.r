@@ -25,9 +25,9 @@ test_that("rectangular boards works as expected", {
     expect_error(piecepack_rect_board_tiles(2, 3), "Don't know how to form a 3x2 board with 24 tiles")
 
     skip_on_os("windows")
-    skip_if_not_installed("ppgames")
+    skip_if_not_installed("ppcli")
 
-    cpiece <- function(df) ppgames::cat_piece(add_coins(df), color = FALSE)
+    cpiece <- function(df) ppcli::cat_piece(add_coins(df), color = FALSE)
     expect_snapshot({
         # 8x8
         df <- piecepack_rect_board_tiles(nr = 8, nc = 8)

@@ -1,10 +1,10 @@
 test_that("game diagrams work as expected", {
-    skip_if_not_installed("ppgames")
+    skip_if_not_installed("ppcli")
     skip_on_os("windows")
 
     expect_equal(nrow(games_checkers()), 23L)
 
-    cat_piece <- function(df, ..., color = FALSE) ppgames::cat_piece(df, ..., color = color)
+    cat_piece <- function(df, ..., color = FALSE) ppcli::cat_piece(df, ..., color = color)
 
     expect_snapshot(cat_piece(checkers_american_checkers()))
     expect_snapshot(cat_piece(checkers_american_pool_checkers()))

@@ -1,10 +1,10 @@
 test_that("game diagrams work as expected", {
-    skip_if_not_installed("ppgames")
+    skip_if_not_installed("ppcli")
     skip_on_os("windows")
 
     expect_equal(nrow(games_piecepack()), 87L)
 
-    cat_piece <- function(df, ..., color = FALSE) ppgames::cat_piece(df, ..., color = color)
+    cat_piece <- function(df, ..., color = FALSE) ppcli::cat_piece(df, ..., color = color)
 
     expect_snapshot(cat_piece(piecepack_alice_chess()))
     expect_snapshot(cat_piece(piecepack_alien_city(seed=42), reorient="symbols"))
@@ -60,7 +60,7 @@ test_that("game diagrams work as expected", {
     expect_snapshot(cat_piece(piecepack_international_chess()))
     expect_snapshot(cat_piece(piecepack_japan(seed=42)))
     expect_snapshot(cat_piece(piecepack_julgonu()))
-    expect_snapshot(cat_piece(piecepack_lab_rats(seed=42)))
+    expect_snapshot(cat_piece(piecepack_lab_rats(seed=42), reorient="all"))
     expect_snapshot(cat_piece(piecepack_landlocked(seed=42)))
     expect_snapshot(cat_piece(piecepack_ley_lines()))
     expect_snapshot(cat_piece(piecepack_lines_of_action(), reorient="all"))
@@ -87,12 +87,12 @@ test_that("game diagrams work as expected", {
     expect_snapshot(cat_piece(piecepack_salta()))
     expect_snapshot(cat_piece(piecepack_san_andreas()))
     expect_snapshot(cat_piece(piecepack_sarcophagus(seed = 42)))
-    expect_snapshot(cat_piece(piecepack_shogi(), reorient="all"))
-    expect_snapshot(cat_piece(piecepack_shopping_mall(seed = 42)))
+    expect_snapshot(cat_piece(piecepack_shogi(), reorient = "all"))
+    expect_snapshot(cat_piece(piecepack_shopping_mall(seed = 42), reorient = "all"))
     expect_snapshot(cat_piece(piecepack_skyscrapers(seed=23)))
     expect_snapshot(cat_piece(piecepack_slides_of_action()))
     expect_snapshot(cat_piece(piecepack_speedy_towers(seed=42), reorient = "all"))
-    expect_snapshot(cat_piece(piecepack_steppin_stones(seed = 42)))
+    expect_snapshot(cat_piece(piecepack_steppin_stones(seed = 42), reorient = "all"))
     expect_snapshot(cat_piece(piecepack_the_in_crowd()))
     expect_snapshot(cat_piece(piecepack_the_magic_bag(seed=27)))
     expect_snapshot(cat_piece(piecepack_tablut(), reorient="all"))
@@ -134,6 +134,7 @@ test_that("game diagrams work as expected", {
     skip_if_not_installed("vdiffr")
     expect_doppelganger <- vdiffr::expect_doppelganger
     skip_if_not_installed("piecepackr", minimum_version = "1.13.3")
+    skip_if_not_installed("systemfonts")
     skip_if_not(piecepackr::has_font("Dejavu Sans"))
 
     ee <- piecepackr::game_systems("dejavu")
