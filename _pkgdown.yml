@@ -31,3 +31,7 @@ reference:
         - piecepack_chess
         - piecepack_lines_of_action
         - piecepack_alquerque
+    - title: "Utilities for developers"
+      desc: "Other utility functions intended for developers"
+      contents:
+        - normalize_name

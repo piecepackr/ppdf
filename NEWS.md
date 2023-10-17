@@ -160,3 +160,7 @@ ppdf 0.1.0 (development)
   + `piecepack_salta()`
   + `piecepack_tablut()`
   + `piecepack_twelve_mens_morris()`
+
+* Other utilities intended for developers:
+
+  + `normalize_name()`
