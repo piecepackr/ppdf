@@ -6,6 +6,7 @@
 \alias{games_checkers}
 \alias{games_dominoes}
 \alias{games_piecepack}
+\alias{games_stackpack}
 \title{Data frames with game info}
 \usage{
 games_chess()
@@ -15,13 +16,15 @@ games_checkers()
 games_dominoes()
 
 games_piecepack()
+
+games_stackpack()
 }
 \value{
 A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with character columns "game", "methods", "comment", and "url"
 for game name, setup function name(s), possible comment, and url for more information.
 }
 \description{
-\code{games_chess()}, \code{games_dominoes()}, \code{games_checkers()}, and \code{game_piecepack()}
+\code{games_chess()}, \code{games_dominoes()}, \code{games_checkers()}, \code{games_piecepack()}, and \code{games_stackpack()}
 contain information about the games
 whose setups are provided by this package.
 }
@@ -32,4 +35,5 @@ nrow(games_chess())
 nrow(games_checkers())
 nrow(games_dominoes())
 nrow(games_piecepack())
+nrow(games_stackpack())
 }

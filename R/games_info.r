@@ -1,6 +1,6 @@
 #' Data frames with game info
 #'
-#' `games_chess()`, ``games_dominoes()``, `games_checkers()`, and `game_piecepack()`
+#' `games_chess()`, ``games_dominoes()``, `games_checkers()`, `games_piecepack()`, and `games_stackpack()`
 #' contain information about the games
 #' whose setups are provided by this package.
 #'
@@ -11,6 +11,7 @@
 #' nrow(games_checkers())
 #' nrow(games_dominoes())
 #' nrow(games_piecepack())
+#' nrow(games_stackpack())
 #' @return A [tibble::tibble()] data frame with character columns "game", "methods", "comment", and "url"
 #'         for game name, setup function name(s), possible comment, and url for more information.
 #' @rdname games_info
@@ -20,14 +21,14 @@ NULL
 #' @rdname games_info
 #' @export
 games_chess <- function() {
-    df <- bind_rows(games_chess_variant()) %>%
+    bind_rows(games_chess_variant()) %>%
         arrange(.data$game)
 }
 
 #' @rdname games_info
 #' @export
 games_checkers <- function() {
-    df <- bind_rows(games_checkers_variant(),
+    bind_rows(games_checkers_variant(),
                     games_checkers_other()) %>%
         arrange(.data$game)
 }
@@ -35,18 +36,25 @@ games_checkers <- function() {
 #' @rdname games_info
 #' @export
 games_dominoes <- function() {
-    df <- bind_rows(games_dominoes_variant()) %>%
+    bind_rows(games_dominoes_variant()) %>%
         arrange(.data$game)
 }
 
 #' @rdname games_info
 #' @export
 games_piecepack <- function() {
-    df <- bind_rows(games_piecepack_checkers(),
-                    games_piecepack_chess(),
-                    games_piecepack_original(),
-                    games_piecepack_other(),
-                    games_piecepack_traditional()) %>%
+    bind_rows(games_piecepack_checkers(),
+              games_piecepack_chess(),
+              games_piecepack_original(),
+              games_piecepack_other(),
+              games_piecepack_traditional()) %>%
+        arrange(.data$game)
+}
+
+#' @rdname games_info
+#' @export
+games_stackpack <- function() {
+    bind_rows(games_stackpack_other()) %>%
         arrange(.data$game)
 }
 

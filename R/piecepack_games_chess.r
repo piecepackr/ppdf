@@ -39,16 +39,16 @@ games_piecepack_chess <- function() {
             , "``piecepack_minishogi()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Minishogi"
-            , "Shogi"
-            , "``piecepack_shogi()``"
+            , "Shogi AKA Japanese Chess"
+            , "``piecepack_shogi()`` aka ``piecepack_japanese_chess()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Shogi"
-            , "Ultima aka Baroque Chess"
+            , "Ultima AKA Baroque Chess"
             , "``piecepack_ultima()`` aka ``piecepack_baroque_chess()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Baroque_chess"
             , "Xiangqi AKA Chinese Chess"
-            , "``piecepack_xiangqi()``"
+            , "``piecepack_xiangqi()`` aka ``piecepack_chinese_chess()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Xiangqi"
     )
@@ -57,7 +57,7 @@ games_piecepack_chess <- function() {
 
 #' @rdname piecepack_games_chess
 #' @export
-piecepack_alice_chess <- function(has_subpack = FALSE, max_tiles = 24) {
+piecepack_alice_chess <- function(has_subpack = FALSE, max_tiles = 24L) {
     max_tiles_per_board <- floor(max_tiles / 2)
     df_t1 <- piecepack_rect_board_tiles(8, 8, max_tiles = max_tiles_per_board)
     df_t2 <- piecepack_rect_board_tiles(8, 8, max_tiles = max_tiles_per_board, x0 = 11)
@@ -150,6 +150,47 @@ piecepack_chess <- function(has_subpack = FALSE) {
 
 #' @rdname piecepack_games_chess
 #' @export
+piecepack_chinese_chess <- function(has_subpack = FALSE) {
+    ang2 <- rep(c(180, 0), each = 2)
+    suits <- c(1,2,4,3)
+    x2 <- function(x) rep(c(x, 10-x), 2)
+    y2 <- function(y) rep(c(11-y, y), each = 2)
+    df_t1 <- piecepack_rect_board_tiles(10, 9, rank = rep(3:6, each = 4))
+    df_t2 <- tibble(piece_side = "tile_face", suit = c(1,3), rank = 2,
+                    x = 5, y = c(9, 2), angle = c(180, 0))
+    df_zu1 <- tibble(piece_side = "coin_back",
+                   suit = (1:5+1) %% 2 + 3, rank = c(1, 4, 6, 1, 4),
+                   x = seq(1, 9, 2), y = 4)
+    df_zu2 <- tibble(piece_side = "coin_back",
+                   suit = (1:5+1) %% 2 + 1, rank = c(1, 4, 6, 1, 4),
+                   x = seq(1, 9, 2), y = 7, angle = 180)
+    df_pao <- tibble(piece_side = "pawn_face", suit = suits,
+                     x = x2(2), y = y2(3), angle = ang2)
+    df_che <- tibble(piece_side = "die_face", suit = suits, rank = 4,
+                     x = x2(1), y = y2(1), angle = ang2)
+    df_ma <- tibble(piece_side = "coin_face", suit = suits, rank = 2,
+                    x = x2(2), y = y2(1), angle = ang2)
+    df_xiang <- tibble(piece_side = "coin_face", suit = suits, rank = 3,
+                    x = x2(3), y = y2(1), angle = ang2)
+    df_shi <- tibble(piece_side = "coin_face", suit = suits, rank = 5,
+                    x = x2(4), y = y2(1), angle = ang2)
+    df_jiang <- tibble(piece_side = "coin_face", suit = c(4,2), rank = 6,
+                       x = 5, y = c(1,10), angle = c(0, 180))
+    df_sb <- bind_rows(df_ma, df_xiang, df_shi, df_jiang, df_che)
+    if (has_subpack) {
+        df_sb$piece_side <- "tile_face"
+        df_sb$cfg <- "subpack"
+    } else {
+        df_sb$cfg <- "piecepack"
+    }
+    df <- bind_rows(df_t1, df_t2, df_zu1, df_zu2, df_pao, df_sb)
+    df$cfg <- ifelse(is.na(df$cfg), "piecepack", df$cfg)
+    df
+}
+
+
+#' @rdname piecepack_games_chess
+#' @export
 piecepack_four_seasons_chess <- function(has_subpack = FALSE) {
     df_t <- piecepack_rect_board_tiles(8, 8)
     df_t$cfg <- "piecepack"
@@ -218,39 +259,20 @@ piecepack_chess_pieces <- function(has_subpack = FALSE) {
         bind_rows(df_p1, df_p2, df_r, df_n, df_b, df_q, df_k)
     }
 }
-
 #' @rdname piecepack_games_chess
 #' @export
 piecepack_international_chess <- piecepack_chess
 
 #' @rdname piecepack_games_chess
 #' @export
-piecepack_minishogi <- function() {
-    df_tiles <- piecepack_rect_board_tiles(5, 5)
-    df_faces <- tibble(piece_side = "coin_face",
-                       x = c(1, 1, 4, 5, 5, 5, 2, 1),
-                       y = c(2, 1, 1, 1, 4, 5, 5, 5),
-                       rank = c(1, 6, 3, 4, 1, 6, 3, 4),
-                       suit = rep(1:2, each = 4),
-                       angle = rep(c(0, 180), each = 4))
-    df_backs <- tibble(piece_side = "coin_back",
-                       x = c(2, 3, 4, 3), y = c(1, 1, 5, 5),
-                       rank = c(4, 4, 5, 5), suit = c(1, 2, 1, 2),
-                       angle = c(0, 0, 180, 180))
-    bind_rows(df_tiles, df_faces, df_backs)
-}
-
-
-#' @rdname piecepack_games_chess
-#' @export
-piecepack_shogi <- function(has_subpack = FALSE, cfg2 = "piecepack") {
+piecepack_japanese_chess <- function(has_subpack = FALSE, cfg2 = "piecepack") {
     # board
     x_t <- seq(2, 8, by = 2)
     y_tr <- rep(c(4, 6), each = 4)
     y_tb <- rep(c(2, 8), each = 4)
     df_t <- tibble(piece_side = "tile_back",
                    x = rep(x_t,4), y = c(y_tr, y_tb),
-                   cfg = rep(c(cfg2, "piecepack"), each = 8))
+                   cfg = "piecepack")
 
     # pawns
     df_pb <- tibble(piece_side = "coin_back",
@@ -295,44 +317,29 @@ piecepack_shogi <- function(has_subpack = FALSE, cfg2 = "piecepack") {
 
 #' @rdname piecepack_games_chess
 #' @export
+piecepack_minishogi <- function() {
+    df_tiles <- piecepack_rect_board_tiles(5, 5)
+    df_faces <- tibble(piece_side = "coin_face",
+                       x = c(1, 1, 4, 5, 5, 5, 2, 1),
+                       y = c(2, 1, 1, 1, 4, 5, 5, 5),
+                       rank = c(1, 6, 3, 4, 1, 6, 3, 4),
+                       suit = rep(1:2, each = 4),
+                       angle = rep(c(0, 180), each = 4))
+    df_backs <- tibble(piece_side = "coin_back",
+                       x = c(2, 3, 4, 3), y = c(1, 1, 5, 5),
+                       rank = c(4, 4, 5, 5), suit = c(1, 2, 1, 2),
+                       angle = c(0, 0, 180, 180))
+    bind_rows(df_tiles, df_faces, df_backs)
+}
+
+#' @rdname piecepack_games_chess
+#' @export
+piecepack_shogi <- piecepack_japanese_chess
+
+#' @rdname piecepack_games_chess
+#' @export
 piecepack_ultima <- piecepack_baroque_chess
 
 #' @rdname piecepack_games_chess
 #' @export
-piecepack_xiangqi <- function(has_subpack = FALSE) {
-    ang2 <- rep(c(180, 0), each = 2)
-    suits <- c(1,2,4,3)
-    x2 <- function(x) rep(c(x, 10-x), 2)
-    y2 <- function(y) rep(c(11-y, y), each = 2)
-    df_t1 <- piecepack_rect_board_tiles(10, 9, rank = rep(3:6, each = 4))
-    df_t2 <- tibble(piece_side = "tile_face", suit = c(1,3), rank = 2,
-                    x = 5, y = c(9, 2), angle = c(180, 0))
-    df_zu1 <- tibble(piece_side = "coin_back",
-                   suit = (1:5+1) %% 2 + 3, rank = c(1, 4, 6, 1, 4),
-                   x = seq(1, 9, 2), y = 4)
-    df_zu2 <- tibble(piece_side = "coin_back",
-                   suit = (1:5+1) %% 2 + 1, rank = c(1, 4, 6, 1, 4),
-                   x = seq(1, 9, 2), y = 7, angle = 180)
-    df_pao <- tibble(piece_side = "pawn_face", suit = suits,
-                     x = x2(2), y = y2(3), angle = ang2)
-    df_che <- tibble(piece_side = "die_face", suit = suits, rank = 4,
-                     x = x2(1), y = y2(1), angle = ang2)
-    df_ma <- tibble(piece_side = "coin_face", suit = suits, rank = 2,
-                    x = x2(2), y = y2(1), angle = ang2)
-    df_xiang <- tibble(piece_side = "coin_face", suit = suits, rank = 3,
-                    x = x2(3), y = y2(1), angle = ang2)
-    df_shi <- tibble(piece_side = "coin_face", suit = suits, rank = 5,
-                    x = x2(4), y = y2(1), angle = ang2)
-    df_jiang <- tibble(piece_side = "coin_face", suit = c(4,2), rank = 6,
-                       x = 5, y = c(1,10), angle = c(0, 180))
-    df_sb <- bind_rows(df_ma, df_xiang, df_shi, df_jiang, df_che)
-    if (has_subpack) {
-        df_sb$piece_side <- "tile_face"
-        df_sb$cfg <- "subpack"
-    } else {
-        df_sb$cfg <- "piecepack"
-    }
-    df <- bind_rows(df_t1, df_t2, df_zu1, df_zu2, df_pao, df_sb)
-    df$cfg <- ifelse(is.na(df$cfg), "piecepack", df$cfg)
-    df
-}
+piecepack_xiangqi <- piecepack_chinese_chess

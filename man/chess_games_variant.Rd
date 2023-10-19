@@ -3,11 +3,14 @@
 \name{chess_games_variant}
 \alias{chess_games_variant}
 \alias{chess_chess}
+\alias{chess_chess960}
 \alias{chess_fischer_random_chess}
 \alias{chess_international_chess}
 \title{Setups for chess variants}
 \usage{
 chess_chess(cell_width = 1)
+
+chess_chess960(seed = NULL, cell_width = 1)
 
 chess_fischer_random_chess(seed = NULL, cell_width = 1)
 
@@ -26,6 +29,6 @@ Data frame output can usually be plotted with \code{pmap_piece(df, default.units
 Here are links for more information about the various games:\tabular{ll}{
    \strong{Game} \tab \strong{URL} \cr
    (International) Chess \tab \url{https://en.wikipedia.org/wiki/Chess} \cr
-   Fischer Random Chess \tab \url{https://www.chessvariants.com/diffsetup.dir/fischer.html} \cr
+   Fischer Random Chess AKA Chess960 \tab \url{https://www.chessvariants.com/diffsetup.dir/fischer.html} \cr
 }
 }

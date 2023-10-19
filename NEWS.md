@@ -8,6 +8,7 @@ ppdf 0.1.0 (development)
   + `games_chess()`
   + `games_dominoes()`
   + `games_piecepack()`
+  + `games_stackpack()`
 
 * The following functions are helper functions for checkers setup functions:
 
@@ -48,7 +49,7 @@ ppdf 0.1.0 (development)
 
 * The following functions generate data frames to setup chess variants:
 
-  + `chess_fischer_random_chess()`
+  + `chess_fischer_random_chess()` aka `chess_chess960()`
   + `chess_international_chess()` aka `chess_chess()`
 
 * The following functions generate data frames to setup dominoes:
@@ -81,9 +82,9 @@ ppdf 0.1.0 (development)
   + `piecepack_four_seasons_chess()`
   + `piecepack_international_chess()` aka `piecepack_chess()`
   + `piecepack_minishogi()`
-  + `piecepack_shogi()`
+  + `piecepack_shogi()` aka `piecepack_japanese_chess()`
   + `piecepack_ultima()` aka `piecepack_baroque_chess()`
-  + `piecepack_xiangqi()`
+  + `piecepack_xiangqi()` aka `piecepack_chinese_chess()`
 
 * The following functions generate data frames to setup other games playable with piecepack sets:
 
@@ -160,6 +161,34 @@ ppdf 0.1.0 (development)
   + `piecepack_salta()`
   + `piecepack_tablut()`
   + `piecepack_twelve_mens_morris()`
+
+* The following functions generate data frames to setup games playable with piecepack stackpacks:
+
+  + `stackpack_alice_chess()`
+  + `stackpack_chaturaji()`
+  + `stackpack_four_seasons_chess()`
+  + `stackpack_international_chess()` aka `stackpack_chess()`
+  + `stackpack_salta()`
+  + `stackpack_shogi()` aka `stackpack_japanese_chess()`
+  + `stackpack_ultima()` aka `stackpack_baroque_chess()`
+  + `stackpack_xiangqi()` aka `stackpack_chinese_chess()`
+
+* The following functions generate data frames with zero rows:
+
+  + `checkers_none()`
+  + `chess_none()`
+  + `dominoes_none()`
+  + `piecepack_none()`
+  + `stackpack_none()`
+
+* The following functions generate data frames by game name:
+
+  + `setup_by_name()`
+  + `checkers_by_name()`
+  + `chess_by_name()`
+  + `dominoes_by_name()`
+  + `piecepack_by_name()`
+  + `stackpack_by_name()`
 
 * Other utilities intended for developers:
 

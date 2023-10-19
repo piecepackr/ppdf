@@ -22,8 +22,8 @@ games_chess_variant <- function() {
             , "``chess_international_chess()`` aka ``chess_chess()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Chess"
-            , "Fischer Random Chess"
-            , "``chess_fischer_random_chess()``"
+            , "Fischer Random Chess AKA Chess960"
+            , "``chess_fischer_random_chess()`` aka ``chess_chess960()``"
             , NA_character_
             , "https://www.chessvariants.com/diffsetup.dir/fischer.html"
     )
@@ -47,7 +47,7 @@ chess_chess <- function(cell_width = 1) {
 
 #' @rdname chess_games_variant
 #' @export
-chess_fischer_random_chess <- function(seed = NULL, cell_width = 1) {
+chess_chess960 <- function(seed = NULL, cell_width = 1) {
     if (!is.null(seed)) withr::local_seed(seed)
     df_board <- chess_board()
     ranks <- fischer_random_ranks()
@@ -62,6 +62,10 @@ chess_fischer_random_chess <- function(seed = NULL, cell_width = 1) {
     bind_rows(df_board, df_w, df_b) %>%
         set_cell_width(cell_width, "chess")
 }
+
+#' @rdname chess_games_variant
+#' @export
+chess_fischer_random_chess <- chess_chess960
 
 # From: https://www.chessvariants.com/diffsetup.dir/fischer.html
 # > Terumi Kaneyasu (Sam Sloan?) writes:
@@ -85,4 +89,3 @@ fischer_random_ranks <- function() {
 #' @rdname chess_games_variant
 #' @export
 chess_international_chess <- chess_chess
-

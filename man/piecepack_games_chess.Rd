@@ -6,15 +6,17 @@
 \alias{piecepack_baroque_chess}
 \alias{piecepack_chaturaji}
 \alias{piecepack_chess}
+\alias{piecepack_chinese_chess}
 \alias{piecepack_four_seasons_chess}
 \alias{piecepack_international_chess}
+\alias{piecepack_japanese_chess}
 \alias{piecepack_minishogi}
 \alias{piecepack_shogi}
 \alias{piecepack_ultima}
 \alias{piecepack_xiangqi}
 \title{Setups for chess variants playable with a piecepack}
 \usage{
-piecepack_alice_chess(has_subpack = FALSE, max_tiles = 24)
+piecepack_alice_chess(has_subpack = FALSE, max_tiles = 24L)
 
 piecepack_baroque_chess(has_subpack = FALSE)
 
@@ -22,9 +24,13 @@ piecepack_chaturaji(has_subpack = FALSE)
 
 piecepack_chess(has_subpack = FALSE)
 
+piecepack_chinese_chess(has_subpack = FALSE)
+
 piecepack_four_seasons_chess(has_subpack = FALSE)
 
 piecepack_international_chess(has_subpack = FALSE)
+
+piecepack_japanese_chess(has_subpack = FALSE, cfg2 = "piecepack")
 
 piecepack_minishogi()
 
@@ -53,8 +59,8 @@ Here are links for more information about the various chess variants:\tabular{ll
    Four Seasons Chess \tab \url{https://www.chessvariants.com/historic.dir/4seiz.html} \cr
    (International) Chess \tab \url{https://www.ludism.org/ppwiki/Chess} \cr
    Minishogi \tab \url{https://en.wikipedia.org/wiki/Minishogi} \cr
-   Shogi \tab \url{https://www.ludism.org/ppwiki/Shogi} \cr
-   Ultima aka Baroque Chess \tab \url{https://en.wikipedia.org/wiki/Baroque_chess} \cr
+   Shogi AKA Japanese Chess \tab \url{https://www.ludism.org/ppwiki/Shogi} \cr
+   Ultima AKA Baroque Chess \tab \url{https://en.wikipedia.org/wiki/Baroque_chess} \cr
    Xiangqi AKA Chinese Chess \tab \url{https://www.ludism.org/ppwiki/Xiangqi} \cr
 }
 }

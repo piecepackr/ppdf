@@ -31,7 +31,16 @@ reference:
         - piecepack_chess
         - piecepack_lines_of_action
         - piecepack_alquerque
+    - title: "Setups for piecepack stackpacks"
+      desc: "Functions that generate data frames to setup piecepack stackpack pieces."
+      contents:
+        - stackpack_xiangqi
+    - title: "Empty setups"
+      desc: "Functions that generate data frames with zero rows."
+      contents:
+        - checkers_none
     - title: "Utilities for developers"
       desc: "Other utility functions intended for developers"
       contents:
         - normalize_name
+        - setup_by_name
