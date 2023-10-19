@@ -2,12 +2,12 @@ Encoding: UTF-8
 Package: ppdf
 Type: Package
 Title: Board game setups
-Version: 0.1.0-4
+Version: 0.1.0-5
 Authors@R: c(person("Trevor L.", "Davis", role=c("aut", "cre"),
              email="trevor.l.davis@gmail.com",
              comment = c(ORCID = "0000-0001-6341-4639")))
-Description: Generate 'tibble' data frames indicating how to set up dozens of board games playable with public domain game systems.
-  Data format can be used by 'piecepackr' to generate graphics with the 'grid', 'ggplot2', 'rayrender', 'rayvertex', and 'rgl' graphics systems and by 'ppcli' to generate plaintext graphics with 'crayon'.
+Description: Generate 'tibble' data frames indicating how to set up over a hundred board games playable with public domain game systems.
+  Data format can be used by 'piecepackr' to generate graphics with the 'grid', 'ggplot2', 'rayrender', 'rayvertex', and 'rgl' graphics systems and by 'ppcli' to generate plaintext graphics with 'cli'.
 License: MIT + file LICENSE
 URL: https://github.com/piecepackr/ppdf
 BugReports: https://github.com/piecepackr/ppdf/issues

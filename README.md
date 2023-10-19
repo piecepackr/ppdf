@@ -31,8 +31,8 @@
 ## <a name="overview">Overview</a>
 
 * This package contains *functions* that return `{tibble}` data frames with (possibly random) setup data for over a hundred board games playable with public domain game systems.  
-* This board game data can be visualized by [{piecepackr}](https://www.github.com/piecepackr/piecepackr) using the `{grid}`, `{ggplot2}`, `{rayrender}`, `{rayvertex}`, or `{rgl}` graphics systems or in a command-line interface by `ppcli::cat_piece()` (optionally) using `{crayon}`.
-* If you use [Portable Piecepack Notation (PPN)](https://trevorldavis.com/piecepackr/portable-piecepack-notation.html) to record the moves for any of games supported by this package then you can visualize any/all of the moves for that game with the help of the PPN parser in [{ppgames}](https://www.github.com/piecepackr/ppgames) (**NB. PPN support for most recently added games is TODO**).  
+* This board game data can be visualized by [{piecepackr}](https://www.github.com/piecepackr/piecepackr) using the `{grid}`, `{ggplot2}`, `{rayrender}`, `{rayvertex}`, or `{rgl}` graphics systems or in a command-line interface by `ppcli::cat_piece()` (optionally) using `{cli}`.
+* If you use [Portable Piecepack Notation (PPN)](https://trevorldavis.com/piecepackr/portable-piecepack-notation.html) to record the moves for any of games supported by this package then you can visualize any/all of the moves for that game with the help of the PPN parser in [{ppn}](https://www.github.com/piecepackr/ppn).  
 * The package name "ppdf" is an acronym for **p**iece**p**ackr **d**ata **f**rames".  
 * Many of these functions were originally contained (under a slightly different name) in the experimental [{ppgames}](https://www.github.com/piecepackr/ppgames) and [{tradgames}](https://www.github.com/piecepackr/tradgames) packages.
 
@@ -108,7 +108,7 @@ An example game of [Relativity](https://trevorldavis.com/piecepackr/relativity.h
 
 
 ```r
-ppn_file <- system.file("ppn/relativity.ppn", package = "ppgames")
+ppn_file <- system.file("ppn/relativity.ppn", package = "ppn")
 cat(paste("\t", readLines(ppn_file)), sep = "\n")
 ```
 
@@ -135,13 +135,13 @@ cat(paste("\t", readLines(ppn_file)), sep = "\n")
 
 
 
-Since *Relativity* is one of the games supported by this package (i.e. the function `piecepack_relativity()`) then `ppgames::read_ppn()` can be used to parse this PPN file and then `ppgames::animate_game()` can be used to animate the parsed game:
+Since *Relativity* is one of the games supported by this package (i.e. the function `piecepack_relativity()`) then `ppn::read_ppn()` can be used to parse this PPN file and then `ppn::animate_game()` can be used to animate the parsed game:
 
 
 ```r
 library("gifski")
 library("piecepackr")
-library("ppgames") # remotes::install_github("piecepackr/ppgames")
+library("ppn") # remotes::install_github("piecepackr/ppn")
 library("tweenr")
 
 envir <- game_systems("dejavu")
@@ -155,7 +155,7 @@ cfg$background_color.r5 <- "#D55E00"
 cfg$background_color.r6 <- "#F079A7"
 envir$piecepack <- pp_cfg(cfg)
 
-ppn_file <- system.file("ppn/relativity.ppn", package = "ppgames")
+ppn_file <- system.file("ppn/relativity.ppn", package = "ppn")
 game <- read_ppn(ppn_file)[[1]]
 animate_game(game, file = "man/figures/README-relativity.gif",
               annotate = FALSE,
@@ -200,7 +200,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 `{ppdf}` supports the following 2 games playable with a (possibly non-8x8) chess set:
 
 * [(International) Chess](https://en.wikipedia.org/wiki/Chess)
-* [Fischer Random Chess](https://www.chessvariants.com/diffsetup.dir/fischer.html)
+* [Fischer Random Chess AKA Chess960](https://www.chessvariants.com/diffsetup.dir/fischer.html)
 
 ### <a name="dominoes">Dominoes</a>
 
@@ -278,7 +278,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Salta](https://en.wikipedia.org/wiki/Salta_(game))
 * [San Andreas](https://www.ludism.org/ppwiki/SanAndreas)
 * [Sarcophagus](https://www.ludism.org/ppwiki/Sarcophagus)
-* [Shogi](https://www.ludism.org/ppwiki/Shogi)
+* [Shogi AKA Japanese Chess](https://www.ludism.org/ppwiki/Shogi)
 * [Shopping Mall](https://www.ludism.org/ppwiki/ShoppingMall)
 * [Skyscrapers](https://www.ludism.org/ppwiki/Skyscrapers)
 * [Slides of Action](https://www.ludism.org/ppwiki/SlidesOfAction)
@@ -296,7 +296,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Tula](https://www.ludism.org/ppwiki/Tula)
 * [Turkish Checkers AKA Turkish Draughts AKA Dama](https://en.wikipedia.org/wiki/Turkish_draughts)
 * [Twelve Men's Morris](https://en.wikipedia.org/wiki/Morabaraba)
-* [Ultima aka Baroque Chess](https://en.wikipedia.org/wiki/Baroque_chess)
+* [Ultima AKA Baroque Chess](https://en.wikipedia.org/wiki/Baroque_chess)
 * [Wormholes](https://www.ludism.org/ppwiki/Wormholes)
 * [Xiangqi AKA Chinese Chess](https://www.ludism.org/ppwiki/Xiangqi)
 
@@ -305,7 +305,8 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 ### <a name="software">R packages</a>
 
 * [{piecepackr}](https://www.github.com/piecepackr/piecepackr) can be used visualize game setups generated by `{ppdf}` with `{grid}`, `{ggplot2}`, `{rayrender}`, `{rayvertex}`, or `{rgl}` graphics systems.
-* [{ppgames}](https://www.github.com/piecepackr/ppgames) contains a [Portable Piecepack Notation (PPN)](https://trevorldavis.com/piecepackr/portable-piecepack-notation.html) parser that handles all the games supported by this package (and more)
+* [{ppcli}](https://www.github.com/piecepackr/ppcli) can be used to visualize game setups generated by `{ppdf}` in the terminal with `{cli}`.
+* [{ppn}](https://www.github.com/piecepackr/ppn) contains a [Portable Piecepack Notation (PPN)](https://trevorldavis.com/piecepackr/portable-piecepack-notation.html) parser that handles all the games supported by this package (and more)
 * [{piecenikr}](https://www.github.com/piecepackr/piecenikr) has Looney Pyramids aka Icehouse pieces support.
 * [splendid-r-games](https://github.com/matt-dray/splendid-r-games) for list of games you can play in the R language
 
