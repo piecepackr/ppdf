@@ -58,6 +58,20 @@ By default will just look for packages in this package but
 a developer may want to consider \code{\link[=dynGet]{dynGet()}} or a
 wrapper around \code{\link[=get]{get()}} with a custom \code{envir} argument.}
 }
+\value{
+A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:
+\itemize{
+\item "piece_side"
+\item "suit"
+\item "rank"
+\item "cfg" (optional, defaults to \code{"piecepack"})
+\item "x"
+\item "y"
+\item "angle" (optional, defaults to \code{0}).
+}
+
+This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
+}
 \description{
 \code{setup_by_name()} returns setup data frames by game name and game system.
 \code{checkers_by_name()}, \code{chess_by_name()}, \code{dominoes_by_name()}, and \code{piecepack_by_name()} are

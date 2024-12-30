@@ -58,14 +58,6 @@ games_stackpack <- function() {
         arrange(.data$game)
 }
 
-man_markdown_table <- function(df) {
-    stopifnot(requireNamespace("knitr", quietly = TRUE))
-    df$url <- paste0("<", df$url, ">")
-    df <- dplyr::select(df, -.data$comment, -.data$methods)
-    names(df) <- c("**Game**", "**URL**")
-    knitr::kable(df, "pipe")
-}
-
 readme_markdown_list <- function(df) {
     stopifnot(requireNamespace("knitr", quietly = TRUE))
     paste(paste("*", stringr::str_glue_data(df, "[{game}]({url})")), collapse = "\n")

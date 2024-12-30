@@ -12,6 +12,7 @@
 #' @param die_width Width of dice
 #' @rdname piecepack_games_traditional
 #' @name piecepack_games_traditional
+#' @return `r return_df()`
 NULL
 
 games_piecepack_traditional <- function() {
@@ -54,7 +55,7 @@ games_piecepack_traditional <- function() {
             , "Nine Men's Morris"
             , "``piecepack_nine_mens_morris()``"
             , NA_character_
-            , "https://en.wikipedia.org/wiki/Nine_men\\%27s_morris"
+            , "https://en.wikipedia.org/wiki/Nine_men%27s_morris"
             , "Salta"
             , "``piecepack_salta()``"
             , NA_character_

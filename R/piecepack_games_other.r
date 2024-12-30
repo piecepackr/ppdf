@@ -11,6 +11,7 @@
 #' @param coins String of coin layout
 #' @rdname piecepack_games_other
 #' @name piecepack_games_other
+#' @return `r return_df()`
 NULL
 
 games_piecepack_other <- function() {

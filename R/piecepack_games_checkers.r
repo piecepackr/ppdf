@@ -9,6 +9,7 @@
 #'
 #' @rdname piecepack_games_checkers
 #' @name piecepack_games_checkers
+#' @return `r return_df()`
 NULL
 
 games_piecepack_checkers <- function() {

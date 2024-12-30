@@ -10,6 +10,7 @@
 #' @param max_tiles Maximum number of (piecepack) tiles available to build boards
 #' @rdname stackpack_games
 #' @name stackpack_games
+#' @return `r return_df()`
 NULL
 
 games_stackpack_other <- function() {

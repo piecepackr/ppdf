@@ -29,6 +29,20 @@ piecepack_rect_board_tiles(
 
 \item{rank}{Vector of rank values to use for tile back (will be repeated).}
 }
+\value{
+A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:
+\itemize{
+\item "piece_side"
+\item "suit"
+\item "rank"
+\item "cfg" (optional, defaults to \code{"piecepack"})
+\item "x"
+\item "y"
+\item "angle" (optional, defaults to \code{0}).
+}
+
+This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
+}
 \description{
 \code{df_rect_board_tiles} returns a tibble \code{data_frame} of a rectangular board of desired size
 made using a maximum number of piecepack tiles.

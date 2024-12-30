@@ -37,6 +37,7 @@ piecepack_none <- df_none
 #' @param suit Vector of suit values to use for tile back (will be repeated).
 #' @param rank Vector of rank values to use for tile back (will be repeated).
 #' @rdname piecepack_board
+#' @return `r return_df()`
 #' @export
 piecepack_rect_board_tiles <- function(nrows = 8, ncols = 8, x0 = 1, y0 = 1, max_tiles = 24,
                                suit = rep(1:4, 6), rank = rep(1:6, each = 4)) {
