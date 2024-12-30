@@ -50,6 +50,20 @@ piecepack_twelve_mens_morris(has_matchsticks = FALSE)
 
 \item{die_width}{Width of dice}
 }
+\value{
+A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:
+\itemize{
+\item "piece_side"
+\item "suit"
+\item "rank"
+\item "cfg" (optional, defaults to \code{"piecepack"})
+\item "x"
+\item "y"
+\item "angle" (optional, defaults to \code{0}).
+}
+
+This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
+}
 \description{
 \code{tibble} data frames of setups for 11 other traditional games playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
@@ -65,7 +79,7 @@ Here are links for more information about the various other traditional games:\t
    Four Field Kono \tab \url{https://www.ludism.org/ppwiki/FourFieldKono} \cr
    Jul-Gonu \tab \url{https://www.ludism.org/ppwiki/JulGonu} \cr
    Ludo \tab \url{https://en.wikipedia.org/wiki/Ludo_(board_game)} \cr
-   Nine Men's Morris \tab \url{https://en.wikipedia.org/wiki/Nine_men\\\%27s_morris} \cr
+   Nine Men's Morris \tab \url{https://en.wikipedia.org/wiki/Nine_men\%27s_morris} \cr
    Salta \tab \url{https://en.wikipedia.org/wiki/Salta_(game)} \cr
    Tablut \tab \url{https://www.ludism.org/ppwiki/Tablut} \cr
 }

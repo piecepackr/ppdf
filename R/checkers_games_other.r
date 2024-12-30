@@ -10,6 +10,7 @@
 #' @param cell_width Width of board cell.  Most renderers support `1` or `2`.
 #' @name checkers_games_other
 #' @rdname checkers_games_other
+#' @return `r return_df()`
 NULL
 
 games_checkers_other <- function() {

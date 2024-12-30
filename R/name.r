@@ -63,6 +63,7 @@ normalize_system <- function(system) {
 #'               By default will just look for packages in this package but
 #'               a developer may want to consider [dynGet()] or a
 #'               wrapper around [get()] with a custom `envir` argument.
+#' @return `r return_df()`
 #' @export
 setup_by_name <- function(name, system = known_game_systems, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {

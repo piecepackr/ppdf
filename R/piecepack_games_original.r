@@ -16,6 +16,7 @@
 #' @param n_players Number of players
 #' @param variant Name of variant
 #' @rdname piecepack_games_original
+#' @return `r return_df()`
 #' @name piecepack_games_original
 NULL
 

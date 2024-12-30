@@ -9,6 +9,6 @@
 ^\.github$
 ^cran-comments\.md$
 ^codecov\.yml$
-^toml-test-v1.3.0-linux-amd64$
+^R/roxygen2_inline.R$
 ^test.json$
 ^test.out$

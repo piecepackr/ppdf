@@ -12,6 +12,7 @@
 #' @param max_tiles Maximum number of (piecepack) tiles available to build boards
 #' @rdname piecepack_games_chess
 #' @name piecepack_games_chess
+#' @return `r return_df()`
 NULL
 
 games_piecepack_chess <- function() {

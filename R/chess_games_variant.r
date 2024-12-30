@@ -11,6 +11,7 @@
 #' @param seed Seed that determines setup, either an integer or \code{NULL}
 #' @name chess_games_variant
 #' @rdname chess_games_variant
+#' @return `r return_df()`
 NULL
 
 games_chess_variant <- function() {

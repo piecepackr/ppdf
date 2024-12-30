@@ -15,7 +15,7 @@
 #' @param cell_width Width of board cell.
 #'                   [piecepackr::game_systems()] supports `1` or `2`.
 #'                   If `NULL` then don't set it yet.
-#' @rdname checkers_board
+#' @return `r return_df()`
 #' @export
 checkers_board <- function(nrows = 8L, ncols = nrows, x0 = 1, y0 = 1, ...,
                            piece_side = "board_face", suit = 3L, angle = 0,

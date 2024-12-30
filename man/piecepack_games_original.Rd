@@ -172,6 +172,20 @@ piecepack_wormholes()
 
 \item{n_players}{Number of players}
 }
+\value{
+A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:
+\itemize{
+\item "piece_side"
+\item "suit"
+\item "rank"
+\item "cfg" (optional, defaults to \code{"piecepack"})
+\item "x"
+\item "y"
+\item "angle" (optional, defaults to \code{0}).
+}
+
+This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
+}
 \description{
 \code{tibble} data frames of setups for 49 games playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
