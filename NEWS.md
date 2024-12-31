@@ -52,9 +52,19 @@ ppdf 0.1.0 (development)
   + `chess_fischer_random_chess()` aka `chess_chess960()`
   + `chess_international_chess()` aka `chess_chess()`
 
+* The following functions are helper functions for dominoes setup functions:
+
+  + `dominoes_tiles()`
+
 * The following functions generate data frames to setup dominoes:
 
+  + `dominoes_concentration()`
+  + `dominoes_domino_finder()`
+  + `dominoes_domino_runners()`
   + `dominoes_fujisan()`
+  + `dominoes_luzon()`
+  + `dominoes_patience()`
+  + `dominoes_the_jubilee()`
 
 * The following functions are helper functions for piecepack setup functions:
 

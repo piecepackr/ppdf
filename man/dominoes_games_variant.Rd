@@ -2,21 +2,59 @@
 % Please edit documentation in R/dominoes_games_variant.r
 \name{dominoes_games_variant}
 \alias{dominoes_games_variant}
+\alias{dominoes_concentration}
+\alias{dominoes_domino_finder}
+\alias{dominoes_domino_runners}
 \alias{dominoes_fujisan}
+\alias{dominoes_luzon}
+\alias{dominoes_patience}
+\alias{dominoes_the_jubilee}
 \title{Setups for dominoes variants}
 \usage{
+dominoes_concentration(seed = NULL)
+
+dominoes_domino_finder(seed = NULL)
+
+dominoes_domino_runners(seed = NULL)
+
 dominoes_fujisan(seed = NULL)
+
+dominoes_luzon(seed = NULL)
+
+dominoes_patience(seed = NULL)
+
+dominoes_the_jubilee(seed = NULL)
 }
 \arguments{
 \item{seed}{Seed that determines setup, either an integer or \code{NULL}}
 }
+\value{
+A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:
+\itemize{
+\item "piece_side"
+\item "suit"
+\item "rank"
+\item "cfg" (optional, defaults to \code{"piecepack"})
+\item "x"
+\item "y"
+\item "angle" (optional, defaults to \code{0}).
+}
+
+This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
+}
 \description{
-\code{tibble} data frames of setups for 1 dominoes variants.
+\code{tibble} data frames of setups for 7 dominoes variants.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
 Here are links for more information about the various games:\tabular{ll}{
    \strong{Game} \tab \strong{URL} \cr
+   Concentration \tab \url{http://www.domino-play.com/Games/Concentration.htm} \cr
+   Domino Finder \tab \url{https://donkirkby.github.io/donimoes/rules.html#domino-finder} \cr
+   Domino Runners \tab \url{https://donkirkby.github.io/donimoes/rules.html#domino-runners} \cr
    (Domino) Fuji-san \tab \url{http://donkirkby.github.io/donimoes/rules.html#fujisan} \cr
+   Luzon \tab \url{http://www.domino-play.com/Games/Luzon.htm} \cr
+   (Domino) Patience \tab \url{http://www.domino-play.com/Games/Patience.htm} \cr
+   The Jubilee \tab \url{http://www.domino-play.com/Games/Jubilee.htm} \cr
 }
 }
