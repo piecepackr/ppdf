@@ -119,7 +119,7 @@
 
     Code
       normalize_system("decktet")
-    Message <unrecognized_game_system>
+    Message
       Don't recognize game system 'decktet' yet.
       * Normalizing as 'decktet' for now.
       * This normalization may change when this game system is recognized by {ppdf}.

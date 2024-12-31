@@ -1,7 +1,7 @@
 # ppdf
 
 [![CRAN Status Badge](https://www.r-pkg.org/badges/version/ppdf)](https://cran.r-project.org/package=ppdf)
-[![R-CMD-check](https://github.com/piecepackr/ppdf/workflows/R-CMD-check/badge.svg)](https://github.com/piecepackr/ppdf/actions)
+[![R-CMD-check](https://github.com/piecepackr/ppdf/actions/workflows/R-CMD-check.yaml/badge.svg?branch=main)](https://github.com/piecepackr/ppdf/actions)
 [![codecov](https://codecov.io/github/piecepackr/ppdf/branch/main/graph/badge.svg)](https://app.codecov.io/github/piecepackr/ppdf)
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
@@ -30,16 +30,16 @@
 
 ## <a name="overview">Overview</a>
 
-* This package contains *functions* that return `{tibble}` data frames with (possibly random) setup data for over a hundred board games playable with public domain game systems.  
-* This board game data can be visualized by [{piecepackr}](https://www.github.com/piecepackr/piecepackr) using the `{grid}`, `{ggplot2}`, `{rayrender}`, `{rayvertex}`, or `{rgl}` graphics systems or in a command-line interface by `ppcli::cat_piece()` (optionally) using `{cli}`.
-* If you use [Portable Piecepack Notation (PPN)](https://trevorldavis.com/piecepackr/portable-piecepack-notation.html) to record the moves for any of games supported by this package then you can visualize any/all of the moves for that game with the help of the PPN parser in [{ppn}](https://www.github.com/piecepackr/ppn).  
-* The package name "ppdf" is an acronym for **p**iece**p**ackr **d**ata **f**rames".  
-* Many of these functions were originally contained (under a slightly different name) in the experimental [{ppgames}](https://www.github.com/piecepackr/ppgames) and [{tradgames}](https://www.github.com/piecepackr/tradgames) packages.
+* This package contains *functions* that return `{tibble}` data frames with (possibly random) setup data for over a hundred board games playable with public domain game systems.
+* This board game data can be visualized by [{piecepackr}](https://github.com/piecepackr/piecepackr) using the `{grid}`, `{ggplot2}`, `{rayrender}`, `{rayvertex}`, or `{rgl}` graphics systems or in a command-line interface using `{cli}` by `ppcli::cat_piece()`.
+* If you use [Portable Piecepack Notation (PPN)](https://trevorldavis.com/piecepackr/portable-piecepack-notation.html) to record the moves for any of games supported by this package then you can visualize any/all of the moves for that game with the help of the PPN parser in [{ppn}](https://github.com/piecepackr/ppn).
+* The package name "ppdf" is an acronym for **p**iece**p**ackr **d**ata **f**rames".
+* Many of these functions were originally contained (under a slightly different name) in the experimental [{ppgames}](https://github.com/piecepackr/ppgames) and [{tradgames}](https://github.com/piecepackr/tradgames) packages.
 
 ## <a name="installation">Installation</a>
 
 
-```r
+``` r
 remotes::install_github("piecepackr/ppdf")
 ```
 
@@ -48,7 +48,7 @@ remotes::install_github("piecepackr/ppdf")
 ### <a name="fujisan">Domino Fuji-san</a>
 
 
-```r
+``` r
 df_fujisan <- ppdf::dominoes_fujisan(seed = 42)
 
 if (requireNamespace("piecepackr", quietly = TRUE) &&
@@ -67,7 +67,7 @@ if (requireNamespace("piecepackr", quietly = TRUE) &&
 ### <a name="loa">Lines of Action</a>
 
 
-```r
+``` r
 df_loa <- ppdf::checkers_lines_of_action()
 
 if (requireNamespace("piecepackr", quietly = TRUE) &&
@@ -85,7 +85,7 @@ if (requireNamespace("piecepackr", quietly = TRUE) &&
 ### <a name="tablut">Piecepack Tablut</a>
 
 
-```r
+``` r
 df_tablut <- ppdf::piecepack_tablut()
 
 if (requireNamespace("piecepackr", quietly = TRUE) &&
@@ -107,7 +107,7 @@ if (requireNamespace("piecepackr", quietly = TRUE) &&
 An example game of [Relativity](https://trevorldavis.com/piecepackr/relativity.html) recorded in the [Portable Piecepack Notation (PPN)](https://trevorldavis.com/piecepackr/portable-piecepack-notation.html#relativity) format:
 
 
-```r
+``` r
 ppn_file <- system.file("ppn/relativity.ppn", package = "ppn")
 cat(paste("\t", readLines(ppn_file)), sep = "\n")
 ```
@@ -138,7 +138,7 @@ cat(paste("\t", readLines(ppn_file)), sep = "\n")
 Since *Relativity* is one of the games supported by this package (i.e. the function `piecepack_relativity()`) then `ppn::read_ppn()` can be used to parse this PPN file and then `ppn::animate_game()` can be used to animate the parsed game:
 
 
-```r
+``` r
 library("gifski")
 library("piecepackr")
 library("ppn") # remotes::install_github("piecepackr/ppn")
@@ -204,9 +204,15 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="dominoes">Dominoes</a>
 
-`{ppdf}` supports the following 1 games playable with a (usually double-6) dominoes set (plus possibly additional components):
+`{ppdf}` supports the following 7 games playable with a (usually double-6) dominoes set (plus possibly additional components):
 
 * [(Domino) Fuji-san](http://donkirkby.github.io/donimoes/rules.html#fujisan)
+* [(Domino) Patience](http://www.domino-play.com/Games/Patience.htm)
+* [Concentration](http://www.domino-play.com/Games/Concentration.htm)
+* [Domino Finder](https://donkirkby.github.io/donimoes/rules.html#domino-finder)
+* [Domino Runners](https://donkirkby.github.io/donimoes/rules.html#domino-runners)
+* [Luzon](http://www.domino-play.com/Games/Luzon.htm)
+* [The Jubilee](http://www.domino-play.com/Games/Jubilee.htm)
 
 ### <a name="piecepack">Piecepacks</a>
 
@@ -304,10 +310,10 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="software">R packages</a>
 
-* [{piecepackr}](https://www.github.com/piecepackr/piecepackr) can be used visualize game setups generated by `{ppdf}` with `{grid}`, `{ggplot2}`, `{rayrender}`, `{rayvertex}`, or `{rgl}` graphics systems.
-* [{ppcli}](https://www.github.com/piecepackr/ppcli) can be used to visualize game setups generated by `{ppdf}` in the terminal with `{cli}`.
-* [{ppn}](https://www.github.com/piecepackr/ppn) contains a [Portable Piecepack Notation (PPN)](https://trevorldavis.com/piecepackr/portable-piecepack-notation.html) parser that handles all the games supported by this package (and more)
-* [{piecenikr}](https://www.github.com/piecepackr/piecenikr) has Looney Pyramids aka Icehouse pieces support.
+* [{piecepackr}](https://github.com/piecepackr/piecepackr) can be used visualize game setups generated by `{ppdf}` with `{grid}`, `{ggplot2}`, `{rayrender}`, `{rayvertex}`, or `{rgl}` graphics systems.
+* [{ppcli}](https://github.com/piecepackr/ppcli) can be used to visualize game setups generated by `{ppdf}` in the terminal with `{cli}`.
+* [{ppn}](https://github.com/piecepackr/ppn) contains a [Portable Piecepack Notation (PPN)](https://trevorldavis.com/piecepackr/portable-piecepack-notation.html) parser that handles all the games supported by this package (and more)
+* [{piecenikr}](https://github.com/piecepackr/piecenikr) has Looney Pyramids aka Icehouse pieces support.
 * [splendid-r-games](https://github.com/matt-dray/splendid-r-games) for list of games you can play in the R language
 
 ### <a name="rules">Boardgame rules</a>
@@ -318,5 +324,5 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Donimoes](http://donkirkby.github.io/donimoes/rules.html)
 * [Pagat](https://www.pagat.com/)
 * [The Piecepack Wiki](https://ludism.org/ppwiki/HomePage)
-* [Wikipedia](https://en.wikipedia.org/)
-* [The World of Abstract Games](http://www.di.fc.ul.pt/~jpn/gv/)
+* [Wikipedia](https://en.wikipedia.org/wiki/Main_Page)
+* [The World of Abstract Games](https://jpneto.github.io/world_abstract_games/)
