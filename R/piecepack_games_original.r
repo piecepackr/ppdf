@@ -659,7 +659,7 @@ first_move_needs_dice <- function(coins) {
       (5 %in% coins[, c(5, 8)]))
 }
 
-random_fujisan_coins <- function(...) {
+random_fujisan_coins <- function() {
     coins <- integer(24)
     coins[which(1:24 %% 4 == 0)] <- sample(0:5)
     coins[which(1:24 %% 4 == 1)] <- sample(0:5)

@@ -21,6 +21,7 @@ checkers_board <- function(nrows = 8L, ncols = nrows, x0 = 1, y0 = 1, ...,
                            piece_side = "board_face", suit = 3L, angle = 0,
                            cell_width = 1L) {
     stopifnot("Don't support non-square checkers boards yet" = nrows == ncols)
+    check_dots_empty()
     x <- x0 - 0.5 + 0.5 * ncols
     y <- y0 - 0.5 + 0.5 * nrows
     df_board <- tibble(piece_side = piece_side, suit = suit, rank = nrows,
