@@ -269,7 +269,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Ludo](https://en.wikipedia.org/wiki/Ludo_(board_game))
 * [Mathrix](https://www.ludism.org/ppwiki/Mathrix)
 * [Minishogi](https://en.wikipedia.org/wiki/Minishogi)
-* [Nine Men's Morris](https://en.wikipedia.org/wiki/Nine_men\%27s_morris)
+* [Nine Men's Morris](https://en.wikipedia.org/wiki/Nine_men%27s_morris)
 * [One Man Thrag!](https://www.ludism.org/ppwiki/OneManThrag)
 * [Pass the Food](https://www.ludism.org/ppwiki/PassTheFood)
 * [Piece Gaps](https://www.ludism.org/ppwiki/PieceGaps)

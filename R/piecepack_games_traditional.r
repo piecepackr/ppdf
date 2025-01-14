@@ -45,7 +45,7 @@ games_piecepack_traditional <- function() {
             , NA_character_
             , "https://www.ludism.org/ppwiki/FourFieldKono"
             , "Jul-Gonu"
-            , "``piecepack_jul_gono()``"
+            , "``piecepack_julgonu()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/JulGonu"
             , "Ludo"
