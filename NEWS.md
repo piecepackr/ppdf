@@ -1,5 +1,5 @@
-ppdf 0.1.0 (development)
-========================
+ppdf 0.1.1
+==========
 
 * The following functions generate data frames with info about the games whose setups are
   provided by this package:
