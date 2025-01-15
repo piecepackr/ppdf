@@ -141,7 +141,7 @@ ppdf 0.1.0 (development)
   + `piecepack_the_in_crowd()`
   + `piecepack_the_magic_bag()`
   + `piecepack_the_penguin_game()`
-  + `piecepack_tower_of_babel()`
+  + `piecepack_tower_of_babel()` aka `piecepack_piecepack_accordion()`
   + `piecepack_tracers()`
   + `piecepack_triactor()`
   + `piecepack_tula()`

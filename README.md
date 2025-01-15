@@ -296,7 +296,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [The "In" Crowd](https://www.ludism.org/ppwiki/TheInCrowd)
 * [The Magic Bag](https://www.ludism.org/ppwiki/The_Magic_Bag)
 * [The Penguin Game](https://www.ludism.org/ppwiki/PenguinGame)
-* [Tower of Babel](https://www.ludism.org/ppwiki/TowerOfBabel)
+* [Tower of Babel aka Piecepack Accordion](https://www.ludism.org/ppwiki/TowerOfBabel)
 * [Tracers](https://www.ludism.org/ppwiki/Tracers)
 * [Triactor](https://www.ludism.org/ppwiki/Triactor)
 * [Tula](https://www.ludism.org/ppwiki/Tula)

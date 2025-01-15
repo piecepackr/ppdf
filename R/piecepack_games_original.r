@@ -197,8 +197,8 @@ games_piecepack_original <- function() {
             , "``piecepack_the_penguin_game()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/PenguinGame"
-            , "Tower of Babel"
-            , "``piecepack_tower_of_babel()``"
+            , "Tower of Babel aka Piecepack Accordion"
+            , "``piecepack_tower_of_babel()`` aka ``piecepack_piecepack_accordion()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/TowerOfBabel"
             , "Tracers"
@@ -1274,6 +1274,10 @@ piecepack_tower_of_babel <- function(seed = NULL, tiles = NULL) {
     attr(df, "scale_factor") <- 2
     df
 }
+
+#' @rdname piecepack_games_original
+#' @export
+piecepack_piecepack_accordion <- piecepack_tower_of_babel
 
 #' @rdname piecepack_games_original
 #' @export

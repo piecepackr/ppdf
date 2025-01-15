@@ -47,6 +47,7 @@
 \alias{piecepack_the_magic_bag}
 \alias{piecepack_the_penguin_game}
 \alias{piecepack_tower_of_babel}
+\alias{piecepack_piecepack_accordion}
 \alias{piecepack_tracers}
 \alias{piecepack_triactor}
 \alias{piecepack_tula}
@@ -143,6 +144,8 @@ piecepack_the_penguin_game(seed = NULL)
 
 piecepack_tower_of_babel(seed = NULL, tiles = NULL)
 
+piecepack_piecepack_accordion(seed = NULL, tiles = NULL)
+
 piecepack_tracers()
 
 piecepack_triactor(seed = NULL, cfg2 = "playing_cards_expansion")
@@ -236,7 +239,7 @@ Here are links for more information about the various games:\tabular{ll}{
    The "In" Crowd \tab \url{https://www.ludism.org/ppwiki/TheInCrowd} \cr
    The Magic Bag \tab \url{https://www.ludism.org/ppwiki/The_Magic_Bag} \cr
    The Penguin Game \tab \url{https://www.ludism.org/ppwiki/PenguinGame} \cr
-   Tower of Babel \tab \url{https://www.ludism.org/ppwiki/TowerOfBabel} \cr
+   Tower of Babel aka Piecepack Accordion \tab \url{https://www.ludism.org/ppwiki/TowerOfBabel} \cr
    Tracers \tab \url{https://www.ludism.org/ppwiki/Tracers} \cr
    Triactor \tab \url{https://www.ludism.org/ppwiki/Triactor} \cr
    Tula \tab \url{https://www.ludism.org/ppwiki/Tula} \cr
