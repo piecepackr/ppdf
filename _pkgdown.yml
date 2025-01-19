@@ -28,7 +28,8 @@ reference:
     - title: "Setups for piecepack decks"
       desc: "Functions that generate data frames to setup piecepack pieces."
       contents:
-        - piecepack_rect_board_tiles
+        - piecepack_tiles
+        - piecepack_rectangular_board
         - piecepack_easy_slider
         - piecepack_checkers
         - piecepack_chess
@@ -47,3 +48,7 @@ reference:
       contents:
         - normalize_name
         - setup_by_name
+    - title: "Deprecated functions"
+      desc: "Functions that have been deprecated"
+      contents:
+         - piecepack_rect_board_tiles

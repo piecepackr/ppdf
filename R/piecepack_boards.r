@@ -1,46 +1,54 @@
-#### Export
-# 24 tiles arranged 5x5 with hole in middle, center of bottom-left tile at (x0, y0)
-piecepack_donut_tiles <- function(seed = NULL, tiles = NULL, x0 = 1.5, y0 = 1.5, face = TRUE) {
-    if (!is.null(seed)) withr::local_seed(seed)
-    df_txy <- tibble(piece_side = ifelse(face, "tile_face", "tile_back"),
-                     x = x0 + c(rep(seq(0, 8, 2), 2), 0, 2, 6, 8, rep(seq(0, 8, 2), 2)),
-                     y = y0 + c(rep(8, 5), rep(6, 5), rep(4, 4), rep(2, 5), rep(0, 5)))
-    if (is.null(tiles)) {
-        df_tsr <- tibble(suit = rep(1:4, each = 6), rank = rep(1:6, 4))[sample.int(24L), ]
-    } else {
-        df_tsr <- process_tiles(tiles)
-    }
-    bind_cols(df_txy, df_tsr)
-}
-
-df_none <- function() {
-    tibble::tibble(piece_side = character(0L),
-                   suit = integer(0L), rank = integer(0L),
-                   cfg = character(0),
-                   x = numeric(0), y = numeric(0), angle = numeric(0))
-}
-
-#### Export
-piecepack_none <- df_none
-
 #' Setup various game boards using piecepack tiles
 #'
-#' \code{df_rect_board_tiles} returns a tibble \code{data_frame} of a rectangular board of desired size
+#' `piecepack_rectangular_board()` returns a tibble data frame  of a rectangular board of desired size
 #' made using a maximum number of piecepack tiles.
 #' It will use either \dQuote{cells}, \dQuote{points}, and/or \dQuote{rivers} as necessary.
+#' `piecepack_donut_board()` returns 24 tiles arranged 5x5 with hole in middle.
 #'
 #' @param nrows Number of rows in game board
 #' @param ncols Number of columns in game board
-#' @param x0 X coordinate for the center of the first cell/point
-#' @param y0 Y coordinate for the center of the first cell/point
+#' @param x0 X coordinate for the center of the first cell/point for `piecepack_rectangular_board()`.
+#'           X coordinate for center of bottom-left tile for `piecepack_donut_board()`.
+#' @param y0 Y coordinate for the center of the first cell/point for `piecepack_rectangular_board()`.
+#'           Y coordinate for center of bottom-left tile for `piecepack_donut_board()`.
 #' @param max_tiles Maximum number of tiles that can be used
 #' @param suit Vector of suit values to use for tile back (will be repeated).
 #' @param rank Vector of rank values to use for tile back (will be repeated).
-#' @rdname piecepack_board
+#' @inheritParams piecepack_tiles
+#' @name piecepack_board
 #' @return `r return_df()`
+NULL
+
+# 24 tiles arranged 5x5 with hole in middle, center of bottom-left tile at (x0, y0)
+
+#' @rdname piecepack_board
 #' @export
-piecepack_rect_board_tiles <- function(nrows = 8, ncols = 8, x0 = 1, y0 = 1, max_tiles = 24,
-                               suit = rep(1:4, 6), rank = rep(1:6, each = 4)) {
+piecepack_donut_board <- function(...,
+                                  side = "back",
+                                  piece_side = paste0("tile_", side),
+                                  suit = rep(1:4, each = 6L),
+                                  rank = rep.int(1:6, 4L),
+                                  cfg = "piecepack",
+                                  x0 = 1,
+                                  y0 = 1,
+                                  angle = 0) {
+    check_dots_empty()
+    tibble(piece_side = piece_side,
+           suit = as.integer(suit), 
+           rank = as.integer(rank),
+           cfg = cfg,
+           x = x0 + 0.5 + c(rep(seq(0, 8, 2), 2), 0, 2, 6, 8, rep(seq(0, 8, 2), 2)),
+           y = y0 + 0.5 + c(rep(8, 5), rep(6, 5), rep(4, 4), rep(2, 5), rep(0, 5)),
+           angle = as.double(angle))
+}
+
+#' @rdname piecepack_board
+#' @export
+piecepack_rectangular_board <- function(nrows = 8L, ncols = 8L, x0 = 1, y0 = 1,
+                                        ..., max_tiles = 24L,
+                                        suit = rep.int(1:4, 6L), rank = rep(1:6, each = 4L),
+                                        cfg = "piecepack") {
+    check_dots_empty()
     if (can_use_squares(nrows, ncols, max_tiles)) {
         x <- seq(0.5, by = 2, length.out = ncols/2)
         y <- seq(0.5, by = 2, length.out = nrows/2)
@@ -72,9 +80,10 @@ piecepack_rect_board_tiles <- function(nrows = 8, ncols = 8, x0 = 1, y0 = 1, max
     xr <- x0 + rep(x, length(y))
     yr <- y0 + rep(y, each = length(x))
     df <- tibble(piece_side = "tile_back", x = xr, y = yr, angle = 0)
-    df$suit <- rep(suit, length.out = nrow(df))
-    df$rank <- rep(rank, length.out = nrow(df))
-    df
+    df$suit <- rep(as.integer(suit), length.out = nrow(df))
+    df$rank <- rep(as.integer(rank), length.out = nrow(df))
+    df$cfg <- cfg
+    select_piece(df)
 }
 
 even <- function(x) x %% 2 == 0

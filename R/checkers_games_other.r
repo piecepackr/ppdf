@@ -61,14 +61,11 @@ checkers_crossings <- checkers_breakthrough
 #' @rdname checkers_games_other
 #' @export
 checkers_focus <- function(cell_width = 1) {
-    df_board <- tibble(piece_side = "board_face", suit = 3, rank = 8,
-                   x = 4.5, y = 4.5)
-    df_w <- tibble(piece_side = "bit_back", suit = 6, rank = 1,
-                   x = rep(c(2:7), each=3),
-                   y = c(rep(c(2, 4, 6), 2), rep(c(3, 5, 7), 2), rep(c(2, 4, 6), 2)))
-    df_b <- tibble(piece_side = "bit_back", suit = 1, rank = 1,
-                   x = rep(c(2:7), each=3),
-                   y = c(rep(c(3, 5, 7), 2), rep(c(2, 4, 6), 2), rep(c(3, 5, 7), 2)))
+    df_board <- checkers_board()
+    df_w <- checkers_bits(suit = 6L, x = rep(2:7, each = 3L),
+                          y = c(rep(c(2, 4, 6), 2), rep(c(3, 5, 7), 2), rep(c(2, 4, 6), 2)))
+    df_b <- checkers_bits(suit = 1L, x = rep(2:7, each = 3L),
+                          y = c(rep(c(3, 5, 7), 2), rep(c(2, 4, 6), 2), rep(c(3, 5, 7), 2)))
     bind_rows(df_board, df_w, df_b) %>%
         set_cell_width(cell_width, "checkers")
 }

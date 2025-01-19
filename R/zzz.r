@@ -1,7 +1,7 @@
-#' @importFrom dplyr %>% bind_rows mutate
+#' @importFrom dplyr %>% bind_rows mutate slice
 #' @importFrom rlang .data %||% abort check_dots_empty
 #' @importFrom tibble tibble tribble
-#' @importFrom utils packageVersion
+#' @importFrom utils hasName packageVersion
 NULL
 
 hasName <- function(x, name) match(name, names(x), nomatch = 0L) > 0L
@@ -16,4 +16,20 @@ assert_suggested <- function (package) {
             sQuote(sprintf("install.packages(\"%s\")", package))))
         abort(msg, class = "piecepackr_suggested_package")
     }
+}
+
+cat_piece <- function(df, ..., color = FALSE) {
+    ppnames <- c("piece_side", "suit", "rank", "cfg", "x", "y", "angle")
+    stopifnot(all(names(df) == ppnames), !anyNA(df), validate_types(df))
+    ppcli::cat_piece(df, ..., color = color)
+}
+
+validate_types <- function(df) {
+    pptypes <- c("character", "integer", "integer", "character", "numeric", "numeric", "numeric")
+    all(vapply(df, class, FUN.VALUE = character(1L), USE.NAMES = FALSE) == pptypes)
+}
+
+validate_df <- function(df) {
+    ppnames <- c("piece_side", "suit", "rank", "cfg", "x", "y", "angle")
+    testthat::expect_true(all(names(df) == ppnames) && !anyNA(df) && validate_types(df))
 }

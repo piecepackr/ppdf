@@ -7,6 +7,9 @@ process_angles <- function(angles) {
 }
 
 process_ranks <- function(ranks) {
+    if (is.null(ranks)) {
+        return(rep.int(1:6, 4L)[sample.int(24L)])
+    }
     if (is.character(ranks)) {
         ranks <- gsub("[[:space:]]", "", ranks)
         ranks <- gsub("[[:punct:]]", "", ranks)
@@ -49,7 +52,12 @@ generate_helper <- function(suit, rank, angle = 0, which_ = "sra", ...) {
            r = r)
 }
 
-process_tiles <- function(tiles, n_tiles = 24) {
+process_tiles <- function(tiles = NULL, n_tiles = 24) {
+    if (is.null(tiles)) {
+        return(tibble(suit = rep(1:4, each = 6L),
+                      rank = rep.int(1:6, 4L),
+                      angle = 0)[sample.int(24L), ])
+    }
     tiles <- gsub("[[:space:]]", "", tiles)
     tiles <- gsub("[/:;\\\\|]", "", tiles)
     tiles <- stringr::str_split(tiles, "")[[1]]
@@ -58,7 +66,7 @@ process_tiles <- function(tiles, n_tiles = 24) {
         needs_ranks <- str_detect(tiles[2], "[\\^<v>]")
         if (needs_ranks) {
             angles <- tiles[which(seq(2 * n_tiles) %% 2 == 0)]
-            ranks <- integer(n_tiles)
+            ranks <- rep_len(NA_integer_, n_tiles)
         } else {
             ranks <- tiles[which(seq(2 * n_tiles) %% 2 == 0)]
             angles <- rep("^", n_tiles)
@@ -82,9 +90,190 @@ process_tiles <- function(tiles, n_tiles = 24) {
         ranks <- process_ranks(ranks)
     }
     angles <- process_angles(angles)
-    tibble(suit = suits, rank = ranks, angle = angles)
+    tibble(suit = as.integer(suits),
+           rank = as.integer(ranks),
+           angle = as.double(angles))
 }
 
-random_dice <- function(n_dice = 4, n_ranks = 6) {
+random_dice <- function(n_dice = 4L, n_ranks = 6L) {
     sample.int(n_ranks, n_dice, replace = TRUE)
+}
+
+fill_piece_rank <- function(df) {
+    df %>% separate_piece_side() %>%
+        group_by(.data$piece, .data$suit) %>%
+        mutate(rank = replace_na_piece(.data$rank)) %>%
+        ungroup() %>%
+        unite_piece_side()
+}
+
+fill_piece_suit <- function(df) {
+    df %>% separate_piece_side() %>% 
+        group_by(.data$piece, .data$rank) %>%
+        mutate(suit = replace_na_piece(.data$suit)) %>%
+        ungroup() %>%
+        unite_piece_side()
+}
+
+# Avoids importing {stats}
+na_omit <- function(x) Filter(Negate(is.na), x)
+
+replace_na_piece <- function(x) {
+    ina <- which(is.na(x))
+    if (length(ina)) {
+        x[ina] <- sample(setdiff(seq.int(length(x)), as.integer(na_omit(x))),
+                         length(ina))
+        x
+    } else {
+        x
+    }
+}
+
+separate_piece_side <- function(df) {
+    tidyr::separate_wider_delim(df, "piece_side", "_", names = c("piece", "side"))
+}
+
+unite_piece_side <- function(df) {
+    tidyr::unite(df, "piece_side", "piece", "side")
+}
+
+select_piece <- function(df) {
+    dplyr::select(df, "piece_side", "suit", "rank", "cfg", "x", "y", "angle")
+}
+
+# randomly shuffle paired suit/rank within a data frame
+# but keep x,y,angle,piece_side fixed
+slice_sample_piece <- function(df, ..., n = nrow(df), size = n, names = c("rank", "suit")) {
+    stopifnot(all(hasName(df, names)) && nrow(df))
+    idx <- sample.int(nrow(df))
+    for (n in names) {
+        df[[n]] <- df[[n]][idx]
+    }
+    df
+}
+
+#' Generate piecepack pieces
+#'
+#' `piecepack_coins()` generates a data frame of piecepack coins.
+#' `piecepack_dice()` generates a data frame of piecepack dice.
+#' `piecepack_pawns()` generates a data frame of piecepack pawns.
+#' `piecepack_tiles()` generates a data frame of piecepack tiles.
+#' @param ... Should be left empty.
+#' @param side Either "face" or "back".
+#' @param piece_side Either "tile_face" or "tile_back".
+#' @param suit Integer vector with values between `1L` and `4L`.
+#' @param rank Integer vector with values between `1L` and `6L`.
+#' @param cfg "piecepack" or perhaps "playing_cards_expansion", "dual_piecepacks_expansion", or "subpack".
+#' @param x,y Cartesian coordinates (numeric vectors)
+#' @param angle Rotation of piece (numeric vector of degrees, counter-clockwise)
+#' @param length.out The number of pieces.
+#'                   Not needed if all the arguments are the same length (or of length one)
+#'                   and this length is the same as the number of desired pieces.
+#' @return `r return_df()`
+#' @examples
+#' df_coins <- piecepack_coins()
+#' df_dice <- piecepack_dice()
+#' df_pawns <- piecepack_pawns()
+#' df_tiles <- piecepack_tiles()
+#' @name piecepack_pieces
+NULL
+
+#' @rdname piecepack_pieces
+#' @export
+piecepack_coins <- function(...,
+                            side = "face",
+                            piece_side = paste0("coin_", side),
+                            suit = rep(1:4, each = 6L),
+                            rank = rep.int(1:6, 4L),
+                            cfg = "piecepack",
+                            x = as.double(rep.int(1:6, 4L)),
+                            y = as.double(rep(4:1, each = 6L)),
+                            angle = 0,
+                            length.out = NA_integer_) {
+    check_dots_empty()
+    tibble(piece_side = rep(piece_side, length.out = length.out),
+           suit = rep(as.integer(suit), length.out = length.out),
+           rank = rep(as.integer(rank), length.out = length.out),
+           cfg = rep(cfg, length.out = length.out),
+           x = rep(as.double(x), length.out = length.out),
+           y = rep(as.double(y), length.out = length.out),
+           angle = rep(as.double(angle), length.out = length.out))
+}
+
+#' @rdname piecepack_pieces
+#' @export
+piecepack_dice <- function(...,
+                           suit = 1:4, rank = 1L,
+                           cfg = "piecepack",
+                           x = as.double(1:4), y = 1, angle = 0,
+                           length.out = NA_integer_) {
+    check_dots_empty()
+    tibble(piece_side = rep("die_face", length.out = length.out),
+           suit = rep(as.integer(suit), length.out = length.out),
+           rank = rep(as.integer(rank), length.out = length.out),
+           cfg = rep(cfg, length.out = length.out),
+           x = rep(as.double(x), length.out = length.out),
+           y = rep(as.double(y), length.out = length.out),
+           angle = rep(as.double(angle), length.out = length.out))
+}
+
+#' @rdname piecepack_pieces
+#' @export
+piecepack_matchsticks <- function(...,
+                                  side = "face",
+                                  piece_side = paste0("matchstick_", side),
+                                  suit = rep(1:4, each = 6L),
+                                  rank = rep.int(1:6, 4L),
+                                  cfg = "piecepack",
+                                  x = as.double(rep.int(1:6, 4L)),
+                                  y = 3 * rep(4:1, each = 6L),
+                                  angle = 0,
+                                  length.out = NA_integer_) {
+    check_dots_empty()
+    tibble(piece_side = rep(piece_side, length.out = length.out),
+           suit = rep(as.integer(suit), length.out = length.out),
+           rank = rep(as.integer(rank), length.out = length.out),
+           cfg = rep(cfg, length.out = length.out),
+           x = rep(as.double(x), length.out = length.out),
+           y = rep(as.double(y), length.out = length.out),
+           angle = rep(as.double(angle), length.out = length.out))
+}
+
+#' @rdname piecepack_pieces
+#' @export
+piecepack_pawns <- function(...,
+                            side = "face",
+                            piece_side = paste0("pawn_", side),
+                            suit = 1:4, cfg = "piecepack",
+                            x = as.double(1:4), y = 1, angle = 0,
+                            length.out = NA_integer_) {
+    check_dots_empty()
+    tibble(piece_side = rep(piece_side, length.out = length.out),
+           suit = rep(as.integer(suit), length.out = length.out),
+           rank = rep(1L, length.out = length.out),
+           cfg = rep(cfg, length.out = length.out),
+           x = rep(as.double(x), length.out = length.out),
+           y = rep(as.double(y), length.out = length.out),
+           angle = rep(as.double(angle), length.out = length.out))
+}
+
+#' @rdname piecepack_pieces
+#' @export
+piecepack_tiles <- function(...,
+                           side = "face",
+                           piece_side = paste0("tile_", side),
+                           suit = rep(1:4, each = 6L),
+                           rank = rep.int(1:6, 4L),
+                           cfg = "piecepack",
+                           x = 2 * rep.int(1:6, 4L),
+                           y = 2 * rep(4:1, each = 6L),
+                           angle = 0, length.out = NA_integer_) {
+    check_dots_empty()
+    tibble(piece_side = rep(piece_side, length.out = length.out),
+           suit = rep(as.integer(suit), length.out = length.out),
+           rank = rep(as.integer(rank), length.out = length.out),
+           cfg = rep(cfg, length.out = length.out),
+           x = rep(as.double(x), length.out = length.out),
+           y = rep(as.double(y), length.out = length.out),
+           angle = rep(as.double(angle), length.out = length.out))
 }

@@ -1,7 +1,7 @@
 # rectangular boards works as expected
 
     Code
-      df <- piecepack_rect_board_tiles(nr = 8, nc = 8)
+      df <- piecepack_rectangular_board(nrows = 8, ncols = 8)
       cpiece(df)
     Output
        ┌─┰─┬─┰─┬─┰─┬─┰─┐
@@ -26,7 +26,7 @@
 ---
 
     Code
-      df <- piecepack_rect_board_tiles(nr = 10, nc = 10)
+      df <- piecepack_rectangular_board(nrows = 10, ncols = 10)
       cpiece(df)
     Output
         ┌─┰─┬─┰─┐ ┌─┰─┬─┰─┐
@@ -54,7 +54,7 @@
 ---
 
     Code
-      df <- piecepack_rect_board_tiles(nr = 8, nc = 4)
+      df <- piecepack_rectangular_board(nrows = 8, ncols = 4)
       cpiece(df)
     Output
        ┌─┰─┬─┰─┐    
@@ -79,7 +79,7 @@
 ---
 
     Code
-      df <- piecepack_rect_board_tiles(nr = 6, nc = 2)
+      df <- piecepack_rectangular_board(nrows = 6, ncols = 2)
       cpiece(df)
     Output
        ┌─┰─┐        
@@ -100,7 +100,7 @@
 ---
 
     Code
-      df <- piecepack_rect_board_tiles(nr = 5, nc = 3)
+      df <- piecepack_rectangular_board(nrows = 5, ncols = 3)
       cpiece(df)
     Output
                     
@@ -121,7 +121,7 @@
 ---
 
     Code
-      df <- piecepack_rect_board_tiles(nr = 5, nc = 7)
+      df <- piecepack_rectangular_board(nrows = 5, ncols = 7)
       cpiece(df)
     Output
                      
@@ -142,7 +142,7 @@
 ---
 
     Code
-      df <- piecepack_rect_board_tiles(nr = 5, nc = 6)
+      df <- piecepack_rectangular_board(nrows = 5, ncols = 6)
       cpiece(df)
     Output
                     
@@ -163,7 +163,7 @@
 ---
 
     Code
-      df <- piecepack_rect_board_tiles(nr = 8, nc = 8, max_tiles = 12)
+      df <- piecepack_rectangular_board(nrows = 8, ncols = 8, max_tiles = 12)
       cpiece(df)
     Output
         ┌─┰─┐ ┌─┰─┬─┰─┐

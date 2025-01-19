@@ -2,8 +2,6 @@ test_that("piecepack diagrams work as expected", {
     skip_if_not_installed("ppcli")
     skip_on_os("windows")
 
-    cat_piece <- function(df, ..., color = FALSE) ppcli::cat_piece(df, ..., color = color)
-
     expect_equal(nrow(games_piecepack()), 87L)
 
     expect_snapshot(cat_piece(piecepack_alice_chess()))
@@ -134,16 +132,19 @@ test_that("piecepack diagrams work as expected", {
     skip_if_not(piecepackr::has_font("Dejavu Sans"))
 
     ee <- piecepackr::game_systems("dejavu")
+    df <- piecepack_awithlaknannai_mosona(TRUE)
+    validate_df(df)
     expect_doppelganger("awithlaknannai_mosona", function() {
-        df <- piecepack_awithlaknannai_mosona(TRUE)
         piecepackr::pmap_piece(df, default.units = "in", envir = ee)
     })
+    df <- piecepack_cell_management(seed = 42)
+    validate_df(df)
     expect_doppelganger("cell_management", function() {
-        df <- piecepack_cell_management(seed = 42)
         piecepackr::pmap_piece(df, default.units = "in", envir = ee)
     })
+    df <- piecepack_ludo()
+    validate_df(df)
     expect_doppelganger("ludo", function() {
-        df <- piecepack_ludo()
         piecepackr::pmap_piece(df, default.units = "in", envir = ee)
     })
 })
