@@ -63,15 +63,11 @@ piecepack_change_change <- function(seed = NULL, coins = NULL) {
     } else {
        suits <- process_suits(coins)
     }
-    df <- tibble(piece_side = "coin_back",
-                 x = c(1:4, 1:4, 1:3),
-                 y = rep.int(3:1, c(4, 4, 3)),
-                 suit = suits)
-    # Plausible coin ranks
-    df <- df %>%
-        group_by(.data$suit) %>%
-        mutate(rank = sample.int(n())) %>%
-        ungroup()
+    df <- piecepack_coins(side = "back",
+                          x = c(1:4, 1:4, 1:3),
+                          y = rep.int(3:1, c(4, 4, 3)),
+                          suit = suits, rank = NA_integer_) %>%
+        fill_piece_rank()
     df
 }
 
@@ -81,41 +77,46 @@ piecepack_crossings <- piecepack_breakthrough
 
 #' @rdname piecepack_games_other
 #' @export
-piecepack_evade <- function() piecepack_rect_board_tiles(ncols = 6, nrows = 6)
+piecepack_evade <- function() piecepack_rectangular_board(ncols = 6, nrows = 6)
 
 #' @rdname piecepack_games_other
 #' @export
 piecepack_grasshopper <- function() {
-    df_t <- piecepack_rect_board_tiles(8, 8)
-    df_c <- tibble(piece_side = "coin_back",
+    df_t <- piecepack_rectangular_board(8L, 8L)
+    df_c <- piecepack_coins(side = "back",
                    x = c(5:8, 6:8, 7:8, 8, 1, 1:2, 1:3, 1:4),
                    y = c(8,8,8,8, 7,7,7, 6,6, 5, 4, 3,3, 2,2,2, 1,1,1,1),
                    suit = c(1,2,1,2,1,2,1,1,2,1, 3,4,3,3,4,3,4,3,4,3),
                    rank = c(1,1,2,2,3,3,4,5,4,6, 1,1,2,3,2,4,3,5,4,6),
-                   angle = rep(c(180, 0), each = 10))
+                   angle = rep(c(180, 0), each = 10)
+    )
     bind_rows(df_t, df_c)
 }
 
 #' @rdname piecepack_games_other
 #' @export
 piecepack_lines_of_action <- function() {
-    df_t <- piecepack_rect_board_tiles(8, 8)
-    df_c <- tibble(piece_side = "coin_back",
+    df_t <- piecepack_rectangular_board(8L, 8L)
+    df_c <- piecepack_coins(side = "back",
                    x = c(2:7, rep(8, 6), 2:7, rep(1, 6)),
                    y = c(rep(8, 6), 2:7, rep(1, 6), 2:7),
-                   suit = rep(c(1,3,2,4), each = 6), rank = rep(1:6, 4),
-                   angle = rep(c(180, 90, 0, 270), each = 6))
+                   suit = rep(c(1,3,2,4), each = 6L),
+                   rank = rep.int(1:6, 4L),
+                   angle = rep(c(180, 90, 0, 270), each = 6L)
+    )
     bind_rows(df_t, df_c)
 }
 
 #' @rdname piecepack_games_other
 #' @export
 piecepack_quatri <- function() {
-    df_tiles <- piecepack_rect_board_tiles(nrows=4, ncols=4)
-    df_coins <- tibble(piece_side = "coin_back",
-                       x = rep(1:4, 2), y = rep(c(4,1), each=4),
+    df_tiles <- piecepack_rectangular_board(4L, 4L)
+    df_coins <- piecepack_coins(side = "back",
+                       x = rep(1:4, 2), 
+                       y = rep(c(4,1), each=4),
                        suit = c(1,2,1,2, 2,1,2,1),
                        rank = c(2,2,3,3, 5,5,4,4),
-                       angle = c(180, 0, 180, 0, 0, 180, 0, 180))
+                       angle = c(180, 0, 180, 0, 0, 180, 0, 180)
+    )
     bind_rows(df_tiles, df_coins)
 }

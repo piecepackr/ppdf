@@ -53,11 +53,11 @@ games_dominoes_variant <- function() {
 #' @export
 dominoes_concentration <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- dominoes_tiles(side = "back")
-    df_tiles <- df_tiles[sample.int(28), ]
-    df_tiles$angle <- sample(c(0, 180), 28, replace = TRUE)
-    df_tiles$x <- rep(1:7, each = 4)
-    df_tiles$y <- 2 * rep(1:4, 7)
+    df_tiles <- dominoes_tiles(side = "back",
+                               x = 1 * rep(1:7, each = 4),
+                               y = 2 * rep(1:4, 7)) %>%
+        slice_sample_piece() %>%
+        mutate(angle = sample(c(0, 180), 28, replace = TRUE))
     df_tiles
 }
 
@@ -65,17 +65,16 @@ dominoes_concentration <- function(seed = NULL) {
 #' @export
 dominoes_domino_finder <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- dominoes_tiles(side = "back")
-    df_tiles$angle <- sample(c(90, 270), 28, replace = TRUE)
-    # First 7 tiles are the ones with a null side
-    df_tiles <- df_tiles[c(sample.int(7), 7 + sample.int(21)), ]
-    # Each 4 tiles will have one tile with a null side
-    idx <- sequence(rep(c(1, 3), 7),
-                    from = c(1, 8, 2, 11, 3, 14, 4, 17, 5, 20, 6, 23, 7, 26))
-    df_tiles <- df_tiles[idx, ]
-    # Within a row shuffle each 4 tiles (with exactly one tile with a null side)
-    df_tiles$x <- 2 * as.integer(replicate(7, sample.int(4))) - 0.5
-    df_tiles$y <- rep(7:1, each = 4)
+    df_tiles <- dominoes_tiles(side = "back") %>%
+        mutate(angle = sample(c(90, 270), 28, replace = TRUE))  %>%
+        # First 7 tiles are the ones with a null side
+        slice(c(sample.int(7), 7 + sample.int(21))) %>%
+        # Each 4 tiles will have one tile with a null side
+        slice(sequence(rep(c(1, 3), 7),
+                       from = c(1, 8, 2, 11, 3, 14, 4, 17, 5, 20, 6, 23, 7, 26))) %>%
+        # Within a row shuffle each 4 tiles (with exactly one tile with a null side)
+        mutate(x = 2 * as.integer(replicate(7, sample.int(4))) - 0.5,
+               y = 1 * rep(7:1, each = 4))
     df_tiles
 }
 
@@ -83,11 +82,10 @@ dominoes_domino_finder <- function(seed = NULL) {
 #' @export
 dominoes_domino_runners <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- dominoes_tiles()
-    df_tiles <- df_tiles[sample.int(28), ]
-    df_tiles$angle <- sample(c(90, 270), 28, replace = TRUE)
-    df_tiles$x <- 2 * rep(1:4, 7) - 0.5
-    df_tiles$y <- rep(7:1, each = 4)
+    df_tiles <- dominoes_tiles(x = 2 * rep.int(1:4, 7L) - 0.5,
+                               y = 1 * rep(7:1, each = 4L)) %>%
+        slice_sample_piece() %>%
+        mutate(angle = sample(c(90, 270), 28, replace = TRUE))
     df_tiles
 }
 
@@ -96,16 +94,16 @@ dominoes_domino_runners <- function(seed = NULL) {
 dominoes_fujisan <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
     df_tiles <- dominoes_tiles(n = 6) %>%
-        filter(.data$suit != .data$rank)
-    df_tiles <- df_tiles[sample.int(15), ]
-    df_tiles$x <- c(7.5, 7.5, 7.5, seq(2, 13, 1))
-    df_tiles$y <- c(c(0.5, 1.5, 2.5), rep_len(1.5, 12))
-    df_tiles$angle <- c(90, 90, 90, sample(c(180, 0), 12, replace = TRUE))
+        filter(.data$suit != .data$rank) %>%
+        slice_sample_piece() %>%
+        mutate(x = c(7.5, 7.5, 7.5, seq(2, 13, 1)),
+               y = c(c(0.5, 1.5, 2.5), rep_len(1.5, 12)),
+               angle = c(90, 90, 90, sample(c(180, 0), 12, replace = TRUE)))
     df_tiles[1:3, "piece_side"] <- "tile_back"
     #### Where best to get pawns from?
-    df_pawns <- tibble(piece_side = "pawn_face", suit = c(4, 1, 3, 2),
-                       x = rep(c(1, 14), each = 2), y = rep(1:2, 2),
-                       cfg = "piecepack")
+    df_pawns <- piecepack_pawns(suit = c(4, 1, 3, 2),
+                                x = rep(c(1, 14), each = 2),
+                                y = rep(1:2, 2))
     bind_rows(df_tiles, df_pawns)
 }
 
@@ -113,11 +111,11 @@ dominoes_fujisan <- function(seed = NULL) {
 #' @export
 dominoes_luzon <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- dominoes_tiles(side = "face")
-    df_tiles <- df_tiles[sample.int(28), ]
-    df_tiles$angle <- sample(c(90, 270), 28, replace = TRUE)
-    df_tiles$x <- 2 * c(rep(1:5, 5), 7, 7, 7)
-    df_tiles$y <- c(rep(1:5, each = 5), 1, 3, 5)
+    df_tiles <- dominoes_tiles(side = "face",
+                               x = 2 * c(rep(1:5, 5), 7, 7, 7),
+                               y = c(rep(1:5, each = 5), 1, 3, 5)) %>%
+        slice_sample_piece() %>%
+        mutate(angle = sample(c(90, 270), 28L, replace = TRUE))
     df_tiles
 }
 
@@ -125,11 +123,9 @@ dominoes_luzon <- function(seed = NULL) {
 #' @export
 dominoes_patience <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- dominoes_tiles(side = "back")
-    df_tiles <- df_tiles[sample.int(28), ]
-    df_tiles$angle <- sample(c(0, 180), 28, replace = TRUE)
-    df_tiles$x <- sequence(7:1, from = 1:7)
-    df_tiles$y <- 2 * rep.int(7:1, 7:1) - 0.5
+    df_tiles <- dominoes_tiles(side = "back") %>%
+        slice_sample_piece() %>%
+        mutate(angle = sample(c(0, 180), 28, replace = TRUE))
     df_tiles[c(1, 8, 14, 19, 23, 26, 28), "piece_side"] <- "tile_face"
     df_tiles
 }
@@ -138,11 +134,9 @@ dominoes_patience <- function(seed = NULL) {
 #' @export
 dominoes_the_jubilee <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- dominoes_tiles(side = "back")
-    df_tiles <- df_tiles[sample.int(28), ]
-    df_tiles$angle <- sample(c(0, 180), 28, replace = TRUE)
-    df_tiles$x <- sequence(7:1, from = 1:7)
-    df_tiles$y <- 2
+    df_tiles <- dominoes_tiles(side = "back", y = 2) %>%
+        slice_sample_piece() %>%
+        mutate(angle = sample(c(0, 180), 28, replace = TRUE))
     df_tiles[c(1, 8, 14, 19, 23, 26, 28), "piece_side"] <- "tile_face"
     df_tiles
 }
@@ -181,6 +175,11 @@ dominoes_tiles <- function(n = 7, ...,
                            y = 2 * rep.int(n:1, n:1) - 0.5,
                            angle = 0) {
     check_dots_empty()
-    tibble(piece_side = piece_side, suit = suit, rank = rank, cfg = cfg,
-           x = x, y = y, angle = angle)
+    tibble(piece_side = piece_side, 
+           suit = as.integer(suit),
+           rank = as.integer(rank), 
+           cfg = cfg,
+           x = as.double(x),
+           y = as.double(y),
+           angle = as.double(angle))
 }

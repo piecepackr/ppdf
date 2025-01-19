@@ -1,3 +1,41 @@
+ppdf 0.2.0 (development)
+========================
+
+Breaking changes
+----------------
+
+* The default for `chess_board()`'s `cell_width` argument is now `1` instead of `NULL`.
+  This makes it consistent with the default for `checkers_board()`'s `cell_width` argument.
+
+Deprecated features
+-------------------
+
+* `piecepack_rect_board_tiles()` is now deprecated.  Use the new `piecepack_rectangular_board()` instead.
+
+New features
+------------
+
+* The following functions are helper functions for setup functions (#5, #7, #32):
+
+  + `checkers_bits()`
+  + `chess_bits()`
+  + `piecepack_coins()`
+  + `piecepack_dice()`
+  + `piecepack_donut_board()`
+  + `piecepack_matchsticks()`
+  + `piecepack_pawns()`
+  + `piecepack_rectangular_board()`
+  + `piecepack_tiles()`
+
+Bug fixes and minor improvements
+--------------------------------
+
+* `checkers_board()` and `chess_board()` gain a `side` argument.
+* Data frame functions now consistently return all the columns
+  "piece_side", "suit", "rank", "cfg", "x", "y", and "angle" (in that order)
+  with the types "character", "integer", "integer", "character", "double", "double", "double" (respectively)
+  without any missing values.
+
 ppdf 0.1.1
 ==========
 

@@ -239,7 +239,7 @@ Here are links for more information about the various games:\tabular{ll}{
    The "In" Crowd \tab \url{https://www.ludism.org/ppwiki/TheInCrowd} \cr
    The Magic Bag \tab \url{https://www.ludism.org/ppwiki/The_Magic_Bag} \cr
    The Penguin Game \tab \url{https://www.ludism.org/ppwiki/PenguinGame} \cr
-   Tower of Babel aka Piecepack Accordion \tab \url{https://www.ludism.org/ppwiki/TowerOfBabel} \cr
+   Tower of Babel AKA Piecepack Accordion \tab \url{https://www.ludism.org/ppwiki/TowerOfBabel} \cr
    Tracers \tab \url{https://www.ludism.org/ppwiki/Tracers} \cr
    Triactor \tab \url{https://www.ludism.org/ppwiki/Triactor} \cr
    Tula \tab \url{https://www.ludism.org/ppwiki/Tula} \cr

@@ -102,15 +102,15 @@ checkers_brazilian_checkers <- checkers_american_checkers
 #' @rdname checkers_games_variant
 #' @export
 checkers_canadian_checkers <- function(cell_width = 1) {
-    df_board <- checkers_board(12L, cell_width = NULL)
-    df_w <- tibble(piece_side = "bit_back", suit = 6L, rank = 1L,
-                   x = c(rep(seq.int(1L, 11L, 2L), 3L),
-                         rep(seq.int(2L, 12L, 2L), 2L)),
-                   y = rep(c(1, 3, 5, 2, 4), each = 6L))
-    df_b <- tibble(piece_side = "bit_back", suit = 1L, rank = 1L,
-                   x = c(rep(seq.int(1L, 11L, 2L), 2L),
-                         rep(seq.int(2L, 12L, 2L), 3L)),
-                   y = rep(c(9, 11, 8, 10, 12), each = 6L))
+    df_board <- checkers_board(12L)
+    df_w <- checkers_bits(suit = 6L,
+                          x = c(rep(seq.int(1L, 11L, 2L), 3L),
+                              rep(seq.int(2L, 12L, 2L), 2L)),
+                          y = rep(c(1, 3, 5, 2, 4), each = 6L))
+    df_b <- checkers_bits(suit = 1L, 
+                          x = c(rep(seq.int(1L, 11L, 2L), 2L),
+                                rep(seq.int(2L, 12L, 2L), 3L)),
+                          y = rep(c(9, 11, 8, 10, 12), each = 6L))
     bind_rows(df_board, df_w, df_b) %>%
         set_cell_width(cell_width, "checkers")
 }
@@ -126,13 +126,13 @@ checkers_czech_checkers <- checkers_american_checkers
 #' @rdname checkers_games_variant
 #' @export
 checkers_dameo <- function(cell_width = 1) {
-    df_board <- checkers_board(8L, cell_width = NULL)
-    df_w <- tibble(piece_side = "bit_back", suit = 6L, rank = 1L,
-                   x = c(1:8, 2:7, 3:6),
-                   y = rep.int(1:3, c(8, 6, 4)))
-    df_b <- tibble(piece_side = "bit_back", suit = 1L, rank = 1L,
-                   x = c(3:6, 2:7, 1:8),
-                   y = rep.int(6:8, c(4, 6, 8)))
+    df_board <- checkers_board(8L)
+    df_w <- checkers_bits(suit = 6L,
+                          x = c(1:8, 2:7, 3:6),
+                          y = rep.int(1:3, c(8, 6, 4)))
+    df_b <- checkers_bits(suit = 1L,
+                          x = c(3:6, 2:7, 1:8),
+                          y = rep.int(6:8, c(4, 6, 8)))
     bind_rows(df_board, df_w, df_b) %>%
         set_cell_width(cell_width, "checkers")
 }
@@ -144,13 +144,13 @@ checkers_english_checkers <- checkers_american_checkers
 #' @rdname checkers_games_variant
 #' @export
 checkers_frisian_checkers <- function(cell_width = 1) {
-    df_board <- checkers_board(10L, cell_width = NULL)
-    df_w <- tibble(piece_side = "bit_back", suit = 6L, rank = 1L,
-                   x = rep(c(seq.int(1L, 9L, 2L), seq.int(2L, 10L, 2L)), 2L),
-                   y = rep(1:4, each = 5L))
-    df_b <- tibble(piece_side = "bit_back", suit = 1L, rank = 1L,
-                   x = rep(c(seq.int(1L, 9L, 2L), seq.int(2L, 10L, 2L)), 2L),
-                   y = rep(7:10, each = 5L))
+    df_board <- checkers_board(10L)
+    df_w <- checkers_bits(suit = 6L,
+                          x = rep(c(seq.int(1L, 9L, 2L), seq.int(2L, 10L, 2L)), 2L),
+                          y = rep(1:4, each = 5L))
+    df_b <- checkers_bits(suit = 1L,
+                          x = rep(c(seq.int(1L, 9L, 2L), seq.int(2L, 10L, 2L)), 2L),
+                          y = rep(7:10, each = 5L))
     bind_rows(df_board, df_w, df_b) %>%
         set_cell_width(cell_width, "checkers")
 }
@@ -192,4 +192,5 @@ checkers_thai_checkers <- function(cell_width = 1)
 #' @rdname checkers_games_variant
 #' @export
 checkers_turkish_checkers <- function(cell_width = 1)
-    to_checkers(piecepack_turkish_checkers(), cell_width, piece_side = "board_back", suit = 2L)
+    to_checkers(piecepack_turkish_checkers(), cell_width,
+                piece_side = "board_back", suit = 2L)

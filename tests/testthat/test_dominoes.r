@@ -4,7 +4,6 @@ test_that("dominoes setups work as expected", {
 
     expect_equal(nrow(games_dominoes()), 7L)
 
-    cat_piece <- function(df, ..., color = FALSE) ppcli::cat_piece(df, ..., color = color)
     expect_snapshot(cat_piece(dominoes_concentration(seed = 12)))
     expect_snapshot(cat_piece(dominoes_domino_finder(seed = 12)))
     expect_snapshot(cat_piece(dominoes_domino_runners(seed = 12)))

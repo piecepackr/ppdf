@@ -1,7 +1,7 @@
 # setup_by_name()
 
     Code
-      ppcli::cat_piece(checkers_by_name("Turkish Draughts"))
+      cat_piece(checkers_by_name("Turkish Draughts"))
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │ ┃ ┃ ┃ ┃ ┃ ┃ ┃ │
@@ -25,7 +25,7 @@
 ---
 
     Code
-      ppcli::cat_piece(chess_by_name("Chess960", seed = 23))
+      cat_piece(chess_by_name("Chess960", seed = 23))
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │♝┃♜┃♞┃♚┃♛┃♞┃♜┃♝│
@@ -49,7 +49,7 @@
 ---
 
     Code
-      ppcli::cat_piece(dominoes_by_name("Fuji-san", seed = 42))
+      cat_piece(dominoes_by_name("Fuji-san", seed = 42))
     Output
                    ┌───┐            
          ┌─┬─┬─┬─┬─┼─┬─┼─┬─┬─┬─┬─┐  
@@ -62,7 +62,7 @@
 ---
 
     Code
-      ppcli::cat_piece(piecepack_by_name("Fuji-san", seed = 42))
+      cat_piece(piecepack_by_name("Fuji-san", seed = 42))
     Output
          ┌─┬─┬─┬─┬─┬─┰─┬─┬─┬─┬─┬─┐  
         ☀⃟│a⃝│3⃝│a⃝│n⃝│5⃝│n⃝┃2⃝│4⃝│n⃝│4⃝│n⃝│5⃝│☾⃟ 
@@ -74,7 +74,7 @@
 ---
 
     Code
-      ppcli::cat_piece(stackpack_by_name("Salta"))
+      cat_piece(stackpack_by_name("Salta"))
     Output
        ┌─┰─┬─┰─┬─┰─┬─┰─┬─┰─┐
        │ ┃ↅ̲⃝│ ┃ᔭ⃝│ ┃↋⃝│ ┃↊⃝│ ┃ɐ⃝│
@@ -102,7 +102,7 @@
 ---
 
     Code
-      ppcli::cat_piece(setup_by_name("Four Field Kono"))
+      cat_piece(setup_by_name("Four Field Kono"))
     Output
        ┌─┰─┬─┰─┐
        │☀⃝┃☀⃝│☽⃝┃☽⃝│

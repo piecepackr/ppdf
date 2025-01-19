@@ -34,14 +34,14 @@ games_chess_variant <- function() {
 #' @export
 chess_chess <- function(cell_width = 1) {
     df_board <- chess_board()
-    df_w <- tibble(piece_side = "bit_face", suit = 6L,
-                   rank = c(rep(1L, 8L), 4L, 2L, 3L, 5L, 6L, 3L, 2L, 4L),
-                   x = rep(1:8, 2L),
-                   y = rep(2:1, each = 8L))
-    df_b <- tibble(piece_side = "bit_face", suit = 2L,
-                   rank = c(rep(1L, 8L), 4L, 2L, 3L, 5L, 6L, 3L, 2L, 4L),
-                   x = rep(1:8, 2L),
-                   y = rep(7:8, each = 8L))
+    df_w <- chess_bits(suit = 6L,
+                       rank = c(rep(1L, 8L), 4L, 2L, 3L, 5L, 6L, 3L, 2L, 4L),
+                       x = rep(1:8, 2L),
+                       y = rep(2:1, each = 8L))
+    df_b <- chess_bits(suit = 2L,
+                       rank = c(rep(1L, 8L), 4L, 2L, 3L, 5L, 6L, 3L, 2L, 4L),
+                       x = rep(1:8, 2L),
+                       y = rep(7:8, each = 8L))
     bind_rows(df_board, df_w, df_b) %>%
         set_cell_width(cell_width, "chess")
 }
@@ -52,14 +52,14 @@ chess_chess960 <- function(seed = NULL, cell_width = 1) {
     if (!is.null(seed)) withr::local_seed(seed)
     df_board <- chess_board()
     ranks <- fischer_random_ranks()
-    df_w <- tibble(piece_side = "bit_face", suit = 6L,
-                   rank = c(rep(1L, 8L), ranks),
-                   x = rep(1:8, 2L),
-                   y = rep(2:1, each = 8L))
-    df_b <- tibble(piece_side = "bit_face", suit = 2L,
-                   rank = c(rep(1L, 8L), ranks),
-                   x = rep(1:8, 2L),
-                   y = rep(7:8, each = 8L))
+    df_w <- chess_bits(suit = 6L,
+                       rank = c(rep(1L, 8L), ranks),
+                       x = rep(1:8, 2L),
+                       y = rep(2:1, each = 8L))
+    df_b <- chess_bits(suit = 2L,
+                       rank = c(rep(1L, 8L), ranks),
+                       x = rep(1:8, 2L),
+                       y = rep(7:8, each = 8L))
     bind_rows(df_board, df_w, df_b) %>%
         set_cell_width(cell_width, "chess")
 }

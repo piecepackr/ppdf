@@ -197,7 +197,7 @@ games_piecepack_original <- function() {
             , "``piecepack_the_penguin_game()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/PenguinGame"
-            , "Tower of Babel aka Piecepack Accordion"
+            , "Tower of Babel AKA Piecepack Accordion"
             , "``piecepack_tower_of_babel()`` aka ``piecepack_piecepack_accordion()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/TowerOfBabel"
@@ -249,45 +249,38 @@ piecepack_alien_city <- function(seed = NULL, tiles = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
     df_t1 <- tibble(piece_side = "tile_face",
                    x = 0.5+rep(seq(1,7,2),5),
-                   y = 0.5+rep(seq(9,1,-2), each = 4))
+                   y = 0.5+rep(seq(9,1,-2), each = 4),
+                   cfg = "piecepack")
     if (is.null(tiles)) {
         df_t2 <- tibble(suit = rep(1:4, each = 5),
-                        rank = rep(1:5, 4)+1,
+                        rank = rep.int(1:5, 4L)+ 1L,
                         angle = 90 * (sample(4, 20, replace = TRUE)-1))
         df_t2 <- df_t2[sample.int(20L), ]
     } else {
         df_t2 <- process_tiles(tiles, 20)
     }
-    bind_cols(df_t1, df_t2)
+    bind_cols(df_t1, df_t2) %>% select_piece()
 }
 
 #' @rdname piecepack_games_original
 #' @export
 piecepack_black_pawn_trucking <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    i_sr <- sample.int(24)
-    df_tiles <- tibble(piece_side = "tile_face",
-                       x = c(7,9,     8,10,   8,10,   3,5, 9,11, 2,4, 10,12, 2,4,14, 8,10,12, 14, 10,12, 8) - 0.5,
-                       y = c(15,15, 13,13, 11,11, 10,10,  9,9, 8,8, 7,7,  6,6,6,  5,5,5,  4,  3,3,  2) - 0.5,
-                       suit = rep(1:4, each=6)[i_sr],
-                       rank = rep(1:6, 4)[i_sr])
-    df_dice <- tibble(piece_side = "die_face",
-                      x = c(1, 2, 1, 2), y = c(2, 2, 1, 1),
-                      suit = 1:4,
-                      rank = sample.int(6, 4, replace = TRUE))
-    i_sr_c <- sample.int(24, 4)
-    df_coins <- filter(df_tiles,
-                       paste(.data$rank, .data$suit) %in% paste(df_dice$rank, df_dice$suit))
-    df_pawn <- filter(df_coins, .data$suit == 2)
-    df_pawn$piece_side <- "pawn_face"
-    df_pawn$x <- df_pawn$x + 0.5
-    df_pawn$y <- df_pawn$y + 0.5
-    df_pawn$rank <- NA_integer_
-    df_coins$piece_side <- "coin_back"
-    df_coins$x <- df_coins$x + 0.5
-    df_coins$y <- df_coins$y - 0.5
-    df_coins$rank <- rep(1:6, 4)[i_sr_c]
-    df_coins$suit <- rep(1:4, each = 6)[i_sr_c]
+    df_tiles <- piecepack_tiles(side = "face",
+                    x = c(7,9,     8,10,   8,10,   3,5, 9,11, 2,4, 10,12, 2,4,14, 8,10,12, 14, 10,12, 8) - 0.5,
+                    y = c(15,15, 13,13, 11,11, 10,10,  9,9, 8,8, 7,7,  6,6,6,  5,5,5,  4,  3,3,  2) - 0.5) %>%
+        slice_sample_piece()
+    df_dice <- piecepack_dice(x = c(1, 2, 1, 2), y = c(2, 2, 1, 1), rank = random_dice())
+    df_ <- filter(df_tiles,
+                  paste(.data$rank, .data$suit) %in% paste(df_dice$rank, df_dice$suit))
+    df_pawn <- filter(df_, .data$suit == 2L) %>%
+        mutate(piece_side = "pawn_face", rank = 1L,
+               x = .data$x + 0.5, y = .data$y + 0.5)
+    df_coins <- mutate(df_, piece_side = "coin_back",
+                       x = .data$x + 0.5, y = .data$y - 0.5)
+    i_sr_c <- sample.int(24L, 4L)
+    df_coins$rank <- rep.int(1:6, 4L)[i_sr_c]
+    df_coins$suit <- rep(1:4, each = 6L)[i_sr_c]
     bind_rows(df_tiles, df_dice, df_coins, df_pawn)
 }
 
@@ -296,19 +289,19 @@ piecepack_black_pawn_trucking <- function(seed = NULL) {
 piecepack_brain_burn <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
     df_tiles <- tibble(piece_side = "tile_face",
+                       cfg = "piecepack", angle = 0,
                        x = rep(seq(1.5, 10, 2), 5),
-                       y = rep(seq(1.5, 10, 2), each = 5))[-sample.int(25, 1), ]
-    i_sr <- sample.int(24)
-    df_tiles$suit <- rep(1:4, each = 6)[i_sr]
-    df_tiles$rank <- rep(1:6, 4)[i_sr]
-    df_coins <- df_tiles
-    df_coins$piece_side <- "coin_face"
-    df_coins$x <- df_coins$x + 0.5
-    df_coins$y <- df_coins$y - 0.5
-    i_sr_c <- sample.int(24)
-    df_coins$suit <- rep(1:4, each = 6)[i_sr_c]
-    df_coins$rank <- rep(1:6, 4)[i_sr_c]
-    df <- bind_rows(df_tiles, df_coins)
+                       y = rep(seq(1.5, 10, 2), each = 5)) %>% 
+        slice(-sample.int(25, 1)) %>%
+        mutate(suit = rep(1:4, each = 6L), rank = rep(1:6, 4L)) %>%
+        slice_sample_piece()
+    df_coins <- mutate(df_tiles,
+                       piece_side = "coin_face",
+                       x = .data$x + 0.5, y = .data$y - 0.5,
+                       suit = rep(1:4, each = 6L),
+                       rank = rep.int(1:6, 4L)) %>%
+        slice_sample_piece()
+    df <- bind_rows(df_tiles, df_coins) %>% select_piece()
     # attr(df, "scale_factor") <- 2
     df
 }
@@ -317,14 +310,15 @@ piecepack_brain_burn <- function(seed = NULL) {
 #' @export
 piecepack_burbuja <- function(seed = NULL, tiles = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- piecepack_donut_tiles(seed = NULL, tiles = tiles, x0 = 6.0, y0 = 10.0)
-    df_coins <- tibble(piece_side = rep(c(rep_len("coin_back", 5), "coin_face"), 4),
-                       suit = rep(1:4, each = 6),
+    sra <- process_tiles(tiles)
+    df_tiles <- piecepack_donut_board(suit = sra$suit, rank = sra$rank, angle = sra$angle,
+                                      x0 = 5.5, y0 = 9.5, side = "face")
+    df_coins <- piecepack_coins(side = rep(c(rep_len("back", 5), "face"), 4),
                        rank = c((1:6)[sample.int(6)], (1:6)[sample.int(6)],
                                 (1:6)[sample.int(6)], (1:6)[sample.int(6)]),
                        x = rep(seq.int(from = 2, by = 2, length.out = 4), each = 6),
                        y = rep(c(rep_len(4, 5), 2), 4))
-    df_pawns <- tibble(piece_side = "pawn_face", suit = 1:4, x = seq.int(3, length.out = 4, by = 2), y = 3)
+    df_pawns <- piecepack_pawns(x = seq.int(3, length.out = 4, by = 2), y = 3)
     bind_rows(df_tiles, df_coins, df_pawns)
 }
 
@@ -332,21 +326,20 @@ piecepack_burbuja <- function(seed = NULL, tiles = NULL) {
 #' @export
 piecepack_cardinals_guards <- function(seed = NULL, tiles = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- piecepack_donut_tiles(seed = NULL, tiles = tiles, x0 = 4.0, y0 = 4.0)
-    df_coins <- tibble(piece_side = "coin_back",
-                       suit = rep(1:4, each = 6),
-                       rank = rep(1:6, 4))[sample.int(24), ]
+    sra <- process_tiles(tiles)
+    df_tiles <- piecepack_donut_board(suit = sra$suit, rank = sra$rank, angle = sra$angle,
+                                      x0 = 3.5, y0 = 3.5, side = "face")
+    df_coins <- piecepack_coins(side = "back") %>% slice_sample_piece()
     df_coins$x <- c(rep(c(2, 14), each = 5),
                     rep(seq.int(from = 4, by = 2, length.out = 5), 2),
                     rep_len(18, 4))
     df_coins$y <- c(rep(seq.int(from = 4, by = 2, length.out = 5), 2),
                     rep(c(2, 14), each = 5),
                     seq.int(from = 2, by = 2, length.out = 4))
-    df_dice <- tibble(piece_side = "die_face",
-                      suit = 1:4, rank = 1,
-                      x = 16, y = seq.int(from = 2, by = 2, length.out = 4))
-    df_pawns <- filter(df_tiles, .data$rank == 1)
-    df_pawns$piece_side <- "pawn_face"
+    df_dice <- piecepack_dice(rank = 1, x = 16,
+                              y = seq.int(from = 2, by = 2, length.out = 4))
+    df_pawns <- filter(df_tiles, .data$rank == 1) %>%
+        mutate(piece_side = "pawn_face")
     df <- bind_rows(df_tiles, df_coins, df_dice, df_pawns)
     attr(df, "scale_factor") <- 2
     df
@@ -368,17 +361,16 @@ piecepack_cell_management <- function(seed = NULL) {
     r <- sqrt(3) + 1
     xt <- x0 + to_x(theta, r)
     yt <- y0 + to_y(theta, r)
-    df_t <- tibble(piece_side = "tile_face", suit = 1, rank = sample.int(6L),
-                   x = xt, y = yt, angle = theta-90)
-    df_t[sample.int(6L, 3), "suit"] <- 3
+    df_t <- piecepack_tiles(side = "face", suit = 1L, rank = sample.int(6L),
+                            x = xt, y = yt, angle = theta-90)
+    df_t[sample.int(6L, 3L), "suit"] <- 3L
 
     # Moon tiles and Coins
     last_played <- 1
-    moon_ranks <- c(sample.int(5L)+1, 1)
-    df_tm <- tibble(piece_side = "tile_face", suit = 2, rank = moon_ranks,
-                    x = NA_real_, y = NA_real_, angle = NA_real_)
-    df_c <- tibble(piece_side = "coin_face", rank = rep(NA_integer_, 12),
-                   x = NA_real_, y = NA_real_, angle = NA_real_)
+    moon_ranks <- c(sample.int(5L)+1L, 1L)
+    df_tm <- piecepack_tiles(side = "face", suit = 2L, rank = moon_ranks,
+                             x = NA_real_, y = NA_real_, angle = NA_real_)
+    df_c <- piecepack_coins(side = "face", length.out = 12L)
     for (ii in seq(along = moon_ranks)) {
         angle <- as.numeric(df_t[which(df_t$rank == last_played), "angle"])
         theta <- angle + 90
@@ -396,10 +388,11 @@ piecepack_cell_management <- function(seed = NULL) {
         df_c[is, "angle"] <- angle
         df_c[is, "x"] <- xc
         df_c[is, "y"] <- yc
+        df_c[is, "suit"] <- 1:2
         df_c[is, "rank"] <- moon_ranks[ii]
     }
     # Guards
-    df_p <- tibble(piece_side = "pawn_face", suit = 1:2, x = x0+c(4,5), y = y0)
+    df_p <- piecepack_pawns(suit = 1:2, x = x0+c(4,5), y = y0)
 
     bind_rows(df_t, df_tm, df_c, df_p)
 }
@@ -410,24 +403,23 @@ to_y <- function(t, r) r * sin(pi * t / 180)
 #' @rdname piecepack_games_original
 #' @export
 piecepack_chariots <- function() {
-    tibble(piece_side = "tile_back", suit = rep(1:4, each = 6), rank = rep(1:6, 4),
-           x = c(rep(seq(5.5, 9.5, 2), 4),
-                 rep(c(3.5, 11.5), 4),
-                 rep(c(1.5, 13.5), 2)),
-           y = c(rep(c(9.5,7.5,3.5,1.5), each = 3),
-                 rep(c(2.00, 4.00, 7.00, 9.00), each = 2),
-                 rep(c(4.5, 6.5), each = 2)))
+    piecepack_tiles(side = "back",
+                    x = c(rep(seq(5.5, 9.5, 2), 4),
+                          rep(c(3.5, 11.5), 4),
+                          rep(c(1.5, 13.5), 2)),
+                    y = c(rep(c(9.5,7.5,3.5,1.5), each = 3),
+                          rep(c(2.00, 4.00, 7.00, 9.00), each = 2),
+                          rep(c(4.5, 6.5), each = 2)))
 }
 
 #' @rdname piecepack_games_original
 #' @export
 piecepack_chinese_checkers <- function() {
-    df_t <- piecepack_rect_board_tiles(8, 8)
-    df_c <- tibble(piece_side = "coin_back",
-                   x = c(1:3, 1:2, 1, 6:8, 7:8, 8, 8, 7:8, 6:8, 1, 1:2, 1:3),
-                   y = c(8,8,8, 7,7, 6, 8,8,8, 7,7, 6, 3, 2,2, 1,1,1, 3, 2,2, 1,1,1),
-                   suit = rep(1:4, each=6), rank = rep(1:6, 4),
-                   angle = 45 + rep(c(180, 90, 0, -90), each=6))
+    df_t <- piecepack_rectangular_board(8, 8)
+    df_c <- piecepack_coins(side = "back",
+                            x = c(1:3, 1:2, 1, 6:8, 7:8, 8, 8, 7:8, 6:8, 1, 1:2, 1:3),
+                            y = c(8,8,8, 7,7, 6, 8,8,8, 7,7, 6, 3, 2,2, 1,1,1, 3, 2,2, 1,1,1),
+                            angle = 45 + rep(c(180, 90, 0, -90), each=6))
     bind_rows(df_t, df_c)
 }
 
@@ -439,23 +431,16 @@ piecepack_piecepack_halma <- piecepack_chinese_checkers
 #' @export
 piecepack_coin_collectors <- function(seed = NULL, tiles = NULL, coins = NULL, dice = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- piecepack_donut_tiles(seed = NULL, tiles = tiles, x0 = 1.5, y0 = 1.5)
-    if (is.null(coins)) {
-       ranks <- rep(1:6, 4)[sample.int(24L)]
-    } else {
-       ranks <- process_ranks(coins)
-    }
-    df_coins <- tibble(piece_side = "coin_face",
-                       x = df_tiles$x + 0.5, y = df_tiles$y - 0.5,
-                       rank = ranks)
-    # Plausible coin suits
-    df_coins <- df_coins %>%
-        group_by(rank) %>%
-        mutate(suit = sample.int(n())) %>%
-        ungroup()
-    ranks <- if (is.null(dice)) sample.int(6L, 4L, TRUE) else process_ranks(dice)
-    df_dice <- tibble(piece_side = "die_face", x = 12, y = c(9, 7, 5, 3), rank = ranks, suit = 1:4)
-    df_pawn <- tibble(piece_side = "pawn_face", x = c(5, 6, 6, 5), y = c(6, 6, 5, 5), rank = 1L, suit = 1:4)
+    sra <- process_tiles(tiles)
+    df_tiles <- piecepack_donut_board(suit = sra$suit, rank = sra$rank, angle = sra$angle,
+                                      x0 = 1.0, y0 = 1.0, side = "face")
+    df_coins <- piecepack_coins(side = "face",
+                                x = df_tiles$x + 0.5, y = df_tiles$y - 0.5,
+                                rank = process_ranks(coins), suit = NA_integer_) %>%
+        fill_piece_suit()
+    ranks <- if (is.null(dice)) random_dice() else process_ranks(dice)
+    df_dice <- piecepack_dice(x = 12, y = c(9, 7, 5, 3), rank = ranks)
+    df_pawn <- piecepack_pawns(x = c(5, 6, 6, 5), y = c(6, 6, 5, 5))
     bind_rows(df_tiles, df_coins, df_dice, df_pawn)
 }
 
@@ -467,7 +452,7 @@ piecepack_climbing_man <- function(seed = NULL, variant = c("Basic", "Free")) {
     if (variant == "Free") {
         df_none()
     } else {
-        df_tiles <- piecepack_rect_board_tiles(nrows = 12, ncols = 8, y0 = 2)
+        df_tiles <- piecepack_rectangular_board(nrows = 12, ncols = 8, y0 = 2)
         repeat {
             df_coins <- df_tiles
             df_coins$x <- df_coins$x + sample(c(-0.5, 0.5), 24, replace = TRUE)
@@ -476,10 +461,11 @@ piecepack_climbing_man <- function(seed = NULL, variant = c("Basic", "Free")) {
                 break
             }
         }
-        i_sr <- sample.int(24)
-        df_coins$piece_side <- "coin_back"
-        df_coins$suit <- rep(1:4, each = 6)[i_sr]
-        df_coins$rank <- rep(1:6, 4)[i_sr]
+        df_coins <- mutate(df_coins, piece_side = "coin_back",
+                           suit = rep(1:4, each = 6L),
+                           rank = rep.int(1:6, 4L)) %>%
+            slice_sample_piece()
+
         bind_rows(df_tiles, df_coins)
     }
 }
@@ -498,28 +484,25 @@ any_adjacent_coins <- function(df) {
 #' @export
 piecepack_crocodile_hop <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    i_t <- sample.int(24)
-    df_tiles <- tibble(piece_side = rep.int(c("tile_back", "tile_face", "tile_back"), c(19, 2, 3)),
+    df_tiles <- piecepack_tiles(side = rep.int(c("back", "face", "back"), c(19, 2, 3)),
                        x = rep.int(rep(c(1, 3, 6.5, 8.5, 10.5), 2), c(8, 8, rep(1, 8))),
-                       y = rep.int(c(3, 3.5, 1, 1.5), c(16, 3, 2, 3)),
-                       suit = rep(1:4, each = 6)[i_t],
-                       rank = rep(1:6, 4)[i_t])
-    df_coins <- tibble(piece_side = "coin_back",
-                       x = rep(seq(6, by = 1, length.out = 6), each = 4),
-                       y = rep(4:1, 6),
-                       suit = c(sample.int(4), sample.int(4), sample.int(4), sample.int(4), sample.int(4), sample.int(4)),
-                       rank = rep(c(2:6, 1), each = 4))
+                       y = rep.int(c(3, 3.5, 1, 1.5), c(16, 3, 2, 3))) %>%
+        slice_sample_piece()
+    df_coins <- piecepack_coins(side = "back",
+                                x = rep(seq(6, by = 1, length.out = 6), each = 4),
+                                y = rep(4:1, 6),
+                                suit = as.integer(replicate(6, sample.int(4))),
+                                rank = rep(c(2:6, 1L), each = 4))
     last_tile_sr <- paste(df_tiles$suit[24], df_tiles$rank[24])
     df_coins <- df_coins[which(paste(df_coins$suit, df_coins$rank) != last_tile_sr), ]
     repeat { # re-roll die if equals bottom-right tile (removed lily pond)
-        df_dice <- tibble(piece_side = "die_face", x = seq(6, length.out = 4), y = 5,
-                          suit = 1:4, rank = c(sample.int(6, 1), sample.int(6, 1), sample.int(6, 1), sample.int(6, 1)))
+        df_dice <- piecepack_dice(x = seq(6, length.out = 4), y = 5,
+                                  rank = random_dice())
         if (!any(paste(df_dice$suit, df_dice$rank) %in% last_tile_sr))
             break
     }
-    df_pawns <- filter(df_coins, paste(.data$suit, .data$rank) %in% paste(df_dice$suit, df_dice$rank))
-    df_pawns$piece_side <- "pawn_face"
-    df_pawns$rank <- NA_integer_
+    df_pawns <- filter(df_coins, paste(.data$suit, .data$rank) %in% paste(df_dice$suit, df_dice$rank)) %>%
+        mutate(piece_side = "pawn_face", rank = 1L)
     bind_rows(df_tiles, df_coins, df_dice, df_pawns)
 }
 
@@ -529,8 +512,9 @@ piecepack_desfases <- function(seed = NULL, tiles = NULL, dice = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
     df_txy <- tibble(piece_side = "tile_face",
                      x = 2+rep(seq(1, by=3, length.out=5), 5),
-                     y = 2+rep(seq(1, by=3, length.out=5), each=5))
-    df_txy <- df_txy[-13, ]
+                     y = 2+rep(seq(1, by=3, length.out=5), each=5),
+                     cfg = "piecepack")
+    df_txy <- df_txy[-13L, ]
     if (is.null(tiles)) {
         df_tsr <- expand.grid(suit = 1:4, rank = 1:6)[sample.int(24L), ]
         df_tsr$angle <- ((df_tsr$suit + 1) * -90) %% 360
@@ -539,25 +523,22 @@ piecepack_desfases <- function(seed = NULL, tiles = NULL, dice = NULL) {
     }
     df_t <- bind_cols(df_txy, df_tsr)
 
-    df_c <- tibble(piece_side = "coin_face",
-                   x = c(14:9, rep(17, 6), 4:9, rep(1, 6)),
-                   y = c(rep(17, 6), 4:9, rep(1, 6), 14:9),
-                   suit = rep(1:4, each=6), rank = rep(1:6, 4),
-                   angle = rep(c(180, 90, 0, -90), each=6))
+    df_c <- piecepack_coins(side = "face",
+                            x = c(14:9, rep(17, 6), 4:9, rep(1, 6)),
+                            y = c(rep(17, 6), 4:9, rep(1, 6), 14:9),
+                            angle = rep(c(180, 90, 0, -90), each=6))
 
     if (is.null(dice)) {
         dice <- random_dice()
     } else {
         dice <- process_ranks(dice)
     }
-    df_d <- tibble(piece_side = "die_face",
-                   x = c(7, 17, 11, 1), y = c(17, 11, 1, 7),
-                   angle = c(180, 90, 0, -90), suit = 1:4,
-                   rank = dice)
+    df_d <- piecepack_dice(x = c(7, 17, 11, 1), y = c(17, 11, 1, 7),
+                           angle = c(180, 90, 0, -90), rank = dice)
 
-    df_p <- df_d %>% mutate(piece_side = "pawn_face", rank = NULL)
+    df_p <- df_d %>% mutate(piece_side = "pawn_face", rank = 1L)
 
-    for (i in seq(4)) {
+    for (i in seq.int(4L)) {
         # Move relevant coins under their respective dice
         index <- which(df_c$rank == dice[i] & df_c$suit == i)
         df_c[index, "piece_side"] <- "coin_back"
@@ -570,7 +551,7 @@ piecepack_desfases <- function(seed = NULL, tiles = NULL, dice = NULL) {
         df_p[i, "y"] <- df_t$y[index]
     }
 
-    df <- bind_rows(df_t, df_c, df_d, df_p)
+    df <- bind_rows(df_t, df_c, df_d, df_p) %>% select_piece()
     attr(df, "scale_factor") <- 3
     df
 }
@@ -581,18 +562,15 @@ piecepack_easy_slider <- function(seed = NULL, tiles = NULL, coins = NULL, pawns
     if (!is.null(seed)) withr::local_seed(seed)
     df_txy <- tibble(piece_side = "tile_face",
                      x = 2 + c(rep(seq(0, 8, 2), 4), 0, 2, 4, 6),
-                     y = 2 + c(rep(c(8, 6, 4, 2), each = 5), rep.int(0, 4)))
-    if (is.null(tiles)) {
-        df_tsr <- tibble(suit = rep(1:4, each = 6), rank = rep(1:6, 4))[sample.int(24L), ]
-    } else {
-        df_tsr <- process_tiles(tiles)
-    }
+                     y = 2 + c(rep(c(8, 6, 4, 2), each = 5), rep.int(0, 4)),
+                     cfg = "piecepack")
+    df_tsr <- process_tiles(tiles)
     df_tiles <- bind_cols(df_txy, df_tsr)
     ranks <- if (is.null(coins)) sample.int(5L) + 1L else process_ranks(coins)
-    df_coins <- tibble(piece_side = "coin_face", x = seq(2, 10, 2), y = 11.5, rank = ranks, suit = 1L)
+    df_coins <- piecepack_coins(x = seq(2, 10, 2), y = 11.5, rank = ranks, suit = 1L)
     suits <- if (is.null(pawns)) sample.int(4L) else process_suits(pawns)
-    df_pawns <- tibble(piece_side = "pawn_face", x = 0.5, y = seq(10, 4, -2), rank = 1L, suit = suits)
-    df <- bind_rows(df_tiles, df_coins, df_pawns)
+    df_pawns <- piecepack_pawns(x = 0.5, y = seq(10, 4, -2), suit = suits)
+    df <- bind_rows(df_tiles, df_coins, df_pawns) %>% select_piece()
     attr(df, "scale_factor") <- 2
     df
 }
@@ -600,25 +578,26 @@ piecepack_easy_slider <- function(seed = NULL, tiles = NULL, coins = NULL, pawns
 #' @rdname piecepack_games_original
 #' @export
 piecepack_everest <- function() {
-    df_t1 <- tibble(piece_side = "tile_back",
+    df_t1 <- piecepack_tiles(side = "back", suit = NA_integer_, rank = NA_integer_,
                     x = 0.5 + c(seq(1, 7, 2),seq(2, 6, 2), seq(1, 7, 2)),
                     y = 0.5 + c(rep(1, 4), rep(3, 3), rep(5, 4)))
-    df_t2 <- piecepack_rect_board_tiles(4, 6, x0 = 2, y0 = 2)
-    df_t3 <- piecepack_rect_board_tiles(4, 4, x0 = 3, y0 = 2)
-    df_t4 <- piecepack_rect_board_tiles(2, 4, x0 = 3, y0 = 3)
-    df_t5 <- tibble(piece_side = "tile_back", x = 4.5, y = 3.5)
-    df_p <- tibble(piece_side = "pawn_face",
-                   x = c(1,8,8,1), y = c(5,5,2,2), suit = 1:4)
-    bind_rows(df_t1, df_t2, df_t3, df_t4, df_t5, df_p)
+    df_t2 <- piecepack_rectangular_board(4, 6, x0 = 2, y0 = 2, suit = NA_integer_, rank = NA_integer_)
+    df_t3 <- piecepack_rectangular_board(4, 4, x0 = 3, y0 = 2, suit = NA_integer_, rank = NA_integer_)
+    df_t4 <- piecepack_rectangular_board(2, 4, x0 = 3, y0 = 3, suit = NA_integer_, rank = NA_integer_)
+    df_t5 <- piecepack_tiles(side = "back", x = 4.5, y = 3.5, suit = NA_integer_, rank = NA_integer_)
+    df_t <- bind_rows(df_t1, df_t2, df_t3, df_t4, df_t5) %>%
+        mutate(suit = rep(1:4, each = 6L), rank = rep.int(1:6, 4L))
+    df_p <- piecepack_pawns(x = c(1,8,8,1), y = c(5,5,2,2))
+    bind_rows(df_t, df_p)
 }
 
 #' @rdname piecepack_games_original
 #' @export
-piecepack_four_blind_mice <- function() piecepack_rect_board_tiles(ncols = 8, nrows = 8)
+piecepack_four_blind_mice <- function() piecepack_rectangular_board(ncols = 8, nrows = 8)
 
 #' @rdname piecepack_games_original
 #' @export
-piecepack_froggy_bottom <- function() piecepack_rect_board_tiles(ncols = 6, nrows = 8)
+piecepack_froggy_bottom <- function() piecepack_rectangular_board(ncols = 6, nrows = 8)
 
 #' @rdname piecepack_games_original
 #' @export
@@ -632,19 +611,22 @@ piecepack_fujisan <- function(seed = NULL, coins = NULL, dice = NULL) {
     if (is.vector(coins)) {
         coins <- matrix(coins, nrow = 2, byrow = TRUE)
     }
-    df_t <- tibble(piece_side = "tile_back", y = 1.5,
+    df_t <- piecepack_tiles(side = "back", y = 1.5,
                    x = 1.5+c(seq(1,11,2),seq(2,10,2),seq(3,9,2),4,6,8,5,7,5,7,6,6))
     suit <- rev((0:23%%4)+1)
-    df_c <- tibble(piece_side = "coin_face", x = rep(2:13, 2), y = rep(1:2, each = 12),
-                   suit = suit, rank = c(coins[2, ], coins[1, ]) + 1)
-    df_p <- tibble(piece_side = "pawn_face", x = c(1,14,14,1), y = c(2,2,1,1), suit = 1:4)
+    df_c <- piecepack_coins(x = rep(2:13, 2),
+                            y = rep(1:2, each = 12),
+                            suit = suit,
+                            rank = c(coins[2, ], coins[1, ]) + 1)
+    df_p <- piecepack_pawns(x = c(1,14,14,1), y = c(2,2,1,1))
     if (first_move_needs_dice(coins)) {
         if (is.null(dice)) {
             dice <- random_dice()
         } else {
             dice <- process_ranks(dice)
         }
-        df_d <- tibble(piece_side = "die_face", x = c(16,17,16,17), y = c(2,2,1,1), suit = c(1,2,4,3), rank = dice)
+        df_d <- piecepack_dice(x = c(16,17,16,17), y = c(2,2,1,1), 
+                               suit = c(1,2,4,3), rank = dice)
         bind_rows(df_t, df_c, df_p, df_d)
     } else {
         bind_rows(df_t, df_c, df_p)
@@ -674,27 +656,27 @@ random_fujisan_coins <- function() {
 #' @export
 piecepack_galaxy_express <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_board <- piecepack_rect_board_tiles(nrows = 6, ncols = 8, y0 = 2,
-                                    rank = rep(4:6, each = 4), suit = rep(1:4, 3))
-    df_arms <- df_board[sample.int(12, 6), ]
+    df_board <- piecepack_rectangular_board(nrows = 6, ncols = 8, y0 = 2,
+                                            rank = rep(4:6, each = 4L), suit = rep(1:4, 3L))
+    df_arms <- df_board[sample.int(12L, 6L), ]
     df_arms$x <- df_arms$x + sample(c(-0.5, 0.5), 6, replace = TRUE)
     df_arms$y <- df_arms$y + sample(c(-0.5, 0.5), 6, replace = TRUE)
     df_arms$piece_side <- c(rep_len("coin_back", 5L), "coin_face")
-    df_arms$suit <- 4
-    df_arms$rank <- sample.int(6)
-    df_pawn <- df_arms[6, ]
-    df_pawn$piece_side <- "pawn_face"
-    df_pawn$rank <- NA_integer_
-    df_crowns <- tibble(piece_side = "coin_face", x = 1, y = 1, suit = 3, rank = sample.int(6))
+    df_arms$suit <- 4L
+    df_arms$rank <- sample.int(6L)
+    df_pawn <- df_arms[6, ] %>% mutate(piece_side = "pawn_face", rank = 1L)
+    df_crowns <- piecepack_coins(x = 1, y = 1, suit = 3L, rank = sample.int(6L))
     if (df_arms$rank[6] == df_crowns$rank[6])
         df_crowns$rank <- df_crowns$rank[c(6, 1:5)]
-    df_dice <- tibble(piece_side = "die_face", x = c(3, 4, 11, 12),
-                      y = c(1, 1, 4, 4), rank = 1, suit = c(3, 4, 1, 2))
-    df_speed_tiles <- tibble(piece_side = "tile_face", x = 10.5, y = c(1.5, 5.5),
-                             rank = 2, suit = c(2, 1))
-    df_speed_coins <- tibble(piece_side = rep.int(rep(c("coin_back", "coin_face"), 2), c(4, 2, 4, 2)),
-                             suit = rep.int(1:2, c(6, 6)), rank = c(sample.int(6), sample.int(6)),
-                             x = 12, y = rep.int(c(7, 6, 5, 3, 2, 1), c(4, 1, 1, 4, 1, 1)))
+    df_dice <- piecepack_dice(x = c(3, 4, 11, 12), y = c(1, 1, 4, 4),
+                              rank = 1L, suit = c(3, 4, 1, 2))
+    df_speed_tiles <- piecepack_tiles(x = 10.5, y = c(1.5, 5.5), 
+                                      rank = 2L, suit = c(2L, 1L))
+    df_speed_coins <- piecepack_coins(
+                         side = rep.int(rep(c("back", "face"), 2), c(4, 2, 4, 2)),
+                         suit = rep.int(1:2, c(6L, 6L)), 
+                         rank = c(sample.int(6L), sample.int(6L)),
+                         x = 12, y = rep.int(c(7, 6, 5, 3, 2, 1), c(4, 1, 1, 4, 1, 1)))
     bind_rows(df_board, df_arms, df_crowns, df_dice,
               df_speed_tiles, df_speed_coins, df_pawn)
 }
@@ -702,26 +684,30 @@ piecepack_galaxy_express <- function(seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_iceberg <- function(seed = NULL, tiles = NULL) {
-    piecepack_donut_tiles(seed = seed, tiles = tiles, x0 = 1, y0 = 1, face = FALSE)
+    if (!is.null(seed)) withr::local_seed(seed)
+    sra <- process_tiles(tiles)
+    piecepack_donut_board(suit = sra$suit, rank = sra$rank, angle = sra$angle,
+                          x0 = 0.5, y0 = 0.5, side = "back")
 }
 
 #' @rdname piecepack_games_original
 #' @export
 piecepack_ice_floe <- function() {
     tiles <- "S2S3CaM2M3/S4S5AaM4M5/MnCnSnAn/A2A3MaC2C3/A4A5SaC4C5"
-    piecepack_donut_tiles(tiles = tiles, x0 = 1.5, y0 = 1.5)
+    sra <- process_tiles(tiles)
+    piecepack_donut_board(suit = sra$suit, rank = sra$rank, angle = sra$angle,
+                          x0 = 1.0, y0 = 1.0, side = "face")
 }
 
 #' @rdname piecepack_games_original
 #' @export
 piecepack_japan <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- tibble(piece_side = "tile_back",
+    df_tiles <- piecepack_tiles(side = "back",
                        x = 0.5 + c(rep(seq(1, by=4, length.out=4), each = 3),
                                    rep(seq(3, by=4, length.out=3), each = 4)),
                        y = 0.5 + c(rep(seq(2, by=2, length.out=3), 4),
-                                   rep(seq(1, by=2, length.out=4), 3)),
-                       suit = rep(1:4, each=6), rank = rep(1:6, 4))
+                                   rep(seq(1, by=2, length.out=4), 3)))
 
     # data frame of possible coin coordinates
     xy <- xy_ll <- xy_ul <- xy_lr <- xy_ur <- df_tiles[, c("x", "y")]
@@ -746,9 +732,7 @@ piecepack_japan <- function(seed = NULL) {
                       which(xy$x == xy$x[i_new] - 1 & xy$y == xy$y[i_new]))
         xy <- xy[-i_remove,]
     }
-    df_coins <- tibble(piece_side = "coin_face",
-                       x = xy_coins$x, y = xy_coins$y,
-                       suit = rep(1:4, each=6), rank = rep(1:6, 4))
+    df_coins <- piecepack_coins(side = "face", x = xy_coins$x, y = xy_coins$y)
 
     bind_rows(df_tiles, df_coins)
 }
@@ -757,9 +741,7 @@ piecepack_japan <- function(seed = NULL) {
 #' @export
 piecepack_lab_rats <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- tibble(piece_side = "tile_back",
-                       x = 1.5, y = 1.5,
-                       suit = rep(1:4, each = 6), rank = rep(1:6, 4), angle = 0)
+    df_tiles <- piecepack_tiles(side = "back", x = 1.5, y = 1.5)
     repeat {
         x0 <- 1.5
         y0 <- 1.5
@@ -791,33 +773,30 @@ piecepack_lab_rats <- function(seed = NULL) {
         if (is_legal_labrats(df_tiles))
             break
     }
-    df_pawns <- tibble(piece_side = "pawn_face", suit = 1:2, angle = a1)
     if (a0 == 0) {
-        df_pawns$x <- df_tiles$x[24] + 0.5 * c(-1, 1)
-        df_pawns$y <- df_tiles$y[24] + 1.5
+        px <- df_tiles$x[24] + 0.5 * c(-1, 1)
+        py <- df_tiles$y[24] + 1.5
     } else if (a0 == 90) {
-        df_pawns$x <- df_tiles$x[24] - 1.5
-        df_pawns$y <- df_tiles$y[24] + 0.5 * c(-1, 1)
+        px <- df_tiles$x[24] - 1.5
+        py <- df_tiles$y[24] + 0.5 * c(-1, 1)
     } else if (a0 == 180) {
-        df_pawns$x <- df_tiles$x[24] - 0.5 * c(-1, 1)
-        df_pawns$y <- df_tiles$y[24] - 1.5
+        px <- df_tiles$x[24] - 0.5 * c(-1, 1)
+        py <- df_tiles$y[24] - 1.5
     } else { # a0 == 270
-        df_pawns$x <- df_tiles$x[24] + 1.5
-        df_pawns$y <- df_tiles$y[24] - 0.5 * c(-1, 1)
+        px <- df_tiles$x[24] + 1.5
+        py <- df_tiles$y[24] - 0.5 * c(-1, 1)
     }
+    df_pawns <- piecepack_pawns(suit = 1:2, x = px, y = py, angle = a1)
     # "optimal" rat placement
     x <- df_tiles$x[which(df_tiles$x != 1.5)[1]]
-    df_rat <- tibble(piece_side = "pawn_face", suit = 3, rank = NA_integer_, angle = 0, y = 1)
     if (x < 1.5)
-        df_rat$x <- 1
+        df_rat <- piecepack_pawns(suit = 3L, angle = 0, x = 1, y = 1)
     else
-        df_rat$x <- 2
-    i_c <- sample.int(24)
-    df_coins <- tibble(piece_side = "coin_face",
-                       suit = rep(1:4, each = 6)[i_c],
-                       rank = rep(1:6, 4)[i_c])
-    df_coins$x <- df_tiles$x[1] + rep(c(-0.5, 0.5, 1.5), each = 8)
-    df_coins$y <- df_tiles$y[1] + rep(c(-1.5, -1.5, -0.5), each = 8)
+        df_rat <- piecepack_pawns(suit = 3L, angle = 0, x = 2, y = 1)
+    df_coins <- piecepack_coins(side = "face",
+                                x = df_tiles$x[1] + rep(c(-0.5, 0.5, 1.5), each = 8),
+                                y = df_tiles$y[1] + rep(c(-1.5, -1.5, -0.5), each = 8)) %>%
+        slice_sample_piece()
     bind_rows(df_tiles, df_pawns, df_rat, df_coins)
 }
 
@@ -837,38 +816,31 @@ is_legal_labrats <- function(df) {
 #' @export
 piecepack_landlocked <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- tibble(piece_side = rep(c("tile_back", "tile_face"), each = 12),
-                       suit = rep(1:4, each = 6), rank = rep(1:6, 4))[sample.int(24L), ]
-    df_tiles$x <- 0.5 + c(seq(3, 9, 2), rep(seq(1, 9, 2), 4))
-    df_tiles$y <- 0.5 + c(rep(9, 4), rep(seq(7, 1, -2), each = 5))
-    df_pawn <- tibble(piece_side = "pawn_face", suit = 1, rank = 1, x = 1, y = 9)
+    df_tiles <- piecepack_tiles(side = rep(c("back", "face"), each = 12),
+                       x = 0.5 + c(seq(3, 9, 2), rep(seq(1, 9, 2), 4)),
+                       y = 0.5 + c(rep(9, 4), rep(seq(7, 1, -2), each = 5))) %>%
+        slice_sample_piece(names = c("piece_side", "suit", "rank"))
+    df_pawn <- piecepack_pawns(suit = 1L, x = 1, y = 9)
     bind_rows(df_tiles, df_pawn)
 }
 
 #' @rdname piecepack_games_original
 #' @export
 piecepack_ley_lines <- function() {
-    tibble(piece_side = "tile_back",
-           x = c(6,8,     7,9,   7,9,   3,5, 8,10, 2,4, 9,11, 2,4,13, 7,9,11, 13, 9,11, 7) - 0.5,
-           y = c(15,15, 13,13, 11,11, 10,10,  9,9, 8,8, 7,7,  6,6,6,  5,5,5,  4,  3,3,  2) - 0.5,
-           suit = rep(1:4, each=6), rank = rep(1:6, 4))
+    piecepack_tiles(side = "back",
+                    x = c(6,8,     7,9,   7,9,   3,5, 8,10, 2,4, 9,11, 2,4,13, 7,9,11, 13, 9,11, 7) - 0.5,
+                    y = c(15,15, 13,13, 11,11, 10,10,  9,9, 8,8, 7,7,  6,6,6,  5,5,5,  4,  3,3,  2) - 0.5)
 }
 
 #' @rdname piecepack_games_original
 #' @export
 piecepack_mathrix <- function(seed = NULL, coins = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- piecepack_rect_board_tiles(nrows=4, ncols=6)
-    if (is.null(coins)) {
-        ranks <- rep(1:6, 4)[sample.int(24L)]
-    } else {
-        ranks <- process_ranks(coins)
-    }
-    suits <- integer(24)
-    for (i in seq.int(6L)) suits[which(ranks == 1)] <- sample.int(4L)
-    df_coins <- tibble(piece_side = "coin_face",
-                       rank = ranks, suit = suits,
-                       x = rep(1:6, 4), y = rep(4:1, each=6))
+    df_tiles <- piecepack_rectangular_board(nrows=4, ncols=6)
+    df_coins <- piecepack_coins(side = "face",
+                       rank = process_ranks(coins), suit = NA_integer_,
+                       x = rep(1:6, 4), y = rep(4:1, each=6)) %>%
+        fill_piece_suit()
     bind_rows(df_tiles, df_coins)
 }
 
@@ -876,12 +848,11 @@ piecepack_mathrix <- function(seed = NULL, coins = NULL) {
 #' @export
 piecepack_piecepackman <- function(seed = NULL, variant = "Roundabout") {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- tibble(piece_side = "tile_back",
-                       x = 0.5 + c(rep(seq(1, 9, 2), 4), seq(2, 8, 2)),
-                       y = 0.5 + c(rep(c(1, 3, 7, 9), each = 5), rep(5, 4)),
-                       suit = rep(1:4, 6), rank = rep(1:6, each = 4))
+    df_tiles <- piecepack_tiles(side = "back",
+                   x = 0.5 + c(rep(seq(1, 9, 2), 4), seq(2, 8, 2)),
+                   y = 0.5 + c(rep(c(1, 3, 7, 9), each = 5), rep(5, 4)))
     df_p <- switch(variant,
-                   Roundabout = piecepack_roundabout(),
+                   Roundabout = piecepack_roundabout(seed),
                    abort(paste("Can't handle Piecepackman variant ", variant), class = "board_setup"))
     p_xy <- filter(df_p, !grepl("matchstick", .data$piece_side)) %>%
             mutate(x_y = paste(.data$x, .data$y, sep = "_")) %>%
@@ -891,42 +862,44 @@ piecepack_piecepackman <- function(seed = NULL, variant = "Roundabout") {
             mutate(x_y = paste(.data$x, .data$y, sep = "_")) %>%
             select("x_y")
     x_y <- setdiff(df_x_y$x_y, x_y_omit)
+
+    # Set seed again so backwards compatible with new sampling in `piecepack_roundabout()`
+    if (!is.null(seed)) withr::local_seed(seed)
     x_y_nulls <- str_split(sample(x_y, 24), "_", simplify = TRUE)
-    df_n <- tibble(piece_side = "matchstick_face",
-                   x = as.numeric(x_y_nulls[, 1]), y = as.numeric(x_y_nulls[, 2]),
-                   rank = 1, suit = rep(1:4, 6))
+    df_n <- piecepack_matchsticks(rank = 1L,
+                                  x = as.numeric(x_y_nulls[, 1]), 
+                                  y = as.numeric(x_y_nulls[, 2]))
 
     bind_rows(df_tiles, df_p, df_n)
 }
 
-piecepack_roundabout <- function() {
-    df_c <- tibble(piece_side = "coin_back",
-                   x = c(1, 1, 10, 10),
-                   y = c(1, 10, 10, 1),
-                   suit = c(4, 3, 2, 1))
-    df_p <- tibble(piece_side = "pawn_face",
-                   x = c(5, 5, 6, 6),
-                   y = c(5, 6, 6, 5),
-                   suit = c(4, 2, 3, 1))
-    df_n <- tibble(piece_side = "coin_face",
-                   x = 6, y = 4, rank = 1)
-    df_mav <- tibble(piece_side = "matchstick_face",
-                     rank = 2, angle = 0,
+piecepack_roundabout <- function(seed = NULL) {
+    df_c <- piecepack_coins(side = "back",
+                   x = c(1, 1, 10, 10), y = c(1, 10, 10, 1),
+                   suit = c(4, 3, 2, 1), 
+                   rank = c(sample(setdiff(2:6, 2L), 1L), # not ace of arms
+                            sample(setdiff(2:6, 4L), 1L), # not 3 of crowns
+                            sample(setdiff(2:6, 5L), 1L), # not 4 of moons
+                            sample(setdiff(2:6, 3L), 1L))) # not 2 of suns
+    df_p <- piecepack_pawns(x = c(5, 5, 6, 6),
+                            y = c(5, 6, 6, 5),
+                            suit = c(4, 2, 3, 1))
+    df_n <- piecepack_coins(x = 6, y = 4, rank = 1L, suit = 1L)
+    df_mav <- piecepack_matchsticks(rank = 2L,
                      x = 0.5 + c(4, 4, 6, 6, 5, 5),
                      y = c(6, 8, 8, 5, 2:3),
-                     suit = c(2, 2, 2, 1, 4, 4))
-    df_mah <- tibble(piece_side = "matchstick_face",
-                     rank = 2, angle = 90,
+                     suit = c(2L, 2L, 2L, 1L, 4L, 4L))
+    df_mah <- piecepack_matchsticks(
+                     rank = 2L, angle = 90,
                      x = c(3, 8, 5, 6, 3, 8),
                      y = 0.5 + c(9, 9, 4, 4, 2, 2),
                      suit = c(2, 2, 1, 1, 4, 4))
-    df_m3v <- tibble(piece_side = "matchstick_face",
-                     rank = 4, angle = 0,
+    df_m3v <- piecepack_matchsticks(rank = 4L,
                      x = 0.5 + c(1, 9, 5, 1, 9),
                      y = 0.5 + c(2, 2, 8, 8, 8),
                      suit = c(4, 4, 2, 3, 3))
-    df_m3h <- tibble(piece_side = "matchstick_face",
-                     rank = 4, angle = 90,
+    df_m3h <- piecepack_matchsticks(
+                     rank = 4L, angle = 90,
                      x = 0.5 + c(3, 4, 6, 7, 5, 2, 2, 8, 8, 2, 2, 8, 8, 3, 7, 4, 6, 3, 7),
                      y = 0.5 + c(8, 9, 9, 8, 6, 6, 7, 6, 7, 4, 5, 4, 5, 3, 3, 2, 2, 1, 1),
                      suit = c(rep(2, 5), rep(3, 4), rep(1, 6), rep(4, 4)))
@@ -939,23 +912,21 @@ piecepack_roundabout <- function() {
 #' @export
 piecepack_one_man_thrag <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_board <- piecepack_rect_board_tiles(4, 4, x0 = 1, y0 = 1, suit = 1:4, rank = 1)
-    df_tiles <- tibble(piece_side = "tile_back",
-                       x = rep(6 + 2 * c(0, 1, 2, 3.5), each = 5),
-                       y = rep(3, each = 20),
-                       suit = rep(c(1, 3, 4, 2), each = 5),
-                       rank = 1 + c(sample.int(5), sample.int(5), sample.int(5), sample.int(5)))
-    df_dice <- tibble(piece_side = "die_face",
-                      x = 1:4, y = 6, suit = c(1, 3, 4, 2),
-                      rank = c(sample.int(6, 1), sample.int(6, 1), sample.int(6, 1), sample.int(6, 1)))
-    df_coins <- tibble(piece_side = "coin_back",
+    df_board <- piecepack_rectangular_board(4, 4, x0 = 1, y0 = 1, suit = 1:4, rank = 1L)
+    df_tiles <- piecepack_tiles(side = "back",
+                                x = rep(6 + 2 * c(0, 1, 2, 3.5), each = 5),
+                                y = rep(3, each = 20),
+                                suit = rep(c(1L, 3L, 4L, 2L), each = 5),
+                                rank = 1L + c(sample.int(5), sample.int(5), sample.int(5), sample.int(5)))
+    df_dice <- piecepack_dice(x = 1:4, y = 6, suit = c(1L, 3L, 4L, 2L), rank = random_dice())
+    df_coins <- piecepack_coins(side = "back",
                        x = rep.int(6 + 2 * c(0, 1, 2, 3.5), c(6, 6, 6, 3)),
-                       y = 5, suit = rep.int(c(1, 3, 4, 2), c(6, 6, 6, 3)),
+                       y = 5, suit = rep.int(c(1L, 3L, 4L, 2L), c(6L, 6L, 6L, 3L)),
                        rank = c(sample.int(6), sample.int(6), sample.int(6), c(2, 4, 6)[sample.int(3)]))
-    df_pawns <- tibble(piece_side = "pawn_face",
-                       x = c(1, 6, 8, 10), y = c(4, 6, 6, 6), suit = c(2, 1, 3, 4))
-    df_health <- tibble(piece_side = "coin_face",
-                        x = 13, y = 6:8, suit = 2, rank = c(1, 3, 5))
+    df_pawns <- piecepack_pawns(x = c(1, 6, 8, 10), y = c(4, 6, 6, 6),
+                                suit = c(2L, 1L, 3L, 4L))
+    df_health <- piecepack_coins(side = "face", x = 13, y = 6:8,
+                                 suit = 2L, rank = c(1L, 3L, 5L))
     bind_rows(df_board, df_tiles, df_dice, df_coins, df_pawns, df_health)
 
 }
@@ -963,37 +934,39 @@ piecepack_one_man_thrag <- function(seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_pass_the_food <- function() {
-    tibble(piece_side = "tile_face", angle = 0,
-           suit = rep(1:4, each = 6),
-           rank = rep(c(1, 3:6, 2), 4),
-           x = rep(2 * 1:4 - 0.5, each = 6),
-           y = rep(2 * 1:6 - 0.5, 4))
+    piecepack_tiles(side = "face",
+                    rank = rep(c(1, 3:6, 2), 4),
+                    x = rep(2 * 1:4 - 0.5, each = 6),
+                    y = rep(2 * 1:6 - 0.5, 4))
 }
 
 #' @rdname piecepack_games_original
 #' @export
 piecepack_piecepack_klondike <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tsr <- expand.grid(suit = 1:4, rank = 1:6)[sample.int(24L), ]
-    df_tiles <- tibble(piece_side = c(rep("tile_back", 15),
-                                      rep("tile_face", 6),
-                                      rep("tile_back", 3)),
-                       x = c(seq(4, 12, 2), seq(6, 12, 2), seq(8, 12, 2),
-                             10, 12, 12, seq(2, 12, 2), rep(2, 3)),
-                       y = c(rep(2, 21), rep(6, 3)), angle = 0)
-    bind_cols(df_tiles, df_tsr)
+    df_tiles <- piecepack_tiles(side = c(rep_len("back", 15L),
+                                         rep_len("face", 6L),
+                                         rep_len("back", 3L)),
+                                x = c(seq(4, 12, 2), seq(6, 12, 2), seq(8, 12, 2),
+                                      10, 12, 12, seq(2, 12, 2), rep(2, 3)),
+                                y = c(rep(2, 21), rep(6, 3)),
+                                suit = rep.int(1:4, 6L), # reverse-compatible random
+                                rank = rep(1:6, each = 4L)) %>%
+        slice_sample_piece()
+    df_tiles
 }
 
 #' @rdname piecepack_games_original
 #' @export
 piecepack_piece_gaps <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tsr <- expand.grid(suit = 1:4, rank = 1:6)[sample.int(24L), ]
-    df_tiles <- tibble(piece_side = "tile_face",
-                       x = rep(seq(2, 12, 2), 4),
-                       y = rep(seq(2, 8, 2), each=6), angle = 0)
-    df <- bind_cols(df_tiles, df_tsr)
-    df[-which(df$rank == 1), ]
+    df <- piecepack_tiles(side = "face",
+                          x = rep.int(seq.int(2L, 12L, 2L), 4L),
+                          y = rep(seq.int(2L, 8L, 2L), each = 6L),
+                          suit = rep.int(1:4, 6L), # reverse-compatible random
+                          rank = rep(1:6, each = 4L)) %>%
+        slice_sample_piece()
+    df[-which(df$rank == 1L), ]
 }
 
 #' @rdname piecepack_games_original
@@ -1014,12 +987,14 @@ piecepack_piece_packing_pirates <- function(seed = NULL) {
     xy <- str_split(tiles_xy, "_")
     x <- as.numeric(sapply(xy, function(x) x[1]))
     y <- as.numeric(sapply(xy, function(x) x[2]))
-    df_tiles <- tibble(piece_side = "tile_back",
-                       x = x - min(x) + 1.5,
-                       y = y - min(y) + 1.5,
-                       angle = sample(c(0, 90, 180, 270), 24, replace=TRUE))
-    df_tsr <- expand.grid(suit = 1:4, rank = 1:6)[sample.int(24L), ]
-    bind_cols(df_tiles, df_tsr)
+    df_tiles <- piecepack_tiles(side = "back",
+                                x = x - min(x) + 1.5,
+                                y = y - min(y) + 1.5,
+                                suit = rep.int(1:4, 6L), # reverse-compatible random
+                                rank = rep(1:6, each = 4L),
+                                angle = sample(c(0, 90, 180, 270), 24L, replace=TRUE)) %>%
+        slice_sample_piece()
+    df_tiles
 }
 
 p_ <- function(...) paste(..., sep = "_")
@@ -1041,24 +1016,24 @@ new_possible <- function(x_y) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_plans_of_action <- function(seed = NULL, coins = NULL) {
-    df_tiles <- piecepack_rect_board_tiles(nrows=8, ncols=8)
+    if (!is.null(seed)) withr::local_seed(seed)
+    df_tiles <- piecepack_rectangular_board(nrows=8L, ncols=8L)
     if (is.null(coins)) {
-        if (!is.null(seed)) withr::local_seed(seed)
-        suits <- sample(rep(1:4, 6), 24)
+        suits <- sample(rep.int(1:4, 6L), 24L)
     } else {
         suits <- process_suits(coins)
     }
-    df_coins <- tibble(piece_side = "coin_back", suit = suits,
-                       x = rep(2:7, 4), y = rep(6:3, each=6), angle=0)
-    df_coins <- arrange(df_coins, .data$suit)
-    df_coins$rank <- rep(1:6, 4)
+    df_coins <- piecepack_coins(side = "back", suit = suits,
+                                x = rep.int(2:7, 4L), y = rep(6:3, each=6L),
+                                rank = NA_integer_) %>%
+        fill_piece_rank()
     bind_rows(df_tiles, df_coins)
 }
 
 #' @rdname piecepack_games_original
 #' @export
 piecepack_relativity <- function(seed = NULL, coins = NULL) {
-    df_tiles <- piecepack_rect_board_tiles(nrows=4, ncols=6)
+    df_tiles <- piecepack_rectangular_board(nrows=4, ncols=6)
     if (is.null(coins)) {
         if (!is.null(seed)) withr::local_seed(seed)
         ranks <- c(sample.int(6L), sample.int(6L), sample.int(6L), sample.int(6L))
@@ -1069,9 +1044,9 @@ piecepack_relativity <- function(seed = NULL, coins = NULL) {
     } else {
         ranks <- process_ranks(coins)
     }
-    df_coins <- tibble(piece_side = "coin_face", rank = ranks,
-                       x = rep(1:6, 4), y = rep(4:1, each=6),
-                       suit = rep(c(1,2,1,2,4,3,4,3), each=3))
+    df_coins <- piecepack_coins(side = "face", rank = ranks,
+                                x = rep(1:6, 4), y = rep(4:1, each=6),
+                                suit = rep(c(1,2,1,2,4,3,4,3), each=3))
     bind_rows(df_tiles, df_coins)
 }
 should_resample_relativity <- function(coins) {
@@ -1083,28 +1058,26 @@ should_resample_relativity <- function(coins) {
 piecepack_san_andreas <- function() {
     x <- 0.5+c(rep(c(1,3,5), 3), 2,4,6, 3,5,7, 4,6,8, 5,7,9, 7,9)
     y <- 0.5+c(rep(c(15,13,11,9,7,5,3), each=3), 1, 1)
-    tibble(piece_side="tile_back", x=x, y=y,
-           suit = rep(1:4, each=6, length.out=23),
-           rank = rep(1:6, 4, length.out=23))
+    piecepack_tiles(side = "back", x = x, y = y, length.out = 23L)
 }
 
 #' @rdname piecepack_games_original
 #' @export
 piecepack_sarcophagus <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    i_s <- sample.int(6)
-    df_sarcophagus <- tibble(piece_side = "tile_back",
-                             suit = c(4, 3, 4:1)[i_s],
-                             rank = c(1, 1, rep(6, 4))[i_s],
+    df_sarcophagus <- piecepack_tiles(side = "back",
+                             suit = c(4, 3, 4:1),
+                             rank = c(1, 1, rep(6, 4)),
                              x = rep(c(6.5, 5.5, 7.5), 2),
-                             y = rep(c(3.5, 1.5, 1.5), 2))
-    i_o <- sample.int(18)
-    df_other <- tibble(piece_side = "tile_back",
-                       suit = c(2:1, rep(4:1, each = 4))[i_o],
-                       rank = c(1, 1, rep(2:5, 4))[i_o],
+                             y = rep(c(3.5, 1.5, 1.5), 2)) %>%
+        slice_sample_piece()
+    df_other <- piecepack_tiles(side = "back",
+                       suit = c(2:1, rep(4:1, each = 4)),
+                       rank = c(1, 1, rep(2:5, 4)),
                        x = c(6.5,  5.5,7.5,  4.5,6.5,8.5,  seq(3.5,9.5,2),
                              2.5,4.5,8.5,10.5,  1.5,3.5,9.5,11.5),
-                       y = rep.int(seq(11.5,1.5,-2), c(1, 2, 3, 4, 4, 4)))
+                       y = rep.int(seq(11.5,1.5,-2), c(1, 2, 3, 4, 4, 4))) %>%
+        slice_sample_piece()
     bind_rows(df_sarcophagus, df_other)
 }
 
@@ -1114,33 +1087,36 @@ piecepack_shopping_mall <- function(seed = NULL, cfg2 = "go") {
     if (!is.null(seed)) withr::local_seed(seed)
     i_tf <- sample.int(20)
     df_tf <- tibble(piece_side = "tile_face",
-                    suit = rep(1:4, 5)[i_tf],
-                    rank = rep(2:6, 4)[i_tf],
+                    suit = rep(1:4, 5L)[i_tf],
+                    rank = rep(2:6, 4L)[i_tf],
+                    cfg = "piecepack",
                     x = 3 + c(1, 5, 9,11,13,
                               5,
                               1, 5, 9, 13,
                               1,3, 7,9, 13,
                               1,3, 7, 11,13),
                     y = 3 + rep.int(c(13, 11, 9, 5, 1), c(5, 1, 4, 5, 5)),
-                    angle = sample(c(0, 90, 180, 270), 20, replace = TRUE),
-                    cfg = "piecepack")
+                    angle = sample(c(0, 90, 180, 270), 20, replace = TRUE))
     df_pennies <- tibble(piece_side = "bit_face",
-                         suit = 1, rank = 1,
+                         suit = 1L, rank = 1L, cfg = cfg2,
                          x = 3 + c(7, 3, 9, 3, 11, 1, 7, 1, 7, 11, 5, 15, 1),
                          y = 1 + c(17, 15, 13, 11, 11, 9, 9, 5, 5, 5, 3, 3, 1),
-                         cfg = cfg2)
+                         angle = 0)
     df_nickels <- tibble(piece_side = "bit_face",
-                         suit = 2, rank = 1,
+                         suit = 2L, rank = 1L, cfg = cfg2,
                          x = 1 + c(1, 17, 11),
                          y = 1 + c(13, 13, 1),
-                         cfg = cfg2)
+                         angle = 0)
     bind_rows(df_tf, df_pennies, df_nickels)
 }
 
 #' @rdname piecepack_games_original
 #' @export
 piecepack_skyscrapers <- function(seed = NULL, tiles = NULL) {
-    df_tiles <- piecepack_donut_tiles(seed = seed, tiles = tiles, x0 = 1.5, y0 = 1.5)
+    if (!is.null(seed)) withr::local_seed(seed)
+    sra <- process_tiles(tiles)
+    df_tiles <- piecepack_donut_board(suit = sra$suit, rank = sra$rank, angle = sra$angle,
+                                      x0 = 1.0, y0 = 1.0, side = "face")
     df_pawn <- filter(df_tiles, .data$rank == 1)
     df_pawn <- mutate(df_pawn, piece_side = "pawn_face",
                       x = .data$x + 0.5, y = .data$y - 0.5)
@@ -1150,9 +1126,10 @@ piecepack_skyscrapers <- function(seed = NULL, tiles = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_slides_of_action <- function() {
-    df_tiles <- piecepack_rect_board_tiles(4, 4)
-    df_coins <- tibble(piece_side = "coin_back",
-                       suit = rep(c(1,3,4), each = 5), rank = rep(1:5, 3),
+    df_tiles <- piecepack_rectangular_board(4, 4)
+    df_coins <- piecepack_coins(side = "back",
+                       suit = rep(c(1,3,4), each = 5),
+                       rank = rep(1:5, 3),
                        x = c(3,1,4,2,3, 2,3,1,4,2, 1,4,2,3,1),
                        y = c(4,3,3,2,1, 4,3,2,2,1, 4,4,3,2,1))
     bind_rows(df_tiles, df_coins)
@@ -1170,27 +1147,28 @@ piecepack_speedy_towers <- function(n_players = 2, seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
     stopifnot(n_players >= 2, n_players <= 6)
     if (n_players == 2) {
-        df_tiles <- tibble(piece_side = "tile_back",
-                           suit = rep(1:4, 6),
-                           rank = rep(1:6, each = 4))[sample.int(24L), ]
-        df_tiles$x <- c(seq.int(2, by = 2, length.out = 11),
-                        16, 10,
-                        seq.int(24, by = -2, length.out = 11))
-        df_tiles$y <- c(rep_len(4, 11), 8, 8, rep_len(12, 11))
-        df_tiles$angle <- c(rep_len(0, 12), rep_len(180, 12))
-        df_coins <- tibble(piece_side = "coin_back",
-                           suit = rep(1:4, 6),
-                           rank = rep(1:6, each = 4))[sample.int(24L), ]
-        df_coins <- df_coins[c(order(df_coins$suit[1:12]),
-                               12 + order(df_coins$suit[13:24])), ]
-        df_coins$x <- c(seq(2, by = 2, length.out = 12),
-                        seq(24, by = -2, length.out = 12))
-        df_coins$y <- c(rep(2, 12), rep(14, 12))
-        df_coins$angle <- c(rep_len(0, 12), rep_len(180, 12))
-        df_pawns <- tibble(piece_side = "pawn_face",
-                           suit = c(3, 1), rank = NA_integer_,
-                           x = c(24, 2), y = c(4, 12),
-                           angle = c(0, 180))
+        df_tiles <- piecepack_tiles(side = "back",
+                           suit = rep.int(1:4, 6L),
+                           rank = rep(1:6, each = 4)) %>% 
+            slice_sample_piece() %>%
+            mutate(x = c(seq.int(2, by = 2, length.out = 11),
+                         16, 10,
+                         seq.int(24, by = -2, length.out = 11)),
+                   y = c(rep_len(4, 11), 8, 8, rep_len(12, 11)),
+                   angle = c(rep_len(0, 12), rep_len(180, 12)))
+        df_coins <- piecepack_coins(side = "back",
+                           suit = rep.int(1:4, 6L),
+                           rank = rep(1:6, each = 4)) %>% 
+            slice_sample_piece() %>%
+            slice(c(order(.data$suit[1:12]),
+                    12 + order(.data$suit[13:24]))) %>%
+            mutate(x = c(seq(2, by = 2, length.out = 12),
+                         seq(24, by = -2, length.out = 12)),
+                   y = c(rep(2, 12), rep(14, 12)),
+                   angle = c(rep_len(0, 12), rep_len(180, 12)))
+        df_pawns <- piecepack_pawns(suit = c(3, 1),
+                                    x = c(24, 2), y = c(4, 12),
+                                    angle = c(0, 180))
         bind_rows(df_tiles, df_coins, df_pawns)
     } else {
         stop("We haven't been programmed for this case yet")
@@ -1201,23 +1179,26 @@ piecepack_speedy_towers <- function(n_players = 2, seed = NULL) {
 #' @export
 piecepack_steppin_stones <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles_faces <- tibble(piece_side = "tile_face", suit = 1:4,
-                             rank = 2, x = c(1.5, 7.5, 7.5, 1.5),
-                             y = c(7.5, 7.5, 1.5, 1.5), angle = c(180, 90, 0, -90))
-    df_tiles_backs <- tibble(piece_side = "tile_back", suit = rep(1:4, each = 3),
+    df_tiles_faces <- piecepack_tiles(side = "face",
+                             suit = 1:4, rank = 2L,
+                             x = c(1.5, 7.5, 7.5, 1.5),
+                             y = c(7.5, 7.5, 1.5, 1.5), 
+                             angle = c(180, 90, 0, -90))
+    df_tiles_backs <- piecepack_tiles(side = "back",
+                             suit = rep(1:4, each = 3),
                              rank = rep(3:5, 4),
                              x = c(3.5, 1.5, 3.5,  5.5, 5.5, 7.5,
                                    5.5, 5.5, 7.5, 3.5, 3.5, 1.5),
                              y = c(7.5, 5.5, 5.5,  7.5, 5.5, 5.5,
                                    3.5, 1.5, 3.5, 3.5, 1.5, 3.5))
-    df_coins <- tibble(piece_side = "coin_face", suit = rep(1:4, each = 5),
+    df_coins <- piecepack_coins(suit = rep(1:4, each = 5),
                        rank = rep(c(1, 3:6), 4),
                        x = c(3, 2, 1, 3, 3,  6, 7, 8, 6, 6,
                              6, 7, 8, 6, 6,  3, 2, 1, 3, 3),
                        y = c(6, 6, 6, 7, 8,  6, 6, 6, 7, 8,
                              3, 3, 3, 2, 1,  3, 3, 3, 2, 1),
                        angle = rep(c(180, 90, 0, -90), each = 5))
-    df_pawns <- tibble(piece_side = "pawn_face", suit = 1:4,
+    df_pawns <- piecepack_pawns(
                        x = c(5, 4, 4, 5), y = c(4, 4, 5, 5),
                        angle = c(180, 90, 0, -90))
     bind_rows(df_tiles_faces, df_tiles_backs, df_coins, df_pawns)
@@ -1226,10 +1207,9 @@ piecepack_steppin_stones <- function(seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_the_in_crowd <- function() {
-    df_t1 <- piecepack_rect_board_tiles(6, 6)
-    df_t2 <- piecepack_rect_board_tiles(4, 4, 2, 2, rank = 4)
-    df_t3 <- tibble(piece_side="tile_back", x=3.5, y=3.5,
-                    angle = 0, suit = 2, rank = 3)
+    df_t1 <- piecepack_rectangular_board(6L, 6L)
+    df_t2 <- piecepack_rectangular_board(4L, 4L, x0 = 2, y0 = 2, rank = 4L)
+    df_t3 <- piecepack_tiles(side="back", x=3.5, y=3.5, suit = 2L, rank = 3L)
     bind_rows(df_t1, df_t2, df_t3)
 }
 
@@ -1237,24 +1217,20 @@ piecepack_the_in_crowd <- function() {
 #' @export
 piecepack_the_magic_bag <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- tibble(piece_side = "tile_face", suit = rep(1:4, each = 6),
-                       rank = rep(1:6, 4))[sample.int(24L), ]
-    df_tiles$x <- 0.5 + c(rep(1, 9), rep(3, 7), rep(5, 5), rep(7, 3))
-    df_tiles$y <- 0.5 + c(seq(17, 1, -2), seq(13, 1, -2), seq(9, 1, -2), seq(5, 1, -2))
-    df_tiles
+    piecepack_tiles(x = 0.5 + c(rep(1, 9), rep(3, 7), rep(5, 5), rep(7, 3)),
+                    y = 0.5 + c(seq(17, 1, -2), seq(13, 1, -2), seq(9, 1, -2), seq(5, 1, -2))) %>%
+        slice_sample_piece()
 }
 
 #' @rdname piecepack_games_original
 #' @export
 piecepack_the_penguin_game <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- piecepack_rect_board_tiles(4, 4)
-    i_coins <- sample.int(24)
-    df_coins <- tibble(piece_side = "coin_back",
-                       x = rep(1:4, 6),
-                       y = c(rep(4:1, each = 4), 4:1, 1:4),
-                       suit = rep(1:4, each = 6)[i_coins],
-                       rank = rep(1:6, 4)[i_coins])
+    df_tiles <- piecepack_rectangular_board(4, 4)
+    df_coins <- piecepack_coins(side = "back",
+                                x = rep.int(1:4, 6L),
+                                y = c(rep(4:1, each = 4), 4:1, 1:4)) %>%
+        slice_sample_piece()
     bind_rows(df_tiles, df_coins)
 }
 
@@ -1262,15 +1238,16 @@ piecepack_the_penguin_game <- function(seed = NULL) {
 #' @export
 piecepack_tower_of_babel <- function(seed = NULL, tiles = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_txy <- tibble(piece_side = "tile_back", x = 2, y = 4)
     if (is.null(tiles)) {
-        df_tsr <- expand.grid(suit = 1:4, rank = 1:6)[sample.int(24L), ]
+        df <- expand.grid(suit = 1:4, rank = 1:6)[sample.int(24L), ]
     } else {
-        df_tsr <- process_tiles(tiles)
+        df <- process_tiles(tiles)
     }
-    df <- bind_cols(df_txy, df_tsr)
-    df[24, "y"] <- 2
-    df[24, "piece_side"] <- "tile_face"
+    df <- mutate(df, piece_side = "tile_back", x = 2, y = 4,
+                 cfg = "piecepack", angle = 0) %>%
+        select_piece()
+    df[24L, "y"] <- 2
+    df[24L, "piece_side"] <- "tile_face"
     attr(df, "scale_factor") <- 2
     df
 }
@@ -1282,10 +1259,9 @@ piecepack_piecepack_accordion <- piecepack_tower_of_babel
 #' @rdname piecepack_games_original
 #' @export
 piecepack_tracers <- function() {
-    df_tiles <- piecepack_rect_board_tiles(8, 8)
-    df_pawns <- tibble(piece_side = "pawn_face",
-                       suit = 1:2, x = c(1, 8), y = c(1, 8),
-                       angle = c(0, 180))
+    df_tiles <- piecepack_rectangular_board(8, 8)
+    df_pawns <- piecepack_pawns(suit = 1:2, x = c(1, 8),
+                                y = c(1, 8), angle = c(0, 180))
     bind_rows(df_tiles, df_pawns)
 }
 
@@ -1293,21 +1269,23 @@ piecepack_tracers <- function() {
 #' @export
 piecepack_triactor <- function(seed = NULL, cfg2 = "playing_cards_expansion") {
     if (!is.null(seed)) withr::local_seed(seed)
-    df_tb <- tibble(piece_side = "tile_back", cfg = "piecepack",
+    df_tb <- piecepack_tiles(side = "back",
                     x = 0.5+rep(c(seq(5,15,2),1,2,18,19),2),
                     y = 0.5+c(rep(1,6),5,3,3,5,rep(11,6),7,9,9,7),
+                    suit = rep(1:4, each = 5L),
+                    rank = rep(2:6, 4L),
                     angle = rep(c(rep(0,7),90,90,0),2))
-    df_tf <- tibble(piece_side = "tile_face", cfg = "piecepack",
+    df_tf <- piecepack_tiles(
                     x = 0.5+c(3,17,17,3), y = 0.5+c(11,11,1,1),
-                    suit = 1:4, rank = 1)
-    df_c1 <- tibble(piece_side = "coin_back", cfg = "piecepack",
+                    suit = 1:4, rank = 1L)
+    df_c1 <- piecepack_coins(side = "back",
                     suit = 1:4, rank = sample.int(6L, 4L, replace = TRUE),
-                    x = 0.5+c(5,15,15,5),y = 0.5+c(11,11,1,1))
-    df_c2 <- tibble(piece_side = "coin_back", cfg = cfg2,
+                    x = 0.5+c(5,15,15,5), y = 0.5+c(11,11,1,1))
+    df_c2 <- piecepack_coins(side = "back", cfg = cfg2,
                     suit = 1:4, rank = sample.int(6L, 4L, replace = TRUE),
                     x = 0.5+c(2,18,18,2), y = 0.5+c(9,9,3,3))
-    df_p <- tibble(piece_side = "pawn_face", cfg = rep(c("piecepack", cfg2), each = 4),
-                   x = 10.5, y = 0.5+0:7, angle = 90, suit = rep(1:4, 2))
+    df_p <- piecepack_pawns(cfg = rep(c("piecepack", cfg2), each = 4),
+                   x = 10.5, y = 0.5+0:7, angle = 90, suit = rep.int(1:4, 2L))
     bind_rows(df_tb, df_tf, df_c1, df_c2, df_p)
 }
 
@@ -1375,16 +1353,18 @@ piecepack_tula <- function(seed = NULL, tiles = NULL,
                                                 rep.int(c(5,3), c(4, 4)),
                                                 4)),
                      abort(paste("Can't handle Tula variant ", variant), class = "board_setup"))
-    bind_cols(df_txy, df_tsr)
+    bind_cols(df_txy, df_tsr) %>% 
+        mutate(cfg = "piecepack", angle = 0) %>%
+        select_piece()
 }
 
 
 #' @rdname piecepack_games_original
 #' @export
 piecepack_wormholes <- function() {
-    df_tiles <- tibble(piece_side = "tile_back",
+    df_tiles <- piecepack_tiles(side = "back", length.out = 23L,
                        x = -0.5 + 2*c(1,2, 2,3, 2,3,4, 3,4,5, 2,3,4, 1,2,3, 2,3,4, 3,4, 4,5),
                        y = -0.5 + 2*c(9,9, 8,8, 7,7,7, 6,6,6, 5,5,5, 4,4,4, 3,3,3, 2,2, 1,1))
-    df_coins <- tibble(piece_side = "pawn_face", x=c(10,10,1,1), y=c(1,2,17,18), suit=1:4)
-    bind_rows(df_tiles, df_coins)
+    df_pawns <- piecepack_pawns(x = c(10,10,1,1), y = c(1,2,17,18))
+    bind_rows(df_tiles, df_pawns)
 }

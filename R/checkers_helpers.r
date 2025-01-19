@@ -1,7 +1,9 @@
 set_cell_width <- function(df, cell_width, system) {
+    if (is.null(cell_width)) return(df)
     df <- mutate(df, cfg = paste0(system, cell_width),
            x = cell_width * .data$x,
-           y = cell_width * .data$y)
+           y = cell_width * .data$y) %>% 
+        select_piece()
     attr(df, "scale_factor") <- cell_width
     df
 }
@@ -14,20 +16,20 @@ to_checkers <- function(df, cell_width = 1, ..., n_players = 2, black_first = FA
     white <- 6L
     black <- 1L # red actually
     dft <- filter(df, grepl("tile", .data$piece_side))
-    width <- max(dft$x) - min(dft$x) + 2
+    width <- max(dft$x) - min(dft$x) + 2L
     df_board <- checkers_board(width, cell_width = NULL, ...)
     df_pieces <- filter(df, !grepl("tile", .data$piece_side))
     df_pieces$piece_side <- "bit_back"
-    df_pieces$angle <- NULL
-    df_pieces$rank <- 1
+    df_pieces$angle <- 0
+    df_pieces$rank <- 1L
     if (n_players == 2) {
         # keep suit == 1L as 1L
-        if (length(unique(df_pieces$suit)) == 4) {
-            df_pieces$suit <- ifelse(df_pieces$suit == 2, black, df_pieces$suit)
-            df_pieces$suit <- ifelse(df_pieces$suit == 3, white, df_pieces$suit)
-            df_pieces$suit <- ifelse(df_pieces$suit == 4, white, df_pieces$suit)
-        } else if (length(unique(df_pieces$suit)) == 2) {
-            df_pieces$suit <- ifelse(df_pieces$suit == 2, white, df_pieces$suit)
+        if (length(unique(df_pieces$suit)) == 4L) {
+            df_pieces$suit <- ifelse(df_pieces$suit == 2L, black, df_pieces$suit)
+            df_pieces$suit <- ifelse(df_pieces$suit == 3L, white, df_pieces$suit)
+            df_pieces$suit <- ifelse(df_pieces$suit == 4L, white, df_pieces$suit)
+        } else if (length(unique(df_pieces$suit)) == 2L) {
+            df_pieces$suit <- ifelse(df_pieces$suit == 2L, white, df_pieces$suit)
         }
         if (black_first) {
             i_white <- which(df_pieces$suit == white)
