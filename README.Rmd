@@ -149,27 +149,27 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="checkers">Checkers Sets</a>
 
-`{ppdf}` supports the following `r nrow(ppdf::games_checkers())` games playable with a (possibly non-8x8) checkers set:
+`{ppdf}` supports the following `r nrow(ppdf::checkers_games())` games playable with a (possibly non-8x8) checkers set:
 
-`r ppdf:::readme_markdown_list(ppdf::games_checkers())`
+`r ppdf:::readme_markdown_list(ppdf::checkers_games())`
 
 ### <a name="chess">Chess Sets</a>
 
-`{ppdf}` supports the following `r nrow(ppdf::games_chess())` games playable with a (possibly non-8x8) chess set:
+`{ppdf}` supports the following `r nrow(ppdf::chess_games())` games playable with a (possibly non-8x8) chess set:
 
-`r ppdf:::readme_markdown_list(ppdf::games_chess())`
+`r ppdf:::readme_markdown_list(ppdf::chess_games())`
 
 ### <a name="dominoes">Dominoes</a>
 
-`{ppdf}` supports the following `r nrow(ppdf::games_dominoes())` games playable with a (usually double-6) dominoes set (plus possibly additional components):
+`{ppdf}` supports the following `r nrow(ppdf::domino_games())` games playable with a (usually double-6) dominoes set (plus possibly additional components):
 
-`r ppdf:::readme_markdown_list(ppdf::games_dominoes())`
+`r ppdf:::readme_markdown_list(ppdf::domino_games())`
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following `r nrow(ppdf::games_piecepack())` games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following `r nrow(ppdf::piecepack_games())` games playable with a piecepack deck (plus possibly additional components):
 
-`r ppdf:::readme_markdown_list(ppdf::games_piecepack())`
+`r ppdf:::readme_markdown_list(ppdf::piecepack_games())`
 
 ## <a name="links">External links</a>
 

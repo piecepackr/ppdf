@@ -2,38 +2,38 @@
 % Please edit documentation in R/games_info.r
 \name{games_info}
 \alias{games_info}
-\alias{games_chess}
-\alias{games_checkers}
-\alias{games_dominoes}
-\alias{games_piecepack}
-\alias{games_stackpack}
+\alias{chess_games}
+\alias{checkers_games}
+\alias{domino_games}
+\alias{piecepack_games}
+\alias{stackpack_games}
 \title{Data frames with game info}
 \usage{
-games_chess()
+chess_games()
 
-games_checkers()
+checkers_games()
 
-games_dominoes()
+domino_games()
 
-games_piecepack()
+piecepack_games()
 
-games_stackpack()
+stackpack_games()
 }
 \value{
 A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with character columns "game", "methods", "comment", and "url"
 for game name, setup function name(s), possible comment, and url for more information.
 }
 \description{
-\code{games_chess()}, \code{games_dominoes()}, \code{games_checkers()}, \code{games_piecepack()}, and \code{games_stackpack()}
+\code{chess_games()}, \code{domino_games()}, \code{checkers_games()}, \code{piecepack_games()}, and \code{stackpack_games()}
 contain information about the games
 whose setups are provided by this package.
 }
 \examples{
-head(games_piecepack())
+head(piecepack_games())
 # Number of games for each game system
-nrow(games_chess())
-nrow(games_checkers())
-nrow(games_dominoes())
-nrow(games_piecepack())
-nrow(games_stackpack())
+nrow(chess_games())
+nrow(checkers_games())
+nrow(domino_games())
+nrow(piecepack_games())
+nrow(stackpack_games())
 }

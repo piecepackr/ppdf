@@ -1,11 +1,11 @@
 #' Setups for chess variants
 #'
-#' \code{tibble} data frames of setups for `r nrow(games_chess_variant())` chess variants.
+#' \code{tibble} data frames of setups for `r nrow(chess_games_variant())` chess variants.
 #' Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 #'
 #' Here are links for more information about the various games:
 #'
-#' `r man_markdown_table(games_chess_variant())`
+#' `r man_markdown_table(chess_games_variant())`
 #'
 #' @param cell_width Width of board cell.  Most renderers support `1` or `2`.
 #' @param seed Seed that determines setup, either an integer or \code{NULL}
@@ -14,7 +14,7 @@
 #' @return `r return_df()`
 NULL
 
-games_chess_variant <- function() {
+chess_games_variant <- function() {
     tribble(~game
             , ~methods
             , ~comment

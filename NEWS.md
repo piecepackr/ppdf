@@ -23,6 +23,11 @@ Deprecated features
   `dominoes_patience()` | `domino_patience()`
   `dominoes_the_jubilee()` | `domino_the_jubilee()`
   `dominoes_tiles()` | `domino_tiles()`
+  `games_chess()` | `chess_games()`
+  `games_checkers()` | `checkers_games()`
+  `games_dominoes()` | `domino_games()`
+  `games_piecepack()` | `piecepack_games()`
+  `games_stackpack()` | `stackpack_games()`
   `piecepack_accordion()` | `piecepack_piecepack_accordion()`
   `piecepack_halma()` | `piecepack_piecepack_halma()`
   `piecepack_klondike()` | `piecepack_piecepack_klondike()`

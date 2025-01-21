@@ -199,17 +199,17 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 `{ppdf}` supports the following 2 games playable with a (possibly non-8x8) chess set:
 
-* [(International) Chess](https://en.wikipedia.org/wiki/Chess)
 * [Fischer Random Chess AKA Chess960](https://www.chessvariants.com/diffsetup.dir/fischer.html)
+* [(International) Chess](https://en.wikipedia.org/wiki/Chess)
 
 ### <a name="dominoes">Dominoes</a>
 
 `{ppdf}` supports the following 7 games playable with a (usually double-6) dominoes set (plus possibly additional components):
 
-* [(Domino) Fuji-san](http://donkirkby.github.io/donimoes/rules.html#fujisan)
-* [(Domino) Patience](http://www.domino-play.com/Games/Patience.htm)
 * [Concentration](http://www.domino-play.com/Games/Concentration.htm)
 * [Domino Finder](https://donkirkby.github.io/donimoes/rules.html#domino-finder)
+* [(Domino) Fuji-san](http://donkirkby.github.io/donimoes/rules.html#fujisan)
+* [(Domino) Patience](http://www.domino-play.com/Games/Patience.htm)
 * [Domino Runners](https://donkirkby.github.io/donimoes/rules.html#domino-runners)
 * [Luzon](http://www.domino-play.com/Games/Luzon.htm)
 * [The Jubilee](http://www.domino-play.com/Games/Jubilee.htm)
@@ -218,12 +218,10 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 `{ppdf}` supports the following 88 games playable with a piecepack deck (plus possibly additional components):
 
-* [(American) Checkers AKA (English) Draughts](https://www.ludism.org/ppwiki/Checkers)
-* [(International) Chess](https://www.ludism.org/ppwiki/Chess)
-* [(Piecepack) Klondike](https://ludism.org/ppwiki/PiecepackKlondike)
 * [Alice Chess](https://en.wikipedia.org/wiki/Alice_chess)
 * [Alien City](https://www.ludism.org/ppwiki/AlienCity)
 * [Alquerque AKA Qirkat](https://en.wikipedia.org/wiki/Alquerque)
+* [(American) Checkers AKA (English) Draughts](https://www.ludism.org/ppwiki/Checkers)
 * [American Pool Checkers](https://draughts.github.io/american-pool-checkers.html)
 * [Awithlaknannai Mosona](https://en.wikipedia.org/wiki/Awithlaknannai_Mosona)
 * [Backgammon](https://www.ludism.org/ppwiki/Backgammon)
@@ -259,6 +257,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Grasshopper](http://www.cyningstan.com/game/71/grasshopper)
 * [Ice Floe](https://www.ludism.org/ppwiki/IceFloe)
 * [Iceberg](https://www.ludism.org/ppwiki/Iceberg)
+* [(International) Chess](https://www.ludism.org/ppwiki/Chess)
 * [Italian Checkers AKA Italian Draughts](https://en.wikipedia.org/wiki/Italian_draughts)
 * [Jamaican Checkers AKA Jamaican Draughts](https://web.archive.org/web/20230605023244/http://poolcheckers.com/jamaica/)
 * [Japan](https://www.ludism.org/ppwiki/Japan)
@@ -276,6 +275,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Pawns Crossing](https://ludism.org/ppwiki/PawnsCrossing)
 * [Piece Gaps](https://www.ludism.org/ppwiki/PieceGaps)
 * [Piece Packing Pirates](https://www.ludism.org/ppwiki/PiecePackingPirates)
+* [(Piecepack) Klondike](https://ludism.org/ppwiki/PiecepackKlondike)
 * [Piecepackman](https://www.ludism.org/ppwiki/Piecepackman)
 * [Plans of Action](https://www.ludism.org/ppwiki/PlansOfAction)
 * [Portuguese Checkers AKA Portuguese Draughts](http://www.fpdamas.pt/regras/)

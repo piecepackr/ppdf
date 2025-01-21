@@ -1,11 +1,11 @@
 #' Setups for checkers variants
 #'
-#' \code{tibble} data frames of setups for `r nrow(games_checkers_variant())` checkers variants.
+#' \code{tibble} data frames of setups for `r nrow(checkers_games_variant())` checkers variants.
 #' Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 #'
 #' Here are links for more information about the various games:
 #'
-#' `r man_markdown_table(games_checkers_variant())`
+#' `r man_markdown_table(checkers_games_variant())`
 #'
 #' @param cell_width Width of board cell.  Most renderers support `1` or `2`.
 #' @name checkers_games_variant
@@ -13,7 +13,7 @@
 #' @return `r return_df()`
 NULL
 
-games_checkers_variant <- function() {
+checkers_games_variant <- function() {
     tribble(~game
             , ~methods
             , ~comment
@@ -107,7 +107,7 @@ checkers_canadian_checkers <- function(cell_width = 1) {
                           x = c(rep(seq.int(1L, 11L, 2L), 3L),
                               rep(seq.int(2L, 12L, 2L), 2L)),
                           y = rep(c(1, 3, 5, 2, 4), each = 6L))
-    df_b <- checkers_bits(suit = 1L, 
+    df_b <- checkers_bits(suit = 1L,
                           x = c(rep(seq.int(1L, 11L, 2L), 2L),
                                 rep(seq.int(2L, 12L, 2L), 3L)),
                           y = rep(c(9, 11, 8, 10, 12), each = 6L))

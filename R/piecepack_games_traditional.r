@@ -1,11 +1,11 @@
 #' Setups for other traditional games playable with a piecepack
 #'
-#' \code{tibble} data frames of setups for `r nrow(games_piecepack_traditional())` other traditional games playable with a piecepack.
+#' \code{tibble} data frames of setups for `r nrow(piecepack_games_traditional())` other traditional games playable with a piecepack.
 #'   Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 #'
 #' Here are links for more information about the various other traditional games:
 #'
-#' `r man_markdown_table(games_piecepack_traditional())`
+#' `r man_markdown_table(piecepack_games_traditional())`
 #'
 #' @param has_matchsticks Has matchsticks
 #' @param has_subpack Has a piecepack subpack
@@ -15,7 +15,7 @@
 #' @return `r return_df()`
 NULL
 
-games_piecepack_traditional <- function() {
+piecepack_games_traditional <- function() {
     tribble(~game
             , ~methods
             , ~comment
@@ -224,7 +224,7 @@ piecepack_cribbage <- function() {
     df_r <- piecepack_rectangular_board(30, 3, x0 = 6, y0 = 3, max_tiles = 12L)
     df_t <- bind_rows(df_l, df_r) %>%
         mutate(suit = rep(1:4, each = 6L), rank = rep.int(1:6, 4L))
-    df_c <- piecepack_coins(side = "face", 
+    df_c <- piecepack_coins(side = "face",
                             rank = rep(rep(1:6, each = 2), 2),
                             suit = c(rep.int(1:2, 6L), rep.int(3:4, 6L)),
                             x = rep(c(2, 7), each = 12),
@@ -324,7 +324,7 @@ piecepack_salta <- function(has_subpack = FALSE) {
         df_t <- piecepack_rectangular_board(10L, 10L)
     }
     df_cf <- piecepack_coins(
-                    rank=c(2:6, 6:2), 
+                    rank=c(2:6, 6:2),
                     suit = c(2, 1, 1, 2, 1, 3, 3, 4, 4, 3),
                     x=c(seq(1,9,2), seq(2,10,2)), y=rep(c(1,10), each=5),
                     angle=rep(c(0,180), each=5)
@@ -332,7 +332,7 @@ piecepack_salta <- function(has_subpack = FALSE) {
     if (has_subpack) {
         df_st <- piecepack_tiles(
                     cfg = "subpack",
-                    suit=rep(c(2L,1L,3L,4L), each=5L), 
+                    suit=rep(c(2L,1L,3L,4L), each=5L),
                     rank=rep.int(2:6, 4L),
                     x=c(seq(2,10,2), seq(1,9,2), seq(10,2,-2), seq(9,1,-2)),
                     y=rep(c(2,3,8,9), each=5), angle=rep(c(0,180), each=10)
@@ -343,7 +343,7 @@ piecepack_salta <- function(has_subpack = FALSE) {
         df <- bind_rows(df_t, df_tb, df_cf, df_st)
     } else {
         df_cb <- piecepack_coins(
-                    side = "back", 
+                    side = "back",
                     suit=c(1:4, 4:1), rank = rep(2:5, 2),
                     x=c(seq(2,8,2), seq(3,9,2)), y=rep(c(2,9), each=4),
                     angle=rep(c(0,180), each=4)

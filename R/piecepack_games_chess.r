@@ -1,11 +1,11 @@
 #' Setups for chess variants playable with a piecepack
 #'
-#' \code{tibble} data frames of setups for `r nrow(games_piecepack_chess())` chess variants playable with a piecepack.
+#' \code{tibble} data frames of setups for `r nrow(piecepack_games_chess())` chess variants playable with a piecepack.
 #'   Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 #'
 #' Here are links for more information about the various chess variants:
 #'
-#' `r man_markdown_table(games_piecepack_chess())`
+#' `r man_markdown_table(piecepack_games_chess())`
 #'
 #' @param cfg2 A string of a piecepack expansion (or perhaps \code{"piecepack"} for a second piecepack)
 #' @param has_subpack Has a piecepack subpack
@@ -15,7 +15,7 @@
 #' @return `r return_df()`
 NULL
 
-games_piecepack_chess <- function() {
+piecepack_games_chess <- function() {
     tribble(~game
             , ~methods
             , ~comment
@@ -79,7 +79,7 @@ piecepack_baroque_chess <- function(has_subpack = FALSE) {
     df_r <- piecepack_coins(
                 suit = 1:4, x = c(1,8,8,1), y = c(8,8,1,1), rank = NA_integer_)
     if (has_subpack) {
-        df_r <- mutate(df_r, 
+        df_r <- mutate(df_r,
                        cfg = rep(c("subpack", "piecepack"), 2L),
                        piece_side = rep(c("tile_face", "die_face"), 2L),
                        rank = 4L, angle = c(180,0,0,180))
@@ -182,12 +182,12 @@ piecepack_four_seasons_chess <- function(has_subpack = FALSE) {
     angles <- c(180,90,0,-90)
     suits <- c(1,4,2,3)
     df_p <- piecepack_coins(side = "back",
-                   suit = rep(suits, each = 4), 
+                   suit = rep(suits, each = 4),
                    rank = rep.int(3:6, 4L),
                    x = c(1,2,3,3,6,6,7,8,8,7,6,6,3,3,2,1),
                    y = c(6,6,7,8,8,7,6,6,3,3,2,1,1,2,3,3),
                    angle = rep(angles, each = 4))
-    df_k <- piecepack_pawns(suit = suits, angle = angles, 
+    df_k <- piecepack_pawns(suit = suits, angle = angles,
                             x = c(1,8,8,1), y = c(8,8,1,1))
     df_r <- piecepack_dice(suit = suits, rank = 4L,
                            x = c(2,7,7,2), y = c(8,8,1,1), angle = angles)
@@ -198,7 +198,7 @@ piecepack_four_seasons_chess <- function(has_subpack = FALSE) {
                    suit = suits, rank = 2L,
                    x = c(1,8,8,1), y = c(7,7,2,2), angle = angles)
     if (has_subpack) {
-        df_sb <- bind_rows(df_k %>% mutate(rank = 6L), df_r, df_b, df_n) %>% 
+        df_sb <- bind_rows(df_k %>% mutate(rank = 6L), df_r, df_b, df_n) %>%
             mutate(piece_side = "tile_face", cfg = "subpack")
     } else {
         df_sb <- bind_rows(df_k, df_r, df_b, df_n)

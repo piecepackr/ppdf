@@ -1,11 +1,11 @@
-#' Setups for various piecepack games
+#' Setups for various original piecepack games
 #'
-#' \code{tibble} data frames of setups for `r nrow(games_piecepack_original())` games playable with a piecepack.
+#' \code{tibble} data frames of setups for `r nrow(piecepack_games_original())` games playable with a piecepack.
 #'   Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 #'
 #' Here are links for more information about the various games:
 #'
-#' `r man_markdown_table(games_piecepack_original())`
+#' `r man_markdown_table(piecepack_games_original())`
 #'
 #' @param seed Seed that determines setup, either an integer or \code{NULL}
 #' @param cfg2 A string of a piecepack expansion (or perhaps \code{"piecepack"} for a second piecepack)
@@ -21,7 +21,7 @@
 #' @name piecepack_games_original
 NULL
 
-games_piecepack_original <- function() {
+piecepack_games_original <- function() {
     tribble(~game
             , ~methods
             , ~comment

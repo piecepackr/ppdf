@@ -4,12 +4,18 @@
 \alias{ppdf-deprecated}
 \alias{dominoes_concentration}
 \alias{dominoes_domino_finder}
+\alias{dominoes_domino_runners}
 \alias{dominoes_fujisan}
 \alias{dominoes_luzon}
 \alias{dominoes_none}
 \alias{dominoes_patience}
 \alias{dominoes_the_jubilee}
 \alias{dominoes_tiles}
+\alias{games_checkers}
+\alias{games_chess}
+\alias{games_dominoes}
+\alias{games_piecepack}
+\alias{games_stackpack}
 \alias{piecepack_piecepack_accordion}
 \alias{piecepack_piecepack_halma}
 \alias{piecepack_piecepack_klondike}
@@ -19,6 +25,8 @@
 dominoes_concentration(seed = NULL)
 
 dominoes_domino_finder(seed = NULL)
+
+dominoes_domino_runners(seed = NULL)
 
 dominoes_fujisan(seed = NULL)
 
@@ -42,6 +50,16 @@ dominoes_tiles(
   y = 2 * rep.int(n:1, n:1) - 0.5,
   angle = 0
 )
+
+games_checkers()
+
+games_chess()
+
+games_dominoes()
+
+games_piecepack()
+
+games_stackpack()
 
 piecepack_piecepack_accordion(seed = NULL, tiles = NULL)
 
@@ -110,6 +128,11 @@ they will be marked as Defunct and removed in a future version.
    \code{dominoes_patience()} \tab \code{domino_patience()} \cr
    \code{dominoes_the_jubilee()} \tab \code{domino_the_jubilee()} \cr
    \code{dominoes_tiles()} \tab \code{domino_tiles()} \cr
+   \code{games_checkers()} \tab \code{checkers_games()} \cr
+   \code{games_chess()} \tab \code{chess_games()} \cr
+   \code{games_dominoes()} \tab \code{domino_games()} \cr
+   \code{games_piecepack()} \tab \code{piecepack_games()} \cr
+   \code{games_stackpack()} \tab \code{stackpack_games()} \cr
    \code{piecepack_piecepack_accordion()} \tab \code{piecepack_accordion()} \cr
    \code{piecepack_piecepack_halma()} \tab \code{piecepack_halma()} \cr
    \code{piecepack_piecepack_klondike()} \tab \code{piecepack_klondike()} \cr

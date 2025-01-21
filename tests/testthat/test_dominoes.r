@@ -2,7 +2,7 @@ test_that("dominoes setups work as expected", {
     skip_if_not_installed("ppcli")
     skip_on_os("windows")
 
-    expect_equal(nrow(games_dominoes()), 7L)
+    expect_equal(nrow(domino_games()), 7L)
     expect_equal(dominoes_by_name("Domino Runners", seed = 42),
                  domino_runners(seed = 42))
 

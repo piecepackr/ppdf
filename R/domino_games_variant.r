@@ -1,11 +1,11 @@
 #' Setups for dominoes variants
 #'
-#' \code{tibble} data frames of setups for `r nrow(games_dominoes_variant())` dominoes variants.
+#' \code{tibble} data frames of setups for `r nrow(domino_games_variant())` dominoes variants.
 #' Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 #'
 #' Here are links for more information about the various games:
 #'
-#' `r man_markdown_table(games_dominoes_variant())`
+#' `r man_markdown_table(domino_games_variant())`
 #'
 #' @param seed Seed that determines setup, either an integer or \code{NULL}
 #' @name domino_games_variant
@@ -13,7 +13,7 @@
 #' @rdname domino_games_variant
 NULL
 
-games_dominoes_variant <- function() {
+domino_games_variant <- function() {
     tribble(~game
             , ~methods
             , ~comment
@@ -175,9 +175,9 @@ domino_tiles <- function(n = 7, ...,
                            y = 2 * rep.int(n:1, n:1) - 0.5,
                            angle = 0) {
     check_dots_empty()
-    tibble(piece_side = piece_side, 
+    tibble(piece_side = piece_side,
            suit = as.integer(suit),
-           rank = as.integer(rank), 
+           rank = as.integer(rank),
            cfg = cfg,
            x = as.double(x),
            y = as.double(y),
