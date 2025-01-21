@@ -2,7 +2,7 @@ test_that("game diagrams work as expected", {
     skip_if_not_installed("ppcli")
     skip_on_os("windows")
 
-    expect_equal(nrow(games_checkers()), 23L)
+    expect_equal(nrow(checkers_games()), 23L)
 
     expect_snapshot(cat_piece(checkers_american_checkers()))
     expect_snapshot(cat_piece(checkers_american_pool_checkers()))

@@ -1,17 +1,17 @@
 #' Data frames with game info
 #'
-#' `games_chess()`, ``games_dominoes()``, `games_checkers()`, `games_piecepack()`, and `games_stackpack()`
+#' `chess_games()`, ``domino_games()``, `checkers_games()`, `piecepack_games()`, and `stackpack_games()`
 #' contain information about the games
 #' whose setups are provided by this package.
 #'
 #' @examples
-#' head(games_piecepack())
+#' head(piecepack_games())
 #' # Number of games for each game system
-#' nrow(games_chess())
-#' nrow(games_checkers())
-#' nrow(games_dominoes())
-#' nrow(games_piecepack())
-#' nrow(games_stackpack())
+#' nrow(chess_games())
+#' nrow(checkers_games())
+#' nrow(domino_games())
+#' nrow(piecepack_games())
+#' nrow(stackpack_games())
 #' @return A [tibble::tibble()] data frame with character columns "game", "methods", "comment", and "url"
 #'         for game name, setup function name(s), possible comment, and url for more information.
 #' @rdname games_info
@@ -20,42 +20,48 @@ NULL
 
 #' @rdname games_info
 #' @export
-games_chess <- function() {
-    bind_rows(games_chess_variant()) %>%
-        arrange(.data$game)
+chess_games <- function() {
+    bind_rows(chess_games_variant()) %>%
+        arrange_games()
 }
 
 #' @rdname games_info
 #' @export
-games_checkers <- function() {
-    bind_rows(games_checkers_variant(),
-                    games_checkers_other()) %>%
-        arrange(.data$game)
+checkers_games <- function() {
+    bind_rows(checkers_games_variant(),
+                    checkers_games_other()) %>%
+        arrange_games()
 }
 
 #' @rdname games_info
 #' @export
-games_dominoes <- function() {
-    bind_rows(games_dominoes_variant()) %>%
-        arrange(.data$game)
+domino_games <- function() {
+    bind_rows(domino_games_variant()) %>%
+        arrange_games()
 }
 
 #' @rdname games_info
 #' @export
-games_piecepack <- function() {
-    bind_rows(games_piecepack_checkers(),
-              games_piecepack_chess(),
-              games_piecepack_original(),
-              games_piecepack_other(),
-              games_piecepack_traditional()) %>%
-        arrange(.data$game)
+piecepack_games <- function() {
+    bind_rows(piecepack_games_checkers(),
+              piecepack_games_chess(),
+              piecepack_games_original(),
+              piecepack_games_other(),
+              piecepack_games_traditional()) %>%
+        arrange_games()
 }
 
 #' @rdname games_info
 #' @export
-games_stackpack <- function() {
-    bind_rows(games_stackpack_other()) %>%
-        arrange(.data$game)
+stackpack_games <- function() {
+    bind_rows(stackpack_games_other()) %>%
+        arrange_games()
+}
+
+arrange_games <- function(df) {
+    mutate(df, name = gsub("\\(|\\)", "", .data$game)) %>%
+        arrange(.data$name) %>%
+        select(-"name")
 }
 
 readme_markdown_list <- function(df) {

@@ -24,6 +24,13 @@ dominoes_domino_finder <- function(seed = NULL) {
 
 #' @rdname ppdf-deprecated
 #' @export
+dominoes_domino_runners <- function(seed = NULL) {
+    .Deprecated("domino_runners")
+    domino_runners(seed = seed)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
 dominoes_fujisan <- function(seed = NULL) {
     .Deprecated("domino_fujisan")
     domino_fujisan(seed = seed)
@@ -72,6 +79,41 @@ dominoes_tiles <- function(n = 7, ...,
     .Deprecated("domino_tiles")
     domino_tiles(n = n, piece_side = piece_side, suit = suit, rank = rank, cfg = cfg,
                  x = x, y = y, angle = angle)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+games_checkers <- function() {
+    .Deprecated("checkers_games()")
+    checkers_games()
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+games_chess <- function() {
+    .Deprecated("chess_games()")
+    chess_games()
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+games_dominoes <- function() {
+    .Deprecated("domino_games()")
+    domino_games()
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+games_piecepack <- function() {
+    .Deprecated("piecepack_games()")
+    piecepack_games()
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+games_stackpack <- function() {
+    .Deprecated("stackpack_games()")
+    stackpack_games()
 }
 
 #' @rdname ppdf-deprecated

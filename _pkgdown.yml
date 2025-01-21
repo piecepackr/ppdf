@@ -8,7 +8,7 @@ reference:
     - title: "Info about games supported by this package"
       desc: "Functions that generate data frames with information about the games whose setups are provided by this package."
       contents:
-        - games_checkers
+        - checkers_games
     - title: "Setups for checkers/draughts sets"
       desc: "Functions that generate data frames to setup checkers/draughts sets."
       contents:

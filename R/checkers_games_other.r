@@ -1,11 +1,11 @@
 #' Setups for other games playable with a checkers set
 #'
-#' \code{tibble} data frames of setups for `r nrow(games_checkers_other())` other games playable with a checkers set.
+#' \code{tibble} data frames of setups for `r nrow(checkers_games_other())` other games playable with a checkers set.
 #' Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 #'
 #' Here are links for more information about the various games:
 #'
-#' `r man_markdown_table(games_checkers_other())`
+#' `r man_markdown_table(checkers_games_other())`
 #'
 #' @param cell_width Width of board cell.  Most renderers support `1` or `2`.
 #' @name checkers_games_other
@@ -13,7 +13,7 @@
 #' @return `r return_df()`
 NULL
 
-games_checkers_other <- function() {
+checkers_games_other <- function() {
     tribble(~game
             , ~methods
             , ~comment

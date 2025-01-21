@@ -53,7 +53,7 @@
 \alias{piecepack_triactor}
 \alias{piecepack_tula}
 \alias{piecepack_wormholes}
-\title{Setups for various piecepack games}
+\title{Setups for various original piecepack games}
 \usage{
 piecepack_alien_city(seed = NULL, tiles = NULL)
 

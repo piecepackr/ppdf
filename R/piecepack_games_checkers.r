@@ -1,18 +1,18 @@
 #' Setups for checkers variants playable with a piecepack
 #'
-#' \code{tibble} data frames of setups for `r nrow(games_piecepack_checkers())` checkers variants playable with a piecepack.
+#' \code{tibble} data frames of setups for `r nrow(piecepack_games_checkers())` checkers variants playable with a piecepack.
 #'   Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 #'
 #' Here are links for more information about the various checkers variants:
 #'
-#' `r man_markdown_table(games_piecepack_checkers())`
+#' `r man_markdown_table(piecepack_games_checkers())`
 #'
 #' @rdname piecepack_games_checkers
 #' @name piecepack_games_checkers
 #' @return `r return_df()`
 NULL
 
-games_piecepack_checkers <- function() {
+piecepack_games_checkers <- function() {
     tribble(~game
             , ~methods
             , ~comment

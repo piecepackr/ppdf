@@ -1,11 +1,11 @@
 #' Setups for other modern games playable with a piecepack
 #'
-#' \code{tibble} data frames of setups for `r nrow(games_piecepack_other())` other games playable with a piecepack.
+#' \code{tibble} data frames of setups for `r nrow(piecepack_games_other())` other games playable with a piecepack.
 #'   Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 #'
 #' Here are links for more information about the various other games:
 #'
-#' `r man_markdown_table(games_piecepack_other())`
+#' `r man_markdown_table(piecepack_games_other())`
 #'
 #' @param seed Seed that determines setup, either an integer or \code{NULL}
 #' @param coins String of coin layout
@@ -14,7 +14,7 @@
 #' @return `r return_df()`
 NULL
 
-games_piecepack_other <- function() {
+piecepack_games_other <- function() {
     tribble(~game
             , ~methods
             , ~comment
@@ -112,7 +112,7 @@ piecepack_lines_of_action <- function() {
 piecepack_quatri <- function() {
     df_tiles <- piecepack_rectangular_board(4L, 4L)
     df_coins <- piecepack_coins(side = "back",
-                       x = rep(1:4, 2), 
+                       x = rep(1:4, 2),
                        y = rep(c(4,1), each=4),
                        suit = c(1,2,1,2, 2,1,2,1),
                        rank = c(2,2,3,3, 5,5,4,4),
