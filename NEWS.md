@@ -27,6 +27,10 @@ New features
   + `piecepack_rectangular_board()`
   + `piecepack_tiles()`
 
+* The following functions generate data frames to setup other games playable with piecepack sets:
+
+  * `piecepack_pawns_crossing()` (#36)
+
 Bug fixes and minor improvements
 --------------------------------
 

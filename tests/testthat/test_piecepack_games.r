@@ -2,7 +2,7 @@ test_that("piecepack diagrams work as expected", {
     skip_if_not_installed("ppcli")
     skip_on_os("windows")
 
-    expect_equal(nrow(games_piecepack()), 87L)
+    expect_equal(nrow(games_piecepack()), 88L)
 
     expect_snapshot(cat_piece(piecepack_alice_chess()))
     expect_snapshot(cat_piece(piecepack_alien_city(seed=42), reorient = "symbols"))
@@ -69,6 +69,11 @@ test_that("piecepack diagrams work as expected", {
     expect_snapshot(cat_piece(piecepack_nine_mens_morris(has_matchsticks = TRUE)))
     expect_snapshot(cat_piece(piecepack_one_man_thrag(seed = 42)))
     expect_snapshot(cat_piece(piecepack_pass_the_food()))
+    expect_snapshot({
+        cat_piece(piecepack_pawns_crossing(seed=42, n_players = 2L), reorient = "symbols")
+        cat_piece(piecepack_pawns_crossing(seed=42, n_players = 3L), reorient = "symbols")
+        cat_piece(piecepack_pawns_crossing(seed=42, n_players = 4L), reorient = "symbols")
+    })
     expect_snapshot(cat_piece(piecepack_piece_gaps(seed = 23)))
     expect_snapshot(cat_piece(piecepack_piece_packing_pirates(seed = 42)))
     expect_snapshot(cat_piece(piecepack_piecepack_klondike(seed = 42)))

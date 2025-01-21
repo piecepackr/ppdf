@@ -28,6 +28,7 @@
 \alias{piecepack_landlocked}
 \alias{piecepack_ley_lines}
 \alias{piecepack_mathrix}
+\alias{piecepack_pawns_crossing}
 \alias{piecepack_piecepackman}
 \alias{piecepack_one_man_thrag}
 \alias{piecepack_pass_the_food}
@@ -106,6 +107,8 @@ piecepack_ley_lines()
 
 piecepack_mathrix(seed = NULL, coins = NULL)
 
+piecepack_pawns_crossing(..., seed = NULL, n_players = 2L)
+
 piecepack_piecepackman(seed = NULL, variant = "Roundabout")
 
 piecepack_one_man_thrag(seed = NULL)
@@ -171,9 +174,11 @@ piecepack_wormholes()
 
 \item{pawns}{String of pawns layout}
 
-\item{cfg2}{A string of a piecepack expansion (or perhaps \code{"piecepack"} for a second piecepack)}
+\item{...}{Should be left empty.}
 
 \item{n_players}{Number of players}
+
+\item{cfg2}{A string of a piecepack expansion (or perhaps \code{"piecepack"} for a second piecepack)}
 }
 \value{
 A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:
@@ -190,7 +195,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 49 games playable with a piecepack.
+\code{tibble} data frames of setups for 50 games playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -223,6 +228,7 @@ Here are links for more information about the various games:\tabular{ll}{
    Mathrix \tab \url{https://www.ludism.org/ppwiki/Mathrix} \cr
    One Man Thrag! \tab \url{https://www.ludism.org/ppwiki/OneManThrag} \cr
    Pass the Food \tab \url{https://www.ludism.org/ppwiki/PassTheFood} \cr
+   Pawns Crossing \tab \url{https://ludism.org/ppwiki/PawnsCrossing} \cr
    Piece Gaps \tab \url{https://www.ludism.org/ppwiki/PieceGaps} \cr
    Piece Packing Pirates \tab \url{https://www.ludism.org/ppwiki/PiecePackingPirates} \cr
    Piecepack Klondike \tab \url{https://ludism.org/ppwiki/PiecepackKlondike} \cr
