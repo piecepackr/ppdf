@@ -54,8 +54,8 @@ games_piecepack_original <- function() {
             , "``piecepack_chariots()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Chariots"
-            , "Chinese Checkers AKA Piecepack Halma"
-            , "``piecepack_chinese_checkers()`` aka ``piecepack_piecepack_halma()``"
+            , "Chinese Checkers AKA (Piecepack) Halma"
+            , "``piecepack_chinese_checkers()`` aka ``piecepack_halma()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/ChineseCheckers"
             , "Climbing Man"
@@ -146,8 +146,8 @@ games_piecepack_original <- function() {
             , "``piecepack_piece_packing_pirates()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/PiecePackingPirates"
-            , "Piecepack Klondike"
-            , "``piecepack_piecepack_klondike()``"
+            , "(Piecepack) Klondike"
+            , "``piecepack_klondike()``"
             , NA_character_
             , "https://ludism.org/ppwiki/PiecepackKlondike"
             , "Piecepackman"
@@ -202,8 +202,8 @@ games_piecepack_original <- function() {
             , "``piecepack_the_penguin_game()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/PenguinGame"
-            , "Tower of Babel AKA Piecepack Accordion"
-            , "``piecepack_tower_of_babel()`` aka ``piecepack_piecepack_accordion()``"
+            , "Tower of Babel AKA (Piecepack) Accordion"
+            , "``piecepack_tower_of_babel()`` aka ``piecepack_accordion()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/TowerOfBabel"
             , "Tracers"
@@ -430,7 +430,7 @@ piecepack_chinese_checkers <- function() {
 
 #' @rdname piecepack_games_original
 #' @export
-piecepack_piecepack_halma <- piecepack_chinese_checkers
+piecepack_halma <- piecepack_chinese_checkers
 
 #' @rdname piecepack_games_original
 #' @export
@@ -1014,7 +1014,7 @@ piecepack_pass_the_food <- function() {
 
 #' @rdname piecepack_games_original
 #' @export
-piecepack_piecepack_klondike <- function(seed = NULL) {
+piecepack_klondike <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
     df_tiles <- piecepack_tiles(side = c(rep_len("back", 15L),
                                          rep_len("face", 6L),
@@ -1326,7 +1326,7 @@ piecepack_tower_of_babel <- function(seed = NULL, tiles = NULL) {
 
 #' @rdname piecepack_games_original
 #' @export
-piecepack_piecepack_accordion <- piecepack_tower_of_babel
+piecepack_accordion <- piecepack_tower_of_babel
 
 #' @rdname piecepack_games_original
 #' @export

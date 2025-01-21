@@ -1438,7 +1438,7 @@
 ---
 
     Code
-      cat_piece(piecepack_piecepack_klondike(seed = 42))
+      cat_piece(piecepack_klondike(seed = 42))
     Output
         ┌─┰─┐                    
         │ ┃ │                    

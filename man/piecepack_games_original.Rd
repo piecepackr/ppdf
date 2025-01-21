@@ -10,7 +10,7 @@
 \alias{piecepack_cell_management}
 \alias{piecepack_chariots}
 \alias{piecepack_chinese_checkers}
-\alias{piecepack_piecepack_halma}
+\alias{piecepack_halma}
 \alias{piecepack_coin_collectors}
 \alias{piecepack_climbing_man}
 \alias{piecepack_crocodile_hop}
@@ -32,7 +32,7 @@
 \alias{piecepack_piecepackman}
 \alias{piecepack_one_man_thrag}
 \alias{piecepack_pass_the_food}
-\alias{piecepack_piecepack_klondike}
+\alias{piecepack_klondike}
 \alias{piecepack_piece_gaps}
 \alias{piecepack_piece_packing_pirates}
 \alias{piecepack_plans_of_action}
@@ -48,7 +48,7 @@
 \alias{piecepack_the_magic_bag}
 \alias{piecepack_the_penguin_game}
 \alias{piecepack_tower_of_babel}
-\alias{piecepack_piecepack_accordion}
+\alias{piecepack_accordion}
 \alias{piecepack_tracers}
 \alias{piecepack_triactor}
 \alias{piecepack_tula}
@@ -71,7 +71,7 @@ piecepack_chariots()
 
 piecepack_chinese_checkers()
 
-piecepack_piecepack_halma()
+piecepack_halma()
 
 piecepack_coin_collectors(seed = NULL, tiles = NULL, coins = NULL, dice = NULL)
 
@@ -115,7 +115,7 @@ piecepack_one_man_thrag(seed = NULL)
 
 piecepack_pass_the_food()
 
-piecepack_piecepack_klondike(seed = NULL)
+piecepack_klondike(seed = NULL)
 
 piecepack_piece_gaps(seed = NULL)
 
@@ -147,7 +147,7 @@ piecepack_the_penguin_game(seed = NULL)
 
 piecepack_tower_of_babel(seed = NULL, tiles = NULL)
 
-piecepack_piecepack_accordion(seed = NULL, tiles = NULL)
+piecepack_accordion(seed = NULL, tiles = NULL)
 
 piecepack_tracers()
 
@@ -208,7 +208,7 @@ Here are links for more information about the various games:\tabular{ll}{
    Cardinal's Guards \tab \url{https://ludism.org/ppwiki/CardinalsGuards} \cr
    Cell Management \tab \url{https://www.ludism.org/ppwiki/CellManagement} \cr
    Chariots \tab \url{https://www.ludism.org/ppwiki/Chariots} \cr
-   Chinese Checkers AKA Piecepack Halma \tab \url{https://www.ludism.org/ppwiki/ChineseCheckers} \cr
+   Chinese Checkers AKA (Piecepack) Halma \tab \url{https://www.ludism.org/ppwiki/ChineseCheckers} \cr
    Climbing Man \tab \url{https://www.ludism.org/ppwiki/ClimbingMan} \cr
    Coin Collectors \tab \url{https://www.ludism.org/ppwiki/CoinCollectors} \cr
    Crocodile Hop \tab \url{https://www.ludism.org/ppwiki/CrocodileHop} \cr
@@ -231,7 +231,7 @@ Here are links for more information about the various games:\tabular{ll}{
    Pawns Crossing \tab \url{https://ludism.org/ppwiki/PawnsCrossing} \cr
    Piece Gaps \tab \url{https://www.ludism.org/ppwiki/PieceGaps} \cr
    Piece Packing Pirates \tab \url{https://www.ludism.org/ppwiki/PiecePackingPirates} \cr
-   Piecepack Klondike \tab \url{https://ludism.org/ppwiki/PiecepackKlondike} \cr
+   (Piecepack) Klondike \tab \url{https://ludism.org/ppwiki/PiecepackKlondike} \cr
    Piecepackman \tab \url{https://www.ludism.org/ppwiki/Piecepackman} \cr
    Plans of Action \tab \url{https://www.ludism.org/ppwiki/PlansOfAction} \cr
    Relativity \tab \url{https://www.ludism.org/ppwiki/Relativity} \cr
@@ -245,7 +245,7 @@ Here are links for more information about the various games:\tabular{ll}{
    The "In" Crowd \tab \url{https://www.ludism.org/ppwiki/TheInCrowd} \cr
    The Magic Bag \tab \url{https://www.ludism.org/ppwiki/The_Magic_Bag} \cr
    The Penguin Game \tab \url{https://www.ludism.org/ppwiki/PenguinGame} \cr
-   Tower of Babel AKA Piecepack Accordion \tab \url{https://www.ludism.org/ppwiki/TowerOfBabel} \cr
+   Tower of Babel AKA (Piecepack) Accordion \tab \url{https://www.ludism.org/ppwiki/TowerOfBabel} \cr
    Tracers \tab \url{https://www.ludism.org/ppwiki/Tracers} \cr
    Triactor \tab \url{https://www.ludism.org/ppwiki/Triactor} \cr
    Tula \tab \url{https://www.ludism.org/ppwiki/Tula} \cr

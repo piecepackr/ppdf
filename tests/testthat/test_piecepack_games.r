@@ -4,6 +4,10 @@ test_that("piecepack diagrams work as expected", {
 
     expect_equal(nrow(games_piecepack()), 88L)
 
+    expect_equal(piecepack_by_name("Piecepack Halma"), piecepack_halma())
+    expect_equal(piecepack_by_name("Piecepackman", seed = 42),
+                 piecepack_piecepackman(seed = 42))
+
     expect_snapshot(cat_piece(piecepack_alice_chess()))
     expect_snapshot(cat_piece(piecepack_alien_city(seed=42), reorient = "symbols"))
     expect_snapshot({
@@ -76,7 +80,7 @@ test_that("piecepack diagrams work as expected", {
     })
     expect_snapshot(cat_piece(piecepack_piece_gaps(seed = 23)))
     expect_snapshot(cat_piece(piecepack_piece_packing_pirates(seed = 42)))
-    expect_snapshot(cat_piece(piecepack_piecepack_klondike(seed = 42)))
+    expect_snapshot(cat_piece(piecepack_klondike(seed = 42)))
     expect_snapshot(cat_piece(piecepack_piecepackman(seed = 42)))
     expect_error(piecepack_piecepackman(seed = 42, variant = 2))
     expect_snapshot(cat_piece(piecepack_plans_of_action(seed=42)))

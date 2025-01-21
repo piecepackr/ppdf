@@ -14,7 +14,7 @@ return_df <- function() {
 * "rank"
 * "cfg" (optional, defaults to `"piecepack"`)
 * "x"
-* "y" 
+* "y"
 * "angle" (optional, defaults to `0`).
 
 This data frame is compatible with [piecepackr::render_piece()] and likely [ppcli::cat_piece()].'
@@ -41,6 +41,12 @@ deprecated_table <- function() {
             , "``domino_the_jubilee()``"
             , "``dominoes_tiles()``"
             , "``domino_tiles()``"
+            , "``piecepack_piecepack_accordion()``"
+            , "``piecepack_accordion()``"
+            , "``piecepack_piecepack_halma()``"
+            , "``piecepack_halma()``"
+            , "``piecepack_piecepack_klondike()``"
+            , "``piecepack_klondike()``"
             , "``piecepack_rect_board_tiles()``"
             , "``piecepack_rectangular_board()``"
     )
