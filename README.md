@@ -49,7 +49,7 @@ remotes::install_github("piecepackr/ppdf")
 
 
 ``` r
-df_fujisan <- ppdf::dominoes_fujisan(seed = 42)
+df_fujisan <- ppdf::domino_fujisan(seed = 42)
 
 if (requireNamespace("piecepackr", quietly = TRUE) &&
     requireNamespace("systemfonts", quietly = TRUE) &&

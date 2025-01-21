@@ -47,7 +47,7 @@ remotes::install_github("piecepackr/ppdf")
 ### <a name="fujisan">Domino Fuji-san</a>
 
 ```{r grid-fuji-san}
-df_fujisan <- ppdf::dominoes_fujisan(seed = 42)
+df_fujisan <- ppdf::domino_fujisan(seed = 42)
 
 if (requireNamespace("piecepackr", quietly = TRUE) &&
     requireNamespace("systemfonts", quietly = TRUE) &&

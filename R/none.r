@@ -26,7 +26,7 @@ chess_none <- df_none
 
 #' @rdname setup_none
 #' @export
-dominoes_none <- df_none
+domino_none <- df_none
 
 #' @rdname setup_none
 #' @export

@@ -19,3 +19,31 @@ return_df <- function() {
 
 This data frame is compatible with [piecepackr::render_piece()] and likely [ppcli::cat_piece()].'
 }
+
+deprecated_table <- function() {
+    df <- tribble(~deprecated
+            , ~replacement
+            , "``dominoes_concentration()``"
+            , "``domino_concentration()``"
+            , "``dominoes_domino_finder()``"
+            , "``domino_finder()``"
+            , "``dominoes_domino_runners()``"
+            , "``domino_runners()``"
+            , "``dominoes_fujisan()``"
+            , "``domino_fujisan()``"
+            , "``dominoes_luzon()``"
+            , "``domino_luzon()``"
+            , "``dominoes_none()``"
+            , "``domino_none()``"
+            , "``dominoes_patience()``"
+            , "``domino_patience()``"
+            , "``dominoes_the_jubilee()``"
+            , "``domino_the_jubilee()``"
+            , "``dominoes_tiles()``"
+            , "``domino_tiles()``"
+            , "``piecepack_rect_board_tiles()``"
+            , "``piecepack_rectangular_board()``"
+    )
+    names(df) <- c("**Deprecated function**", "**Replacement function**")
+    knitr::kable(df, "pipe")
+}

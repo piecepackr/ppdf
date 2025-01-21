@@ -23,8 +23,8 @@ reference:
     - title: "Setups for domino sets"
       desc: "Functions that generate data frames to setup dominoes."
       contents:
-        - dominoes_tiles
-        - dominoes_fujisan
+        - domino_tiles
+        - domino_fujisan
     - title: "Setups for piecepack decks"
       desc: "Functions that generate data frames to setup piecepack pieces."
       contents:

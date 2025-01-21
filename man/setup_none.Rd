@@ -4,7 +4,7 @@
 \alias{setup_none}
 \alias{checkers_none}
 \alias{chess_none}
-\alias{dominoes_none}
+\alias{domino_none}
 \alias{piecepack_none}
 \alias{stackpack_none}
 \title{Zero-row data frames}
@@ -13,7 +13,7 @@ checkers_none()
 
 chess_none()
 
-dominoes_none()
+domino_none()
 
 piecepack_none()
 

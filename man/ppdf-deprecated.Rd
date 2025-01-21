@@ -2,9 +2,44 @@
 % Please edit documentation in R/ppdf-deprecated.r
 \name{ppdf-deprecated}
 \alias{ppdf-deprecated}
+\alias{dominoes_concentration}
+\alias{dominoes_domino_finder}
+\alias{dominoes_fujisan}
+\alias{dominoes_luzon}
+\alias{dominoes_none}
+\alias{dominoes_patience}
+\alias{dominoes_the_jubilee}
+\alias{dominoes_tiles}
 \alias{piecepack_rect_board_tiles}
 \title{Deprecated functions}
 \usage{
+dominoes_concentration(seed = NULL)
+
+dominoes_domino_finder(seed = NULL)
+
+dominoes_fujisan(seed = NULL)
+
+dominoes_luzon(seed = NULL)
+
+dominoes_none()
+
+dominoes_patience(seed = NULL)
+
+dominoes_the_jubilee(seed = NULL)
+
+dominoes_tiles(
+  n = 7,
+  ...,
+  side = "face",
+  piece_side = paste0("tile_", side),
+  suit = sequence(n:1, from = 1:n),
+  rank = rep.int(1:n, n:1),
+  cfg = "dominoes",
+  x = sequence(n:1, from = 1:n),
+  y = 2 * rep.int(n:1, n:1) - 0.5,
+  angle = 0
+)
+
 piecepack_rect_board_tiles(
   nrows = 8L,
   ncols = 8L,
@@ -16,9 +51,54 @@ piecepack_rect_board_tiles(
 )
 }
 \arguments{
-\item{nrows, ncols, x0, y0, max_tiles, suit, rank}{See \code{\link[=piecepack_rectangular_board]{piecepack_rectangular_board()}}.}
+\item{seed}{Seed that determines setup, either an integer or \code{NULL}}
+
+\item{n}{The number of doubles in a set e.g. \code{n = 7} for double-6 set, \code{n = 10} for a double-9 set, \code{n = 13} for a double-12 set.}
+
+\item{...}{Should be left empty.}
+
+\item{side}{Either "face" or "back".}
+
+\item{piece_side}{Either "tile_face" or "tile_back".}
+
+\item{suit}{"Bottom" half of domino.}
+
+\item{rank}{"Top" half of domino.}
+
+\item{cfg}{"dominoes" or perhaps "dominoes_black", "dominoes_blue", "dominoes_green", "dominoes_red", "dominoes_white", or "dominoes_yellow".}
+
+\item{x, y}{Cartesian coordinates (numeric vectors)}
+
+\item{angle}{Rotation of dominoes (numeric vector of degrees, counter-clockwise)}
+
+\item{nrows}{Number of rows in game board}
+
+\item{ncols}{Number of columns in game board}
+
+\item{x0}{X coordinate for the center of the first cell/point for \code{piecepack_rectangular_board()}.
+X coordinate for center of bottom-left tile for \code{piecepack_donut_board()}.}
+
+\item{y0}{Y coordinate for the center of the first cell/point for \code{piecepack_rectangular_board()}.
+Y coordinate for center of bottom-left tile for \code{piecepack_donut_board()}.}
+
+\item{max_tiles}{Maximum number of tiles that can be used}
 }
 \description{
 These functions are Deprecated in this release of ppdf,
 they will be marked as Defunct and removed in a future version.
+}
+\details{
+\tabular{ll}{
+   \strong{Deprecated function} \tab \strong{Replacement function} \cr
+   \code{dominoes_concentration()} \tab \code{domino_concentration()} \cr
+   \code{dominoes_domino_finder()} \tab \code{domino_finder()} \cr
+   \code{dominoes_domino_runners()} \tab \code{domino_runners()} \cr
+   \code{dominoes_fujisan()} \tab \code{domino_fujisan()} \cr
+   \code{dominoes_luzon()} \tab \code{domino_luzon()} \cr
+   \code{dominoes_none()} \tab \code{domino_none()} \cr
+   \code{dominoes_patience()} \tab \code{domino_patience()} \cr
+   \code{dominoes_the_jubilee()} \tab \code{domino_the_jubilee()} \cr
+   \code{dominoes_tiles()} \tab \code{domino_tiles()} \cr
+   \code{piecepack_rect_board_tiles()} \tab \code{piecepack_rectangular_board()} \cr
+}
 }
