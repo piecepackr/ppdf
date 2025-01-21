@@ -15,6 +15,7 @@
 #' @param pawns String of pawns layout
 #' @param n_players Number of players
 #' @param variant Name of variant
+#' @param ... Should be left empty.
 #' @rdname piecepack_games_original
 #' @return `r return_df()`
 #' @name piecepack_games_original
@@ -133,6 +134,10 @@ games_piecepack_original <- function() {
             , "``piecepack_pass_the_food()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/PassTheFood"
+            , "Pawns Crossing"
+            , "``piecepack_pawns_crossing()``"
+            , NA_character_
+            , "https://ludism.org/ppwiki/PawnsCrossing"
             , "Piece Gaps"
             , "``piecepack_piece_gaps()``"
             , NA_character_
@@ -291,7 +296,7 @@ piecepack_brain_burn <- function(seed = NULL) {
     df_tiles <- tibble(piece_side = "tile_face",
                        cfg = "piecepack", angle = 0,
                        x = rep(seq(1.5, 10, 2), 5),
-                       y = rep(seq(1.5, 10, 2), each = 5)) %>% 
+                       y = rep(seq(1.5, 10, 2), each = 5)) %>%
         slice(-sample.int(25, 1)) %>%
         mutate(suit = rep(1:4, each = 6L), rank = rep(1:6, 4L)) %>%
         slice_sample_piece()
@@ -625,7 +630,7 @@ piecepack_fujisan <- function(seed = NULL, coins = NULL, dice = NULL) {
         } else {
             dice <- process_ranks(dice)
         }
-        df_d <- piecepack_dice(x = c(16,17,16,17), y = c(2,2,1,1), 
+        df_d <- piecepack_dice(x = c(16,17,16,17), y = c(2,2,1,1),
                                suit = c(1,2,4,3), rank = dice)
         bind_rows(df_t, df_c, df_p, df_d)
     } else {
@@ -670,11 +675,11 @@ piecepack_galaxy_express <- function(seed = NULL) {
         df_crowns$rank <- df_crowns$rank[c(6, 1:5)]
     df_dice <- piecepack_dice(x = c(3, 4, 11, 12), y = c(1, 1, 4, 4),
                               rank = 1L, suit = c(3, 4, 1, 2))
-    df_speed_tiles <- piecepack_tiles(x = 10.5, y = c(1.5, 5.5), 
+    df_speed_tiles <- piecepack_tiles(x = 10.5, y = c(1.5, 5.5),
                                       rank = 2L, suit = c(2L, 1L))
     df_speed_coins <- piecepack_coins(
                          side = rep.int(rep(c("back", "face"), 2), c(4, 2, 4, 2)),
-                         suit = rep.int(1:2, c(6L, 6L)), 
+                         suit = rep.int(1:2, c(6L, 6L)),
                          rank = c(sample.int(6L), sample.int(6L)),
                          x = 12, y = rep.int(c(7, 6, 5, 3, 2, 1), c(4, 1, 1, 4, 1, 1)))
     bind_rows(df_board, df_arms, df_crowns, df_dice,
@@ -846,6 +851,73 @@ piecepack_mathrix <- function(seed = NULL, coins = NULL) {
 
 #' @rdname piecepack_games_original
 #' @export
+piecepack_pawns_crossing <- function(..., seed = NULL, n_players = 2L) {
+    check_dots_empty()
+    if (!is.null(seed)) withr::local_seed(seed)
+    stopifnot(n_players >= 2L && n_players <= 4L)
+    df_t <- piecepack_tiles(suit = rep(1:4, each = 4L), rank = rep(2:5, 4L),
+                            x = rep(3 * 1:4, each = 4L) - 1.5,
+                            y = rep(3 * 1:4, 4L) - 1.5,
+                            angle = sample(c(0, 90, 180, 270), 16L, replace = TRUE)) %>%
+        slice_sample_piece()
+    df_d <- dominoes_tiles() %>%
+        mutate(sr = paste0(.data$suit, .data$rank)) %>%
+        filter(!(.data$sr %in% c("77", "76", "75"))) %>%
+        select(-"sr") %>%
+        slice_sample_piece()
+    df_dv <- df_d %>% slice(seq.int(13L)) %>%
+        mutate(angle = sample(c(0, 180), 13L, replace = TRUE),
+               x = c(rep(3 * 1:3, each = 4L), 13),
+               y = c(rep(3 * 1:4, 3L) - 1.5, 6))
+    df_dh <- df_d %>% slice(-seq.int(13L)) %>%
+        mutate(angle = sample(c(90, 270), 12L, replace = TRUE),
+               x = c(rep(3 * 1:4, 3L) - 1.5),
+               y = c(rep(3 * 1:3, 4L)))
+    if (n_players == 2L) {
+        df_cxy <- filter(df_t, .data$rank == 2L) %>% arrange(.data$suit)
+        df_c <- piecepack_coins(side = "back",
+                                suit = rep(1:4, each = 3L),
+                                rank = as.integer(replicate(4L, sample(3:5))),
+                                x = rep(df_cxy$x, each = 3L) + rep(c(0.5, -0.5, 0.5), 4L),
+                                y = rep(df_cxy$y, each = 3L) + rep(c(0.5, -0.5, -0.5), 4L),
+                                angle = as.double(replicate(4L, sample(c(0, 90, 180, 270), 3L))))
+    } else if (n_players == 3L) {
+        df_cxy <- filter(df_t, .data$rank == 2L & .data$suit != 2L) %>% arrange(.data$suit)
+        df_c <- piecepack_coins(side = "back",
+                                suit = rep(c(1L, 3L, 4L), each = 4L),
+                                rank = as.integer(replicate(3L, sample(c(1L, 3:5)))),
+                                x = rep(df_cxy$x, each = 4L) + rep(c(0.5, -0.5, 0.5, -0.5), 3L),
+                                y = rep(df_cxy$y, each = 4L) + rep(c(-0.5, 0.5, 0.5, -0.5), 3L),
+                                angle = as.double(replicate(3L, sample(c(0, 90, 180, 270)))))
+    } else {
+        df_cxy <- filter(df_t, .data$rank == 2L) %>% arrange(.data$suit)
+        df_c <- piecepack_coins(side = "back",
+                                suit = rep(1:4, each = 4L),
+                                rank = as.integer(replicate(4L, sample(c(1L, 3:5)))),
+                                x = rep(df_cxy$x, each = 4L) + rep(c(0.5, -0.5), 8L),
+                                y = rep(df_cxy$y, each = 4L) + rep(c(-0.5, 0.5, 0.5, -0.5), 4L),
+                                angle = as.double(replicate(4L, sample(c(0, 90, 180, 270)))))
+    }
+    if (n_players == 2L) {
+        df_p <- piecepack_pawns(x = c(4, 5, 8, 7), y = c(13, 13, -1, -1),
+                                angle = c(180, 180, 0, 0))
+        df_d <- piecepack_dice(x = c(1, 2, 11, 10), y = c(13, 13, -1, -1), rank = random_dice(),
+                                angle = c(180, 180, 0, 0))
+    } else {
+        df_p <- piecepack_pawns(x = c(3, 13, 9, -1), y = c(13, 9, -1, 3),
+                                angle = c(180, 90, 0, 270))
+        df_d <- piecepack_dice(x = c(1, 13, 11, -1), y = c(13, 11, -1, 1), rank = random_dice(),
+                                angle = c(180, 90, 0, 270))
+        if (n_players == 3L) {
+            df_p <- filter(df_p, .data$suit != 2L)
+            df_d <- filter(df_d, .data$suit != 2L)
+        }
+    }
+    bind_rows(df_t, df_dv, df_dh, df_c, df_p, df_d)
+}
+
+#' @rdname piecepack_games_original
+#' @export
 piecepack_piecepackman <- function(seed = NULL, variant = "Roundabout") {
     if (!is.null(seed)) withr::local_seed(seed)
     df_tiles <- piecepack_tiles(side = "back",
@@ -867,7 +939,7 @@ piecepack_piecepackman <- function(seed = NULL, variant = "Roundabout") {
     if (!is.null(seed)) withr::local_seed(seed)
     x_y_nulls <- str_split(sample(x_y, 24), "_", simplify = TRUE)
     df_n <- piecepack_matchsticks(rank = 1L,
-                                  x = as.numeric(x_y_nulls[, 1]), 
+                                  x = as.numeric(x_y_nulls[, 1]),
                                   y = as.numeric(x_y_nulls[, 2]))
 
     bind_rows(df_tiles, df_p, df_n)
@@ -876,7 +948,7 @@ piecepack_piecepackman <- function(seed = NULL, variant = "Roundabout") {
 piecepack_roundabout <- function(seed = NULL) {
     df_c <- piecepack_coins(side = "back",
                    x = c(1, 1, 10, 10), y = c(1, 10, 10, 1),
-                   suit = c(4, 3, 2, 1), 
+                   suit = c(4, 3, 2, 1),
                    rank = c(sample(setdiff(2:6, 2L), 1L), # not ace of arms
                             sample(setdiff(2:6, 4L), 1L), # not 3 of crowns
                             sample(setdiff(2:6, 5L), 1L), # not 4 of moons
@@ -1149,7 +1221,7 @@ piecepack_speedy_towers <- function(n_players = 2, seed = NULL) {
     if (n_players == 2) {
         df_tiles <- piecepack_tiles(side = "back",
                            suit = rep.int(1:4, 6L),
-                           rank = rep(1:6, each = 4)) %>% 
+                           rank = rep(1:6, each = 4)) %>%
             slice_sample_piece() %>%
             mutate(x = c(seq.int(2, by = 2, length.out = 11),
                          16, 10,
@@ -1158,7 +1230,7 @@ piecepack_speedy_towers <- function(n_players = 2, seed = NULL) {
                    angle = c(rep_len(0, 12), rep_len(180, 12)))
         df_coins <- piecepack_coins(side = "back",
                            suit = rep.int(1:4, 6L),
-                           rank = rep(1:6, each = 4)) %>% 
+                           rank = rep(1:6, each = 4)) %>%
             slice_sample_piece() %>%
             slice(c(order(.data$suit[1:12]),
                     12 + order(.data$suit[13:24]))) %>%
@@ -1182,7 +1254,7 @@ piecepack_steppin_stones <- function(seed = NULL) {
     df_tiles_faces <- piecepack_tiles(side = "face",
                              suit = 1:4, rank = 2L,
                              x = c(1.5, 7.5, 7.5, 1.5),
-                             y = c(7.5, 7.5, 1.5, 1.5), 
+                             y = c(7.5, 7.5, 1.5, 1.5),
                              angle = c(180, 90, 0, -90))
     df_tiles_backs <- piecepack_tiles(side = "back",
                              suit = rep(1:4, each = 3),
@@ -1353,7 +1425,7 @@ piecepack_tula <- function(seed = NULL, tiles = NULL,
                                                 rep.int(c(5,3), c(4, 4)),
                                                 4)),
                      abort(paste("Can't handle Tula variant ", variant), class = "board_setup"))
-    bind_cols(df_txy, df_tsr) %>% 
+    bind_cols(df_txy, df_tsr) %>%
         mutate(cfg = "piecepack", angle = 0) %>%
         select_piece()
 }

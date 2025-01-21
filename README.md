@@ -216,7 +216,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following 87 games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following 88 games playable with a piecepack deck (plus possibly additional components):
 
 * [(American) Checkers AKA (English) Draughts](https://www.ludism.org/ppwiki/Checkers)
 * [(International) Chess](https://www.ludism.org/ppwiki/Chess)
@@ -272,6 +272,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Nine Men's Morris](https://en.wikipedia.org/wiki/Nine_men%27s_morris)
 * [One Man Thrag!](https://www.ludism.org/ppwiki/OneManThrag)
 * [Pass the Food](https://www.ludism.org/ppwiki/PassTheFood)
+* [Pawns Crossing](https://ludism.org/ppwiki/PawnsCrossing)
 * [Piece Gaps](https://www.ludism.org/ppwiki/PieceGaps)
 * [Piece Packing Pirates](https://www.ludism.org/ppwiki/PiecePackingPirates)
 * [Piecepack Klondike](https://ludism.org/ppwiki/PiecepackKlondike)
@@ -296,7 +297,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [The "In" Crowd](https://www.ludism.org/ppwiki/TheInCrowd)
 * [The Magic Bag](https://www.ludism.org/ppwiki/The_Magic_Bag)
 * [The Penguin Game](https://www.ludism.org/ppwiki/PenguinGame)
-* [Tower of Babel aka Piecepack Accordion](https://www.ludism.org/ppwiki/TowerOfBabel)
+* [Tower of Babel AKA Piecepack Accordion](https://www.ludism.org/ppwiki/TowerOfBabel)
 * [Tracers](https://www.ludism.org/ppwiki/Tracers)
 * [Triactor](https://www.ludism.org/ppwiki/Triactor)
 * [Tula](https://www.ludism.org/ppwiki/Tula)
