@@ -75,6 +75,28 @@ dominoes_tiles <- function(n = 7, ...,
 }
 
 #' @rdname ppdf-deprecated
+#' @inheritParams piecepack_accordion
+#' @export
+piecepack_piecepack_accordion <- function(seed = NULL, tiles = NULL) {
+    .Deprecated("piecepack_accordion")
+    piecepack_accordion(seed = seed, tiles = tiles)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+piecepack_piecepack_halma <- function() {
+    .Deprecated("piecepack_halma")
+    piecepack_halma()
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+piecepack_piecepack_klondike <- function(seed = NULL) {
+    .Deprecated("piecepack_klondike")
+    piecepack_klondike(seed = seed)
+}
+
+#' @rdname ppdf-deprecated
 #' @inheritParams piecepack_rectangular_board
 #' @export
 piecepack_rect_board_tiles <- function(nrows = 8L, ncols = 8L, x0 = 1, y0 = 1, max_tiles = 24L,

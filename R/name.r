@@ -17,7 +17,12 @@ normalize_name <- function(x, sep = "_") {
     x <- gsub('"|\'|-', "", x) # e.g. The "In" Crowd -> the_in_crowd
     x <- snakecase::to_snake_case(x, sep_out = sep, numerals = "left")
     x <- gsub("draughts", "checkers", x)
+    x <- gsub(paste0("^checkers", sep), "", x)
+    x <- gsub(paste0("^chess", sep), "", x)
     x <- gsub(paste0("^domino", sep), "", x)
+    x <- gsub(paste0("^icehouse", sep), "", x)
+    x <- gsub(paste0("^piecepack", sep), "", x)
+    x <- gsub(paste0("^stackpack", sep), "", x)
     x
 }
 
@@ -29,15 +34,16 @@ known_game_systems <- c("piecepack",
                   "stackpack", "piecepack_stackpack")
 
 normalize_system <- function(system) {
-    system <- normalize_name(system[1])
-    switch(system,
+    system_ <- normalize_name(system[1L])
+    if (system_ == "pieces" && grepl("icehouse", system[1L], ignore.case = TRUE))
+        system_ <- "icehouse"
+    switch(system_,
            checkers = "checkers",
            draughts = "checkers",
            chess = "chess",
            domino = "domino",
            dominoes = "domino",
            icehouse = "icehouse",
-           icehouse_pieces = "icehouse",
            looney_pyramids = "icehouse",
            piecepack = "piecepack",
            piecepack_stackpack = "stackpack",
@@ -45,7 +51,7 @@ normalize_system <- function(system) {
            {
                rlang::inform(
                    c(paste("Don't recognize game system", sQuote(system), "yet."),
-                     paste("Normalizing as", sQuote(system), "for now."),
+                     paste("Normalizing as", sQuote(system_), "for now."),
                      paste("This normalization may change when this game system is recognized by {ppdf}.")),
                    class = "unrecognized_game_system"
                )

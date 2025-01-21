@@ -23,6 +23,9 @@ Deprecated features
   `dominoes_patience()` | `domino_patience()`
   `dominoes_the_jubilee()` | `domino_the_jubilee()`
   `dominoes_tiles()` | `domino_tiles()`
+  `piecepack_accordion()` | `piecepack_piecepack_accordion()`
+  `piecepack_halma()` | `piecepack_piecepack_halma()`
+  `piecepack_klondike()` | `piecepack_piecepack_klondike()`
   `piecepack_rect_board_tiles()` | `piecepack_rectangular_board()`
 
 New features
@@ -48,8 +51,10 @@ Bug fixes and minor improvements
 --------------------------------
 
 * `checkers_board()` and `chess_board()` gain a `side` argument.
+* `normalize_name()` now removes the first `"Checkers "`, `"Chess "`, `"Domino "`, `"Icehouse "`, `"Piecepack "`, or `"Stackpack "` (if any) from name e.g.
+  it will now normalize "Piecepack Klondike" / "Klondike" and "Domino Patience" / "Patience" to the same name.
 * Data frame functions now consistently return all the columns
-  "piece_side", "suit", "rank", "cfg", "x", "y", and "angle" (in that order)
+  "piece\_side", "suit", "rank", "cfg", "x", "y", and "angle" (in that order)
   with the types "character", "integer", "integer", "character", "double", "double", "double" (respectively)
   without any missing values.
 

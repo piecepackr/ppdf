@@ -10,6 +10,9 @@
 \alias{dominoes_patience}
 \alias{dominoes_the_jubilee}
 \alias{dominoes_tiles}
+\alias{piecepack_piecepack_accordion}
+\alias{piecepack_piecepack_halma}
+\alias{piecepack_piecepack_klondike}
 \alias{piecepack_rect_board_tiles}
 \title{Deprecated functions}
 \usage{
@@ -39,6 +42,12 @@ dominoes_tiles(
   y = 2 * rep.int(n:1, n:1) - 0.5,
   angle = 0
 )
+
+piecepack_piecepack_accordion(seed = NULL, tiles = NULL)
+
+piecepack_piecepack_halma()
+
+piecepack_piecepack_klondike(seed = NULL)
 
 piecepack_rect_board_tiles(
   nrows = 8L,
@@ -71,6 +80,8 @@ piecepack_rect_board_tiles(
 
 \item{angle}{Rotation of dominoes (numeric vector of degrees, counter-clockwise)}
 
+\item{tiles}{String of tile layout}
+
 \item{nrows}{Number of rows in game board}
 
 \item{ncols}{Number of columns in game board}
@@ -99,6 +110,9 @@ they will be marked as Defunct and removed in a future version.
    \code{dominoes_patience()} \tab \code{domino_patience()} \cr
    \code{dominoes_the_jubilee()} \tab \code{domino_the_jubilee()} \cr
    \code{dominoes_tiles()} \tab \code{domino_tiles()} \cr
+   \code{piecepack_piecepack_accordion()} \tab \code{piecepack_accordion()} \cr
+   \code{piecepack_piecepack_halma()} \tab \code{piecepack_halma()} \cr
+   \code{piecepack_piecepack_klondike()} \tab \code{piecepack_klondike()} \cr
    \code{piecepack_rect_board_tiles()} \tab \code{piecepack_rectangular_board()} \cr
 }
 }
