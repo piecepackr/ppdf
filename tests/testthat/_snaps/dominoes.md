@@ -1,7 +1,7 @@
 # dominoes setups work as expected
 
     Code
-      cat_piece(dominoes_concentration(seed = 12))
+      cat_piece(domino_concentration(seed = 12))
     Output
        ┌─┬─┬─┬─┬─┬─┬─┐
        │ │ │ │ │ │ │ │
@@ -26,7 +26,7 @@
 ---
 
     Code
-      cat_piece(dominoes_domino_finder(seed = 12))
+      cat_piece(domino_finder(seed = 12))
     Output
        ┌───┬───┬───┬───┐
        │   │   │   │   │
@@ -48,7 +48,7 @@
 ---
 
     Code
-      cat_piece(dominoes_domino_runners(seed = 12))
+      cat_piece(domino_runners(seed = 12))
     Output
        ┌───┬───┬───┬───┐
        │·┃ │⁙┃⁙│⠡┃∷│∷┃∷│
@@ -70,7 +70,7 @@
 ---
 
     Code
-      cat_piece(dominoes_fujisan(seed = 12))
+      cat_piece(domino_fujisan(seed = 12))
     Output
                    ┌───┐            
          ┌─┬─┬─┬─┬─┼─┬─┼─┬─┬─┬─┬─┐  
@@ -83,7 +83,7 @@
 ---
 
     Code
-      cat_piece(dominoes_luzon(seed = 12))
+      cat_piece(domino_luzon(seed = 12))
     Output
         ┌───┬───┬───┬───┬───┐   ┌───┐
         │∷┃⁙│·┃…⃛│⁙┃⋱│⠡┃ │⠡┃⁙│   │·┃∷│
@@ -101,7 +101,7 @@
 ---
 
     Code
-      cat_piece(dominoes_patience(seed = 12))
+      cat_piece(domino_patience(seed = 12))
     Output
        ┌─┬─┬─┬─┬─┬─┬─┐
        │·│ │ │ │ │ │ │
@@ -137,7 +137,7 @@
 ---
 
     Code
-      cat_piece(dominoes_the_jubilee(seed = 12))
+      cat_piece(domino_the_jubilee(seed = 12))
     Output
        ┌─┬─┬─┬─┬─┬─┬─┐
        │·│⠿│·│⠿│⁙│ │·│

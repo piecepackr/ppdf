@@ -17,13 +17,14 @@ normalize_name <- function(x, sep = "_") {
     x <- gsub('"|\'|-', "", x) # e.g. The "In" Crowd -> the_in_crowd
     x <- snakecase::to_snake_case(x, sep_out = sep, numerals = "left")
     x <- gsub("draughts", "checkers", x)
+    x <- gsub(paste0("^domino", sep), "", x)
     x
 }
 
 known_game_systems <- c("piecepack",
                   "checkers", "draughts",
                   "chess",
-                  "dominoes",
+                  "domino", "dominoes",
                   "icehouse", "icehouse_pieces", "looney_pyramids",
                   "stackpack", "piecepack_stackpack")
 
@@ -33,7 +34,8 @@ normalize_system <- function(system) {
            checkers = "checkers",
            draughts = "checkers",
            chess = "chess",
-           dominoes = "dominoes",
+           domino = "domino",
+           dominoes = "domino",
            icehouse = "icehouse",
            icehouse_pieces = "icehouse",
            looney_pyramids = "icehouse",

@@ -49,7 +49,7 @@
 ---
 
     Code
-      cat_piece(dominoes_by_name("Fuji-san", seed = 42))
+      cat_piece(dominoes_by_name("Domino Fuji-san", seed = 42))
     Output
                    ┌───┐            
          ┌─┬─┬─┬─┬─┼─┬─┼─┬─┬─┬─┬─┐  

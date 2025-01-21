@@ -860,7 +860,7 @@ piecepack_pawns_crossing <- function(..., seed = NULL, n_players = 2L) {
                             y = rep(3 * 1:4, 4L) - 1.5,
                             angle = sample(c(0, 90, 180, 270), 16L, replace = TRUE)) %>%
         slice_sample_piece()
-    df_d <- dominoes_tiles() %>%
+    df_d <- domino_tiles() %>%
         mutate(sr = paste0(.data$suit, .data$rank)) %>%
         filter(!(.data$sr %in% c("77", "76", "75"))) %>%
         select(-"sr") %>%
