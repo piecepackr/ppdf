@@ -2,7 +2,7 @@ test_that("piecepack diagrams work as expected", {
     skip_if_not_installed("ppcli")
     skip_on_os("windows")
 
-    expect_equal(nrow(piecepack_games()), 88L)
+    expect_equal(nrow(piecepack_games()), 90L)
 
     expect_equal(piecepack_by_name("Piecepack Halma"), piecepack_halma())
     expect_equal(piecepack_by_name("Piecepackman", seed = 42),
@@ -46,6 +46,7 @@ test_that("piecepack diagrams work as expected", {
         df <- piecepack_desfases(tiles=tiles, dice=dice)
         cat_piece(df, reorient = "symbols")
     })
+    expect_snapshot(cat_piece(piecepack_dominoids(seed=42)))
     expect_snapshot(cat_piece(piecepack_easy_slider(seed=71)))
     expect_snapshot(cat_piece(piecepack_evade()))
     expect_snapshot(cat_piece(piecepack_everest()))
@@ -97,6 +98,7 @@ test_that("piecepack diagrams work as expected", {
     expect_snapshot(cat_piece(piecepack_salta()))
     expect_snapshot(cat_piece(piecepack_san_andreas()))
     expect_snapshot(cat_piece(piecepack_sarcophagus(seed = 42)))
+    expect_snapshot(cat_piece(piecepack_ship_it(seed = 42), reorient = "all"))
     expect_snapshot(cat_piece(piecepack_shogi(), reorient = "all"))
     expect_snapshot(cat_piece(piecepack_shopping_mall(seed = 42), reorient = "symbols"))
     expect_snapshot(cat_piece(piecepack_skyscrapers(seed=23)))
@@ -139,6 +141,10 @@ test_that("piecepack diagrams work as expected", {
     skip_if_not_installed("piecepackr", minimum_version = "1.13.3")
     skip_if_not_installed("systemfonts")
     skip_if_not(piecepackr::has_font("Dejavu Sans"))
+    withr::local_options(list(piecepackr.cfg = NULL,
+                              piecepackr.op_angle = NULL,
+                              piecepackr.op_scale = NULL,
+                              piecepackr.trans = NULL))
 
     ee <- piecepackr::game_systems("dejavu")
     df <- piecepack_awithlaknannai_mosona(TRUE)

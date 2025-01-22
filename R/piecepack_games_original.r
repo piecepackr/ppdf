@@ -74,6 +74,10 @@ piecepack_games_original <- function() {
             , "``piecepack_desfases()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Desfases"
+            , "Dominoids"
+            , "``piecepack_dominoids()``"
+            , NA_character_
+            , "https://ludism.org/ppwiki/Dominoids"
             , "Easy Slider"
             , "``piecepack_easy_slider()``"
             , NA_character_
@@ -170,6 +174,10 @@ piecepack_games_original <- function() {
             , "``piecepack_sarcophagus()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Sarcophagus"
+            , "Ship It!"
+            , "``piecepack_ship_it()``"
+            , NA_character_
+            , "https://ludism.org/ppwiki/Ship_It"
             , "Shopping Mall"
             , "``piecepack_shopping_mall()``"
             , NA_character_
@@ -563,6 +571,47 @@ piecepack_desfases <- function(seed = NULL, tiles = NULL, dice = NULL) {
 
 #' @rdname piecepack_games_original
 #' @export
+piecepack_dominoids <- function(..., seed = NULL) {
+    if (!is.null(seed)) withr::local_seed(seed)
+    check_dots_empty()
+    df_board <- piecepack_rectangular_board(8L, 8L,
+                                            suit = c(rep.int(c(1:2, 3L), c(6L, 6L, 4L))),
+                                            rank = c(1:6, 1:6, 1:4))
+    df_pawns <- piecepack_pawns(x = c(2, 3, 7, 6), y = c(3, 7, 6, 2),
+                                suit = sample.int(4L))
+    df_coins <- piecepack_coins(side = "back",
+                    rank = as.integer(replicate(4L, sample.int(6L))),
+                    x = rep(c(2, 4, 6, 8), each = 6L), y = 10L)
+    s1 <- df_pawns$suit[1L]
+    i1 <- 6L * (s1 - 1L) + 1L
+    df_coins[i1, "x"] <- 1
+    df_coins[i1, "y"] <- 3
+    s2 <- df_pawns$suit[2L]
+    i2 <- 6L * (s2 - 1L) + 1L
+    df_coins[i2, "x"] <- 3
+    df_coins[i2, "y"] <- 8
+    s3 <- df_pawns$suit[3L]
+    i3 <- 6L * (s3 - 1L) + 1L
+    df_coins[i3, "x"] <- 8
+    df_coins[i3, "y"] <- 6
+    s4 <- df_pawns$suit[4L]
+    i4 <- 6L * (s4 - 1L) + 1L
+    df_coins[i4, "x"] <- 6
+    df_coins[i4, "y"] <- 1
+    df_d <- domino_tiles(6L) %>% slice(-seq.int(6L)) %>% slice_sample_piece()
+    df_dt <- df_d %>% slice(-seq.int(4L)) %>%
+        mutate(x = 1:11, y = 12L, angle = sample(c(0, 180), 11L, replace = TRUE))
+    df_db <- df_d %>% slice(seq.int(4L)) %>%
+        mutate(angle = c(sample(c(90, 270), 1L), sample(c(0, 180), 1L),
+                         sample(c(90, 270), 1L), sample(c(0, 180), 1L)),
+               x = c(3.5, 3, 5.5, 6), y = c(3, 5.5, 6, 3.5))
+    df_td <- piecepack_tiles(x = 10.5, y = c(7.5, 2.5), suit = c(4L, 3L), rank = c(1L, 6L))
+    df_d <- piecepack_dice(x = c(10, 11, 11, 10), y = c(3, 3, 2, 2), rank = random_dice())
+    df <- bind_rows(df_board, df_pawns, df_coins, df_dt, df_db, df_td, df_d)
+}
+
+#' @rdname piecepack_games_original
+#' @export
 piecepack_easy_slider <- function(seed = NULL, tiles = NULL, coins = NULL, pawns = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
     df_txy <- tibble(piece_side = "tile_face",
@@ -740,6 +789,22 @@ piecepack_japan <- function(seed = NULL) {
     df_coins <- piecepack_coins(side = "face", x = xy_coins$x, y = xy_coins$y)
 
     bind_rows(df_tiles, df_coins)
+}
+
+#' @rdname piecepack_games_original
+#' @export
+piecepack_klondike <- function(seed = NULL) {
+    if (!is.null(seed)) withr::local_seed(seed)
+    df_tiles <- piecepack_tiles(side = c(rep_len("back", 15L),
+                                         rep_len("face", 6L),
+                                         rep_len("back", 3L)),
+                                x = c(seq(4, 12, 2), seq(6, 12, 2), seq(8, 12, 2),
+                                      10, 12, 12, seq(2, 12, 2), rep(2, 3)),
+                                y = c(rep(2, 21), rep(6, 3)),
+                                suit = rep.int(1:4, 6L), # reverse-compatible random
+                                rank = rep(1:6, each = 4L)) %>%
+        slice_sample_piece()
+    df_tiles
 }
 
 #' @rdname piecepack_games_original
@@ -1014,22 +1079,6 @@ piecepack_pass_the_food <- function() {
 
 #' @rdname piecepack_games_original
 #' @export
-piecepack_klondike <- function(seed = NULL) {
-    if (!is.null(seed)) withr::local_seed(seed)
-    df_tiles <- piecepack_tiles(side = c(rep_len("back", 15L),
-                                         rep_len("face", 6L),
-                                         rep_len("back", 3L)),
-                                x = c(seq(4, 12, 2), seq(6, 12, 2), seq(8, 12, 2),
-                                      10, 12, 12, seq(2, 12, 2), rep(2, 3)),
-                                y = c(rep(2, 21), rep(6, 3)),
-                                suit = rep.int(1:4, 6L), # reverse-compatible random
-                                rank = rep(1:6, each = 4L)) %>%
-        slice_sample_piece()
-    df_tiles
-}
-
-#' @rdname piecepack_games_original
-#' @export
 piecepack_piece_gaps <- function(seed = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
     df <- piecepack_tiles(side = "face",
@@ -1151,6 +1200,99 @@ piecepack_sarcophagus <- function(seed = NULL) {
                        y = rep.int(seq(11.5,1.5,-2), c(1, 2, 3, 4, 4, 4))) %>%
         slice_sample_piece()
     bind_rows(df_sarcophagus, df_other)
+}
+
+#' @rdname piecepack_games_original
+#' @export
+piecepack_ship_it <- function(..., seed = NULL) {
+    if (!is.null(seed)) withr::local_seed(seed)
+    check_dots_empty()
+    df_tiles <- piecepack_tiles(angle = sample(c(0, 90, 180, 270), 24L, replace = TRUE),
+                                x = NA_integer_, y = NA_integer_) %>%
+        slice_sample_piece()
+    df_coins <- piecepack_coins(side = "back",
+                                suit = rep(c(1L, 3L, 4L, 2L), each = 5L), # Order RGBK
+                                rank = as.integer(replicate(4L, sample(2:6))),
+                                x = NA_integer_, y = NA_integer_) %>%
+        slice(c(1, 6, 11, 16, 2, 7, 12, 17, 3, 8, 13, 18, 4, 9, 14, 19, 5, 10, 15, 20))
+    df_pawns <- piecepack_pawns(x = NA_integer_, y = NA_integer_)
+    df_dice <- piecepack_dice(x = NA_integer_, y = NA_integer_, rank = 2L)
+    city_row <- 1L # Tile column within a city (top to bottom)
+    city_col <- 1L # Tile column within a city (left to right)
+    city_suits <- integer(0L) # Suits in the city
+    city_length <- 0L # Number of tiles in the city
+    tile_y <- 13.5
+    tile_x <- 1.5
+    col_length <- 1L # Number of cities in column
+    i_coin <- 1L
+    for (i in seq.int(24L)) {
+        df_tiles$y[i] <- tile_y
+        df_tiles$x[i] <- tile_x
+        city_length <- city_length + 1L
+        city_suits <- c(city_suits, df_tiles$suit[i])
+        if (df_tiles$angle[i] == 0L) {
+            xo <- 0.5
+            yo <- -0.5
+        } else if (df_tiles$angle[i] == 90L) {
+            xo <- 0.5
+            yo <- 0.5
+        } else if (df_tiles$angle[i] == 180L) {
+            xo <- -0.5
+            yo <- 0.5
+        } else {
+            xo <- -0.5
+            yo <- -0.5
+        }
+        if (df_tiles$rank[i] == 1L) { # Put die of same suit on null tiles
+            df_dice$y[df_tiles$suit[i]] <- tile_y + yo
+            df_dice$x[df_tiles$suit[i]] <- tile_x - xo
+        }
+        if (df_tiles$rank[i] != 2L) { # Don't put coins on ace tiles
+            df_coins$y[i_coin] <- tile_y + yo
+            df_coins$x[i_coin] <- tile_x + xo
+            i_coin <- i_coin + 1L
+        } else { # Put pawn of same suit on ace tiles
+            df_pawns$y[df_tiles$suit[i]] <- tile_y + yo
+            df_pawns$x[df_tiles$suit[i]] <- tile_x + xo
+        }
+        if (i == 24L) { # No more tiles to place
+            invisible(NULL)
+        } else if (df_tiles$suit[i + 1L] %in% city_suits || city_length == 3L) { # New city
+            city_row <- 1L
+            city_length <- 0L
+            city_suits <- integer(0L)
+            if (col_length == 3L) { # Start a new column
+                col_length <- 1L
+                city_col <- 1L
+                tile_y <- 13.5
+                tile_x <- max(df_tiles$x, na.rm = TRUE) + 4
+            } else { # Down a row in same column
+                col_length <- col_length + 1L
+                tile_y <- tile_y - 4
+            }
+        } else { # Add to an existing city
+            if (city_row == 1L && city_col == 1L) {
+                city_col <- 2L
+                tile_x <- tile_x + 2
+            } else if (city_row == 1L && city_col == 2L) {
+                city_row <- 2L
+                tile_y <- tile_y - 2
+            } else if (city_row == 2L && city_col == 2L) {
+                city_col <- 1L
+                tile_x <- tile_x - 2
+            }
+        }
+    }
+    df_dominoes <- domino_tiles(side = "back",
+                                y = max(df_tiles$y) - 0.5 - rep(seq(0, by = 3, length.out = 4L), 7L),
+                                x = max(df_tiles$x) + 5.5 + rep(seq(1, by = 2, length.out = 7L), each = 4L),
+                                angle = sample(c(0, 180), 28L, replace = TRUE)) %>%
+        slice_sample_piece()
+    bind_rows(df_tiles, df_coins, df_pawns, df_dice, df_dominoes)
+}
+
+ship_it_city_x <- function(row, col, city_row, city_col) {
+    6 * (col - 1) + 2 * city_col - 1 + 0.5
 }
 
 #' @rdname piecepack_games_original

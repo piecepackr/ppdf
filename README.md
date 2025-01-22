@@ -216,7 +216,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following 88 games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following 90 games playable with a piecepack deck (plus possibly additional components):
 
 * [Alice Chess](https://en.wikipedia.org/wiki/Alice_chess)
 * [Alien City](https://www.ludism.org/ppwiki/AlienCity)
@@ -244,6 +244,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Crossings](https://en.wikipedia.org/wiki/Crossings_(game))
 * [Czech Checkers AKA Czech Draughts](https://en.wikipedia.org/wiki/Czech_draughts)
 * [Desfases](https://www.ludism.org/ppwiki/Desfases)
+* [Dominoids](https://ludism.org/ppwiki/Dominoids)
 * [Easy Slider](https://www.ludism.org/ppwiki/EasySlider)
 * [Evade](https://www.ludism.org/ppwiki/Evade)
 * [Everest](https://www.ludism.org/ppwiki/Everest)
@@ -285,6 +286,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Salta](https://en.wikipedia.org/wiki/Salta_(game))
 * [San Andreas](https://www.ludism.org/ppwiki/SanAndreas)
 * [Sarcophagus](https://www.ludism.org/ppwiki/Sarcophagus)
+* [Ship It!](https://ludism.org/ppwiki/Ship_It)
 * [Shogi AKA Japanese Chess](https://www.ludism.org/ppwiki/Shogi)
 * [Shopping Mall](https://www.ludism.org/ppwiki/ShoppingMall)
 * [Skyscrapers](https://www.ludism.org/ppwiki/Skyscrapers)
