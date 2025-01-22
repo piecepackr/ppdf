@@ -15,6 +15,7 @@
 \alias{piecepack_climbing_man}
 \alias{piecepack_crocodile_hop}
 \alias{piecepack_desfases}
+\alias{piecepack_dominoids}
 \alias{piecepack_easy_slider}
 \alias{piecepack_everest}
 \alias{piecepack_four_blind_mice}
@@ -24,6 +25,7 @@
 \alias{piecepack_iceberg}
 \alias{piecepack_ice_floe}
 \alias{piecepack_japan}
+\alias{piecepack_klondike}
 \alias{piecepack_lab_rats}
 \alias{piecepack_landlocked}
 \alias{piecepack_ley_lines}
@@ -32,13 +34,13 @@
 \alias{piecepack_piecepackman}
 \alias{piecepack_one_man_thrag}
 \alias{piecepack_pass_the_food}
-\alias{piecepack_klondike}
 \alias{piecepack_piece_gaps}
 \alias{piecepack_piece_packing_pirates}
 \alias{piecepack_plans_of_action}
 \alias{piecepack_relativity}
 \alias{piecepack_san_andreas}
 \alias{piecepack_sarcophagus}
+\alias{piecepack_ship_it}
 \alias{piecepack_shopping_mall}
 \alias{piecepack_skyscrapers}
 \alias{piecepack_slides_of_action}
@@ -81,6 +83,8 @@ piecepack_crocodile_hop(seed = NULL)
 
 piecepack_desfases(seed = NULL, tiles = NULL, dice = NULL)
 
+piecepack_dominoids(..., seed = NULL)
+
 piecepack_easy_slider(seed = NULL, tiles = NULL, coins = NULL, pawns = NULL)
 
 piecepack_everest()
@@ -99,6 +103,8 @@ piecepack_ice_floe()
 
 piecepack_japan(seed = NULL)
 
+piecepack_klondike(seed = NULL)
+
 piecepack_lab_rats(seed = NULL)
 
 piecepack_landlocked(seed = NULL)
@@ -115,8 +121,6 @@ piecepack_one_man_thrag(seed = NULL)
 
 piecepack_pass_the_food()
 
-piecepack_klondike(seed = NULL)
-
 piecepack_piece_gaps(seed = NULL)
 
 piecepack_piece_packing_pirates(seed = NULL)
@@ -128,6 +132,8 @@ piecepack_relativity(seed = NULL, coins = NULL)
 piecepack_san_andreas()
 
 piecepack_sarcophagus(seed = NULL)
+
+piecepack_ship_it(..., seed = NULL)
 
 piecepack_shopping_mall(seed = NULL, cfg2 = "go")
 
@@ -172,9 +178,9 @@ piecepack_wormholes()
 
 \item{variant}{Name of variant}
 
-\item{pawns}{String of pawns layout}
-
 \item{...}{Should be left empty.}
+
+\item{pawns}{String of pawns layout}
 
 \item{n_players}{Number of players}
 
@@ -195,7 +201,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 50 games playable with a piecepack.
+\code{tibble} data frames of setups for 52 games playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -213,6 +219,7 @@ Here are links for more information about the various games:\tabular{ll}{
    Coin Collectors \tab \url{https://www.ludism.org/ppwiki/CoinCollectors} \cr
    Crocodile Hop \tab \url{https://www.ludism.org/ppwiki/CrocodileHop} \cr
    Desfases \tab \url{https://www.ludism.org/ppwiki/Desfases} \cr
+   Dominoids \tab \url{https://ludism.org/ppwiki/Dominoids} \cr
    Easy Slider \tab \url{https://www.ludism.org/ppwiki/EasySlider} \cr
    Everest \tab \url{https://www.ludism.org/ppwiki/Everest} \cr
    Four Blind Mice \tab \url{https://www.ludism.org/ppwiki/FourBlindMice} \cr
@@ -237,6 +244,7 @@ Here are links for more information about the various games:\tabular{ll}{
    Relativity \tab \url{https://www.ludism.org/ppwiki/Relativity} \cr
    San Andreas \tab \url{https://www.ludism.org/ppwiki/SanAndreas} \cr
    Sarcophagus \tab \url{https://www.ludism.org/ppwiki/Sarcophagus} \cr
+   Ship It! \tab \url{https://ludism.org/ppwiki/Ship_It} \cr
    Shopping Mall \tab \url{https://www.ludism.org/ppwiki/ShoppingMall} \cr
    Skyscrapers \tab \url{https://www.ludism.org/ppwiki/Skyscrapers} \cr
    Slides of Action \tab \url{https://www.ludism.org/ppwiki/SlidesOfAction} \cr
