@@ -2,11 +2,11 @@
 % Please edit documentation in R/name.r
 \name{setup_by_name}
 \alias{setup_by_name}
-\alias{checkers_by_name}
-\alias{chess_by_name}
-\alias{dominoes_by_name}
-\alias{piecepack_by_name}
-\alias{stackpack_by_name}
+\alias{checkers_setup_by_name}
+\alias{chess_setup_by_name}
+\alias{domino_setup_by_name}
+\alias{piecepack_setup_by_name}
+\alias{stackpack_setup_by_name}
 \title{Setups by game name}
 \usage{
 setup_by_name(
@@ -16,31 +16,31 @@ setup_by_name(
   getter = function(x) get(x, envir = getNamespace("ppdf"))
 )
 
-checkers_by_name(
+checkers_setup_by_name(
   name,
   ...,
   getter = function(x) get(x, envir = getNamespace("ppdf"))
 )
 
-chess_by_name(
+chess_setup_by_name(
   name,
   ...,
   getter = function(x) get(x, envir = getNamespace("ppdf"))
 )
 
-dominoes_by_name(
+domino_setup_by_name(
   name,
   ...,
   getter = function(x) get(x, envir = getNamespace("ppdf"))
 )
 
-piecepack_by_name(
+piecepack_setup_by_name(
   name,
   ...,
   getter = function(x) get(x, envir = getNamespace("ppdf"))
 )
 
-stackpack_by_name(
+stackpack_setup_by_name(
   name,
   ...,
   getter = function(x) get(x, envir = getNamespace("ppdf"))
@@ -54,7 +54,7 @@ stackpack_by_name(
 \item{...}{Additional arguments to pass to the underlying setup function.}
 
 \item{getter}{Function with a single function name argument to use.
-By default will just look for packages in this package but
+By default will just look for functions in this package but
 a developer may want to consider \code{\link[=dynGet]{dynGet()}} or a
 wrapper around \code{\link[=get]{get()}} with a custom \code{envir} argument.}
 }

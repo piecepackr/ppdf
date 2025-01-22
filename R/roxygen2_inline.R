@@ -23,6 +23,12 @@ This data frame is compatible with [piecepackr::render_piece()] and likely [ppcl
 deprecated_table <- function() {
     df <- tribble(~deprecated
             , ~replacement
+            , "``checkers_by_name()``"
+            , "``checkers_setup_by_name()``"
+            , "``chess_by_name()``"
+            , "``chess_setup_by_name()``"
+            , "``dominoes_by_name()``"
+            , "``domino_setup_by_name()``"
             , "``dominoes_concentration()``"
             , "``domino_concentration()``"
             , "``dominoes_domino_finder()``"
@@ -51,6 +57,8 @@ deprecated_table <- function() {
             , "``piecepack_games()``"
             , "``games_stackpack()``"
             , "``stackpack_games()``"
+            , "``piecepack_by_name()``"
+            , "``piecepack_setup_by_name()``"
             , "``piecepack_piecepack_accordion()``"
             , "``piecepack_accordion()``"
             , "``piecepack_piecepack_halma()``"
@@ -59,6 +67,8 @@ deprecated_table <- function() {
             , "``piecepack_klondike()``"
             , "``piecepack_rect_board_tiles()``"
             , "``piecepack_rectangular_board()``"
+            , "``stackpack_by_name()``"
+            , "``stackpack_setup_by_name()``"
     )
     names(df) <- c("**Deprecated function**", "**Replacement function**")
     knitr::kable(df, "pipe")

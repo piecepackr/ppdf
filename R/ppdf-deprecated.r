@@ -8,6 +8,28 @@
 NULL
 
 #' @rdname ppdf-deprecated
+#' @inheritParams setup_by_name
+#' @export
+checkers_by_name <- function(name, ...,
+                          getter = function(x) get(x, envir=getNamespace("ppdf"))) {
+    setup_by_name(name, "checkers", ..., getter = getter)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+chess_by_name <- function(name, ...,
+                          getter = function(x) get(x, envir=getNamespace("ppdf"))) {
+    setup_by_name(name, "chess", ..., getter = getter)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+dominoes_by_name <- function(name, ...,
+                          getter = function(x) get(x, envir=getNamespace("ppdf"))) {
+    setup_by_name(name, "domino", ..., getter = getter)
+}
+
+#' @rdname ppdf-deprecated
 #' @inheritParams domino_concentration
 #' @export
 dominoes_concentration <- function(seed = NULL) {
@@ -117,6 +139,13 @@ games_stackpack <- function() {
 }
 
 #' @rdname ppdf-deprecated
+#' @export
+piecepack_by_name <- function(name, ...,
+                          getter = function(x) get(x, envir=getNamespace("ppdf"))) {
+    setup_by_name(name, "piecepack", ..., getter = getter)
+}
+
+#' @rdname ppdf-deprecated
 #' @inheritParams piecepack_accordion
 #' @export
 piecepack_piecepack_accordion <- function(seed = NULL, tiles = NULL) {
@@ -146,4 +175,11 @@ piecepack_rect_board_tiles <- function(nrows = 8L, ncols = 8L, x0 = 1, y0 = 1, m
     .Deprecated("piecepack_rectangular_board")
     piecepack_rectangular_board(nrows = nrows, ncols = ncols, x0 = x0, y0 = y0,
                                 max_tiles = max_tiles, suit = suit, rank = rank)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+stackpack_by_name <- function(name, ...,
+                          getter = function(x) get(x, envir=getNamespace("ppdf"))) {
+    setup_by_name(name, "piecepack", ..., getter = getter)
 }

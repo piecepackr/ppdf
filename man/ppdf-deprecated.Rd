@@ -2,6 +2,9 @@
 % Please edit documentation in R/ppdf-deprecated.r
 \name{ppdf-deprecated}
 \alias{ppdf-deprecated}
+\alias{checkers_by_name}
+\alias{chess_by_name}
+\alias{dominoes_by_name}
 \alias{dominoes_concentration}
 \alias{dominoes_domino_finder}
 \alias{dominoes_domino_runners}
@@ -16,12 +19,32 @@
 \alias{games_dominoes}
 \alias{games_piecepack}
 \alias{games_stackpack}
+\alias{piecepack_by_name}
 \alias{piecepack_piecepack_accordion}
 \alias{piecepack_piecepack_halma}
 \alias{piecepack_piecepack_klondike}
 \alias{piecepack_rect_board_tiles}
+\alias{stackpack_by_name}
 \title{Deprecated functions}
 \usage{
+checkers_by_name(
+  name,
+  ...,
+  getter = function(x) get(x, envir = getNamespace("ppdf"))
+)
+
+chess_by_name(
+  name,
+  ...,
+  getter = function(x) get(x, envir = getNamespace("ppdf"))
+)
+
+dominoes_by_name(
+  name,
+  ...,
+  getter = function(x) get(x, envir = getNamespace("ppdf"))
+)
+
 dominoes_concentration(seed = NULL)
 
 dominoes_domino_finder(seed = NULL)
@@ -61,6 +84,12 @@ games_piecepack()
 
 games_stackpack()
 
+piecepack_by_name(
+  name,
+  ...,
+  getter = function(x) get(x, envir = getNamespace("ppdf"))
+)
+
 piecepack_piecepack_accordion(seed = NULL, tiles = NULL)
 
 piecepack_piecepack_halma()
@@ -76,13 +105,26 @@ piecepack_rect_board_tiles(
   suit = rep.int(1:4, 6L),
   rank = rep(1:6, each = 4L)
 )
+
+stackpack_by_name(
+  name,
+  ...,
+  getter = function(x) get(x, envir = getNamespace("ppdf"))
+)
 }
 \arguments{
+\item{name}{Game name.  Will be normalized by \code{\link[=normalize_name]{normalize_name()}}.}
+
+\item{...}{Additional arguments to pass to the underlying setup function.}
+
+\item{getter}{Function with a single function name argument to use.
+By default will just look for functions in this package but
+a developer may want to consider \code{\link[=dynGet]{dynGet()}} or a
+wrapper around \code{\link[=get]{get()}} with a custom \code{envir} argument.}
+
 \item{seed}{Seed that determines setup, either an integer or \code{NULL}}
 
 \item{n}{The number of doubles in a set e.g. \code{n = 7} for double-6 set, \code{n = 10} for a double-9 set, \code{n = 13} for a double-12 set.}
-
-\item{...}{Should be left empty.}
 
 \item{side}{Either "face" or "back".}
 
@@ -119,6 +161,9 @@ they will be marked as Defunct and removed in a future version.
 \details{
 \tabular{ll}{
    \strong{Deprecated function} \tab \strong{Replacement function} \cr
+   \code{checkers_by_name()} \tab \code{checkers_setup_by_name()} \cr
+   \code{chess_by_name()} \tab \code{chess_setup_by_name()} \cr
+   \code{dominoes_by_name()} \tab \code{domino_setup_by_name()} \cr
    \code{dominoes_concentration()} \tab \code{domino_concentration()} \cr
    \code{dominoes_domino_finder()} \tab \code{domino_finder()} \cr
    \code{dominoes_domino_runners()} \tab \code{domino_runners()} \cr
@@ -133,9 +178,11 @@ they will be marked as Defunct and removed in a future version.
    \code{games_dominoes()} \tab \code{domino_games()} \cr
    \code{games_piecepack()} \tab \code{piecepack_games()} \cr
    \code{games_stackpack()} \tab \code{stackpack_games()} \cr
+   \code{piecepack_by_name()} \tab \code{piecepack_setup_by_name()} \cr
    \code{piecepack_piecepack_accordion()} \tab \code{piecepack_accordion()} \cr
    \code{piecepack_piecepack_halma()} \tab \code{piecepack_halma()} \cr
    \code{piecepack_piecepack_klondike()} \tab \code{piecepack_klondike()} \cr
    \code{piecepack_rect_board_tiles()} \tab \code{piecepack_rectangular_board()} \cr
+   \code{stackpack_by_name()} \tab \code{stackpack_setup_by_name()} \cr
 }
 }

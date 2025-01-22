@@ -68,7 +68,7 @@ normalize_system <- function(system) {
 #' @param system Game system.
 #' @param ... Additional arguments to pass to the underlying setup function.
 #' @param getter Function with a single function name argument to use.
-#'               By default will just look for packages in this package but
+#'               By default will just look for functions in this package but
 #'               a developer may want to consider [dynGet()] or a
 #'               wrapper around [get()] with a custom `envir` argument.
 #' @return `r return_df()`
@@ -84,35 +84,35 @@ setup_by_name <- function(name, system = known_game_systems, ...,
 
 #' @rdname setup_by_name
 #' @export
-checkers_by_name <- function(name, ...,
+checkers_setup_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
     setup_by_name(name, "checkers", ..., getter = getter)
 }
 
 #' @rdname setup_by_name
 #' @export
-chess_by_name <- function(name, ...,
+chess_setup_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
     setup_by_name(name, "chess", ..., getter = getter)
 }
 
 #' @rdname setup_by_name
 #' @export
-dominoes_by_name <- function(name, ...,
+domino_setup_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
     setup_by_name(name, "dominoes", ..., getter = getter)
 }
 
 #' @rdname setup_by_name
 #' @export
-piecepack_by_name <- function(name, ...,
+piecepack_setup_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
     setup_by_name(name, "piecepack", ..., getter = getter)
 }
 
 #' @rdname setup_by_name
 #' @export
-stackpack_by_name <- function(name, ...,
+stackpack_setup_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
     setup_by_name(name, "stackpack", ..., getter = getter)
 }
