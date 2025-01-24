@@ -40,6 +40,10 @@ piecepack_games_chess <- function() {
             , "``piecepack_minishogi()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Minishogi"
+            , "Racing Kings"
+            , "``piecepack_racing_kings()``"
+            , NA_character_
+            , "https://www.chessvariants.com/diffobjective.dir/racing.html"
             , "Shogi AKA Japanese Chess"
             , "``piecepack_shogi()`` aka ``piecepack_japanese_chess()``"
             , NA_character_
@@ -302,6 +306,21 @@ piecepack_minishogi <- function() {
                                 rank = c(4, 4, 5, 5), suit = c(1, 2, 1, 2),
                                 angle = c(0, 0, 180, 180))
     bind_rows(df_tiles, df_faces, df_backs)
+}
+
+#' @rdname piecepack_games_chess
+#' @export
+piecepack_racing_kings <- function() {
+    df_tiles <- piecepack_rectangular_board(8L, 8L)
+    df_b <- piecepack_coins(side = "face", angle = 180,
+                            rank = c(6L, 4L, 3L, 2L, 5L, 4L, 3L, 2L),
+                            suit = rep(1:2, each = 4L),
+                            x = rep(1:4, 2L), y = rep(2:1, each = 4L))
+    df_w <- piecepack_coins(side = "face",
+                            rank = c(6L, 4L, 3L, 2L, 5L, 4L, 3L, 2L),
+                            suit = rep(3:4, each = 4L),
+                            x = rep(8:5, 2L), y = rep(2:1, each = 4L))
+    bind_rows(df_tiles, df_b, df_w)
 }
 
 #' @rdname piecepack_games_chess

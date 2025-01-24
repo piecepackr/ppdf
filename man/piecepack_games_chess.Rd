@@ -11,6 +11,7 @@
 \alias{piecepack_international_chess}
 \alias{piecepack_japanese_chess}
 \alias{piecepack_minishogi}
+\alias{piecepack_racing_kings}
 \alias{piecepack_shogi}
 \alias{piecepack_ultima}
 \alias{piecepack_xiangqi}
@@ -33,6 +34,8 @@ piecepack_international_chess(has_subpack = FALSE)
 piecepack_japanese_chess(has_subpack = FALSE, cfg2 = "piecepack")
 
 piecepack_minishogi()
+
+piecepack_racing_kings()
 
 piecepack_shogi(has_subpack = FALSE, cfg2 = "piecepack")
 
@@ -62,7 +65,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 8 chess variants playable with a piecepack.
+\code{tibble} data frames of setups for 9 chess variants playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -73,6 +76,7 @@ Here are links for more information about the various chess variants:\tabular{ll
    Four Seasons Chess \tab \url{https://www.chessvariants.com/historic.dir/4seiz.html} \cr
    (International) Chess \tab \url{https://www.ludism.org/ppwiki/Chess} \cr
    Minishogi \tab \url{https://en.wikipedia.org/wiki/Minishogi} \cr
+   Racing Kings \tab \url{https://www.chessvariants.com/diffobjective.dir/racing.html} \cr
    Shogi AKA Japanese Chess \tab \url{https://www.ludism.org/ppwiki/Shogi} \cr
    Ultima AKA Baroque Chess \tab \url{https://en.wikipedia.org/wiki/Baroque_chess} \cr
    Xiangqi AKA Chinese Chess \tab \url{https://www.ludism.org/ppwiki/Xiangqi} \cr
