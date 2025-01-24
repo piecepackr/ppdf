@@ -8,6 +8,7 @@
 #' `r man_markdown_table(stackpack_games_other())`
 #'
 #' @param max_tiles Maximum number of (piecepack) tiles available to build boards
+#' @inheritParams piecepack_chess960
 #' @rdname stackpack_games_other
 #' @name stackpack_games_other
 #' @return `r return_df()`
@@ -26,6 +27,10 @@ stackpack_games_other <- function() {
             , "``stackpack_chaturaji()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Chaturaji"
+            , "Fischer Random Chess AKA Chess960"
+            , "``stackpack_fischer_random_chess()`` aka ``stackpack_chess960()``"
+            , NA_character_
+            , "https://www.chessvariants.com/diffsetup.dir/fischer.html"
             , "Four Seasons Chess"
             , "``stackpack_four_seasons_chess()``"
             , NA_character_
@@ -72,6 +77,17 @@ stackpack_chaturaji <- function() piecepack_chaturaji(TRUE)
 #' @rdname stackpack_games_other
 #' @export
 stackpack_chess <- function() piecepack_chess(TRUE)
+
+#' @rdname stackpack_games_other
+#' @export
+stackpack_chess960 <- function(..., seed = NULL) {
+    check_dots_empty()
+    piecepack_chess960(seed = seed, has_stackpack = TRUE)
+}
+
+#' @rdname stackpack_games_other
+#' @export
+stackpack_fischer_random_chess <- piecepack_chess960
 
 #' @rdname stackpack_games_other
 #' @export

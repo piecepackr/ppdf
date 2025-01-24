@@ -6,6 +6,8 @@
 \alias{piecepack_baroque_chess}
 \alias{piecepack_chaturaji}
 \alias{piecepack_chess}
+\alias{piecepack_chess960}
+\alias{piecepack_fischer_random_chess}
 \alias{piecepack_chinese_chess}
 \alias{piecepack_four_seasons_chess}
 \alias{piecepack_international_chess}
@@ -24,6 +26,10 @@ piecepack_baroque_chess(has_subpack = FALSE)
 piecepack_chaturaji(has_subpack = FALSE)
 
 piecepack_chess(has_subpack = FALSE)
+
+piecepack_chess960(..., seed = NULL, has_subpack = FALSE)
+
+piecepack_fischer_random_chess(..., seed = NULL, has_subpack = FALSE)
 
 piecepack_chinese_chess(has_subpack = FALSE)
 
@@ -48,6 +54,10 @@ piecepack_xiangqi(has_subpack = FALSE)
 
 \item{max_tiles}{Maximum number of (piecepack) tiles available to build boards}
 
+\item{...}{Should be left empty.}
+
+\item{seed}{Seed that determines setup, either an integer or \code{NULL}}
+
 \item{cfg2}{A string of a piecepack expansion (or perhaps \code{"piecepack"} for a second piecepack)}
 }
 \value{
@@ -65,7 +75,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 9 chess variants playable with a piecepack.
+\code{tibble} data frames of setups for 10 chess variants playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -73,6 +83,7 @@ Here are links for more information about the various chess variants:\tabular{ll
    \strong{Game} \tab \strong{URL} \cr
    Alice Chess \tab \url{https://en.wikipedia.org/wiki/Alice_chess} \cr
    Chaturaji \tab \url{https://www.ludism.org/ppwiki/Chaturaji} \cr
+   Fischer Random Chess AKA Chess960 \tab \url{https://www.chessvariants.com/diffsetup.dir/fischer.html} \cr
    Four Seasons Chess \tab \url{https://www.chessvariants.com/historic.dir/4seiz.html} \cr
    (International) Chess \tab \url{https://www.ludism.org/ppwiki/Chess} \cr
    Minishogi \tab \url{https://en.wikipedia.org/wiki/Minishogi} \cr
