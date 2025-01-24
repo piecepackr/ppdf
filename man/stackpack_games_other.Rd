@@ -8,6 +8,7 @@
 \alias{stackpack_chess}
 \alias{stackpack_chinese_chess}
 \alias{stackpack_four_seasons_chess}
+\alias{stackpack_horde_chess}
 \alias{stackpack_international_chess}
 \alias{stackpack_japanese_chess}
 \alias{stackpack_salta}
@@ -27,6 +28,8 @@ stackpack_chess()
 stackpack_chinese_chess()
 
 stackpack_four_seasons_chess()
+
+stackpack_horde_chess()
 
 stackpack_international_chess()
 
@@ -58,7 +61,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 8 other games playable with a piecepack stackpack.
+\code{tibble} data frames of setups for 9 other games playable with a piecepack stackpack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -67,6 +70,7 @@ Here are links for more information about the games:\tabular{ll}{
    Alice Chess \tab \url{https://en.wikipedia.org/wiki/Alice_chess} \cr
    Chaturaji \tab \url{https://www.ludism.org/ppwiki/Chaturaji} \cr
    Four Seasons Chess \tab \url{https://www.chessvariants.com/historic.dir/4seiz.html} \cr
+   Horde Chess \tab \url{https://lichess.org/variant/horde} \cr
    (International) Chess \tab \url{https://www.ludism.org/ppwiki/Chess} \cr
    Salta \tab \url{https://en.wikipedia.org/wiki/Salta_(game)} \cr
    Shogi aka Japanese Chess \tab \url{https://www.ludism.org/ppwiki/Shogi} \cr

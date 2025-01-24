@@ -2,7 +2,7 @@ test_that("piecepack diagrams work as expected", {
     skip_if_not_installed("ppcli")
     skip_on_os("windows")
 
-    expect_equal(nrow(piecepack_games()), 90L)
+    expect_equal(nrow(piecepack_games()), 91L)
 
     expect_equal(piecepack_by_name("Piecepack Halma"), piecepack_halma())
     expect_equal(piecepack_by_name("Piecepackman", seed = 42),
@@ -73,6 +73,7 @@ test_that("piecepack diagrams work as expected", {
     expect_snapshot(cat_piece(piecepack_minishogi(), reorient = "all"))
     expect_snapshot(cat_piece(piecepack_nine_mens_morris(has_matchsticks = TRUE)))
     expect_snapshot(cat_piece(piecepack_one_man_thrag(seed = 42)))
+    expect_snapshot(cat_piece(piecepack_racing_kings(), reorient = "symbols"))
     expect_snapshot(cat_piece(piecepack_pass_the_food()))
     expect_snapshot({
         cat_piece(piecepack_pawns_crossing(seed=42, n_players = 2L), reorient = "symbols")

@@ -53,11 +53,26 @@ New features
   + `piecepack_rectangular_board()`
   + `piecepack_tiles()`
 
-* The following functions generate data frames to setup other games playable with piecepack sets (#36, #40):
+* The following functions generate data frames to setup chess variants (#11):
+
+  + `chess_horde_chess()`
+  + `chess_monochrome_chess()`
+  + `chess_racing_kings()`
+
+* The following functions generate data frames to setup chess variants playable with piecepack sets:
+
+  * `piecepack_racing_kings()`
+
+* The following functions generate data frames to setup original games playable with piecepack sets (#36, #40):
 
   * `piecepack_dominoids()`
   * `piecepack_pawns_crossing()`
   * `piecepack_ship_it()`
+
+* The following functions generate data frames to setup games playable with piecepack stackpacks:
+
+  * `stackpack_horde_chess()`
+
 
 Bug fixes and minor improvements
 --------------------------------
@@ -168,7 +183,7 @@ ppdf 0.1.1
   + `piecepack_ultima()` aka `piecepack_baroque_chess()`
   + `piecepack_xiangqi()` aka `piecepack_chinese_chess()`
 
-* The following functions generate data frames to setup other games playable with piecepack sets:
+* The following functions generate data frames to setup original games playable with piecepack sets:
 
   + `piecepack_alien_city()`
   + `piecepack_black_pawn_trucking()`

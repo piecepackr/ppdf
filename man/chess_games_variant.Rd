@@ -5,7 +5,10 @@
 \alias{chess_chess}
 \alias{chess_chess960}
 \alias{chess_fischer_random_chess}
+\alias{chess_horde_chess}
 \alias{chess_international_chess}
+\alias{chess_monochrome_chess}
+\alias{chess_racing_kings}
 \title{Setups for chess variants}
 \usage{
 chess_chess(cell_width = 1)
@@ -14,12 +17,20 @@ chess_chess960(seed = NULL, cell_width = 1)
 
 chess_fischer_random_chess(seed = NULL, cell_width = 1)
 
+chess_horde_chess(..., cell_width = 1)
+
 chess_international_chess(cell_width = 1)
+
+chess_monochrome_chess(cell_width = 1)
+
+chess_racing_kings(cell_width = 1)
 }
 \arguments{
 \item{cell_width}{Width of board cell.  Most renderers support \code{1} or \code{2}.}
 
 \item{seed}{Seed that determines setup, either an integer or \code{NULL}}
+
+\item{...}{Should be left empty.}
 }
 \value{
 A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:
@@ -36,7 +47,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 2 chess variants.
+\code{tibble} data frames of setups for 5 chess variants.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -44,5 +55,8 @@ Here are links for more information about the various games:\tabular{ll}{
    \strong{Game} \tab \strong{URL} \cr
    (International) Chess \tab \url{https://en.wikipedia.org/wiki/Chess} \cr
    Fischer Random Chess AKA Chess960 \tab \url{https://www.chessvariants.com/diffsetup.dir/fischer.html} \cr
+   Horde Chess \tab \url{https://lichess.org/variant/horde} \cr
+   Monochrome Chess \tab \url{https://wunderland.com/WTS/Andy/Games/monochess.html} \cr
+   Racing Kings \tab \url{https://www.chessvariants.com/diffobjective.dir/racing.html} \cr
 }
 }
