@@ -61,17 +61,19 @@ New features
 
 * The following functions generate data frames to setup chess variants playable with piecepack sets:
 
-  * `piecepack_racing_kings()`
+  + `piecepack_fischer_random_chess()` aka `piecepack_chess960()`
+  + `piecepack_racing_kings()`
 
 * The following functions generate data frames to setup original games playable with piecepack sets (#36, #40):
 
-  * `piecepack_dominoids()`
-  * `piecepack_pawns_crossing()`
-  * `piecepack_ship_it()`
+  + `piecepack_dominoids()`
+  + `piecepack_pawns_crossing()`
+  + `piecepack_ship_it()`
 
 * The following functions generate data frames to setup games playable with piecepack stackpacks:
 
-  * `stackpack_horde_chess()`
+  + `stackpack_fischer_random_chess()` aka `stackpack_chess960()`
+  + `stackpack_horde_chess()`
 
 
 Bug fixes and minor improvements

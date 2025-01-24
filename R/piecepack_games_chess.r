@@ -10,6 +10,7 @@
 #' @param cfg2 A string of a piecepack expansion (or perhaps \code{"piecepack"} for a second piecepack)
 #' @param has_subpack Has a piecepack subpack
 #' @param max_tiles Maximum number of (piecepack) tiles available to build boards
+#' @inheritParams piecepack_dominoids
 #' @rdname piecepack_games_chess
 #' @name piecepack_games_chess
 #' @return `r return_df()`
@@ -28,6 +29,10 @@ piecepack_games_chess <- function() {
             , "``piecepack_chaturaji()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Chaturaji"
+            , "Fischer Random Chess AKA Chess960"
+            , "``piecepack_fischer_random_chess()`` aka ``piecepack_chess960()``"
+            , NA_character_
+            , "https://www.chessvariants.com/diffsetup.dir/fischer.html"
             , "Four Seasons Chess"
             , "``piecepack_four_seasons_chess()``"
             , NA_character_
@@ -146,6 +151,21 @@ piecepack_chess <- function(has_subpack = FALSE) {
 
 #' @rdname piecepack_games_chess
 #' @export
+piecepack_chess960 <- function(..., seed = NULL, has_subpack = FALSE) {
+    check_dots_empty()
+    if (!is.null(seed)) withr::local_seed(seed)
+    ranks <- fischer_random_ranks()
+    df_t <- piecepack_rectangular_board(8L, 8L)
+    df_p <- piecepack_chess_pieces(has_subpack, ranks = ranks)
+    bind_rows(df_t, df_p)
+}
+
+#' @rdname piecepack_games_chess
+#' @export
+piecepack_fischer_random_chess <- piecepack_chess960
+
+#' @rdname piecepack_games_chess
+#' @export
 piecepack_chinese_chess <- function(has_subpack = FALSE) {
     ang2 <- rep(c(180, 0), each = 2)
     suits <- c(1L, 2L, 4L, 3L)
@@ -211,36 +231,43 @@ piecepack_four_seasons_chess <- function(has_subpack = FALSE) {
     df
 }
 
-piecepack_chess_pieces <- function(has_subpack = FALSE) {
+piecepack_chess_pieces <- function(has_subpack = FALSE, ...,
+                                   ranks = c(4L, 2L, 3L, 5L, 6L, 3L, 2L, 4L)) {
     if (has_subpack) {
         df_pb <- piecepack_coins(side = "back", x = 1:8, y = 7, angle = 180,
                                  suit = rep(1:2, each = 4), rank = rep(3:6, 2))
         df_ob <- piecepack_tiles(side = "face", cfg = "subpack",
                                  suit = rep(1:2, each = 4), x = 1:8, y = 8, angle = 180,
-                                 rank = c(4,2,3,5,6,3,2,4))
+                                 rank = ranks)
         df_pw <- piecepack_coins(side = "back", x = 1:8, y = 2,
                         suit = rep(4:3, each = 4), rank = rep(3:6, 2))
         df_ow <- piecepack_tiles(side = "face", cfg = "subpack",
                                  suit = rep(4:3, each = 4), x = 1:8, y = 1,
-                                 rank = c(4,2,3,5,6,3,2,4))
+                                 rank = ranks)
         bind_rows(df_pb, df_pw, df_ow, df_ob)
     } else {
+        xr <- function(r) {
+            i <- which(ranks == r)
+            c(i, rev(i))
+        }
         df_p1 <- piecepack_coins(side = "back", x = 1:8, y = 7, angle = 180,
                         suit = (1:8+1) %% 2 + 1, rank = c(1,1, 3,3, 4,4, 5,6))
         df_p2 <- piecepack_coins(side = "back", x = 1:8, y = 2, angle = 0,
                         suit = 1:8 %% 2 + 3, rank = c(1,1, 3,3, 4,4, 5,6))
-        df_r <- piecepack_dice(rank = 4L, x = c(1,8,8,1), y = c(8,8,1,1),
+        df_r <- piecepack_dice(rank = 4L, x = xr(4L), y = c(8,8,1,1),
                                angle = c(180,180,0,0))
         df_n <- piecepack_coins(side = "face", rank = 2, suit = 1:4,
-                                x = c(2,7,7,2), y = c(8,8,1,1), angle = c(180,180,0,0))
-        df_b <- piecepack_pawns(x = c(3,6,6,3), y = c(8,8,1,1), angle = c(180,180,0,0))
+                                x = xr(2L), y = c(8,8,1,1), angle = c(180,180,0,0))
+        df_b <- piecepack_pawns(x = xr(3L), y = c(8,8,1,1), angle = c(180,180,0,0))
         df_q <- piecepack_coins(side = "face", rank = 5L, suit = c(3L, 2L),
-                                x = 4, y = c(8,1), angle = c(180,0))
+                                x = xr(5L), y = c(8,1), angle = c(180,0))
         df_k <- piecepack_coins(side = "face", rank = 6L, suit = c(4L, 1L),
-                                x = 5, y = c(8,1), angle = c(180,0))
+                                x = xr(6L), y = c(8,1), angle = c(180,0))
         bind_rows(df_p1, df_p2, df_r, df_n, df_b, df_q, df_k)
     }
 }
+
+
 #' @rdname piecepack_games_chess
 #' @export
 piecepack_international_chess <- piecepack_chess

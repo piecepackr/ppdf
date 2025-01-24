@@ -2,7 +2,7 @@ test_that("piecepack diagrams work as expected", {
     skip_if_not_installed("ppcli")
     skip_on_os("windows")
 
-    expect_equal(nrow(piecepack_games()), 91L)
+    expect_equal(nrow(piecepack_games()), 92L)
 
     expect_equal(piecepack_by_name("Piecepack Halma"), piecepack_halma())
     expect_equal(piecepack_by_name("Piecepackman", seed = 42),
@@ -50,6 +50,7 @@ test_that("piecepack diagrams work as expected", {
     expect_snapshot(cat_piece(piecepack_easy_slider(seed=71)))
     expect_snapshot(cat_piece(piecepack_evade()))
     expect_snapshot(cat_piece(piecepack_everest()))
+    expect_snapshot(cat_piece(piecepack_fischer_random_chess(seed = 42)))
     expect_snapshot(cat_piece(piecepack_froggy_bottom()))
     expect_snapshot(cat_piece(piecepack_four_blind_mice()))
     expect_snapshot(cat_piece(piecepack_four_seasons_chess(), reorient = "all"))
