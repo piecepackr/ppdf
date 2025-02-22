@@ -2,18 +2,24 @@
 % Please edit documentation in R/none.r
 \name{setup_none}
 \alias{setup_none}
+\alias{alquerque_none}
 \alias{checkers_none}
 \alias{chess_none}
 \alias{domino_none}
+\alias{marbles_none}
 \alias{piecepack_none}
 \alias{stackpack_none}
 \title{Zero-row data frames}
 \usage{
+alquerque_none()
+
 checkers_none()
 
 chess_none()
 
 domino_none()
+
+marbles_none()
 
 piecepack_none()
 
@@ -23,8 +29,8 @@ stackpack_none()
 A data frame with zero rows.
 }
 \description{
-\code{checkers_none()}, \code{chess_none()}, \code{dominoes_none()},
-\code{piecepack_none()}, and \code{stackpack_none()} return zero-row data frames.
+\code{alquerque_none()}, \code{checkers_none()}, \code{chess_none()}, \code{dominoes_none()},
+\code{marbles_none()}, \code{piecepack_none()}, and \code{stackpack_none()} return zero-row data frames.
 }
 \examples{
 checkers_none()
