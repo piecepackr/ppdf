@@ -27,6 +27,7 @@ normalize_name <- function(x, sep = "_") {
 }
 
 known_game_systems <- c("piecepack",
+                  "alquerque",
                   "checkers", "draughts",
                   "chess",
                   "domino", "dominoes",
@@ -38,6 +39,7 @@ normalize_system <- function(system) {
     if (system_ == "pieces" && grepl("icehouse", system[1L], ignore.case = TRUE))
         system_ <- "icehouse"
     switch(system_,
+           alquerque = "alquerque",
            checkers = "checkers",
            draughts = "checkers",
            chess = "chess",
@@ -80,6 +82,13 @@ setup_by_name <- function(name, system = known_game_systems, ...,
     fn_name <- paste0(system, "_", game)
     fn <- getter(fn_name)
     do.call(fn, list(...))
+}
+
+#' @rdname setup_by_name
+#' @export
+alquerque_setup_by_name <- function(name, ...,
+                          getter = function(x) get(x, envir=getNamespace("ppdf"))) {
+    setup_by_name(name, "alquerque", ..., getter = getter)
 }
 
 #' @rdname setup_by_name

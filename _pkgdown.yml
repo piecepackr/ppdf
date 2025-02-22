@@ -9,6 +9,11 @@ reference:
       desc: "Functions that generate data frames with information about the games whose setups are provided by this package."
       contents:
         - checkers_games
+    - title: "Setups for alquerque sets"
+      desc: "Functions that generate data frames to setup alquerque sets."
+      contents:
+        - alquerque_board
+        - alquerque_alquerque
     - title: "Setups for checkers/draughts sets"
       desc: "Functions that generate data frames to setup checkers/draughts sets."
       contents:

@@ -1,6 +1,24 @@
 # setup_by_name()
 
     Code
+      cat_piece(alquerque_setup_by_name("Alquerque"))
+    Output
+                  
+        ●─●─●─●─● 
+        │╲│╱│╲│╱│ 
+        ●─●─●─●─● 
+        │╱│╲│╱│╲│ 
+        ●─●─┼─○─○ 
+        │╲│╱│╲│╱│ 
+        ○─○─○─○─○ 
+        │╱│╲│╱│╲│ 
+        ○─○─○─○─○ 
+                  
+                  
+
+---
+
+    Code
       cat_piece(checkers_setup_by_name("Turkish Draughts"))
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐

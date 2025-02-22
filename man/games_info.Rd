@@ -2,6 +2,7 @@
 % Please edit documentation in R/games_info.r
 \name{games_info}
 \alias{games_info}
+\alias{alquerque_games}
 \alias{chess_games}
 \alias{checkers_games}
 \alias{domino_games}
@@ -9,6 +10,8 @@
 \alias{stackpack_games}
 \title{Data frames with game info}
 \usage{
+alquerque_games()
+
 chess_games()
 
 checkers_games()
@@ -31,6 +34,7 @@ whose setups are provided by this package.
 \examples{
 head(piecepack_games())
 # Number of games for each game system
+nrow(alquerque_games())
 nrow(chess_games())
 nrow(checkers_games())
 nrow(domino_games())

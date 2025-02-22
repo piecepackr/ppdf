@@ -43,6 +43,8 @@ New features
 
 * The following functions are helper functions for setup functions (#5, #7, #32):
 
+  + `alquerque_bits()`
+  + `alquerque_board()`
   + `checkers_bits()`
   + `chess_bits()`
   + `piecepack_coins()`
@@ -85,10 +87,23 @@ New features
   + `stackpack_fischer_random_chess()` aka `stackpack_chess960()`
   + `stackpack_horde_chess()`
 
+* The following functions generate data frames to setup games playable with alquerque sets:
+
+  + `alquerque_alquerque()`
+
 * The following functions generate data frames with zero rows:
 
   + `alquerque_none()`
   + `marbles_none()`
+
+* The following functions generate data frames by game name:
+
+  + `alquerque_setup_by_name()`
+
+* The following functions generate data frames with info about the games whose setups are
+  provided by this package:
+
+  + `alquerque_games()`
 
 Bug fixes and minor improvements
 --------------------------------

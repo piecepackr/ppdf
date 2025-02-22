@@ -7,6 +7,7 @@
 #' @examples
 #' head(piecepack_games())
 #' # Number of games for each game system
+#' nrow(alquerque_games())
 #' nrow(chess_games())
 #' nrow(checkers_games())
 #' nrow(domino_games())
@@ -17,6 +18,13 @@
 #' @rdname games_info
 #' @name games_info
 NULL
+
+#' @rdname games_info
+#' @export
+alquerque_games <- function() {
+    bind_rows(alquerque_games_variant()) %>%
+        arrange_games()
+}
 
 #' @rdname games_info
 #' @export

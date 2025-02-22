@@ -2214,7 +2214,7 @@
 ---
 
     Code
-      cat_piece(piecepack_triactor(), reorient = "all")
+      cat_piece(piecepack_triactor(seed = 42), reorient = "all")
     Output
            ┌───┬─┰─┬─┰─┬─┰─┬─┰─┬─┰─┬─┰─┬───┐    
            │☀  │ ┃ │ ┃ │ ┃ │ ┃ │ ┃ │ ┃ │☾  │    
