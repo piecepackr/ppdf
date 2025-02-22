@@ -4,6 +4,7 @@
 \alias{checkers_games_other}
 \alias{checkers_breakthrough}
 \alias{checkers_crossings}
+\alias{checkers_dao}
 \alias{checkers_focus}
 \alias{checkers_four_field_kono}
 \alias{checkers_grasshopper}
@@ -14,6 +15,8 @@
 checkers_breakthrough(cell_width = 1)
 
 checkers_crossings(cell_width = 1)
+
+checkers_dao(cell_width = 1)
 
 checkers_focus(cell_width = 1)
 
@@ -43,7 +46,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 7 other games playable with a checkers set.
+\code{tibble} data frames of setups for 8 other games playable with a checkers set.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -51,6 +54,7 @@ Here are links for more information about the various games:\tabular{ll}{
    \strong{Game} \tab \strong{URL} \cr
    Breakthrough \tab \url{https://en.wikipedia.org/wiki/Breakthrough_(board_game)} \cr
    Crossings \tab \url{https://en.wikipedia.org/wiki/Crossings_(game)} \cr
+   Dao \tab \url{https://boardgamegeek.com/boardgame/948/dao} \cr
    Focus \tab \url{https://en.wikipedia.org/wiki/Focus_(board_game)} \cr
    Four Field Kono \tab \url{https://en.wikipedia.org/wiki/Four_Field_Kono} \cr
    Grasshopper \tab \url{http://www.cyningstan.com/game/71/grasshopper} \cr
