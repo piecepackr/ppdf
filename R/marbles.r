@@ -21,7 +21,8 @@
 #'                    y = c(1, 1, 2, 2, 1.5),
 #'                    suit = c(1:3, 5:6))
 #' df <- rbind(dfb, dfm)
-#' if (require("piecepackr", quietly = TRUE)) {
+#' if (require("piecepackr", quietly = TRUE) &&
+#'     packageVersion("piecepackr") >= "1.15.0-1") {
 #'   grid::grid.newpage()
 #'   envir = game_systems()
 #'   pmap_piece(df, envir = envir, default.units = "in")
