@@ -75,6 +75,10 @@ New features
   + `stackpack_fischer_random_chess()` aka `stackpack_chess960()`
   + `stackpack_horde_chess()`
 
+* The following functions generate data frames with zero rows:
+
+  + `alquerque_none()`
+  + `marbles_none()`
 
 Bug fixes and minor improvements
 --------------------------------
