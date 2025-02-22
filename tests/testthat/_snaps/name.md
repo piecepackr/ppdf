@@ -80,6 +80,21 @@
 ---
 
     Code
+      cat_piece(marble_setup_by_name("Board"))
+    Output
+      ┌───────┐
+      │◌ ◌ ◌ ◌│
+      │       │
+      │◌ ◌ ◌ ◌│
+      │       │
+      │◌ ◌ ◌ ◌│
+      │       │
+      │◌ ◌ ◌ ◌│
+      └───────┘
+
+---
+
+    Code
       cat_piece(piecepack_setup_by_name("Fuji-san", seed = 42))
     Output
          ┌─┬─┬─┬─┬─┬─┰─┬─┬─┬─┬─┬─┐  

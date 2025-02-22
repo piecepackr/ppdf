@@ -50,6 +50,6 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{alquerque_board()} returns a square alquerque board of desired size and type.
+\code{alquerque_board()} returns an alquerque board.
 \code{alquerque_bits()} returns alquerque pieces.
 }

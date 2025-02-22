@@ -1,6 +1,6 @@
 #' Generate alquerque boards and pieces
 #'
-#' `alquerque_board()` returns a square alquerque board of desired size and type.
+#' `alquerque_board()` returns an alquerque board.
 #' `alquerque_bits()` returns alquerque pieces.
 #'
 #' @param x0 X coordinate for the center of the first point

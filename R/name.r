@@ -32,6 +32,7 @@ known_game_systems <- c("piecepack",
                   "chess",
                   "domino", "dominoes",
                   "icehouse", "icehouse_pieces", "looney_pyramids",
+                  "marbles",
                   "stackpack", "piecepack_stackpack")
 
 normalize_system <- function(system) {
@@ -47,6 +48,8 @@ normalize_system <- function(system) {
            dominoes = "domino",
            icehouse = "icehouse",
            looney_pyramids = "icehouse",
+           marble  = "marble",
+           marbles = "marble",
            piecepack = "piecepack",
            piecepack_stackpack = "stackpack",
            stackpack = "stackpack",
@@ -64,8 +67,9 @@ normalize_system <- function(system) {
 #' Setups by game name
 #'
 #' `setup_by_name()` returns setup data frames by game name and game system.
-#' `checkers_by_name()`, `chess_by_name()`, `dominoes_by_name()`, and `piecepack_by_name()` are
-#' aliases that set the game system.
+#' `alquerque_setup_by_name()`, `checkers_setup_by_name()`, `chess_setup_by_name()`,
+#' `dominoes_setup_by_name()`, `marble_setup_by_name()`, `piecepack_setup_by_name()`
+#' and `stackpack_setup_by_name()` are aliases that set the game system.
 #' @param name Game name.  Will be normalized by [normalize_name()].
 #' @param system Game system.
 #' @param ... Additional arguments to pass to the underlying setup function.
@@ -110,6 +114,13 @@ chess_setup_by_name <- function(name, ...,
 domino_setup_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
     setup_by_name(name, "dominoes", ..., getter = getter)
+}
+
+#' @rdname setup_by_name
+#' @export
+marble_setup_by_name <- function(name, ...,
+                          getter = function(x) get(x, envir=getNamespace("ppdf"))) {
+    setup_by_name(name, "marbles", ..., getter = getter)
 }
 
 #' @rdname setup_by_name

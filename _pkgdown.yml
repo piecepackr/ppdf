@@ -30,6 +30,10 @@ reference:
       contents:
         - domino_tiles
         - domino_fujisan
+    - title: "Setups for marble games"
+      desc: "Functions that generate data frames to setup marble games."
+      contents:
+        - marble_board
     - title: "Setups for piecepack decks"
       desc: "Functions that generate data frames to setup piecepack pieces."
       contents:
