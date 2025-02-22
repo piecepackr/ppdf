@@ -33,7 +33,8 @@ Here are links for more information about the various games:\tabular{ll}{
 }
 \examples{
 df <- alquerque_alquerque()
-if (requireNamespace("ppcli", quietly = TRUE)) {
+if (requireNamespace("ppcli", quietly = TRUE) &&
+    packageVersion("ppcli") >= "0.2.0-1") {
   ppcli::cat_piece(df)
 }
 }
