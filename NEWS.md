@@ -53,6 +53,10 @@ New features
   + `piecepack_rectangular_board()`
   + `piecepack_tiles()`
 
+* The following functions generate data frames to setup other games playable with checkers/draughts sets:
+
+  + `checkers_dao()`
+
 * The following functions generate data frames to setup chess variants (#11):
 
   + `chess_horde_chess()`

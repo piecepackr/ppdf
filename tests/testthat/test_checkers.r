@@ -2,13 +2,14 @@ test_that("game diagrams work as expected", {
     skip_if_not_installed("ppcli")
     skip_on_os("windows")
 
-    expect_equal(nrow(checkers_games()), 23L)
+    expect_equal(nrow(checkers_games()), 24L)
 
     expect_snapshot(cat_piece(checkers_american_checkers()))
     expect_snapshot(cat_piece(checkers_american_pool_checkers()))
     expect_snapshot(cat_piece(checkers_canadian_checkers()))
     expect_snapshot(cat_piece(checkers_crossings())) # covers Breakthrough as well
     expect_snapshot(cat_piece(checkers_dameo()))
+    expect_snapshot(cat_piece(checkers_dao()))
     expect_snapshot(cat_piece(checkers_focus()))
     expect_snapshot(cat_piece(checkers_four_field_kono()))
     expect_snapshot(cat_piece(checkers_grasshopper()))

@@ -26,6 +26,10 @@ checkers_games_other <- function() {
             , "``checkers_crossings()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Crossings_(game)"
+            , "Dao"
+            , "``piecepack_dao()``"
+            , NA_character_
+            , "https://boardgamegeek.com/boardgame/948/dao"
             , "Focus"
             , "``checkers_focus()``"
             , NA_character_
@@ -57,6 +61,11 @@ checkers_breakthrough <- function(cell_width = 1)
 #' @rdname checkers_games_other
 #' @export
 checkers_crossings <- checkers_breakthrough
+
+#' @rdname checkers_games_other
+#' @export
+checkers_dao <- function(cell_width = 1)
+    to_checkers(piecepack_dao(), cell_width)
 
 #' @rdname checkers_games_other
 #' @export
