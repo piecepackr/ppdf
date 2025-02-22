@@ -1329,6 +1329,7 @@ piecepack_shopping_mall <- function(seed = NULL, cfg2 = "go") {
 piecepack_skyscrapers <- function(seed = NULL, tiles = NULL) {
     if (!is.null(seed)) withr::local_seed(seed)
     sra <- process_tiles(tiles)
+    #### If four null tiles border four sides of center hole then exchange crowns null/ace tiles
     df_tiles <- piecepack_donut_board(suit = sra$suit, rank = sra$rank, angle = sra$angle,
                                       x0 = 1.0, y0 = 1.0, side = "face")
     df_pawn <- filter(df_tiles, .data$rank == 1)

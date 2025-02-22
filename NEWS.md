@@ -67,8 +67,14 @@ New features
 * The following functions generate data frames to setup original games playable with piecepack sets (#36, #40):
 
   + `piecepack_dominoids()`
+  + `piecepack_lukawan()`
   + `piecepack_pawns_crossing()`
   + `piecepack_ship_it()`
+
+* The following functions generate data frames to setup other modern games playable with piecepack sets:
+
+  + `piecepack_12345ive()`
+  + `piecepack_dao()`
 
 * The following functions generate data frames to setup games playable with piecepack stackpacks:
 

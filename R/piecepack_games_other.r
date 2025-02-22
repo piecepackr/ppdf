@@ -19,6 +19,10 @@ piecepack_games_other <- function() {
             , ~methods
             , ~comment
             , ~url
+            , "12345ive!"
+            , "``piecepack_12345ive()``"
+            , NA_character_
+            , "https://boardgamegeek.com/boardgame/154644/12345ive"
             , "Breakthrough"
             , "``piecepack_breakthrough()``"
             , NA_character_
@@ -31,6 +35,10 @@ piecepack_games_other <- function() {
             , "``piecepack_change_change()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/ChangeChange"
+            , "Dao"
+            , "``piecepack_dao()``"
+            , NA_character_
+            , "https://boardgamegeek.com/boardgame/948/dao"
             , "Grasshopper"
             , "``piecepack_grasshopper()``"
             , NA_character_
@@ -43,11 +51,29 @@ piecepack_games_other <- function() {
             , "``piecepack_lines_of_action()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Lines_of_Action"
+            , "Lukawan"
+            , "``piecepack_lukawan()``"
+            , NA_character_
+            , "https://ludism.org/ppwiki/Lukawan"
             , "Quatri"
             , "``piecepack_quatri()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Quatri"
             )
+}
+
+#' @rdname piecepack_games_other
+#' @export
+piecepack_12345ive <- function() {
+    df_t <- piecepack_rectangular_board(14L, 5L)
+    df_c <- piecepack_coins(side = "back",
+                   x = rep.int(1:5, 2L),
+                   y = rep(c(14L, 1L), each = 5L),
+                   suit = rep(c(1L, 2L), each = 5L),
+                   rank = rep.int(1:5, 2L),
+                   angle = rep(c(180, 0), each = 5L)
+    )
+    bind_rows(df_t, df_c)
 }
 
 #' @rdname piecepack_games_other
@@ -77,6 +103,20 @@ piecepack_crossings <- piecepack_breakthrough
 
 #' @rdname piecepack_games_other
 #' @export
+piecepack_dao <- function() {
+    df_t <- piecepack_rectangular_board(4L, 4L)
+    df_c <- piecepack_coins(side = "back",
+                   x = c(1:4, 1:4),
+                   y = c(4:1, 1:4),
+                   suit = rep(c(1L, 2L), each = 4L),
+                   rank = rep.int(1:4, 2L),
+                   angle = rep(c(180, 0), each = 4L)
+    )
+    bind_rows(df_t, df_c)
+}
+
+#' @rdname piecepack_games_other
+#' @export
 piecepack_evade <- function() piecepack_rectangular_board(ncols = 6, nrows = 6)
 
 #' @rdname piecepack_games_other
@@ -103,6 +143,20 @@ piecepack_lines_of_action <- function() {
                    suit = rep(c(1,3,2,4), each = 6L),
                    rank = rep.int(1:6, 4L),
                    angle = rep(c(180, 90, 0, 270), each = 6L)
+    )
+    bind_rows(df_t, df_c)
+}
+
+#' @rdname piecepack_games_other
+#' @export
+piecepack_lukawan <- function() {
+    df_t <- piecepack_rectangular_board(14L, 6L)
+    df_c <- piecepack_coins(side = "back",
+                   x = rep.int(1:6, 2L),
+                   y = rep(c(14L, 1L), each = 6L),
+                   suit = rep(c(1L, 2L), each = 6L),
+                   rank = rep.int(1:6, 2L),
+                   angle = rep(c(180, 0), each = 6L)
     )
     bind_rows(df_t, df_c)
 }

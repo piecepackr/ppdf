@@ -2,7 +2,7 @@ test_that("piecepack diagrams work as expected", {
     skip_if_not_installed("ppcli")
     skip_on_os("windows")
 
-    expect_equal(nrow(piecepack_games()), 92L)
+    expect_equal(nrow(piecepack_games()), 95L)
 
     expect_equal(piecepack_by_name("Piecepack Halma"), piecepack_halma())
     expect_equal(piecepack_by_name("Piecepackman", seed = 42),
@@ -21,6 +21,7 @@ test_that("piecepack diagrams work as expected", {
         cat_piece(piecepack_alien_city(seed=42, tiles=tiles),
                   reorient = "symbols")
     })
+    expect_snapshot(cat_piece(piecepack_12345ive()))
     expect_snapshot(cat_piece(piecepack_alquerque()))
     expect_snapshot(cat_piece(piecepack_alquerque(TRUE)))
     expect_snapshot(cat_piece(piecepack_backgammon()))
@@ -39,6 +40,7 @@ test_that("piecepack diagrams work as expected", {
     expect_snapshot(cat_piece(piecepack_coin_collectors(seed = 15)))
     expect_snapshot(cat_piece(piecepack_cribbage_board()))
     expect_snapshot(cat_piece(piecepack_crocodile_hop(seed = 42)))
+    expect_snapshot(cat_piece(piecepack_dao()))
     expect_snapshot({
         df <- piecepack_desfases(seed=42)
         tiles <- generate_sra(df)
@@ -70,6 +72,7 @@ test_that("piecepack diagrams work as expected", {
     expect_snapshot(cat_piece(piecepack_landlocked(seed=42)))
     expect_snapshot(cat_piece(piecepack_ley_lines()))
     expect_snapshot(cat_piece(piecepack_lines_of_action(), reorient = "all"))
+    expect_snapshot(cat_piece(piecepack_lukawan()))
     expect_snapshot(cat_piece(piecepack_mathrix(seed=72)))
     expect_snapshot(cat_piece(piecepack_minishogi(), reorient = "all"))
     expect_snapshot(cat_piece(piecepack_nine_mens_morris(has_matchsticks = TRUE)))
