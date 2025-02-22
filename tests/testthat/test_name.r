@@ -11,6 +11,7 @@ test_that("setup_by_name()", {
     expect_snapshot(cat_piece(checkers_setup_by_name("Turkish Draughts")))
     expect_snapshot(cat_piece(chess_setup_by_name("Chess960", seed = 23)))
     expect_snapshot(cat_piece(domino_setup_by_name("Domino Fuji-san", seed = 42)))
+    expect_snapshot(cat_piece(marble_setup_by_name("Board")))
     expect_snapshot(cat_piece(piecepack_setup_by_name("Fuji-san", seed = 42)))
     expect_snapshot(cat_piece(stackpack_setup_by_name("Salta")))
     expect_snapshot(cat_piece(setup_by_name("Four Field Kono")))
