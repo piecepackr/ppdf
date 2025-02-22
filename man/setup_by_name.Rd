@@ -2,6 +2,7 @@
 % Please edit documentation in R/name.r
 \name{setup_by_name}
 \alias{setup_by_name}
+\alias{alquerque_setup_by_name}
 \alias{checkers_setup_by_name}
 \alias{chess_setup_by_name}
 \alias{domino_setup_by_name}
@@ -12,6 +13,12 @@
 setup_by_name(
   name,
   system = known_game_systems,
+  ...,
+  getter = function(x) get(x, envir = getNamespace("ppdf"))
+)
+
+alquerque_setup_by_name(
+  name,
   ...,
   getter = function(x) get(x, envir = getNamespace("ppdf"))
 )

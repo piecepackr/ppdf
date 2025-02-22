@@ -123,7 +123,7 @@ test_that("piecepack diagrams work as expected", {
     })
     expect_snapshot(cat_piece(piecepack_the_penguin_game(seed = 42)))
     expect_snapshot(cat_piece(piecepack_tracers()))
-    expect_snapshot(cat_piece(piecepack_triactor(), reorient = "all"))
+    expect_snapshot(cat_piece(piecepack_triactor(seed = 42), reorient = "all"))
     expect_snapshot({
         df <- piecepack_tula(seed=42)
         tiles <- generate_sra(df)

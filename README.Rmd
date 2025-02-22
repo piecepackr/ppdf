@@ -22,6 +22,7 @@
   + [Chess Sets](#chess)
   + [Dominoes](#dominoes)
   + [Piecepacks](#piecepack)
+  + [Other games](#other)
 
 * [External links](#links)
 
@@ -50,7 +51,6 @@ remotes::install_github("piecepackr/ppdf")
 df_fujisan <- ppdf::domino_fujisan(seed = 42)
 
 if (requireNamespace("piecepackr", quietly = TRUE) &&
-    requireNamespace("systemfonts", quietly = TRUE) &&
     all(capabilities("png"))) {
   library("piecepackr")
   envir <- game_systems(pawn = "joystick", round = TRUE)
@@ -68,7 +68,6 @@ if (requireNamespace("piecepackr", quietly = TRUE) &&
 df_loa <- ppdf::checkers_lines_of_action()
 
 if (requireNamespace("piecepackr", quietly = TRUE) &&
-    requireNamespace("systemfonts", quietly = TRUE) &&
     all(capabilities("png"))) {
   library("piecepackr")
   envir <- game_systems()
@@ -170,6 +169,13 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 `{ppdf}` supports the following `r nrow(ppdf::piecepack_games())` games playable with a piecepack deck (plus possibly additional components):
 
 `r ppdf:::readme_markdown_list(ppdf::piecepack_games())`
+
+### <a name="other">Other games</a>
+
+`{ppdf}` supports the following `r nrow(ppdf::alquerque_games())` games playable with an alquerque set
+
+`r ppdf:::readme_markdown_list(ppdf::alquerque_games())`
+
 
 ## <a name="links">External links</a>
 

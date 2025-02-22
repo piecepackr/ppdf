@@ -22,6 +22,7 @@
   + [Chess Sets](#chess)
   + [Dominoes](#dominoes)
   + [Piecepacks](#piecepack)
+  + [Other games](#other)
 
 * [External links](#links)
 
@@ -52,7 +53,6 @@ remotes::install_github("piecepackr/ppdf")
 df_fujisan <- ppdf::domino_fujisan(seed = 42)
 
 if (requireNamespace("piecepackr", quietly = TRUE) &&
-    requireNamespace("systemfonts", quietly = TRUE) &&
     all(capabilities("png"))) {
   library("piecepackr")
   envir <- game_systems(pawn = "joystick", round = TRUE)
@@ -71,7 +71,6 @@ if (requireNamespace("piecepackr", quietly = TRUE) &&
 df_loa <- ppdf::checkers_lines_of_action()
 
 if (requireNamespace("piecepackr", quietly = TRUE) &&
-    requireNamespace("systemfonts", quietly = TRUE) &&
     all(capabilities("png"))) {
   library("piecepackr")
   envir <- game_systems()
@@ -169,7 +168,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="checkers">Checkers Sets</a>
 
-`{ppdf}` supports the following 23 games playable with a (possibly non-8x8) checkers set:
+`{ppdf}` supports the following 24 games playable with a (possibly non-8x8) checkers set:
 
 * [(American) Checkers AKA (English) Draughts](https://en.wikipedia.org/wiki/Draughts)
 * [American Pool Checkers](https://draughts.github.io/american-pool-checkers.html)
@@ -179,6 +178,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Crossings](https://en.wikipedia.org/wiki/Crossings_(game))
 * [Czech Checkers AKA Czech Draughts](https://en.wikipedia.org/wiki/Czech_draughts)
 * [Dameo](https://en.wikipedia.org/wiki/Dameo)
+* [Dao](https://boardgamegeek.com/boardgame/948/dao)
 * [Focus](https://en.wikipedia.org/wiki/Focus_(board_game))
 * [Four Field Kono](https://en.wikipedia.org/wiki/Four_Field_Kono)
 * [Frisian Checkers AKA Frisian Draughts](https://en.wikipedia.org/wiki/Frisian_draughts)
@@ -197,10 +197,13 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="chess">Chess Sets</a>
 
-`{ppdf}` supports the following 2 games playable with a (possibly non-8x8) chess set:
+`{ppdf}` supports the following 5 games playable with a (possibly non-8x8) chess set:
 
 * [Fischer Random Chess AKA Chess960](https://www.chessvariants.com/diffsetup.dir/fischer.html)
+* [Horde Chess](https://lichess.org/variant/horde)
 * [(International) Chess](https://en.wikipedia.org/wiki/Chess)
+* [Monochrome Chess](https://wunderland.com/WTS/Andy/Games/monochess.html)
+* [Racing Kings](https://www.chessvariants.com/diffobjective.dir/racing.html)
 
 ### <a name="dominoes">Dominoes</a>
 
@@ -216,8 +219,9 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following 90 games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following 95 games playable with a piecepack deck (plus possibly additional components):
 
+* [12345ive!](https://boardgamegeek.com/boardgame/154644/12345ive)
 * [Alice Chess](https://en.wikipedia.org/wiki/Alice_chess)
 * [Alien City](https://www.ludism.org/ppwiki/AlienCity)
 * [Alquerque AKA Qirkat](https://en.wikipedia.org/wiki/Alquerque)
@@ -243,11 +247,13 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Crocodile Hop](https://www.ludism.org/ppwiki/CrocodileHop)
 * [Crossings](https://en.wikipedia.org/wiki/Crossings_(game))
 * [Czech Checkers AKA Czech Draughts](https://en.wikipedia.org/wiki/Czech_draughts)
+* [Dao](https://boardgamegeek.com/boardgame/948/dao)
 * [Desfases](https://www.ludism.org/ppwiki/Desfases)
 * [Dominoids](https://ludism.org/ppwiki/Dominoids)
 * [Easy Slider](https://www.ludism.org/ppwiki/EasySlider)
 * [Evade](https://www.ludism.org/ppwiki/Evade)
 * [Everest](https://www.ludism.org/ppwiki/Everest)
+* [Fischer Random Chess AKA Chess960](https://www.chessvariants.com/diffsetup.dir/fischer.html)
 * [Four Blind Mice](https://www.ludism.org/ppwiki/FourBlindMice)
 * [Four Field Kono](https://www.ludism.org/ppwiki/FourFieldKono)
 * [Four Seasons Chess](https://www.chessvariants.com/historic.dir/4seiz.html)
@@ -268,6 +274,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Ley Lines](https://www.ludism.org/ppwiki/LeyLines)
 * [Lines of Action](https://en.wikipedia.org/wiki/Lines_of_Action)
 * [Ludo](https://en.wikipedia.org/wiki/Ludo_(board_game))
+* [Lukawan](https://ludism.org/ppwiki/Lukawan)
 * [Mathrix](https://www.ludism.org/ppwiki/Mathrix)
 * [Minishogi](https://en.wikipedia.org/wiki/Minishogi)
 * [Nine Men's Morris](https://en.wikipedia.org/wiki/Nine_men%27s_morris)
@@ -281,6 +288,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Plans of Action](https://www.ludism.org/ppwiki/PlansOfAction)
 * [Portuguese Checkers AKA Portuguese Draughts](http://www.fpdamas.pt/regras/)
 * [Quatri](https://www.ludism.org/ppwiki/Quatri)
+* [Racing Kings](https://www.chessvariants.com/diffobjective.dir/racing.html)
 * [Relativity](https://www.ludism.org/ppwiki/Relativity)
 * [Russian Checkers AKA Russian Draughts](https://en.wikipedia.org/wiki/Russian_draughts)
 * [Salta](https://en.wikipedia.org/wiki/Salta_(game))
@@ -308,6 +316,13 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Ultima AKA Baroque Chess](https://en.wikipedia.org/wiki/Baroque_chess)
 * [Wormholes](https://www.ludism.org/ppwiki/Wormholes)
 * [Xiangqi AKA Chinese Chess](https://www.ludism.org/ppwiki/Xiangqi)
+
+### <a name="other">Other games</a>
+
+`{ppdf}` supports the following 1 games playable with an alquerque set
+
+* [Alquerque](https://en.wikipedia.org/wiki/Alquerque)
+
 
 ## <a name="links">External links</a>
 
