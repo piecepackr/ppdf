@@ -26,14 +26,15 @@ normalize_name <- function(x, sep = "_") {
     x
 }
 
-known_game_systems <- c("piecepack",
-                  "alquerque",
-                  "checkers", "draughts",
-                  "chess",
-                  "domino", "dominoes",
-                  "icehouse", "icehouse_pieces", "looney_pyramids",
-                  "marbles",
-                  "stackpack", "piecepack_stackpack")
+known_game_systems <- c(
+    "piecepack", "stackpack", "piecepack_stackpack",
+    "alquerque",
+    "checkers", "draughts",
+    "chess",
+    "domino", "dominoes",
+    "icehouse", "icehouse_pieces", "looney_pyramids",
+    "marble", "marbles"
+)
 
 normalize_system <- function(system) {
     system_ <- normalize_name(system[1L])
