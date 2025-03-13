@@ -219,7 +219,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following 95 games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following 96 games playable with a piecepack deck (plus possibly additional components):
 
 * [12345ive!](https://boardgamegeek.com/boardgame/154644/12345ive)
 * [Alice Chess](https://en.wikipedia.org/wiki/Alice_chess)
@@ -229,6 +229,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [American Pool Checkers](https://draughts.github.io/american-pool-checkers.html)
 * [Awithlaknannai Mosona](https://en.wikipedia.org/wiki/Awithlaknannai_Mosona)
 * [Backgammon](https://www.ludism.org/ppwiki/Backgammon)
+* [Bagh-chal](https://www.ludism.org/ppwiki/Bagh_Chal)
 * [Black Pawn Trucking](https://www.ludism.org/ppwiki/BlackPawnTrucking)
 * [Brain Burn](https://www.ludism.org/ppwiki/BrainBurn)
 * [Brandubh AKA Brandub](http://www.cyningstan.com/game/125/brandub)

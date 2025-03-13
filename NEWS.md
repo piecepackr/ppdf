@@ -84,6 +84,10 @@ New features
   + `piecepack_12345ive()`
   + `piecepack_dao()`
 
+* The following functions generate data frames to setup other traditional games playable with piecepack sets:
+
+  + `piecepack_baghchal()`
+
 * The following functions generate data frames to setup games playable with piecepack stackpacks:
 
   + `stackpack_fischer_random_chess()` aka `stackpack_chess960()`
