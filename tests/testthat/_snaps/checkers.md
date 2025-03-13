@@ -1,4 +1,4 @@
-# game diagrams work as expected
+# checkers games work as expected
 
     Code
       cat_piece(checkers_american_checkers())

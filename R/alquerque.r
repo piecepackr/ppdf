@@ -75,6 +75,10 @@ alquerque_games_variant <- function() {
             , "``alquerque_alquerque()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Alquerque"
+            , "Bagh-chal"
+            , "``alquerque_bagchal()``"
+            , NA_character_
+            , "https://en.wikipedia.org/wiki/Bagh-chal"
     )
 }
 
@@ -87,6 +91,16 @@ alquerque_alquerque <- function() {
                              suit = 6L),
               alquerque_bits(x = c(1:5, 1:5, 1:2),
                              y = rep.int(5:3, c(5L, 5L, 2L)),
+                             angle = 180,
+                             suit = 2L))
+}
+
+#' @rdname alquerque_games_variant
+#' @export
+alquerque_baghchal <- function() {
+    bind_rows(alquerque_board(suit = 3L),
+              alquerque_bits(x = c(1, 5, 5, 1),
+                             y = c(5, 5, 1, 1),
                              angle = 180,
                              suit = 2L))
 }

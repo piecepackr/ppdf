@@ -92,6 +92,7 @@ New features
 * The following functions generate data frames to setup games playable with alquerque sets:
 
   + `alquerque_alquerque()`
+  + `alquerque_baghchal()`
 
 * The following functions generate data frames with zero rows:
 
