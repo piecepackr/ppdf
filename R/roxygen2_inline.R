@@ -1,3 +1,4 @@
+# nocov start
 man_markdown_table <- function(df) {
     stopifnot(requireNamespace("knitr", quietly = TRUE))
     df$url <- paste0("<", df$url, ">")
@@ -73,3 +74,4 @@ deprecated_table <- function() {
     names(df) <- c("**Deprecated function**", "**Replacement function**")
     knitr::kable(df, "pipe")
 }
+# nocov end

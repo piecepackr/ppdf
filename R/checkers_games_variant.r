@@ -26,6 +26,10 @@ checkers_games_variant <- function() {
             , "``checkers_american_pool_checkers()``"
             , NA_character_
             , "https://draughts.github.io/american-pool-checkers.html"
+            , "Bashni AKA Column Checkers"
+            , "``checkers_bashni()`` aka ``checkers_column_checkers()``"
+            , NA_character_
+            , "https://en.wikipedia.org/wiki/Bashni"
             , "Brazilian Checkers AKA Brazilian Draughts"
             , "``checkers_brazilian_checkers()``"
             , NA_character_
@@ -34,6 +38,10 @@ checkers_games_variant <- function() {
             , "``checkers_canadian_checkers()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Canadian_checkers"
+            , "Corner Checkers AKA Corner Draughts"
+            , "``checkers_corner_checkers()``"
+            , NA_character_
+            , "https://brainking.com/en/GameRules?tp=30"
             , "Czech Checkers AKA Czech Draughts"
             , "``checkers_czech_checkers()``"
             , NA_character_
@@ -62,6 +70,18 @@ checkers_games_variant <- function() {
             , "``checkers_jamaican_checkers()``"
             , NA_character_
             , "https://web.archive.org/web/20230605023244/http://poolcheckers.com/jamaica/"
+            , "Lasca"
+            , "``checkers_lasca()``"
+            , NA_character_
+            , "http://www.lasca.org"
+            , "Malaysian Checkers AKA Singaporean Checkers"
+            , "``checkers_malaysian_checkers()`` aka ``checkers_singaporean_checkers()"
+            , NA_character_
+            , "https://brainking.com/en/GameRules?tp=31"
+            , "One Way Checkers AKA One Way Draughts"
+            , "``checkers_one_way_checkers()``"
+            , NA_character_
+            , "https://brainking.com/en/GameRules?tp=31"
             , "Portuguese Checkers AKA Portuguese Draughts"
             , "``checkers_portuguese_checkers()``"
             , NA_character_
@@ -71,17 +91,25 @@ checkers_games_variant <- function() {
             , NA_character_
             , "https://en.wikipedia.org/wiki/Russian_draughts"
             , "Spanish Checkers AKA Spanish Draughts"
-            , "``piecepack_spanish_checkers()``"
+            , "``checkers_spanish_checkers()``"
             , NA_character_
             , "https://mindsports.nl/index.php/on-the-evolution-of-draughts-variants/draughts-variants/497-dama_s"
             , "Thai Checkers AKA Thai Draughts AKA Mak-hot AKA Makhos"
-            , "``piecepack_thai_checkers()``"
+            , "``checkers_thai_checkers()``"
             , NA_character_
             , "https://checkers.fandom.com/wiki/Mak-hot"
             , "Turkish Checkers AKA Turkish Draughts AKA Dama"
             , "``checkers_turkish_checkers()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Turkish_draughts"
+            , "Unified Pool Checkers"
+            , "``checkers_unified_pool_checkers()``"
+            , NA_character_
+            , "https://wiegerw.github.io/pdn/gametype.html"
+            , "Zimbabwean Pool Checkers"
+            , "``checkers_zimbabwean_pool_checkers()``"
+            , NA_character_
+            , "https://wiegerw.github.io/pdn/gametype.html"
     )
 }
 
@@ -94,6 +122,10 @@ checkers_american_checkers <- function(cell_width = 1)
 #' @export
 checkers_american_pool_checkers <- function(cell_width = 1)
     to_checkers(piecepack_american_checkers(), cell_width, black_first = TRUE)
+
+#' @rdname checkers_games_variant
+#' @export
+checkers_bashni <- checkers_american_checkers
 
 #' @rdname checkers_games_variant
 #' @export
@@ -118,6 +150,15 @@ checkers_canadian_checkers <- function(cell_width = 1) {
 #' @rdname checkers_games_variant
 #' @export
 checkers_checkers <- checkers_american_checkers
+
+#' @rdname checkers_games_variant
+#' @export
+checkers_column_checkers <- checkers_bashni
+
+#' @rdname checkers_games_variant
+#' @export
+checkers_corner_checkers <- function(cell_width = 1)
+    to_checkers(piecepack_corner_checkers(), cell_width)
 
 #' @rdname checkers_games_variant
 #' @export
@@ -174,11 +215,38 @@ checkers_jamaican_checkers <- checkers_italian_checkers
 
 #' @rdname checkers_games_variant
 #' @export
+checkers_lasca <- function(cell_width = 1) {
+    df_board <- checkers_board(7L)
+    df_w <- checkers_bits(suit = 6L,
+                          x = c(5,7,4,6,5,7,  1,3,2,1,3),
+                          y = c(3,3,2,2,1,1,  3,3,2,1,1))
+    df_b <- checkers_bits(suit = 1L,
+                          x = c(1,3,2,4,1,3,  5,7,6,5,7),
+                          y = c(7,7,6,6,5,5,  7,7,6,5,5))
+    bind_rows(df_board, df_w, df_b) %>%
+        set_cell_width(cell_width, "checkers")
+}
+
+#' @rdname checkers_games_variant
+#' @export
+checkers_malaysian_checkers <- checkers_canadian_checkers
+
+#' @rdname checkers_games_variant
+#' @export
+checkers_one_way_checkers <- function(cell_width = 1)
+    to_checkers(piecepack_one_way_checkers(), cell_width)
+
+#' @rdname checkers_games_variant
+#' @export
 checkers_portuguese_checkers <- checkers_italian_checkers
 
 #' @rdname checkers_games_variant
 #' @export
 checkers_russian_checkers <- checkers_american_checkers
+
+#' @rdname checkers_games_variant
+#' @export
+checkers_singaporean_checkers <- checkers_malaysian_checkers
 
 #' @rdname checkers_games_variant
 #' @export
@@ -194,3 +262,12 @@ checkers_thai_checkers <- function(cell_width = 1)
 checkers_turkish_checkers <- function(cell_width = 1)
     to_checkers(piecepack_turkish_checkers(), cell_width,
                 piece_side = "board_back", suit = 2L)
+
+#' @rdname checkers_games_variant
+#' @export
+checkers_unified_pool_checkers <- checkers_american_checkers
+
+#' @rdname checkers_games_variant
+#' @export
+checkers_zimbabwean_pool_checkers <- function(cell_width = 1)
+    to_checkers(piecepack_zimbabwean_pool_checkers(), cell_width, angle = 90)

@@ -12,11 +12,13 @@ set_cell_width <- function(df, cell_width, system) {
 # use suit = 1 (red) for "black"
 # use suit = 6 (white) for "white"
 # use green checkered board if checkered board and black lined board if not checkered
-to_checkers <- function(df, cell_width = 1, ..., n_players = 2, black_first = FALSE) {
+to_checkers <- function(df, cell_width = 1, ..., width = NULL,
+                        n_players = 2, black_first = FALSE) {
     white <- 6L
     black <- 1L # red actually
     dft <- filter(df, grepl("tile", .data$piece_side))
-    width <- max(dft$x) - min(dft$x) + 2L
+    if (is.null(width))
+        width <- max(dft$x) - min(dft$x) + 2L
     df_board <- checkers_board(width, cell_width = NULL, ...)
     df_pieces <- filter(df, !grepl("tile", .data$piece_side))
     df_pieces$piece_side <- "bit_back"

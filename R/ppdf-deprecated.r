@@ -1,3 +1,4 @@
+# nocov start
 #' Deprecated functions
 #'
 #' These functions are Deprecated in this release of ppdf,
@@ -183,3 +184,4 @@ stackpack_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
     setup_by_name(name, "piecepack", ..., getter = getter)
 }
+# nocov end

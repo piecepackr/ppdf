@@ -4,9 +4,12 @@
 \alias{checkers_games_variant}
 \alias{checkers_american_checkers}
 \alias{checkers_american_pool_checkers}
+\alias{checkers_bashni}
 \alias{checkers_brazilian_checkers}
 \alias{checkers_canadian_checkers}
 \alias{checkers_checkers}
+\alias{checkers_column_checkers}
+\alias{checkers_corner_checkers}
 \alias{checkers_czech_checkers}
 \alias{checkers_dameo}
 \alias{checkers_english_checkers}
@@ -15,22 +18,34 @@
 \alias{checkers_international_checkers}
 \alias{checkers_italian_checkers}
 \alias{checkers_jamaican_checkers}
+\alias{checkers_lasca}
+\alias{checkers_malaysian_checkers}
+\alias{checkers_one_way_checkers}
 \alias{checkers_portuguese_checkers}
 \alias{checkers_russian_checkers}
+\alias{checkers_singaporean_checkers}
 \alias{checkers_spanish_checkers}
 \alias{checkers_thai_checkers}
 \alias{checkers_turkish_checkers}
+\alias{checkers_unified_pool_checkers}
+\alias{checkers_zimbabwean_pool_checkers}
 \title{Setups for checkers variants}
 \usage{
 checkers_american_checkers(cell_width = 1)
 
 checkers_american_pool_checkers(cell_width = 1)
 
+checkers_bashni(cell_width = 1)
+
 checkers_brazilian_checkers(cell_width = 1)
 
 checkers_canadian_checkers(cell_width = 1)
 
 checkers_checkers(cell_width = 1)
+
+checkers_column_checkers(cell_width = 1)
+
+checkers_corner_checkers(cell_width = 1)
 
 checkers_czech_checkers(cell_width = 1)
 
@@ -48,15 +63,27 @@ checkers_italian_checkers(cell_width = 1)
 
 checkers_jamaican_checkers(cell_width = 1)
 
+checkers_lasca(cell_width = 1)
+
+checkers_malaysian_checkers(cell_width = 1)
+
+checkers_one_way_checkers(cell_width = 1)
+
 checkers_portuguese_checkers(cell_width = 1)
 
 checkers_russian_checkers(cell_width = 1)
+
+checkers_singaporean_checkers(cell_width = 1)
 
 checkers_spanish_checkers(cell_width = 1)
 
 checkers_thai_checkers(cell_width = 1)
 
 checkers_turkish_checkers(cell_width = 1)
+
+checkers_unified_pool_checkers(cell_width = 1)
+
+checkers_zimbabwean_pool_checkers(cell_width = 1)
 }
 \arguments{
 \item{cell_width}{Width of board cell.  Most renderers support \code{1} or \code{2}.}
@@ -76,7 +103,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 16 checkers variants.
+\code{tibble} data frames of setups for 23 checkers variants.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -84,8 +111,10 @@ Here are links for more information about the various games:\tabular{ll}{
    \strong{Game} \tab \strong{URL} \cr
    (American) Checkers AKA (English) Draughts \tab \url{https://en.wikipedia.org/wiki/Draughts} \cr
    American Pool Checkers \tab \url{https://draughts.github.io/american-pool-checkers.html} \cr
+   Bashni AKA Column Checkers \tab \url{https://en.wikipedia.org/wiki/Bashni} \cr
    Brazilian Checkers AKA Brazilian Draughts \tab \url{https://en.wikipedia.org/wiki/Brazilian_draughts} \cr
    Canadian Checkers AKA Canadian Draughts \tab \url{https://en.wikipedia.org/wiki/Canadian_checkers} \cr
+   Corner Checkers AKA Corner Draughts \tab \url{https://brainking.com/en/GameRules?tp=30} \cr
    Czech Checkers AKA Czech Draughts \tab \url{https://en.wikipedia.org/wiki/Czech_draughts} \cr
    Dameo \tab \url{https://en.wikipedia.org/wiki/Dameo} \cr
    Frisian Checkers AKA Frisian Draughts \tab \url{https://en.wikipedia.org/wiki/Frisian_draughts} \cr
@@ -93,10 +122,15 @@ Here are links for more information about the various games:\tabular{ll}{
    International Checkers AKA International Draughts \tab \url{https://en.wikipedia.org/wiki/International_draughts} \cr
    Italian Checkers AKA Italian Draughts \tab \url{https://en.wikipedia.org/wiki/Italian_draughts} \cr
    Jamaican Checkers AKA Jamaican Draughts \tab \url{https://web.archive.org/web/20230605023244/http://poolcheckers.com/jamaica/} \cr
+   Lasca \tab \url{http://www.lasca.org} \cr
+   Malaysian Checkers AKA Singaporean Checkers \tab \url{https://brainking.com/en/GameRules?tp=31} \cr
+   One Way Checkers AKA One Way Draughts \tab \url{https://brainking.com/en/GameRules?tp=31} \cr
    Portuguese Checkers AKA Portuguese Draughts \tab \url{http://www.fpdamas.pt/regras/} \cr
    Russian Checkers AKA Russian Draughts \tab \url{https://en.wikipedia.org/wiki/Russian_draughts} \cr
    Spanish Checkers AKA Spanish Draughts \tab \url{https://mindsports.nl/index.php/on-the-evolution-of-draughts-variants/draughts-variants/497-dama_s} \cr
    Thai Checkers AKA Thai Draughts AKA Mak-hot AKA Makhos \tab \url{https://checkers.fandom.com/wiki/Mak-hot} \cr
    Turkish Checkers AKA Turkish Draughts AKA Dama \tab \url{https://en.wikipedia.org/wiki/Turkish_draughts} \cr
+   Unified Pool Checkers \tab \url{https://wiegerw.github.io/pdn/gametype.html} \cr
+   Zimbabwean Pool Checkers \tab \url{https://wiegerw.github.io/pdn/gametype.html} \cr
 }
 }

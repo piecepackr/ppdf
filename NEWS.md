@@ -57,6 +57,16 @@ New features
   + `piecepack_rectangular_board()`
   + `piecepack_tiles()`
 
+* The following functions generate data frames to setup checkers/draughts variants:
+
+  + `checkers_bashni()` aka `checkers_column_checkers()`
+  + `checkers_corner_checkers()`
+  + `checkers_lasca()`
+  + `checkers_one_way_checkers()`
+  + `checkers_malaysian_checkers()` aka `checkers_singaporean_checkers()`
+  + `checkers_unified_pool_checkers()`
+  + `checkers_zimbabwean_pool_checkers()`
+
 * The following functions generate data frames to setup other games playable with checkers/draughts sets:
 
   + `checkers_dao()`
@@ -66,6 +76,14 @@ New features
   + `chess_horde_chess()`
   + `chess_monochrome_chess()`
   + `chess_racing_kings()`
+
+* The following functions generate data frames to setup checkers variants playable with piecepack sets:
+
+  + `piecepack_bashni()` aka `piecepack_column_checkers()`
+  + `piecepack_corner_checkers()`
+  + `piecepack_one_way_checkers()`
+  + `piecepack_unified_pool_checkers()`
+  + `piecepack_zimbabwean_pool_checkers()`
 
 * The following functions generate data frames to setup chess variants playable with piecepack sets:
 
