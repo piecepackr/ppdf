@@ -1,4 +1,4 @@
-test_that("game diagrams work as expected", {
+test_that("checkers games work as expected", {
     skip_if_not_installed("ppcli")
     skip_on_os("windows")
 

@@ -319,9 +319,10 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="other">Other games</a>
 
-`{ppdf}` supports the following 1 games playable with an alquerque set
+`{ppdf}` supports the following 2 games playable with an alquerque set
 
 * [Alquerque](https://en.wikipedia.org/wiki/Alquerque)
+* [Bagh-chal](https://en.wikipedia.org/wiki/Bagh-chal)
 
 
 ## <a name="links">External links</a>

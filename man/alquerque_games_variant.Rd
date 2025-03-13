@@ -3,9 +3,12 @@
 \name{alquerque_games_variant}
 \alias{alquerque_games_variant}
 \alias{alquerque_alquerque}
+\alias{alquerque_baghchal}
 \title{Setups for alquerque variants}
 \usage{
 alquerque_alquerque()
+
+alquerque_baghchal()
 }
 \value{
 A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:
@@ -22,13 +25,14 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 1 alquerque variants.
+\code{tibble} data frames of setups for 2 alquerque variants.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
 Here are links for more information about the various games:\tabular{ll}{
    \strong{Game} \tab \strong{URL} \cr
    Alquerque \tab \url{https://en.wikipedia.org/wiki/Alquerque} \cr
+   Bagh-chal \tab \url{https://en.wikipedia.org/wiki/Bagh-chal} \cr
 }
 }
 \examples{

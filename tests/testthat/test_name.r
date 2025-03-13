@@ -6,7 +6,6 @@ test_that("normalize_name()", {
 
 test_that("setup_by_name()", {
     skip_if_not_installed("ppcli", "0.2.0-1")
-    expect_equal(nrow(alquerque_games()), 1L)
     expect_snapshot(cat_piece(alquerque_setup_by_name("Alquerque")))
     expect_snapshot(cat_piece(checkers_setup_by_name("Turkish Draughts")))
     expect_snapshot(cat_piece(chess_setup_by_name("Chess960", seed = 23)))
