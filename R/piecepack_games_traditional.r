@@ -32,6 +32,10 @@ piecepack_games_traditional <- function() {
             , "``piecepack_backgammon()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Backgammon"
+            , "Bagh-chal"
+            , "``piecepack_baghchal()``"
+            , NA_character_
+            , "https://www.ludism.org/ppwiki/Bagh_Chal"
             , "Brandubh AKA Brandub"
             , "``piecepack_brandubh()``"
             , NA_character_
@@ -188,6 +192,25 @@ piecepack_backgammon <- function() {
                            y = c(y_bot, y_top, y_bot+2.0, y_bot+2.0),
                            angle = c(0, 180, 0, 180))
     bind_rows(df_t, df_c, df_p, df_d)
+}
+
+#' @rdname piecepack_games_traditional
+#' @export
+piecepack_baghchal <- function(has_matchsticks = FALSE) {
+    df_t <- piecepack_rectangular_board(5L, 5L)
+    df_p <- piecepack_pawns(x = c(1, 5, 5, 1), y = c(5, 5, 1, 1), angle = 180)
+    if (has_matchsticks) {
+        df_m <- piecepack_matchsticks(side = "back",
+                       suit = rep(1:4, each=4),
+                       rank = 2,
+                       x = 0.5 + c(1,2,2,1, 3,4,4,3, 3,4,4,3, 1,2,2,1),
+                       y = 0.5 + c(4,4,3,3, 4,4,3,3, 2,2,1,1, 2,2,1,1),
+                       angle = rep(c(45, -45, -135, 135), 4))
+        df <- bind_rows(df_t, df_m, df_p)
+    } else {
+        df <- bind_rows(df_t, df_p)
+    }
+    df
 }
 
 #' @rdname piecepack_games_traditional

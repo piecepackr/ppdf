@@ -5,6 +5,7 @@
 \alias{piecepack_alquerque}
 \alias{piecepack_awithlaknannai_mosona}
 \alias{piecepack_backgammon}
+\alias{piecepack_baghchal}
 \alias{piecepack_brandubh}
 \alias{piecepack_cribbage}
 \alias{piecepack_cribbage_board}
@@ -22,6 +23,8 @@ piecepack_alquerque(has_matchsticks = FALSE)
 piecepack_awithlaknannai_mosona(has_matchsticks = FALSE)
 
 piecepack_backgammon()
+
+piecepack_baghchal(has_matchsticks = FALSE)
 
 piecepack_brandubh()
 
@@ -65,7 +68,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 11 other traditional games playable with a piecepack.
+\code{tibble} data frames of setups for 12 other traditional games playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -74,6 +77,7 @@ Here are links for more information about the various other traditional games:\t
    Alquerque AKA Qirkat \tab \url{https://en.wikipedia.org/wiki/Alquerque} \cr
    Awithlaknannai Mosona \tab \url{https://en.wikipedia.org/wiki/Awithlaknannai_Mosona} \cr
    Backgammon \tab \url{https://www.ludism.org/ppwiki/Backgammon} \cr
+   Bagh-chal \tab \url{https://www.ludism.org/ppwiki/Bagh_Chal} \cr
    Brandubh AKA Brandub \tab \url{http://www.cyningstan.com/game/125/brandub} \cr
    Cribbage \tab \url{https://www.ludism.org/ppwiki/Cribbage} \cr
    Four Field Kono \tab \url{https://www.ludism.org/ppwiki/FourFieldKono} \cr
