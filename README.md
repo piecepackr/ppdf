@@ -168,13 +168,15 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="checkers">Checkers Sets</a>
 
-`{ppdf}` supports the following 24 games playable with a (possibly non-8x8) checkers set:
+`{ppdf}` supports the following 31 games playable with a (possibly non-8x8) checkers set:
 
 * [(American) Checkers AKA (English) Draughts](https://en.wikipedia.org/wiki/Draughts)
 * [American Pool Checkers](https://draughts.github.io/american-pool-checkers.html)
+* [Bashni AKA Column Checkers](https://en.wikipedia.org/wiki/Bashni)
 * [Brazilian Checkers AKA Brazilian Draughts](https://en.wikipedia.org/wiki/Brazilian_draughts)
 * [Breakthrough](https://en.wikipedia.org/wiki/Breakthrough_(board_game))
 * [Canadian Checkers AKA Canadian Draughts](https://en.wikipedia.org/wiki/Canadian_checkers)
+* [Corner Checkers AKA Corner Draughts](https://brainking.com/en/GameRules?tp=30)
 * [Crossings](https://en.wikipedia.org/wiki/Crossings_(game))
 * [Czech Checkers AKA Czech Draughts](https://en.wikipedia.org/wiki/Czech_draughts)
 * [Dameo](https://en.wikipedia.org/wiki/Dameo)
@@ -188,12 +190,17 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Italian Checkers AKA Italian Draughts](https://en.wikipedia.org/wiki/Italian_draughts)
 * [Jamaican Checkers AKA Jamaican Draughts](https://web.archive.org/web/20230605023244/http://poolcheckers.com/jamaica/)
 * [Jul-Gonu](https://en.wikipedia.org/wiki/Jul-Gonu)
+* [Lasca](http://www.lasca.org)
 * [Lines of Action](https://en.wikipedia.org/wiki/Lines_of_Action)
+* [Malaysian Checkers AKA Singaporean Checkers](https://brainking.com/en/GameRules?tp=31)
+* [One Way Checkers AKA One Way Draughts](https://brainking.com/en/GameRules?tp=31)
 * [Portuguese Checkers AKA Portuguese Draughts](http://www.fpdamas.pt/regras/)
 * [Russian Checkers AKA Russian Draughts](https://en.wikipedia.org/wiki/Russian_draughts)
 * [Spanish Checkers AKA Spanish Draughts](https://mindsports.nl/index.php/on-the-evolution-of-draughts-variants/draughts-variants/497-dama_s)
 * [Thai Checkers AKA Thai Draughts AKA Mak-hot AKA Makhos](https://checkers.fandom.com/wiki/Mak-hot)
 * [Turkish Checkers AKA Turkish Draughts AKA Dama](https://en.wikipedia.org/wiki/Turkish_draughts)
+* [Unified Pool Checkers](https://wiegerw.github.io/pdn/gametype.html)
+* [Zimbabwean Pool Checkers](https://wiegerw.github.io/pdn/gametype.html)
 
 ### <a name="chess">Chess Sets</a>
 
@@ -219,7 +226,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following 96 games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following 101 games playable with a piecepack deck (plus possibly additional components):
 
 * [12345ive!](https://boardgamegeek.com/boardgame/154644/12345ive)
 * [Alice Chess](https://en.wikipedia.org/wiki/Alice_chess)
@@ -230,6 +237,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Awithlaknannai Mosona](https://en.wikipedia.org/wiki/Awithlaknannai_Mosona)
 * [Backgammon](https://www.ludism.org/ppwiki/Backgammon)
 * [Bagh-chal](https://www.ludism.org/ppwiki/Bagh_Chal)
+* [Bashni AKA Column Checkers](https://en.wikipedia.org/wiki/Bashni)
 * [Black Pawn Trucking](https://www.ludism.org/ppwiki/BlackPawnTrucking)
 * [Brain Burn](https://www.ludism.org/ppwiki/BrainBurn)
 * [Brandubh AKA Brandub](http://www.cyningstan.com/game/125/brandub)
@@ -244,6 +252,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Chinese Checkers AKA (Piecepack) Halma](https://www.ludism.org/ppwiki/ChineseCheckers)
 * [Climbing Man](https://www.ludism.org/ppwiki/ClimbingMan)
 * [Coin Collectors](https://www.ludism.org/ppwiki/CoinCollectors)
+* [Corner Checkers AKA Corner Draughts](https://brainking.com/en/GameRules?tp=30)
 * [Cribbage](https://www.ludism.org/ppwiki/Cribbage)
 * [Crocodile Hop](https://www.ludism.org/ppwiki/CrocodileHop)
 * [Crossings](https://en.wikipedia.org/wiki/Crossings_(game))
@@ -280,6 +289,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Minishogi](https://en.wikipedia.org/wiki/Minishogi)
 * [Nine Men's Morris](https://en.wikipedia.org/wiki/Nine_men%27s_morris)
 * [One Man Thrag!](https://www.ludism.org/ppwiki/OneManThrag)
+* [One Way Checkers AKA One Way Draughts](https://brainking.com/en/GameRules?tp=31)
 * [Pass the Food](https://www.ludism.org/ppwiki/PassTheFood)
 * [Pawns Crossing](https://ludism.org/ppwiki/PawnsCrossing)
 * [Piece Gaps](https://www.ludism.org/ppwiki/PieceGaps)
@@ -315,8 +325,10 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Turkish Checkers AKA Turkish Draughts AKA Dama](https://en.wikipedia.org/wiki/Turkish_draughts)
 * [Twelve Men's Morris](https://en.wikipedia.org/wiki/Morabaraba)
 * [Ultima AKA Baroque Chess](https://en.wikipedia.org/wiki/Baroque_chess)
+* [Unified Pool Checkers](https://wiegerw.github.io/pdn/gametype.html)
 * [Wormholes](https://www.ludism.org/ppwiki/Wormholes)
 * [Xiangqi AKA Chinese Chess](https://www.ludism.org/ppwiki/Xiangqi)
+* [Zimbabwean Pool Checkers](https://wiegerw.github.io/pdn/gametype.html)
 
 ### <a name="other">Other games</a>
 
