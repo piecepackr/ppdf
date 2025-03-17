@@ -17,7 +17,7 @@ normalize_name <- function(x, sep = "_") {
     x <- gsub('"|\'|-', "", x) # e.g. The "In" Crowd -> the_in_crowd
     x <- snakecase::to_snake_case(x, sep_out = sep, numerals = "left")
     x <- gsub("draughts", "checkers", x)
-    x <- gsub(paste0("^checkers", sep), "", x)
+    x <- gsub(paste0("^checker", sep), "", x)
     x <- gsub(paste0("^chess", sep), "", x)
     x <- gsub(paste0("^domino", sep), "", x)
     x <- gsub(paste0("^icehouse", sep), "", x)
@@ -42,8 +42,9 @@ normalize_system <- function(system) {
         system_ <- "icehouse"
     switch(system_,
            alquerque = "alquerque",
-           checkers = "checkers",
-           draughts = "checkers",
+           checker = "checker",
+           checkers = "checker",
+           draughts = "checker",
            chess = "chess",
            domino = "domino",
            dominoes = "domino",
@@ -68,7 +69,7 @@ normalize_system <- function(system) {
 #' Setups by game name
 #'
 #' `setup_by_name()` returns setup data frames by game name and game system.
-#' `alquerque_setup_by_name()`, `checkers_setup_by_name()`, `chess_setup_by_name()`,
+#' `alquerque_setup_by_name()`, `checker_setup_by_name()`, `chess_setup_by_name()`,
 #' `dominoes_setup_by_name()`, `marble_setup_by_name()`, `piecepack_setup_by_name()`
 #' and `stackpack_setup_by_name()` are aliases that set the game system.
 #' @param name Game name.  Will be normalized by [normalize_name()].
@@ -98,9 +99,9 @@ alquerque_setup_by_name <- function(name, ...,
 
 #' @rdname setup_by_name
 #' @export
-checkers_setup_by_name <- function(name, ...,
+checker_setup_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
-    setup_by_name(name, "checkers", ..., getter = getter)
+    setup_by_name(name, "checker", ..., getter = getter)
 }
 
 #' @rdname setup_by_name
@@ -114,14 +115,14 @@ chess_setup_by_name <- function(name, ...,
 #' @export
 domino_setup_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
-    setup_by_name(name, "dominoes", ..., getter = getter)
+    setup_by_name(name, "domino", ..., getter = getter)
 }
 
 #' @rdname setup_by_name
 #' @export
 marble_setup_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
-    setup_by_name(name, "marbles", ..., getter = getter)
+    setup_by_name(name, "marble", ..., getter = getter)
 }
 
 #' @rdname setup_by_name

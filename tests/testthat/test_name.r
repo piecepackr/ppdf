@@ -7,7 +7,7 @@ test_that("normalize_name()", {
 test_that("setup_by_name()", {
     skip_if_not_installed("ppcli", "0.2.0-1")
     expect_snapshot(cat_piece(alquerque_setup_by_name("Alquerque")))
-    expect_snapshot(cat_piece(checkers_setup_by_name("Turkish Draughts")))
+    expect_snapshot(cat_piece(checker_setup_by_name("Turkish Draughts")))
     expect_snapshot(cat_piece(chess_setup_by_name("Chess960", seed = 23)))
     expect_snapshot(cat_piece(domino_setup_by_name("Domino Fuji-san", seed = 42)))
     expect_snapshot(cat_piece(marble_setup_by_name("Board")))
@@ -18,7 +18,7 @@ test_that("setup_by_name()", {
 
 test_that("normalize_system()", {
     expect_equal(normalize_system("dominoes"), "domino")
-    expect_equal(normalize_system("draughts"), "checkers")
+    expect_equal(normalize_system("draughts"), "checker")
     expect_equal(normalize_system("icehouse"), "icehouse")
     expect_equal(normalize_system("icehouse_pieces"), "icehouse")
     expect_equal(normalize_system("looney_pyramids"), "icehouse")

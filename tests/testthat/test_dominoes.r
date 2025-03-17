@@ -3,7 +3,7 @@ test_that("dominoes setups work as expected", {
     skip_on_os("windows")
 
     expect_equal(nrow(domino_games()), 7L)
-    expect_equal(dominoes_by_name("Domino Runners", seed = 42),
+    expect_equal(domino_setup_by_name("Domino Runners", seed = 42),
                  domino_runners(seed = 42))
 
     expect_snapshot(cat_piece(domino_concentration(seed = 12)))

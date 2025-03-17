@@ -19,7 +19,7 @@ to_checkers <- function(df, cell_width = 1, ..., width = NULL,
     dft <- filter(df, grepl("tile", .data$piece_side))
     if (is.null(width))
         width <- max(dft$x) - min(dft$x) + 2L
-    df_board <- checkers_board(width, cell_width = NULL, ...)
+    df_board <- checker_board(width, cell_width = NULL, ...)
     df_pieces <- filter(df, !grepl("tile", .data$piece_side))
     df_pieces$piece_side <- "bit_back"
     df_pieces$angle <- 0

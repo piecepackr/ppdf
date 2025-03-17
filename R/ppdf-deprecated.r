@@ -9,17 +9,202 @@
 NULL
 
 #' @rdname ppdf-deprecated
+#' @inheritParams checker_american_checkers
+#' @export
+checkers_american_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_american_checkers")
+    checker_american_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_american_pool_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_american_pool_checkers")
+    checker_american_pool_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_board <- function(cell_width = 1) {
+    .Deprecated("checker_board")
+    checker_board(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_brazilian_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_brazilian_checkers")
+    checker_brazilian_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_breakthrough <- function(cell_width = 1) {
+    .Deprecated("checker_breakthrough")
+    checker_breakthrough(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
 #' @inheritParams setup_by_name
 #' @export
 checkers_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
-    setup_by_name(name, "checkers", ..., getter = getter)
+    .Deprecated("checker_setup_by_name")
+    setup_by_name(name, "checker", ..., getter = getter)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_canadian_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_canadian_checkers")
+    checker_canadian_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_crossings <- function(cell_width = 1) {
+    .Deprecated("checker_crossings")
+    checker_crossings(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_czech_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_czech_checkers")
+    checker_czech_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_checkers")
+    checker_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_dameo <- function(cell_width = 1) {
+    .Deprecated("checker_dameo")
+    checker_dameo(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_english_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_english_checkers")
+    checker_english_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_focus <- function(cell_width = 1) {
+    .Deprecated("checker_focus")
+    checker_focus(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_four_field_kono <- function(cell_width = 1) {
+    .Deprecated("checker_four_field_kono")
+    checker_four_field_kono(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_frisian_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_frisian_checkers")
+    checker_frisian_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_gothic_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_gothic_checkers")
+    checker_gothic_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_grasshopper <- function(cell_width = 1) {
+    .Deprecated("checker_grasshopper")
+    checker_grasshopper(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_international_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_international_checkers")
+    checker_international_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_italian_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_italian_checkers")
+    checker_italian_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_jamaican_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_jamaican_checkers")
+    checker_jamaican_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_julgonu <- function(cell_width = 1) {
+    .Deprecated("checker_julgonu")
+    checker_julgonu(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_lines_of_action <- function(cell_width = 1) {
+    .Deprecated("checker_lines_of_action")
+    checker_lines_of_action(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_portuguese_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_portuguese_checkers")
+    checker_portuguese_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_russian_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_russian_checkers")
+    checker_russian_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_spanish_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_spanish_checkers")
+    checker_spanish_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_thai_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_thai_checkers")
+    checker_thai_checkers(cell_width = cell_width)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checkers_turkish_checkers <- function(cell_width = 1) {
+    .Deprecated("checker_turkish_checkers")
+    checker_turkish_checkers(cell_width = cell_width)
 }
 
 #' @rdname ppdf-deprecated
 #' @export
 chess_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
+    .Deprecated("chess_setup_by_name")
     setup_by_name(name, "chess", ..., getter = getter)
 }
 
@@ -27,6 +212,7 @@ chess_by_name <- function(name, ...,
 #' @export
 dominoes_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
+    .Deprecated("domino_setup_by_name")
     setup_by_name(name, "domino", ..., getter = getter)
 }
 
@@ -108,7 +294,7 @@ dominoes_tiles <- function(n = 7, ...,
 #' @export
 games_checkers <- function() {
     .Deprecated("checkers_games()")
-    checkers_games()
+    checker_games()
 }
 
 #' @rdname ppdf-deprecated

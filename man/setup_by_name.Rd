@@ -3,7 +3,7 @@
 \name{setup_by_name}
 \alias{setup_by_name}
 \alias{alquerque_setup_by_name}
-\alias{checkers_setup_by_name}
+\alias{checker_setup_by_name}
 \alias{chess_setup_by_name}
 \alias{domino_setup_by_name}
 \alias{marble_setup_by_name}
@@ -24,7 +24,7 @@ alquerque_setup_by_name(
   getter = function(x) get(x, envir = getNamespace("ppdf"))
 )
 
-checkers_setup_by_name(
+checker_setup_by_name(
   name,
   ...,
   getter = function(x) get(x, envir = getNamespace("ppdf"))
@@ -88,7 +88,7 @@ This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepac
 }
 \description{
 \code{setup_by_name()} returns setup data frames by game name and game system.
-\code{alquerque_setup_by_name()}, \code{checkers_setup_by_name()}, \code{chess_setup_by_name()},
+\code{alquerque_setup_by_name()}, \code{checker_setup_by_name()}, \code{chess_setup_by_name()},
 \code{dominoes_setup_by_name()}, \code{marble_setup_by_name()}, \code{piecepack_setup_by_name()}
 and \code{stackpack_setup_by_name()} are aliases that set the game system.
 }

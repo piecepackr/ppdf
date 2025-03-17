@@ -4,7 +4,7 @@
 \alias{games_info}
 \alias{alquerque_games}
 \alias{chess_games}
-\alias{checkers_games}
+\alias{checker_games}
 \alias{domino_games}
 \alias{piecepack_games}
 \alias{stackpack_games}
@@ -14,7 +14,7 @@ alquerque_games()
 
 chess_games()
 
-checkers_games()
+checker_games()
 
 domino_games()
 
@@ -27,7 +27,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with character column
 for game name, setup function name(s), possible comment, and url for more information.
 }
 \description{
-\code{chess_games()}, \code{domino_games()}, \code{checkers_games()}, \code{piecepack_games()}, and \code{stackpack_games()}
+\code{chess_games()}, \code{domino_games()}, \code{checker_games()}, \code{piecepack_games()}, and \code{stackpack_games()}
 contain information about the games
 whose setups are provided by this package.
 }
@@ -36,7 +36,7 @@ head(piecepack_games())
 # Number of games for each game system
 nrow(alquerque_games())
 nrow(chess_games())
-nrow(checkers_games())
+nrow(checker_games())
 nrow(domino_games())
 nrow(piecepack_games())
 nrow(stackpack_games())

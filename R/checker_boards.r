@@ -1,7 +1,7 @@
 #' Generate checkers boards and pieces
 #'
-#' `checkers_board()` returns a square checkers board of desired size and type.
-#' `checkers_bits()` returns checkers discs.
+#' `checker_board()` returns a square checkers board of desired size and type.
+#' `checker_bits()` returns checkers discs.
 #'
 #' @param nrows Number of rows in game board
 #' @param ncols Number of columns in game board
@@ -19,12 +19,12 @@
 #'                   [piecepackr::game_systems()] supports `1` or `2`.
 #'                   If `NULL` then don't set it yet.
 #' @return `r return_df()`
-#' @name checkers_pieces
+#' @name checker_pieces
 NULL
 
-#' @rdname checkers_pieces
+#' @rdname checker_pieces
 #' @export
-checkers_board <- function(nrows = 8L, ncols = nrows, x0 = 1, y0 = 1, ...,
+checker_board <- function(nrows = 8L, ncols = nrows, x0 = 1, y0 = 1, ...,
                            side = "face", piece_side = paste0("board_", side),
                            suit = 3L, angle = 0, cell_width = 1) {
     stopifnot("Don't support non-square checkers boards yet" = nrows == ncols)
@@ -41,9 +41,9 @@ checkers_board <- function(nrows = 8L, ncols = nrows, x0 = 1, y0 = 1, ...,
 }
 
 #' @inheritParams piecepack_tiles
-#' @rdname checkers_pieces
+#' @rdname checker_pieces
 #' @export
-checkers_bits <- function(...,
+checker_bits <- function(...,
                           suit = 1:6, x = as.double(1:6), y = 1,
                           angle = 0, cell_width = 1,
                           length.out = NA_integer_) {
