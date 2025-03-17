@@ -19,7 +19,7 @@
 ---
 
     Code
-      cat_piece(checkers_setup_by_name("Turkish Draughts"))
+      cat_piece(checker_setup_by_name("Turkish Draughts"))
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │ ┃ ┃ ┃ ┃ ┃ ┃ ┃ │

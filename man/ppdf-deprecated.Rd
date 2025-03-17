@@ -2,7 +2,33 @@
 % Please edit documentation in R/ppdf-deprecated.r
 \name{ppdf-deprecated}
 \alias{ppdf-deprecated}
+\alias{checkers_american_checkers}
+\alias{checkers_american_pool_checkers}
+\alias{checkers_board}
+\alias{checkers_brazilian_checkers}
+\alias{checkers_breakthrough}
 \alias{checkers_by_name}
+\alias{checkers_canadian_checkers}
+\alias{checkers_crossings}
+\alias{checkers_czech_checkers}
+\alias{checkers_checkers}
+\alias{checkers_dameo}
+\alias{checkers_english_checkers}
+\alias{checkers_focus}
+\alias{checkers_four_field_kono}
+\alias{checkers_frisian_checkers}
+\alias{checkers_gothic_checkers}
+\alias{checkers_grasshopper}
+\alias{checkers_international_checkers}
+\alias{checkers_italian_checkers}
+\alias{checkers_jamaican_checkers}
+\alias{checkers_julgonu}
+\alias{checkers_lines_of_action}
+\alias{checkers_portuguese_checkers}
+\alias{checkers_russian_checkers}
+\alias{checkers_spanish_checkers}
+\alias{checkers_thai_checkers}
+\alias{checkers_turkish_checkers}
 \alias{chess_by_name}
 \alias{dominoes_by_name}
 \alias{dominoes_concentration}
@@ -27,11 +53,63 @@
 \alias{stackpack_by_name}
 \title{Deprecated functions}
 \usage{
+checkers_american_checkers(cell_width = 1)
+
+checkers_american_pool_checkers(cell_width = 1)
+
+checkers_board(cell_width = 1)
+
+checkers_brazilian_checkers(cell_width = 1)
+
+checkers_breakthrough(cell_width = 1)
+
 checkers_by_name(
   name,
   ...,
   getter = function(x) get(x, envir = getNamespace("ppdf"))
 )
+
+checkers_canadian_checkers(cell_width = 1)
+
+checkers_crossings(cell_width = 1)
+
+checkers_czech_checkers(cell_width = 1)
+
+checkers_checkers(cell_width = 1)
+
+checkers_dameo(cell_width = 1)
+
+checkers_english_checkers(cell_width = 1)
+
+checkers_focus(cell_width = 1)
+
+checkers_four_field_kono(cell_width = 1)
+
+checkers_frisian_checkers(cell_width = 1)
+
+checkers_gothic_checkers(cell_width = 1)
+
+checkers_grasshopper(cell_width = 1)
+
+checkers_international_checkers(cell_width = 1)
+
+checkers_italian_checkers(cell_width = 1)
+
+checkers_jamaican_checkers(cell_width = 1)
+
+checkers_julgonu(cell_width = 1)
+
+checkers_lines_of_action(cell_width = 1)
+
+checkers_portuguese_checkers(cell_width = 1)
+
+checkers_russian_checkers(cell_width = 1)
+
+checkers_spanish_checkers(cell_width = 1)
+
+checkers_thai_checkers(cell_width = 1)
+
+checkers_turkish_checkers(cell_width = 1)
 
 chess_by_name(
   name,
@@ -113,6 +191,8 @@ stackpack_by_name(
 )
 }
 \arguments{
+\item{cell_width}{Width of board cell.  Most renderers support \code{1} or \code{2}.}
+
 \item{name}{Game name.  Will be normalized by \code{\link[=normalize_name]{normalize_name()}}.}
 
 \item{...}{Additional arguments to pass to the underlying setup function.}

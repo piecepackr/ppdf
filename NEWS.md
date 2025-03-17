@@ -5,7 +5,7 @@ Breaking changes
 ----------------
 
 * The default for `chess_board()`'s `cell_width` argument is now `1` instead of `NULL`.
-  This makes it consistent with the default for `checkers_board()`'s `cell_width` argument.
+  This makes it consistent with the default for `checker_board()`'s `cell_width` argument.
 
 Deprecated features
 -------------------
@@ -14,7 +14,33 @@ Deprecated features
 
   Deprecated function | Replacement function
   --- | ---
-  `checkers_by_name()` | `checkers_setup_by_name()`
+  `checkers_american_checkers()` | `checker_american_checkers()`
+  `checkers_american_pool_checkers()` | `checker_american_pool_checkers()`
+  `checkers_board()` | `checker_board()`
+  `checkers_brazilian_checkers()` | `checker_brazilian_checkers()`
+  `checkers_breakthrough()` | `checker_breakthrough()`
+  `checkers_by_name()` | `checker_setup_by_name()`
+  `checkers_canadian_checkers()` | `checker_canadian_checkers()`
+  `checkers_crossings()` | `checker_crossings()`
+  `checkers_czech_checkers()` | `checker_czech_checkers()`
+  `checkers_checkers()` | `checker_checkers()`
+  `checkers_dameo()` | `checker_dameo()`
+  `checkers_english_checkers()` | `checker_english_checkers()`
+  `checkers_focus()` | `checker_focus()`
+  `checkers_four_field_kono()` | `checker_four_field_kono()`
+  `checkers_frisian_checkers()` | `checker_frisian_checkers()`
+  `checkers_gothic_checkers()` | `checker_gothic_checkers()`
+  `checkers_grasshopper()` | `checker_grasshopper()`
+  `checkers_international_checkers()` | `checker_international_checkers()`
+  `checkers_italian_checkers()` | `checker_italian_checkers()`
+  `checkers_jamaican_checkers()` | `checker_jamaican_checkers()`
+  `checkers_julgonu()` | `checker_julgonu()`
+  `checkers_lines_of_action()` | `checker_lines_of_action()`
+  `checkers_portuguese_checkers()` | `checker_portuguese_checkers()`
+  `checkers_russian_checkers()` | `checker_russian_checkers()`
+  `checkers_spanish_checkers()` | `checker_spanish_checkers()`
+  `checkers_thai_checkers()` | `checker_thai_checkers()`
+  `checkers_turkish_checkers()` | `checker_turkish_checkers()`
   `chess_by_name()` | `chess_setup_by_name()`
   `dominoes_by_name()` | `domino_setup_by_name()`
   `dominoes_concentration()` | `domino_concentration()`
@@ -27,7 +53,7 @@ Deprecated features
   `dominoes_the_jubilee()` | `domino_the_jubilee()`
   `dominoes_tiles()` | `domino_tiles()`
   `games_chess()` | `chess_games()`
-  `games_checkers()` | `checkers_games()`
+  `games_checkers()` | `checker_games()`
   `games_dominoes()` | `domino_games()`
   `games_piecepack()` | `piecepack_games()`
   `games_stackpack()` | `stackpack_games()`
@@ -45,7 +71,7 @@ New features
 
   + `alquerque_bits()`
   + `alquerque_board()`
-  + `checkers_bits()`
+  + `checker_bits()`
   + `chess_bits()`
   + `marble_bits()`
   + `marble_board()`
@@ -59,17 +85,17 @@ New features
 
 * The following functions generate data frames to setup checkers/draughts variants:
 
-  + `checkers_bashni()` aka `checkers_column_checkers()`
-  + `checkers_corner_checkers()`
-  + `checkers_lasca()`
-  + `checkers_one_way_checkers()`
-  + `checkers_malaysian_checkers()` aka `checkers_singaporean_checkers()`
-  + `checkers_unified_pool_checkers()`
-  + `checkers_zimbabwean_pool_checkers()`
+  + `checker_bashni()` aka `checker_column_checkers()`
+  + `checker_corner_checkers()`
+  + `checker_lasca()`
+  + `checker_one_way_checkers()`
+  + `checker_malaysian_checkers()` aka `checker_singaporean_checkers()`
+  + `checker_unified_pool_checkers()`
+  + `checker_zimbabwean_pool_checkers()`
 
 * The following functions generate data frames to setup other games playable with checkers/draughts sets:
 
-  + `checkers_dao()`
+  + `checker_dao()`
 
 * The following functions generate data frames to setup chess variants (#11):
 
@@ -134,7 +160,7 @@ New features
 Bug fixes and minor improvements
 --------------------------------
 
-* `checkers_board()` and `chess_board()` gain a `side` argument.
+* `checker_board()` and `chess_board()` gain a `side` argument.
 * `normalize_name()` now removes the first `"Checkers "`, `"Chess "`, `"Domino "`, `"Icehouse "`, `"Piecepack "`, or `"Stackpack "` (if any) from name e.g.
   it will now normalize "Piecepack Klondike" / "Klondike" and "Domino Patience" / "Patience" to the same name.
 * Data frame functions now consistently return all the columns

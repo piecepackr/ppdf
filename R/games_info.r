@@ -1,6 +1,6 @@
 #' Data frames with game info
 #'
-#' `chess_games()`, ``domino_games()``, `checkers_games()`, `piecepack_games()`, and `stackpack_games()`
+#' `chess_games()`, ``domino_games()``, `checker_games()`, `piecepack_games()`, and `stackpack_games()`
 #' contain information about the games
 #' whose setups are provided by this package.
 #'
@@ -9,7 +9,7 @@
 #' # Number of games for each game system
 #' nrow(alquerque_games())
 #' nrow(chess_games())
-#' nrow(checkers_games())
+#' nrow(checker_games())
 #' nrow(domino_games())
 #' nrow(piecepack_games())
 #' nrow(stackpack_games())
@@ -35,9 +35,9 @@ chess_games <- function() {
 
 #' @rdname games_info
 #' @export
-checkers_games <- function() {
-    bind_rows(checkers_games_variant(),
-                    checkers_games_other()) %>%
+checker_games <- function() {
+    bind_rows(checker_games_variant(),
+              checker_games_other()) %>%
         arrange_games()
 }
 

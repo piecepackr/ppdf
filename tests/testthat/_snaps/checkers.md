@@ -1,7 +1,7 @@
 # checkers games work as expected
 
     Code
-      cat_piece(checkers_american_checkers())
+      cat_piece(checker_american_checkers())
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │ ┃⛂┃ ┃⛂┃ ┃⛂┃ ┃⛂│
@@ -25,7 +25,7 @@
 ---
 
     Code
-      cat_piece(checkers_american_pool_checkers())
+      cat_piece(checker_american_pool_checkers())
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │ ┃⛀┃ ┃⛀┃ ┃⛀┃ ┃⛀│
@@ -49,7 +49,7 @@
 ---
 
     Code
-      cat_piece(checkers_corner_checkers())
+      cat_piece(checker_corner_checkers())
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │ ┃⛂┃ ┃⛂┃ ┃⛂┃ ┃ │
@@ -73,7 +73,7 @@
 ---
 
     Code
-      cat_piece(checkers_crossings())
+      cat_piece(checker_crossings())
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │⛂┃⛂┃⛂┃⛂┃⛂┃⛂┃⛂┃⛂│
@@ -97,7 +97,7 @@
 ---
 
     Code
-      cat_piece(checkers_dameo())
+      cat_piece(checker_dameo())
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │⛂┃⛂┃⛂┃⛂┃⛂┃⛂┃⛂┃⛂│
@@ -121,7 +121,7 @@
 ---
 
     Code
-      cat_piece(checkers_dao())
+      cat_piece(checker_dao())
     Output
        ┌─┰─┰─┰─┐
        │⛂┃ ┃ ┃⛀│
@@ -137,7 +137,7 @@
 ---
 
     Code
-      cat_piece(checkers_focus())
+      cat_piece(checker_focus())
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │ ┃ ┃ ┃ ┃ ┃ ┃ ┃ │
@@ -161,7 +161,7 @@
 ---
 
     Code
-      cat_piece(checkers_four_field_kono())
+      cat_piece(checker_four_field_kono())
     Output
        ┌─┰─┰─┰─┐
        │⛂┃⛂┃⛂┃⛂│
@@ -177,7 +177,7 @@
 ---
 
     Code
-      cat_piece(checkers_grasshopper())
+      cat_piece(checker_grasshopper())
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │ ┃ ┃ ┃ ┃⛂┃⛂┃⛂┃⛂│
@@ -201,7 +201,7 @@
 ---
 
     Code
-      cat_piece(checkers_international_checkers())
+      cat_piece(checker_international_checkers())
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┰─┰─┐
        │ ┃⛂┃ ┃⛂┃ ┃⛂┃ ┃⛂┃ ┃⛂│
@@ -229,7 +229,7 @@
 ---
 
     Code
-      suppressWarnings(cat_piece(checkers_italian_checkers()))
+      suppressWarnings(cat_piece(checker_italian_checkers()))
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │⛂┃ ┃⛂┃ ┃⛂┃ ┃⛂┃ │
@@ -253,7 +253,7 @@
 ---
 
     Code
-      cat_piece(checkers_lasca())
+      cat_piece(checker_lasca())
     Output
        ┌─┰─┰─┰─┰─┰─┰─┐
        │⛂┃ ┃⛂┃ ┃⛂┃ ┃⛂│
@@ -275,7 +275,7 @@
 ---
 
     Code
-      cat_piece(checkers_julgonu())
+      cat_piece(checker_julgonu())
     Output
        ┌─┰─┰─┰─┐
        │⛂┃⛂┃⛂┃⛂│
@@ -291,7 +291,7 @@
 ---
 
     Code
-      cat_piece(checkers_lines_of_action())
+      cat_piece(checker_lines_of_action())
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │ ┃⛂┃⛂┃⛂┃⛂┃⛂┃⛂┃ │
@@ -315,7 +315,7 @@
 ---
 
     Code
-      cat_piece(checkers_one_way_checkers())
+      cat_piece(checker_one_way_checkers())
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │ ┃ ┃ ┃ ┃ ┃ ┃ ┃ │
@@ -339,7 +339,7 @@
 ---
 
     Code
-      cat_piece(checkers_singaporean_checkers())
+      cat_piece(checker_singaporean_checkers())
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┰─┰─┰─┰─┐
        │ ┃⛂┃ ┃⛂┃ ┃⛂┃ ┃⛂┃ ┃⛂┃ ┃⛂│
@@ -371,7 +371,7 @@
 ---
 
     Code
-      cat_piece(checkers_thai_checkers())
+      cat_piece(checker_thai_checkers())
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │ ┃⛀┃ ┃⛀┃ ┃⛀┃ ┃⛀│
@@ -395,7 +395,7 @@
 ---
 
     Code
-      cat_piece(checkers_turkish_checkers())
+      cat_piece(checker_turkish_checkers())
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │ ┃ ┃ ┃ ┃ ┃ ┃ ┃ │
@@ -419,7 +419,7 @@
 ---
 
     Code
-      cat_piece(checkers_zimbabwean_pool_checkers())
+      cat_piece(checker_zimbabwean_pool_checkers())
     Output
        ┌─┰─┰─┰─┰─┰─┰─┰─┐
        │ ┃⛂┃ ┃⛂┃ ┃⛂┃ ┃⛂│

@@ -65,7 +65,7 @@ if (requireNamespace("piecepackr", quietly = TRUE) &&
 ### <a name="loa">Lines of Action</a>
 
 ```{r grid-lines-of-action}
-df_loa <- ppdf::checkers_lines_of_action()
+df_loa <- ppdf::checker_lines_of_action()
 
 if (requireNamespace("piecepackr", quietly = TRUE) &&
     all(capabilities("png"))) {
@@ -148,9 +148,9 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="checkers">Checkers Sets</a>
 
-`{ppdf}` supports the following `r nrow(ppdf::checkers_games())` games playable with a (possibly non-8x8) checkers set:
+`{ppdf}` supports the following `r nrow(ppdf::checker_games())` games playable with a (possibly non-8x8) checkers set:
 
-`r ppdf:::readme_markdown_list(ppdf::checkers_games())`
+`r ppdf:::readme_markdown_list(ppdf::checker_games())`
 
 ### <a name="chess">Chess Sets</a>
 
