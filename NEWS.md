@@ -147,6 +147,7 @@ New features
 * The following functions generate data frames to setup games playable with go sets:
 
   + `go_go()`
+  + `go_gomoku()`
 
 * The following functions generate data frames with zero rows:
 

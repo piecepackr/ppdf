@@ -13,14 +13,17 @@
 NULL
 
 #' @rdname go_pieces
+#' @param nrows Number of rows in game board
+#' @param ncols Number of columns in game board
 #' @export
-go_board <- function(x0 = 1, y0 = 1, ..., suit = 2L) {
+go_board <- function(nrows = 19L, ncols = nrows, x0 = 1, y0 = 1, ..., suit = 2L) {
+    stopifnot("Don't support non-square go boards yet" = nrows == ncols)
     check_dots_empty()
     x <- x0 + 2
     y <- y0 + 2
     df_board <- tibble(piece_side = "board_face", 
                        suit = as.integer(suit), 
-                       rank = as.integer(1L),
+                       rank = as.integer(nrows),
                        cfg = "go",
                        x = as.double(x), 
                        y = as.double(y), 
@@ -75,11 +78,23 @@ go_games_variant <- function() {
             , "``go_go()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Go_(game)"
+            , "Gomoku"
+            , "``go_gomoku()``"
+            , NA_character_
+            , "https://en.wikipedia.org/wiki/Gomoku"
     )
 }
 
 #' @rdname go_games_variant
+#' @param nrows Number of rows (lines) in game board
+#' @param ncols Number of columns (lines) in game board
 #' @export
-go_go <- function() {
-    go_board()
+go_go <- function(nrows = 19L, ncols = nrows) {
+    go_board(nrows, ncols)
+}
+
+#' @rdname go_games_variant
+#' @export
+go_gomoku <- function(nrows = 15L, ncols = nrows) {
+    go_board(nrows, ncols)
 }

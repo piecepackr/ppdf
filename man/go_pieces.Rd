@@ -6,7 +6,7 @@
 \alias{go_bits}
 \title{Generate go boards and pieces}
 \usage{
-go_board(x0 = 1, y0 = 1, ..., suit = 2L)
+go_board(nrows = 19L, ncols = nrows, x0 = 1, y0 = 1, ..., suit = 2L)
 
 go_bits(
   ...,
@@ -18,6 +18,10 @@ go_bits(
 )
 }
 \arguments{
+\item{nrows}{Number of rows in game board}
+
+\item{ncols}{Number of columns in game board}
+
 \item{x0}{X coordinate for the center of the first point}
 
 \item{y0}{Y coordinate for the center of the first point}

@@ -24,7 +24,7 @@ Imports:
     withr,
 Suggests:
     knitr,
-    piecepackr (>= 1.15.0),
+    piecepackr (>= 1.15.5),
     ppcli (>= 0.2.0-1),
     snakecase,
     testthat,

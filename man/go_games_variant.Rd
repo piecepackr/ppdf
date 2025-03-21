@@ -3,9 +3,17 @@
 \name{go_games_variant}
 \alias{go_games_variant}
 \alias{go_go}
+\alias{go_gomoku}
 \title{Setups for go variants}
 \usage{
-go_go()
+go_go(nrows = 19L, ncols = nrows)
+
+go_gomoku(nrows = 15L, ncols = nrows)
+}
+\arguments{
+\item{nrows}{Number of rows (lines) in game board}
+
+\item{ncols}{Number of columns (lines) in game board}
 }
 \value{
 A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:
@@ -22,13 +30,14 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 1 go variants.
+\code{tibble} data frames of setups for 2 go variants.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
 Here are links for more information about the various games:\tabular{ll}{
    \strong{Game} \tab \strong{URL} \cr
    Go \tab \url{https://en.wikipedia.org/wiki/Go_(game)} \cr
+   Gomoku \tab \url{https://en.wikipedia.org/wiki/Gomoku} \cr
 }
 }
 \examples{

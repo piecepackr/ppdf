@@ -71,8 +71,8 @@
 <text transform='translate(998.27,168.64) rotate(-315)' text-anchor='middle' style='font-size: 40.00px; fill: #009E73; font-family: sans;' textLength='30.00px' lengthAdjust='spacingAndGlyphs'>♛</text>
 <polygon points='1008.00,108.00 906.18,209.82 1008.00,311.65 1109.82,209.82 ' style='stroke-width: 3.00; fill: none;' />
 <polygon points='468.00,432.00 366.18,330.18 264.35,432.00 366.18,533.82 ' style='stroke-width: 0.75; stroke: none; fill: #FFFFFF;' />
-<text transform='translate(348.66,414.48) rotate(-225)' text-anchor='middle' style='font-size: 72.00px; fill: #56B4E9; font-family: sans;' textLength='54.00px' lengthAdjust='spacingAndGlyphs'>⚜</text>
-<text transform='translate(407.36,422.27) rotate(-225)' text-anchor='middle' style='font-size: 40.00px; fill: #56B4E9; font-family: sans;' textLength='30.00px' lengthAdjust='spacingAndGlyphs'>⚜</text>
+<text transform='translate(348.66,414.48) rotate(-225)' text-anchor='middle' style='font-size: 72.00px; fill: #0072B2; font-family: sans;' textLength='54.00px' lengthAdjust='spacingAndGlyphs'>⚜</text>
+<text transform='translate(407.36,422.27) rotate(-225)' text-anchor='middle' style='font-size: 40.00px; fill: #0072B2; font-family: sans;' textLength='30.00px' lengthAdjust='spacingAndGlyphs'>⚜</text>
 <polygon points='468.00,432.00 366.18,330.18 264.35,432.00 366.18,533.82 ' style='stroke-width: 3.00; fill: none;' />
 <circle cx='93.09' cy='-209.82' r='27.00' style='stroke-width: 0.75; stroke: none; fill: #FFFFFF;' />
 <text transform='translate(93.09,-221.52) rotate(-180)' text-anchor='middle' style='font-size: 34.00px; fill: #D55E00; font-family: sans;' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>❂</text>
@@ -123,20 +123,20 @@
 <text x='1008.00' y='243.71' text-anchor='middle' style='font-size: 6.00px; fill: #009E73; font-family: sans;' textLength='3.63px' lengthAdjust='spacingAndGlyphs'>●</text>
 <circle cx='1008.00' cy='260.74' r='27.00' style='stroke-width: 3.00;' />
 <circle cx='315.26' cy='432.00' r='27.00' style='stroke-width: 0.75; stroke: none; fill: #FFFFFF;' />
-<text transform='translate(303.57,432.00) rotate(-270)' text-anchor='middle' style='font-size: 34.00px; fill: #56B4E9; font-family: sans;' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>⚜</text>
-<text transform='translate(332.29,432.00) rotate(-270)' text-anchor='middle' style='font-size: 6.00px; fill: #56B4E9; font-family: sans;' textLength='3.63px' lengthAdjust='spacingAndGlyphs'>●</text>
+<text transform='translate(303.57,432.00) rotate(-270)' text-anchor='middle' style='font-size: 34.00px; fill: #0072B2; font-family: sans;' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>⚜</text>
+<text transform='translate(332.29,432.00) rotate(-270)' text-anchor='middle' style='font-size: 6.00px; fill: #0072B2; font-family: sans;' textLength='3.63px' lengthAdjust='spacingAndGlyphs'>●</text>
 <circle cx='315.26' cy='432.00' r='27.00' style='stroke-width: 3.00;' />
 <circle cx='366.18' cy='381.09' r='27.00' style='stroke-width: 0.75; stroke: none; fill: #FFFFFF;' />
-<text transform='translate(354.48,381.09) rotate(-270)' text-anchor='middle' style='font-size: 34.00px; fill: #56B4E9; font-family: sans;' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>⚜</text>
-<text transform='translate(383.20,381.09) rotate(-270)' text-anchor='middle' style='font-size: 6.00px; fill: #56B4E9; font-family: sans;' textLength='3.63px' lengthAdjust='spacingAndGlyphs'>●</text>
+<text transform='translate(354.48,381.09) rotate(-270)' text-anchor='middle' style='font-size: 34.00px; fill: #0072B2; font-family: sans;' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>⚜</text>
+<text transform='translate(383.20,381.09) rotate(-270)' text-anchor='middle' style='font-size: 6.00px; fill: #0072B2; font-family: sans;' textLength='3.63px' lengthAdjust='spacingAndGlyphs'>●</text>
 <circle cx='366.18' cy='381.09' r='27.00' style='stroke-width: 3.00;' />
 <circle cx='417.09' cy='432.00' r='27.00' style='stroke-width: 0.75; stroke: none; fill: #FFFFFF;' />
-<text transform='translate(405.39,432.00) rotate(-270)' text-anchor='middle' style='font-size: 34.00px; fill: #56B4E9; font-family: sans;' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>⚜</text>
-<text transform='translate(434.12,432.00) rotate(-270)' text-anchor='middle' style='font-size: 6.00px; fill: #56B4E9; font-family: sans;' textLength='3.63px' lengthAdjust='spacingAndGlyphs'>●</text>
+<text transform='translate(405.39,432.00) rotate(-270)' text-anchor='middle' style='font-size: 34.00px; fill: #0072B2; font-family: sans;' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>⚜</text>
+<text transform='translate(434.12,432.00) rotate(-270)' text-anchor='middle' style='font-size: 6.00px; fill: #0072B2; font-family: sans;' textLength='3.63px' lengthAdjust='spacingAndGlyphs'>●</text>
 <circle cx='417.09' cy='432.00' r='27.00' style='stroke-width: 3.00;' />
 <circle cx='366.18' cy='482.91' r='27.00' style='stroke-width: 0.75; stroke: none; fill: #FFFFFF;' />
-<text transform='translate(354.48,482.91) rotate(-270)' text-anchor='middle' style='font-size: 34.00px; fill: #56B4E9; font-family: sans;' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>⚜</text>
-<text transform='translate(383.20,482.91) rotate(-270)' text-anchor='middle' style='font-size: 6.00px; fill: #56B4E9; font-family: sans;' textLength='3.63px' lengthAdjust='spacingAndGlyphs'>●</text>
+<text transform='translate(354.48,482.91) rotate(-270)' text-anchor='middle' style='font-size: 34.00px; fill: #0072B2; font-family: sans;' textLength='25.50px' lengthAdjust='spacingAndGlyphs'>⚜</text>
+<text transform='translate(383.20,482.91) rotate(-270)' text-anchor='middle' style='font-size: 6.00px; fill: #0072B2; font-family: sans;' textLength='3.63px' lengthAdjust='spacingAndGlyphs'>●</text>
 <circle cx='366.18' cy='482.91' r='27.00' style='stroke-width: 3.00;' />
 <polygon points='-13.50,18.00 5.40,18.00 21.68,11.57 23.63,13.79 25.87,15.59 28.36,16.91 31.02,17.73 33.75,18.00 36.48,17.73 39.14,16.91 41.62,15.59 43.87,13.79 45.82,11.57 47.39,9.00 48.55,6.16 49.26,3.13 49.50,0.00 49.26,-3.13 48.55,-6.16 47.39,-9.00 45.82,-11.57 43.87,-13.79 41.62,-15.59 39.14,-16.91 36.48,-17.73 33.75,-18.00 31.02,-17.73 28.36,-16.91 25.87,-15.59 23.63,-13.79 21.68,-11.57 5.40,-18.00 -13.50,-18.00 ' style='stroke-width: 0.75; stroke: none; fill: #FFFFFF;' />
 <text transform='translate(-7.38,0.00) rotate(-270)' text-anchor='middle' style='font-size: 28.00px; fill: #D55E00; font-family: sans;' textLength='21.00px' lengthAdjust='spacingAndGlyphs'>❂</text>
@@ -151,8 +151,8 @@
 <text transform='translate(1122.38,0.00) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; fill: #009E73; font-family: sans;' textLength='18.68px' lengthAdjust='spacingAndGlyphs'>ʘʘ</text>
 <polygon points='1165.50,-18.00 1146.60,-18.00 1130.32,-11.57 1128.37,-13.79 1126.12,-15.59 1123.64,-16.91 1120.98,-17.73 1118.25,-18.00 1115.52,-17.73 1112.86,-16.91 1110.38,-15.59 1108.13,-13.79 1106.18,-11.57 1104.61,-9.00 1103.45,-6.16 1102.74,-3.13 1102.50,0.00 1102.74,3.13 1103.45,6.16 1104.61,9.00 1106.18,11.57 1108.13,13.79 1110.38,15.59 1112.86,16.91 1115.52,17.73 1118.25,18.00 1120.98,17.73 1123.64,16.91 1126.12,15.59 1128.37,13.79 1130.32,11.57 1146.60,18.00 1165.50,18.00 ' style='stroke-width: 3.00; fill: none;' />
 <polygon points='594.00,589.50 594.00,570.60 587.57,554.32 589.79,552.37 591.59,550.12 592.91,547.64 593.73,544.98 594.00,542.25 593.73,539.52 592.91,536.86 591.59,534.38 589.79,532.13 587.57,530.18 585.00,528.61 582.16,527.45 579.13,526.74 576.00,526.50 572.87,526.74 569.84,527.45 567.00,528.61 564.43,530.18 562.21,532.13 560.41,534.38 559.09,536.86 558.27,539.52 558.00,542.25 558.27,544.98 559.09,547.64 560.41,550.12 562.21,552.37 564.43,554.32 558.00,570.60 558.00,589.50 ' style='stroke-width: 0.75; stroke: none; fill: #FFFFFF;' />
-<text x='576.00' y='583.38' text-anchor='middle' style='font-size: 28.00px; fill: #56B4E9; font-family: sans;' textLength='21.00px' lengthAdjust='spacingAndGlyphs'>⚜</text>
-<text x='576.00' y='546.38' text-anchor='middle' style='font-size: 12.00px; fill: #56B4E9; font-family: sans;' textLength='18.68px' lengthAdjust='spacingAndGlyphs'>ʘʘ</text>
+<text x='576.00' y='583.38' text-anchor='middle' style='font-size: 28.00px; fill: #0072B2; font-family: sans;' textLength='21.00px' lengthAdjust='spacingAndGlyphs'>⚜</text>
+<text x='576.00' y='546.38' text-anchor='middle' style='font-size: 12.00px; fill: #0072B2; font-family: sans;' textLength='18.68px' lengthAdjust='spacingAndGlyphs'>ʘʘ</text>
 <polygon points='594.00,589.50 594.00,570.60 587.57,554.32 589.79,552.37 591.59,550.12 592.91,547.64 593.73,544.98 594.00,542.25 593.73,539.52 592.91,536.86 591.59,534.38 589.79,532.13 587.57,530.18 585.00,528.61 582.16,527.45 579.13,526.74 576.00,526.50 572.87,526.74 569.84,527.45 567.00,528.61 564.43,530.18 562.21,532.13 560.41,534.38 559.09,536.86 558.27,539.52 558.00,542.25 558.27,544.98 559.09,547.64 560.41,550.12 562.21,552.37 564.43,554.32 558.00,570.60 558.00,589.50 ' style='stroke-width: 3.00; fill: none;' />
 <polygon points='378.00,-234.00 342.00,-234.00 342.00,-198.00 378.00,-198.00 ' style='stroke-width: 0.75; stroke: none; fill: #FFFFFF;' />
 <text transform='translate(353.12,-216.00) rotate(-270)' text-anchor='middle' style='font-size: 20.00px; fill: #D55E00; font-family: sans;' textLength='15.00px' lengthAdjust='spacingAndGlyphs'>❂</text>
@@ -167,8 +167,8 @@
 <text transform='translate(787.13,225.00) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; fill: #009E73; font-family: sans;' textLength='9.00px' lengthAdjust='spacingAndGlyphs'>♛</text>
 <polygon points='774.00,234.00 810.00,234.00 810.00,198.00 774.00,198.00 ' style='stroke-width: 3.00; fill: none;' />
 <polygon points='342.00,198.00 342.00,234.00 378.00,234.00 378.00,198.00 ' style='stroke-width: 0.75; stroke: none; fill: #FFFFFF;' />
-<text x='360.00' y='222.88' text-anchor='middle' style='font-size: 20.00px; fill: #56B4E9; font-family: sans;' textLength='15.00px' lengthAdjust='spacingAndGlyphs'>⚜</text>
-<text x='351.00' y='211.13' text-anchor='middle' style='font-size: 12.00px; fill: #56B4E9; font-family: sans;' textLength='9.00px' lengthAdjust='spacingAndGlyphs'>⚜</text>
+<text x='360.00' y='222.88' text-anchor='middle' style='font-size: 20.00px; fill: #0072B2; font-family: sans;' textLength='15.00px' lengthAdjust='spacingAndGlyphs'>⚜</text>
+<text x='351.00' y='211.13' text-anchor='middle' style='font-size: 12.00px; fill: #0072B2; font-family: sans;' textLength='9.00px' lengthAdjust='spacingAndGlyphs'>⚜</text>
 <polygon points='342.00,198.00 342.00,234.00 378.00,234.00 378.00,198.00 ' style='stroke-width: 3.00; fill: none;' />
 </g>
 </svg>
