@@ -6,6 +6,7 @@
 \alias{checker_setup_by_name}
 \alias{chess_setup_by_name}
 \alias{domino_setup_by_name}
+\alias{go_setup_by_name}
 \alias{marble_setup_by_name}
 \alias{piecepack_setup_by_name}
 \alias{stackpack_setup_by_name}
@@ -37,6 +38,12 @@ chess_setup_by_name(
 )
 
 domino_setup_by_name(
+  name,
+  ...,
+  getter = function(x) get(x, envir = getNamespace("ppdf"))
+)
+
+go_setup_by_name(
   name,
   ...,
   getter = function(x) get(x, envir = getNamespace("ppdf"))

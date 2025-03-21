@@ -6,6 +6,8 @@
 \alias{chess_games}
 \alias{checker_games}
 \alias{domino_games}
+\alias{go_games}
+\alias{marble_games}
 \alias{piecepack_games}
 \alias{stackpack_games}
 \title{Data frames with game info}
@@ -17,6 +19,10 @@ chess_games()
 checker_games()
 
 domino_games()
+
+go_games()
+
+marble_games()
 
 piecepack_games()
 
@@ -38,6 +44,8 @@ nrow(alquerque_games())
 nrow(chess_games())
 nrow(checker_games())
 nrow(domino_games())
+nrow(go_games())
+nrow(marble_games())
 nrow(piecepack_games())
 nrow(stackpack_games())
 }

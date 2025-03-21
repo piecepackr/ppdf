@@ -6,6 +6,7 @@
 \alias{checkers_none}
 \alias{chess_none}
 \alias{domino_none}
+\alias{go_none}
 \alias{marbles_none}
 \alias{piecepack_none}
 \alias{stackpack_none}
@@ -19,6 +20,8 @@ chess_none()
 
 domino_none()
 
+go_none()
+
 marbles_none()
 
 piecepack_none()
@@ -30,7 +33,7 @@ A data frame with zero rows.
 }
 \description{
 \code{alquerque_none()}, \code{checkers_none()}, \code{chess_none()}, \code{dominoes_none()},
-\code{marbles_none()}, \code{piecepack_none()}, and \code{stackpack_none()} return zero-row data frames.
+\code{go_none()}, \code{marbles_none()}, \code{piecepack_none()}, and \code{stackpack_none()} return zero-row data frames.
 }
 \examples{
 checkers_none()

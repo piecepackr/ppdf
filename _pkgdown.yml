@@ -30,6 +30,11 @@ reference:
       contents:
         - domino_tiles
         - domino_fujisan
+    - title: "Setups for go sets"
+      desc: "Functions that generate data frames to setup go sets."
+      contents:
+        - go_board
+        - go_go
     - title: "Setups for marble games"
       desc: "Functions that generate data frames to setup marble games."
       contents:

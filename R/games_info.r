@@ -11,6 +11,8 @@
 #' nrow(chess_games())
 #' nrow(checker_games())
 #' nrow(domino_games())
+#' nrow(go_games())
+#' nrow(marble_games())
 #' nrow(piecepack_games())
 #' nrow(stackpack_games())
 #' @return A [tibble::tibble()] data frame with character columns "game", "methods", "comment", and "url"
@@ -45,6 +47,20 @@ checker_games <- function() {
 #' @export
 domino_games <- function() {
     bind_rows(domino_games_variant()) %>%
+        arrange_games()
+}
+
+#' @rdname games_info
+#' @export
+go_games <- function() {
+    bind_rows(go_games_variant()) %>%
+        arrange_games()
+}
+
+#' @rdname games_info
+#' @export
+marble_games <- function() {
+    bind_rows(marble_games_variant()) %>%
         arrange_games()
 }
 
