@@ -73,3 +73,11 @@ marble_bits <- function(...,
                       angle = rep(as.double(angle), length.out = length.out))
     df_bits
 }
+
+marble_games_variant <- function() {
+    tribble(~game
+            , ~methods
+            , ~comment
+            , ~url
+    )
+}

@@ -1,7 +1,7 @@
 #' Zero-row data frames
 #'
 #' `alquerque_none()`, `checkers_none()`, `chess_none()`, `dominoes_none()`,
-#' `marbles_none()`, `piecepack_none()`, and `stackpack_none()` return zero-row data frames.
+#' `go_none()`, `marbles_none()`, `piecepack_none()`, and `stackpack_none()` return zero-row data frames.
 #' @examples
 #' checkers_none()
 #' @return A data frame with zero rows.
@@ -31,6 +31,10 @@ chess_none <- df_none
 #' @rdname setup_none
 #' @export
 domino_none <- df_none
+
+#' @rdname setup_none
+#' @export
+go_none <- df_none
 
 #' @rdname setup_none
 #' @export

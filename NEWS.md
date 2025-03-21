@@ -73,6 +73,8 @@ New features
   + `alquerque_board()`
   + `checker_bits()`
   + `chess_bits()`
+  + `go_bits()`
+  + `go_board()`
   + `marble_bits()`
   + `marble_board()`
   + `piecepack_coins()`
@@ -142,20 +144,28 @@ New features
   + `alquerque_alquerque()`
   + `alquerque_baghchal()`
 
+* The following functions generate data frames to setup games playable with go sets:
+
+  + `go_go()`
+
 * The following functions generate data frames with zero rows:
 
   + `alquerque_none()`
+  + `go_none()`
   + `marble_none()`
 
 * The following functions generate data frames by game name:
 
   + `alquerque_setup_by_name()`
+  + `go_setup_by_name()`
   + `marble_setup_by_name()`
 
 * The following functions generate data frames with info about the games whose setups are
   provided by this package:
 
   + `alquerque_games()`
+  + `go_games()`
+  + `marble_games()`
 
 Bug fixes and minor improvements
 --------------------------------

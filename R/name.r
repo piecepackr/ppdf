@@ -21,6 +21,7 @@ normalize_name <- function(x, sep = "_") {
     x <- gsub(paste0("^chess", sep), "", x)
     x <- gsub(paste0("^domino", sep), "", x)
     x <- gsub(paste0("^icehouse", sep), "", x)
+    x <- gsub(paste0("^go", sep), "", x)
     x <- gsub(paste0("^piecepack", sep), "", x)
     x <- gsub(paste0("^stackpack", sep), "", x)
     x
@@ -32,13 +33,14 @@ known_game_systems <- c(
     "checkers", "draughts",
     "chess",
     "domino", "dominoes",
-    "icehouse", "icehouse_pieces", "looney_pyramids",
+    "go",
+    "icehouse", "icehouse_pieces", "icehouse_pyramids", "looney_pyramids",
     "marble", "marbles"
 )
 
 normalize_system <- function(system) {
     system_ <- normalize_name(system[1L])
-    if (system_ == "pieces" && grepl("icehouse", system[1L], ignore.case = TRUE))
+    if (system_ %in% c("pieces", "pyramids") && grepl("icehouse", system[1L], ignore.case = TRUE))
         system_ <- "icehouse"
     switch(system_,
            alquerque = "alquerque",
@@ -48,6 +50,7 @@ normalize_system <- function(system) {
            chess = "chess",
            domino = "domino",
            dominoes = "domino",
+           go = "go",
            icehouse = "icehouse",
            looney_pyramids = "icehouse",
            marble  = "marble",
@@ -116,6 +119,13 @@ chess_setup_by_name <- function(name, ...,
 domino_setup_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
     setup_by_name(name, "domino", ..., getter = getter)
+}
+
+#' @rdname setup_by_name
+#' @export
+go_setup_by_name <- function(name, ...,
+                          getter = function(x) get(x, envir=getNamespace("ppdf"))) {
+    setup_by_name(name, "go", ..., getter = getter)
 }
 
 #' @rdname setup_by_name

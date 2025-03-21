@@ -176,6 +176,9 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 `r ppdf:::readme_markdown_list(ppdf::alquerque_games())`
 
+`{ppdf}` supports the following `r nrow(ppdf::go_games())` games playable with an go set
+
+`r ppdf:::readme_markdown_list(ppdf::go_games())`
 
 ## <a name="links">External links</a>
 
