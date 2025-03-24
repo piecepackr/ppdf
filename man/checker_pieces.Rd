@@ -14,7 +14,7 @@ checker_board(
   ...,
   side = "face",
   piece_side = paste0("board_", side),
-  suit = 3L,
+  suit = "green",
   angle = 0,
   cell_width = 1
 )
@@ -45,8 +45,9 @@ checker_bits(
 \item{piece_side}{If \code{"board_face"} a checkered board (as in American Checkers).
 If \code{"board_back"} a lined board (as in Turkish Checkers).}
 
-\item{suit}{Suit value (color) of board.
-\code{1L} is "red", \code{2L} is "black", \code{3L} is "green", \code{4L} is "blue", \code{5L} is "yellow", and \code{6L} is "white".}
+\item{suit}{Suit value (color) of board/checkers.
+\code{1L} is "red", \code{2L} is "black", \code{3L} is "green", \code{4L} is "blue", \code{5L} is "yellow", and \code{6L} is "white".
+Will be coerced by \code{\link[=checker_suit]{checker_suit()}}.}
 
 \item{angle}{Angle of board in degrees.
 Italian Checkers rotates its board 90 degrees compared to other checkers variants.}

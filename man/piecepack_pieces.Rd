@@ -78,7 +78,9 @@ piecepack_tiles(
 
 \item{piece_side}{Either "tile_face" or "tile_back".}
 
-\item{suit}{Integer vector with values between \code{1L} and \code{4L}.}
+\item{suit}{Integer vector with values between \code{1L} and \code{4L}.
+\code{1L} is "suns", \code{2L} is "moons", \code{3L} is "crowns", \code{4L} is "arms".
+Will be coerced by \code{\link[=piecepack_suit]{piecepack_suit()}}.}
 
 \item{rank}{Integer vector with values between \code{1L} and \code{6L}.}
 

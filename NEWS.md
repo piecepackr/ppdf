@@ -68,22 +68,28 @@ Deprecated features
 New features
 ------------
 
-* The following functions are helper functions for setup functions (#5, #7, #32):
+* The following functions are helper functions for setup functions (#5, #7, #32, #63):
 
   + `alquerque_bits()`
   + `alquerque_board()`
+  + `alquerque_suit()`
   + `checker_bits()`
+  + `checker_suit()`
   + `chess_bits()`
+  + `chess_suit()`
   + `go_bits()`
   + `go_board()`
+  + `go_suit()`
   + `marble_bits()`
   + `marble_board()`
+  + `marble_suit()`
   + `piecepack_coins()`
   + `piecepack_dice()`
   + `piecepack_donut_board()`
   + `piecepack_matchsticks()`
   + `piecepack_pawns()`
   + `piecepack_rectangular_board()`
+  + `piecepack_suit()`
   + `piecepack_tiles()`
 
 * The following functions generate data frames to setup checkers/draughts variants:

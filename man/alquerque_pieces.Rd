@@ -6,7 +6,7 @@
 \alias{alquerque_bits}
 \title{Generate alquerque boards and pieces}
 \usage{
-alquerque_board(x0 = 1, y0 = 1, ..., suit = 3L)
+alquerque_board(x0 = 1, y0 = 1, ..., suit = "green")
 
 alquerque_bits(
   ...,
@@ -25,7 +25,7 @@ alquerque_bits(
 \item{...}{Should be left empty.}
 
 \item{suit}{Suit value (color) of board/bit.
-\code{1L} is "red", \code{2L} is "black", \code{3L} is "green", \code{4L} is "blue", \code{5L} is "yellow", and \code{6L} is "white".}
+\code{1L} is "red", \code{2L} is "black", \code{3L} is "green", \code{4L} is "blue", \code{5L} is "yellow", and \code{6L} is "white".  Will be coerced by \code{\link[=alquerque_suit]{alquerque_suit()}}.}
 
 \item{x, y}{Cartesian coordinates (numeric vectors)}
 
