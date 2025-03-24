@@ -167,6 +167,13 @@ checkers_lines_of_action <- function(cell_width = 1) {
 
 #' @rdname ppdf-deprecated
 #' @export
+checkers_none <- function() {
+    .Deprecated("checker_none")
+    checker_none()
+}
+
+#' @rdname ppdf-deprecated
+#' @export
 checkers_portuguese_checkers <- function(cell_width = 1) {
     .Deprecated("checker_portuguese_checkers")
     checker_portuguese_checkers(cell_width = cell_width)

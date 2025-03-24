@@ -36,6 +36,7 @@ Deprecated features
   `checkers_jamaican_checkers()` | `checker_jamaican_checkers()`
   `checkers_julgonu()` | `checker_julgonu()`
   `checkers_lines_of_action()` | `checker_lines_of_action()`
+  `checkers_none()` | `checker_none()`
   `checkers_portuguese_checkers()` | `checker_portuguese_checkers()`
   `checkers_russian_checkers()` | `checker_russian_checkers()`
   `checkers_spanish_checkers()` | `checker_spanish_checkers()`
