@@ -282,7 +282,7 @@ piecepack_julgonu <- function() {
                             suit = rep(1:2, each = 4),
                             rank = rep(3:6, 2),
                             x = 1 * c(1:4, 1:4),
-                            y = rep(c(4,1), each = 4),
+                            y = rep(c(1,4), each = 4),
                             angle = rep(c(180,0), each = 4))
     bind_rows(df_t, df_c)
 }
