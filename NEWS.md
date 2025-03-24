@@ -178,6 +178,11 @@ Bug fixes and minor improvements
   "piece\_side", "suit", "rank", "cfg", "x", "y", and "angle" (in that order)
   with the types "character", "integer", "integer", "character", "double", "double", "double" (respectively)
   without any missing values.
+* "black" checker men are now the "black" suit and "white" checker men are the "white" suit
+  so PPN logic is simpler.  If you want to visualize with white and red pieces mutate
+  your checker data frames to swap black with red pieces (#56).
+* `piecepack_julgonu()` suit colors swapped places to give better checkers results.
+* `checker_dao()` suit colors swapped to better match the original setups.
 
 ppdf 0.1.1
 ==========
