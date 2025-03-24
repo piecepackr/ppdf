@@ -8,6 +8,7 @@
 #' @param ... Should be left empty.
 #' @param suit Suit value (color) of board/bit.
 #'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".
+#'             Will be coerced by [go_suit()].
 #' @return `r return_df()`
 #' @name go_pieces
 NULL
@@ -16,13 +17,13 @@ NULL
 #' @param nrows Number of rows in game board
 #' @param ncols Number of columns in game board
 #' @export
-go_board <- function(nrows = 19L, ncols = nrows, x0 = 1, y0 = 1, ..., suit = 2L) {
+go_board <- function(nrows = 19L, ncols = nrows, x0 = 1, y0 = 1, ..., suit = "black") {
     stopifnot("Don't support non-square go boards yet" = nrows == ncols)
     check_dots_empty()
     x <- x0 + 2
     y <- y0 + 2
     df_board <- tibble(piece_side = "board_face", 
-                       suit = as.integer(suit), 
+                       suit = go_suit(suit), 
                        rank = as.integer(nrows),
                        cfg = "go",
                        x = as.double(x), 
@@ -35,12 +36,13 @@ go_board <- function(nrows = 19L, ncols = nrows, x0 = 1, y0 = 1, ..., suit = 2L)
 #' @rdname go_pieces
 #' @export
 go_bits <- function(...,
-                          suit = 1:6, x = as.double(1:6), y = 1,
-                          angle = 0,
-                          length.out = NA_integer_) {
+                    suit = 1:6, 
+                    x = as.double(1:6), y = 1,
+                    angle = 0,
+                    length.out = NA_integer_) {
     check_dots_empty()
     df_bits <- tibble(piece_side = rep("bit_back", length.out = length.out),
-                      suit = rep(as.integer(suit), length.out = length.out),
+                      suit = rep(go_suit(suit), length.out = length.out),
                       rank = rep(1L, length.out = length.out),
                       cfg = rep("go", length.out = length.out),
                       x = rep(as.double(x), length.out = length.out),

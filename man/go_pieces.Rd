@@ -6,7 +6,7 @@
 \alias{go_bits}
 \title{Generate go boards and pieces}
 \usage{
-go_board(nrows = 19L, ncols = nrows, x0 = 1, y0 = 1, ..., suit = 2L)
+go_board(nrows = 19L, ncols = nrows, x0 = 1, y0 = 1, ..., suit = "black")
 
 go_bits(
   ...,
@@ -29,7 +29,8 @@ go_bits(
 \item{...}{Should be left empty.}
 
 \item{suit}{Suit value (color) of board/bit.
-\code{1L} is "red", \code{2L} is "black", \code{3L} is "green", \code{4L} is "blue", \code{5L} is "yellow", and \code{6L} is "white".}
+\code{1L} is "red", \code{2L} is "black", \code{3L} is "green", \code{4L} is "blue", \code{5L} is "yellow", and \code{6L} is "white".
+Will be coerced by \code{\link[=go_suit]{go_suit()}}.}
 
 \item{x, y}{Cartesian coordinates (numeric vectors)}
 

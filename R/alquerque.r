@@ -7,19 +7,19 @@
 #' @param y0 Y coordinate for the center of the first point
 #' @param ... Should be left empty.
 #' @param suit Suit value (color) of board/bit.
-#'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".
+#'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".  Will be coerced by [alquerque_suit()].
 #' @return `r return_df()`
 #' @name alquerque_pieces
 NULL
 
 #' @rdname alquerque_pieces
 #' @export
-alquerque_board <- function(x0 = 1, y0 = 1, ..., suit = 3L) {
+alquerque_board <- function(x0 = 1, y0 = 1, ..., suit = "green") {
     check_dots_empty()
     x <- x0 + 2
     y <- y0 + 2
     df_board <- tibble(piece_side = "board_face", 
-                       suit = as.integer(suit), 
+                       suit = alquerque_suit(suit), 
                        rank = as.integer(1L),
                        cfg = "alquerque",
                        x = as.double(x), 
@@ -37,7 +37,7 @@ alquerque_bits <- function(...,
                           length.out = NA_integer_) {
     check_dots_empty()
     df_bits <- tibble(piece_side = rep("bit_back", length.out = length.out),
-                      suit = rep(as.integer(suit), length.out = length.out),
+                      suit = rep(alquerque_suit(suit), length.out = length.out),
                       rank = rep(1L, length.out = length.out),
                       cfg = rep("alquerque", length.out = length.out),
                       x = rep(as.double(x), length.out = length.out),

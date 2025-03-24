@@ -12,7 +12,7 @@ marble_board(
   x0 = 1 * scale_factor,
   y0 = 1 * scale_factor,
   ...,
-  suit = 4L,
+  suit = "blue",
   scale_factor = 0.5
 )
 
@@ -37,8 +37,9 @@ marble_bits(
 
 \item{...}{Should be left empty.}
 
-\item{suit}{Suit value (color) of board.
-\code{1L} is "red", \code{2L} is "black", \code{3L} is "green", \code{4L} is "blue", \code{5L} is "yellow", and \code{6L} is "white".}
+\item{suit}{Suit value (color) of board and bits.
+\code{1L} is "red", \code{2L} is "black", \code{3L} is "green", \code{4L} is "blue", \code{5L} is "yellow", and \code{6L} is "white".
+Will be coerced by \code{\link[=marble_suit]{marble_suit()}}.}
 
 \item{scale_factor}{Used by \code{{ppn}}.  Should usually be \code{0.5} for square pyramidal games but could be \code{1} if not playing a pyramidal game.}
 

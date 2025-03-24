@@ -56,7 +56,11 @@ reference:
     - title: "Empty setups"
       desc: "Functions that generate data frames with zero rows."
       contents:
-        - checkers_none
+        - checker_none
+    - title: "Suit helpers"
+      desc: "Functions to help determine suit."
+      contents:
+        - checker_suit
     - title: "Utilities for developers"
       desc: "Other utility functions intended for developers"
       contents:

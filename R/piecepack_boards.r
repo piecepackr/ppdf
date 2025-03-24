@@ -34,7 +34,7 @@ piecepack_donut_board <- function(...,
                                   angle = 0) {
     check_dots_empty()
     tibble(piece_side = piece_side,
-           suit = as.integer(suit), 
+           suit = piecepack_suit(suit), 
            rank = as.integer(rank),
            cfg = cfg,
            x = x0 + 0.5 + c(rep(seq(0, 8, 2), 2), 0, 2, 6, 8, rep(seq(0, 8, 2), 2)),
@@ -80,7 +80,7 @@ piecepack_rectangular_board <- function(nrows = 8L, ncols = 8L, x0 = 1, y0 = 1,
     xr <- x0 + rep(x, length(y))
     yr <- y0 + rep(y, each = length(x))
     df <- tibble(piece_side = "tile_back", x = xr, y = yr, angle = 0)
-    df$suit <- rep(as.integer(suit), length.out = nrow(df))
+    df$suit <- rep(piecepack_suit(suit), length.out = nrow(df))
     df$rank <- rep(as.integer(rank), length.out = nrow(df))
     df$cfg <- cfg
     select_piece(df)
