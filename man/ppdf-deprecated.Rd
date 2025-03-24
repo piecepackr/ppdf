@@ -24,6 +24,7 @@
 \alias{checkers_jamaican_checkers}
 \alias{checkers_julgonu}
 \alias{checkers_lines_of_action}
+\alias{checkers_none}
 \alias{checkers_portuguese_checkers}
 \alias{checkers_russian_checkers}
 \alias{checkers_spanish_checkers}
@@ -100,6 +101,8 @@ checkers_jamaican_checkers(cell_width = 1)
 checkers_julgonu(cell_width = 1)
 
 checkers_lines_of_action(cell_width = 1)
+
+checkers_none()
 
 checkers_portuguese_checkers(cell_width = 1)
 
