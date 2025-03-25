@@ -75,19 +75,26 @@ New features
   + `alquerque_suit()`
   + `checker_bits()`
   + `checker_suit()`
+  + `chess_angle()`
   + `chess_bits()`
+  + `chess_rank()`
   + `chess_suit()`
+  + `domino_angle()`
+  + `domino_rank()`
+  + `domino_suit()`
   + `go_bits()`
   + `go_board()`
   + `go_suit()`
   + `marble_bits()`
   + `marble_board()`
   + `marble_suit()`
+  + `piecepack_angle()`
   + `piecepack_coins()`
   + `piecepack_dice()`
   + `piecepack_donut_board()`
   + `piecepack_matchsticks()`
   + `piecepack_pawns()`
+  + `piecepack_rank()`
   + `piecepack_rectangular_board()`
   + `piecepack_suit()`
   + `piecepack_tiles()`

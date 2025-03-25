@@ -26,15 +26,15 @@ domino_tiles(
 
 \item{piece_side}{Either "tile_face" or "tile_back".}
 
-\item{suit}{"Bottom" half of domino.}
+\item{suit}{"Bottom" half of domino.  Will be coerced by \code{\link[=domino_suit]{domino_suit()}}.}
 
-\item{rank}{"Top" half of domino.}
+\item{rank}{"Top" half of domino.  Will be coerced by \code{\link[=domino_rank]{domino_rank()}}.}
 
 \item{cfg}{"dominoes" or perhaps "dominoes_black", "dominoes_blue", "dominoes_green", "dominoes_red", "dominoes_white", or "dominoes_yellow".}
 
 \item{x, y}{Cartesian coordinates (numeric vectors)}
 
-\item{angle}{Rotation of dominoes (numeric vector of degrees, counter-clockwise)}
+\item{angle}{Rotation of dominoes (numeric vector of degrees, counter-clockwise).  Will be coerced by \code{\link[=domino_angle]{domino_angle()}}.}
 }
 \value{
 A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:

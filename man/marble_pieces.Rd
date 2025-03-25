@@ -48,7 +48,8 @@ The default is 1.0 inch diameter marbles which match the holed boards.}
 
 \item{x, y}{Cartesian coordinates (numeric vectors)}
 
-\item{angle}{Rotation of piece (numeric vector of degrees, counter-clockwise)}
+\item{angle}{Rotation of piece (numeric vector of degrees, counter-clockwise).
+Will be coerced by \code{\link[=piecepack_angle]{piecepack_angle()}}.}
 
 \item{length.out}{The number of pieces.
 Not needed if all the arguments are the same length (or of length one)
