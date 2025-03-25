@@ -82,13 +82,15 @@ piecepack_tiles(
 \code{1L} is "suns", \code{2L} is "moons", \code{3L} is "crowns", \code{4L} is "arms".
 Will be coerced by \code{\link[=piecepack_suit]{piecepack_suit()}}.}
 
-\item{rank}{Integer vector with values between \code{1L} and \code{6L}.}
+\item{rank}{Integer vector with values between \code{1L} (null) and \code{6L} (five).
+Will be coerced by \code{\link[=piecepack_rank]{piecepack_rank()}}.}
 
 \item{cfg}{"piecepack" or perhaps "playing_cards_expansion", "dual_piecepacks_expansion", or "subpack".}
 
 \item{x, y}{Cartesian coordinates (numeric vectors)}
 
-\item{angle}{Rotation of piece (numeric vector of degrees, counter-clockwise)}
+\item{angle}{Rotation of piece (numeric vector of degrees, counter-clockwise).
+Will be coerced by \code{\link[=piecepack_angle]{piecepack_angle()}}.}
 
 \item{length.out}{The number of pieces.
 Not needed if all the arguments are the same length (or of length one)
@@ -111,6 +113,7 @@ This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepac
 \description{
 \code{piecepack_coins()} generates a data frame of piecepack coins.
 \code{piecepack_dice()} generates a data frame of piecepack dice.
+\code{piecepack_matchsticks()} generates a data frame of piecepack matchsticks.
 \code{piecepack_pawns()} generates a data frame of piecepack pawns.
 \code{piecepack_tiles()} generates a data frame of piecepack tiles.
 }

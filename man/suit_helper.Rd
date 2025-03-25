@@ -5,6 +5,7 @@
 \alias{alquerque_suit}
 \alias{checker_suit}
 \alias{chess_suit}
+\alias{domino_suit}
 \alias{go_suit}
 \alias{marble_suit}
 \alias{piecepack_suit}
@@ -15,6 +16,8 @@ alquerque_suit(suit)
 checker_suit(suit)
 
 chess_suit(suit)
+
+domino_suit(suit)
 
 go_suit(suit)
 
@@ -32,12 +35,14 @@ An integer vector of suit values.
 These functions help make sure suit values are the
 right integer values expected by the configurations used by
 \code{\link[piecepackr:game_systems]{piecepackr::game_systems()}}  and \code{\link[ppn:read_ppn]{ppn::read_ppn()}}.
-If the input is numeric simply use \code{\link[=as.integer]{as.integer()}} and if the
-input is character try to cast to a reasonable value.
+If the input is numeric it simply uses \code{\link[=as.integer]{as.integer()}} and if the
+input is character it tries to cast to a reasonable value.
 }
 \examples{
-go_suit(c("R", "K", "G", "B", "Y", "W"))
 go_suit(c("red", "black", "green", "blue", "yellow", "white"))
-piecepack_suit(c("S", "M", "C", "A"))
+go_suit(c("R", "K", "G", "B", "Y", "W"))
 piecepack_suit(c("suns", "moons", "crowns", "arms"))
+piecepack_suit(c("S", "M", "C", "A"))
+domino_suit(c("\U0001f06e", "\U0001f038"))
+domino_suit(c("zero", "one", "eighteen"))
 }

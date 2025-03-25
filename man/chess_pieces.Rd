@@ -46,17 +46,18 @@ chess_bits(
 \item{piece_side}{If \code{"board_face"} a checkered board (as in American Checkers).
 If \code{"board_back"} a lined board (as in Turkish Checkers).}
 
-\item{suit}{Suit value (color) of board and pieces.  \code{2L} is "black" and \code{3L} is "green".
+\item{suit}{Suit value (color) of board and pieces.
 \code{1L} is "red", \code{2L} is "black", \code{3L} is "green", \code{4L} is "blue", \code{5L} is "yellow", and \code{6L} is "white".
 Will be coerced by \code{\link[=chess_suit]{chess_suit()}}.}
 
-\item{angle}{Angle of board in degrees.
-Italian Checkers rotates its board 90 degrees compared to other checkers variants.}
+\item{angle}{Rotation of bit/board (numeric vector of degrees, counter-clockwise).
+Will be coerced by \code{\link[=chess_angle]{chess_angle()}}.}
 
 \item{cell_width}{Width of board cell.
 \code{\link[piecepackr:game_systems]{piecepackr::game_systems()}} supports \code{1} or \code{2}.}
 
-\item{rank}{Integer vector with values between \code{1L} and \code{6L}.}
+\item{rank}{Rank value of chess pieces from \code{1L} (pawn) to \code{6L} (king).
+Will be coerced by \code{\link[=chess_rank]{chess_rank()}}.}
 
 \item{x, y}{Cartesian coordinates (numeric vectors)}
 

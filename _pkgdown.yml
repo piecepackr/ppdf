@@ -57,10 +57,12 @@ reference:
       desc: "Functions that generate data frames with zero rows."
       contents:
         - checker_none
-    - title: "Suit helpers"
-      desc: "Functions to help determine suit."
+    - title: "Rank/suit/angle helpers"
+      desc: "Functions to help cast to suitable rank, suit, and angle values."
       contents:
+        - chess_rank
         - checker_suit
+        - domino_angle
     - title: "Utilities for developers"
       desc: "Other utility functions intended for developers"
       contents:
