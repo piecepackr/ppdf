@@ -20,14 +20,14 @@ NULL
 go_board <- function(nrows = 19L, ncols = nrows, x0 = 1, y0 = 1, ..., suit = "black") {
     stopifnot("Don't support non-square go boards yet" = nrows == ncols)
     check_dots_empty()
-    x <- x0 + 2
-    y <- y0 + 2
-    df_board <- tibble(piece_side = "board_face", 
-                       suit = go_suit(suit), 
+    x <- x0 - 0.5 + 0.5 * ncols
+    y <- y0 - 0.5 + 0.5 * nrows
+    df_board <- tibble(piece_side = "board_face",
+                       suit = go_suit(suit),
                        rank = as.integer(nrows),
                        cfg = "go",
-                       x = as.double(x), 
-                       y = as.double(y), 
+                       x = as.double(x),
+                       y = as.double(y),
                        angle = 0.0)
     df_board
 }
@@ -36,7 +36,7 @@ go_board <- function(nrows = 19L, ncols = nrows, x0 = 1, y0 = 1, ..., suit = "bl
 #' @rdname go_pieces
 #' @export
 go_bits <- function(...,
-                    suit = 1:6, 
+                    suit = 1:6,
                     x = as.double(1:6), y = 1,
                     angle = 0,
                     length.out = NA_integer_) {
