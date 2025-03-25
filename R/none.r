@@ -42,6 +42,10 @@ marble_none <- df_none
 
 #' @rdname setup_none
 #' @export
+morris_none <- df_none
+
+#' @rdname setup_none
+#' @export
 piecepack_none <- df_none
 
 #' @rdname setup_none

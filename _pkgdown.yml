@@ -39,6 +39,11 @@ reference:
       desc: "Functions that generate data frames to setup marble games."
       contents:
         - marble_board
+    - title: "Setups for morris sets"
+      desc: "Functions that generate data frames to setup morris sets."
+      contents:
+        - morris_board
+        - morris_nine_mens_morris
     - title: "Setups for piecepack decks"
       desc: "Functions that generate data frames to setup piecepack pieces."
       contents:

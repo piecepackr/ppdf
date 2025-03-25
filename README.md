@@ -337,9 +337,21 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Alquerque](https://en.wikipedia.org/wiki/Alquerque)
 * [Bagh-chal](https://en.wikipedia.org/wiki/Bagh-chal)
 
-`{ppdf}` supports the following 1 games playable with a go set
+`{ppdf}` supports the following 2 games playable with a go set
 
 * [Go](https://en.wikipedia.org/wiki/Go_(game))
+* [Gomoku](https://en.wikipedia.org/wiki/Gomoku)
+
+`{ppdf}` supports the following 7 games playable with an morris set
+
+* [Five Men's Morris](https://en.wikipedia.org/wiki/Nine_men%27s_morris#Six_men's_morris)
+* [Nine Men's Morris](https://en.wikipedia.org/wiki/Nine_men%27s_morris)
+* [Seven Men's Morris](https://en.wikipedia.org/wiki/Nine_men%27s_morris#Six_men's_morris)
+* [Six Men's Morris](https://boardgamegeek.com/boardgame/25702/six-mens-morris)
+* [Ten Men's Morris aka Lasker Morris](https://en.wikipedia.org/wiki/Nine_men%27s_morris#Lasker_morris)
+* [Three Men's Morris](https://en.wikipedia.org/wiki/Three_men%27s_morris)
+* [Twelve Men's Morris](https://en.wikipedia.org/wiki/Morabaraba)
+
 
 ## <a name="links">External links</a>
 

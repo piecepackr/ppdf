@@ -57,4 +57,8 @@ marble_suit <- suit_helper
 
 #' @rdname suit_helper
 #' @export
+morris_suit <- suit_helper
+
+#' @rdname suit_helper
+#' @export
 piecepack_suit <- suit_helper
