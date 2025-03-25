@@ -8,6 +8,7 @@
 \alias{domino_suit}
 \alias{go_suit}
 \alias{marble_suit}
+\alias{morris_suit}
 \alias{piecepack_suit}
 \title{Cast to suit integers}
 \usage{
@@ -22,6 +23,8 @@ domino_suit(suit)
 go_suit(suit)
 
 marble_suit(suit)
+
+morris_suit(suit)
 
 piecepack_suit(suit)
 }

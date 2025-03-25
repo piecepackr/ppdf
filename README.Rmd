@@ -180,6 +180,11 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 `r ppdf:::readme_markdown_list(ppdf::go_games())`
 
+`{ppdf}` supports the following `r nrow(ppdf::morris_games())` games playable with an morris set
+
+`r ppdf:::readme_markdown_list(ppdf::morris_games())`
+
+
 ## <a name="links">External links</a>
 
 ### <a name="software">R packages</a>

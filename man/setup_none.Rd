@@ -8,6 +8,7 @@
 \alias{domino_none}
 \alias{go_none}
 \alias{marble_none}
+\alias{morris_none}
 \alias{piecepack_none}
 \alias{stackpack_none}
 \title{Zero-row data frames}
@@ -23,6 +24,8 @@ domino_none()
 go_none()
 
 marble_none()
+
+morris_none()
 
 piecepack_none()
 

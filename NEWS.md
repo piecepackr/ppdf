@@ -88,6 +88,9 @@ New features
   + `marble_bits()`
   + `marble_board()`
   + `marble_suit()`
+  + `morris_bits()`
+  + `morris_board()`
+  + `morris_suit()`
   + `piecepack_angle()`
   + `piecepack_coins()`
   + `piecepack_dice()`
@@ -163,17 +166,29 @@ New features
   + `go_go()`
   + `go_gomoku()`
 
+* The following functions generate data frames to setup games playable with morris sets:
+
+  + `morris_three_mens_morris()`
+  + `morris_five_mens_morris()`
+  + `morris_six_mens_morris()`
+  + `morris_seven_mens_morris()`
+  + `morris_nine_mens_morris()`
+  + `morris_ten_mens_morris()` aka `morris_lasker_morris()`
+  + `morris_twelve_mens_morris()`
+
 * The following functions generate data frames with zero rows:
 
   + `alquerque_none()`
   + `go_none()`
   + `marble_none()`
+  + `morris_none()`
 
 * The following functions generate data frames by game name:
 
   + `alquerque_setup_by_name()`
   + `go_setup_by_name()`
   + `marble_setup_by_name()`
+  + `morris_setup_by_name()`
 
 * The following functions generate data frames with info about the games whose setups are
   provided by this package:
@@ -181,6 +196,7 @@ New features
   + `alquerque_games()`
   + `go_games()`
   + `marble_games()`
+  + `morris_games()`
 
 Bug fixes and minor improvements
 --------------------------------

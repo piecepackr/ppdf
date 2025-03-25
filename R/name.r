@@ -35,7 +35,8 @@ known_game_systems <- c(
     "domino", "dominoes",
     "go",
     "icehouse", "icehouse_pieces", "icehouse_pyramids", "looney_pyramids",
-    "marble", "marbles"
+    "marble", "marbles",
+    "morris"
 )
 
 normalize_system <- function(system) {
@@ -55,6 +56,7 @@ normalize_system <- function(system) {
            looney_pyramids = "icehouse",
            marble  = "marble",
            marbles = "marble",
+           morris = "morris",
            piecepack = "piecepack",
            piecepack_stackpack = "stackpack",
            stackpack = "stackpack",
@@ -133,6 +135,13 @@ go_setup_by_name <- function(name, ...,
 marble_setup_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
     setup_by_name(name, "marble", ..., getter = getter)
+}
+
+#' @rdname setup_by_name
+#' @export
+morris_setup_by_name <- function(name, ...,
+                          getter = function(x) get(x, envir=getNamespace("ppdf"))) {
+    setup_by_name(name, "morris", ..., getter = getter)
 }
 
 #' @rdname setup_by_name

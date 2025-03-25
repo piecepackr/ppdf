@@ -8,6 +8,7 @@
 \alias{domino_setup_by_name}
 \alias{go_setup_by_name}
 \alias{marble_setup_by_name}
+\alias{morris_setup_by_name}
 \alias{piecepack_setup_by_name}
 \alias{stackpack_setup_by_name}
 \title{Setups by game name}
@@ -50,6 +51,12 @@ go_setup_by_name(
 )
 
 marble_setup_by_name(
+  name,
+  ...,
+  getter = function(x) get(x, envir = getNamespace("ppdf"))
+)
+
+morris_setup_by_name(
   name,
   ...,
   getter = function(x) get(x, envir = getNamespace("ppdf"))
