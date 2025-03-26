@@ -208,9 +208,12 @@ piecepack_coins <- function(...,
 #' @rdname piecepack_pieces
 #' @export
 piecepack_dice <- function(...,
-                           suit = 1:4, rank = 1L,
+                           suit = 1:4,
+                           rank = 1L,
                            cfg = "piecepack",
-                           x = as.double(1:4), y = 1, angle = 0,
+                           x = as.double(1:4),
+                           y = 1,
+                           angle = 0,
                            length.out = NA_integer_) {
     check_dots_empty()
     tibble(piece_side = rep("die_face", length.out = length.out),
@@ -249,8 +252,11 @@ piecepack_matchsticks <- function(...,
 piecepack_pawns <- function(...,
                             side = "face",
                             piece_side = paste0("pawn_", side),
-                            suit = 1:4, cfg = "piecepack",
-                            x = as.double(1:4), y = 1, angle = 0,
+                            suit = 1:4,
+                            cfg = "piecepack",
+                            x = as.double(1:4),
+                            y = 1,
+                            angle = 0,
                             length.out = NA_integer_) {
     check_dots_empty()
     tibble(piece_side = rep(piece_side, length.out = length.out),
@@ -272,7 +278,8 @@ piecepack_tiles <- function(...,
                            cfg = "piecepack",
                            x = 2 * rep.int(1:6, 4L),
                            y = 2 * rep(4:1, each = 6L),
-                           angle = 0, length.out = NA_integer_) {
+                           angle = 0,
+                           length.out = NA_integer_) {
     check_dots_empty()
     tibble(piece_side = rep(piece_side, length.out = length.out),
            suit = rep(piecepack_suit(suit), length.out = length.out),
@@ -280,5 +287,5 @@ piecepack_tiles <- function(...,
            cfg = rep(cfg, length.out = length.out),
            x = rep(as.double(x), length.out = length.out),
            y = rep(as.double(y), length.out = length.out),
-           angle = rep(as.double(angle), length.out = length.out))
+           angle = rep(piecepack_angle(angle), length.out = length.out))
 }

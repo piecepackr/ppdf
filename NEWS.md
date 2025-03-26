@@ -101,6 +101,10 @@ New features
   + `piecepack_rectangular_board()`
   + `piecepack_suit()`
   + `piecepack_tiles()`
+  + `tarot_angle()`
+  + `tarot_cards()`
+  + `tarot_rank()`
+  + `tarot_suit()`
 
 * The following functions generate data frames to setup checkers/draughts variants:
 
@@ -182,6 +186,7 @@ New features
   + `go_none()`
   + `marble_none()`
   + `morris_none()`
+  + `tarot_none()`
 
 * The following functions generate data frames by game name:
 
@@ -189,6 +194,7 @@ New features
   + `go_setup_by_name()`
   + `marble_setup_by_name()`
   + `morris_setup_by_name()`
+  + `tarot_setup_by_name()`
 
 * The following functions generate data frames with info about the games whose setups are
   provided by this package:
@@ -197,6 +203,7 @@ New features
   + `go_games()`
   + `marble_games()`
   + `morris_games()`
+  + `tarot_games()`
 
 Bug fixes and minor improvements
 --------------------------------

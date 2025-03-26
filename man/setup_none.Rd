@@ -11,6 +11,7 @@
 \alias{morris_none}
 \alias{piecepack_none}
 \alias{stackpack_none}
+\alias{tarot_none}
 \title{Zero-row data frames}
 \usage{
 alquerque_none()
@@ -30,6 +31,8 @@ morris_none()
 piecepack_none()
 
 stackpack_none()
+
+tarot_none()
 }
 \value{
 A data frame with zero rows.

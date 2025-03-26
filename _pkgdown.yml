@@ -58,6 +58,10 @@ reference:
       desc: "Functions that generate data frames to setup piecepack stackpack pieces."
       contents:
         - stackpack_xiangqi
+    - title: "Setups for tarot playing cards"
+      desc: "Functions that generate data frames to setup tarot playing cards."
+      contents:
+        - tarot_cards
     - title: "Empty setups"
       desc: "Functions that generate data frames with zero rows."
       contents:

@@ -43,8 +43,8 @@ for (r in 1:21) {
 }
 card2suit[[unicode_cards[82L]]] <- NA_integer_
 
-unicode_chess_black <- c("\u265f", "\u265e", "\u265d", "\u265c", "\u265b", "\u265a")
-unicode_chess_white <- c("\u2659", "\u2658", "\u2657", "\u2656", "\u2655", "\u2654")
+unicode_chess_black <- uc_seq("\u265f", seq.int(0L, -5L))
+unicode_chess_white <- uc_seq("\u2659", seq.int(0L, -5L))
 unicode_chess_neutral <- uc_seq("\U0001fa05", seq.int(0L, -5L))
 # unicode rotates clockwise while we rotate counter-clockwise
 unicode_chess_white270 <- uc_seq("\U0001fa0e", seq.int(0L, -5L))
@@ -106,22 +106,44 @@ suit_list <- list(
     heart = 1L,
     "\u2665" = 1L,
     "\u2661" = 1L,
+    cups = 1L,
+    cup = 1L,
+    shields = 1L,
+    shield = 1L,
     spades = 2L,
     spade = 2L,
-    "\u2664" = 1L,
-    "\u2660" = 1L,
+    "\u2664" = 2L,
+    "\u2660" = 2L,
+    swords = 2L,
+    sword = 2L,
+    leaves = 2L,
+    leaf = 2L,
+    roses = 2L,
+    rose = 2L,
+    pikes = 2L,
+    pike = 2L,
     clubs = 3L,
     club = 3L,
-    "\u2667" = 1L,
-    "\u2663" = 1L,
+    "\u2667" = 3L,
+    "\u2663" = 3L,
+    acorns = 3L,
+    acorn = 3L,
+    clovers = 3L,
+    clover = 3L,
     diamonds = 4L,
     diamond = 4L,
-    "\u2666" = 1L,
-    "\u2662" = 1L,
-    stars = 5L,
-    star = 5L,
-    "\u2605" = 5L, #### Support in PPN
-    "\u2606" = 5L,
+    "\u2666" = 4L,
+    "\u2662" = 4L,
+    coins = 4L,
+    coin = 4L,
+    bells = 4L,
+    bell = 4L,
+    tiles = 4L,
+    tile = 4L,
+    # stars = 5L,
+    # star = 5L,
+    # "\u2605" = 5L,
+    # "\u2606" = 5L,
     atout = 5L,
     trumps = 5L,
     trump = 5L,

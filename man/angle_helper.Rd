@@ -5,6 +5,7 @@
 \alias{chess_angle}
 \alias{domino_angle}
 \alias{piecepack_angle}
+\alias{tarot_angle}
 \title{Cast to angle doubles}
 \usage{
 chess_angle(angle)
@@ -12,6 +13,8 @@ chess_angle(angle)
 domino_angle(angle)
 
 piecepack_angle(angle)
+
+tarot_angle(angle)
 }
 \arguments{
 \item{angle}{A numeric or character vector of angle values.}
