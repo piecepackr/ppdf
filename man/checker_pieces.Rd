@@ -16,7 +16,7 @@ checker_board(
   piece_side = paste0("board_", side),
   suit = "green",
   angle = 0,
-  cell_width = 1
+  cell_width = getOption("ppdf.checker_cell_width", 1)
 )
 
 checker_bits(
@@ -25,7 +25,7 @@ checker_bits(
   x = as.double(1:6),
   y = 1,
   angle = 0,
-  cell_width = 1,
+  cell_width = getOption("ppdf.checker_cell_width", 1),
   length.out = NA_integer_
 )
 }

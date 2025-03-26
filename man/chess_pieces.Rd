@@ -16,7 +16,7 @@ chess_board(
   piece_side = paste0("board_", side),
   suit = "green",
   angle = 0,
-  cell_width = 1
+  cell_width = getOption("ppdf.chess_cell_width", 1)
 )
 
 chess_bits(
@@ -26,7 +26,7 @@ chess_bits(
   x = rep(1:6, 6L),
   y = rep(1:6, each = 6L),
   angle = 0,
-  cell_width = 1,
+  cell_width = getOption("ppdf.chess_cell_width", 1),
   length.out = NA_integer_
 )
 }

@@ -31,59 +31,75 @@
 \alias{checker_zimbabwean_pool_checkers}
 \title{Setups for checkers variants}
 \usage{
-checker_american_checkers(cell_width = 1)
+checker_american_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_american_pool_checkers(cell_width = 1)
+checker_american_pool_checkers(
+  cell_width = getOption("ppdf.checker_cell_width", 1)
+)
 
-checker_bashni(cell_width = 1)
+checker_bashni(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_brazilian_checkers(cell_width = 1)
+checker_brazilian_checkers(
+  cell_width = getOption("ppdf.checker_cell_width", 1)
+)
 
-checker_canadian_checkers(cell_width = 1)
+checker_canadian_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_checkers(cell_width = 1)
+checker_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_column_checkers(cell_width = 1)
+checker_column_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_corner_checkers(cell_width = 1)
+checker_corner_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_czech_checkers(cell_width = 1)
+checker_czech_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_dameo(cell_width = 1)
+checker_dameo(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_english_checkers(cell_width = 1)
+checker_english_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_frisian_checkers(cell_width = 1)
+checker_frisian_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_gothic_checkers(cell_width = 1)
+checker_gothic_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_international_checkers(cell_width = 1)
+checker_international_checkers(
+  cell_width = getOption("ppdf.checker_cell_width", 1)
+)
 
-checker_italian_checkers(cell_width = 1)
+checker_italian_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_jamaican_checkers(cell_width = 1)
+checker_jamaican_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_lasca(cell_width = 1)
+checker_lasca(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_malaysian_checkers(cell_width = 1)
+checker_malaysian_checkers(
+  cell_width = getOption("ppdf.checker_cell_width", 1)
+)
 
-checker_one_way_checkers(cell_width = 1)
+checker_one_way_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_portuguese_checkers(cell_width = 1)
+checker_portuguese_checkers(
+  cell_width = getOption("ppdf.checker_cell_width", 1)
+)
 
-checker_russian_checkers(cell_width = 1)
+checker_russian_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_singaporean_checkers(cell_width = 1)
+checker_singaporean_checkers(
+  cell_width = getOption("ppdf.checker_cell_width", 1)
+)
 
-checker_spanish_checkers(cell_width = 1)
+checker_spanish_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_thai_checkers(cell_width = 1)
+checker_thai_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_turkish_checkers(cell_width = 1)
+checker_turkish_checkers(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_unified_pool_checkers(cell_width = 1)
+checker_unified_pool_checkers(
+  cell_width = getOption("ppdf.checker_cell_width", 1)
+)
 
-checker_zimbabwean_pool_checkers(cell_width = 1)
+checker_zimbabwean_pool_checkers(
+  cell_width = getOption("ppdf.checker_cell_width", 1)
+)
 }
 \arguments{
 \item{cell_width}{Width of board cell.  Most renderers support \code{1} or \code{2}.}

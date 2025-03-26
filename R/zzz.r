@@ -1,5 +1,5 @@
 #' @importFrom dplyr %>% bind_rows mutate slice
-#' @importFrom rlang .data %||% abort check_dots_empty
+#' @importFrom rlang .data %||% abort check_dots_empty local_options
 #' @importFrom tibble tibble tribble
 #' @importFrom utils hasName packageVersion
 NULL
