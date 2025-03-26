@@ -90,6 +90,13 @@ stackpack_games <- function() {
         arrange_games()
 }
 
+#' @rdname games_info
+#' @export
+tarot_games <- function() {
+    bind_rows(tarot_games_variant()) %>%
+        arrange_games()
+}
+
 arrange_games <- function(df) {
     mutate(df, name = gsub("\\(|\\)", "", .data$game)) %>%
         arrange(.data$name) %>%

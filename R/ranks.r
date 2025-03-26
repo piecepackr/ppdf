@@ -13,6 +13,7 @@
 #' piecepack_rank(c("n", "a", "2", "3", "4", "5"))
 #' domino_rank(c("\U0001f06e", "\U0001f038"))
 #' domino_rank(c("zero", "one", "eighteen"))
+#' tarot_rank(c("ace", "ten", "jack", "queen", "knight", "king"))
 #' @name rank_helper
 NULL
 
@@ -27,6 +28,10 @@ domino_rank <- function(rank) rank_helper(rank, start_from_zero_rank_list)
 #' @rdname rank_helper
 #' @export
 piecepack_rank <- function(rank) rank_helper(rank, start_from_zero_rank_list)
+
+#' @rdname rank_helper
+#' @export
+tarot_rank <- function(rank) rank_helper(rank, tarot_rank_list)
 
 rank_helper <- function(rank, rank_list) {
     if (is.numeric(rank)) {

@@ -14,6 +14,8 @@
 #' piecepack_suit(c("S", "M", "C", "A"))
 #' domino_suit(c("\U0001f06e", "\U0001f038"))
 #' domino_suit(c("zero", "one", "eighteen"))
+#' tarot_suit(c("\u2665", "\u2660", "\u2663", "\u2666"))
+#' tarot_suit(c("hearts", "spades", "clubs", "diamonds", "trumps"))
 #' @name suit_helper
 NULL
 
@@ -62,3 +64,7 @@ morris_suit <- suit_helper
 #' @rdname suit_helper
 #' @export
 piecepack_suit <- suit_helper
+
+#' @rdname suit_helper
+#' @export
+tarot_suit <- suit_helper

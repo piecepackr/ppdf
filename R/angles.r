@@ -38,3 +38,7 @@ domino_angle <- angle_helper
 #' @rdname angle_helper
 #' @export
 piecepack_angle <- angle_helper
+
+#' @rdname angle_helper
+#' @export
+tarot_angle <- angle_helper

@@ -5,6 +5,7 @@
 \alias{chess_rank}
 \alias{domino_rank}
 \alias{piecepack_rank}
+\alias{tarot_rank}
 \title{Cast to rank integers}
 \usage{
 chess_rank(rank)
@@ -12,6 +13,8 @@ chess_rank(rank)
 domino_rank(rank)
 
 piecepack_rank(rank)
+
+tarot_rank(rank)
 }
 \arguments{
 \item{rank}{A numeric or character vector of rank values.}
@@ -32,4 +35,5 @@ chess_rank(c("\u265f", "\u265e", "\u265d", "\u265c", "\u265b", "\u265a"))
 piecepack_rank(c("n", "a", "2", "3", "4", "5"))
 domino_rank(c("\U0001f06e", "\U0001f038"))
 domino_rank(c("zero", "one", "eighteen"))
+tarot_rank(c("ace", "ten", "jack", "queen", "knight", "king"))
 }

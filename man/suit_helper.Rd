@@ -10,6 +10,7 @@
 \alias{marble_suit}
 \alias{morris_suit}
 \alias{piecepack_suit}
+\alias{tarot_suit}
 \title{Cast to suit integers}
 \usage{
 alquerque_suit(suit)
@@ -27,6 +28,8 @@ marble_suit(suit)
 morris_suit(suit)
 
 piecepack_suit(suit)
+
+tarot_suit(suit)
 }
 \arguments{
 \item{suit}{A numeric or character vector of suit values.}
@@ -48,4 +51,6 @@ piecepack_suit(c("suns", "moons", "crowns", "arms"))
 piecepack_suit(c("S", "M", "C", "A"))
 domino_suit(c("\U0001f06e", "\U0001f038"))
 domino_suit(c("zero", "one", "eighteen"))
+tarot_suit(c("\u2665", "\u2660", "\u2663", "\u2666"))
+tarot_suit(c("hearts", "spades", "clubs", "diamonds", "trumps"))
 }

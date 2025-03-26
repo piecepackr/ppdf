@@ -51,3 +51,7 @@ piecepack_none <- df_none
 #' @rdname setup_none
 #' @export
 stackpack_none <- df_none
+
+#' @rdname setup_none
+#' @export
+tarot_none <- df_none

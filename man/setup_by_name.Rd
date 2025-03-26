@@ -11,6 +11,7 @@
 \alias{morris_setup_by_name}
 \alias{piecepack_setup_by_name}
 \alias{stackpack_setup_by_name}
+\alias{tarot_setup_by_name}
 \title{Setups by game name}
 \usage{
 setup_by_name(
@@ -69,6 +70,12 @@ piecepack_setup_by_name(
 )
 
 stackpack_setup_by_name(
+  name,
+  ...,
+  getter = function(x) get(x, envir = getNamespace("ppdf"))
+)
+
+tarot_setup_by_name(
   name,
   ...,
   getter = function(x) get(x, envir = getNamespace("ppdf"))

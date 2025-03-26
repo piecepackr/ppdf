@@ -11,6 +11,7 @@
 \alias{morris_games}
 \alias{piecepack_games}
 \alias{stackpack_games}
+\alias{tarot_games}
 \title{Data frames with game info}
 \usage{
 alquerque_games()
@@ -30,6 +31,8 @@ morris_games()
 piecepack_games()
 
 stackpack_games()
+
+tarot_games()
 }
 \value{
 A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with character columns "game", "methods", "comment", and "url"
