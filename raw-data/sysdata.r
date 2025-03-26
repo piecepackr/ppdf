@@ -2,7 +2,7 @@ uc_seq <- function(glyph, seq) {
     intToUtf8(utf8ToInt(glyph) + seq, multiple = TRUE)
 }
 
-unicode_dice <- c("\u2680", "\u2681", "\u2682", "\u2683", "\u2684", "\u2685")
+unicode_dice <- uc_seq("\u2680", 0:5)
 
 unicode_cards <- c(uc_seq("\U0001f0a1", 0:13), # spades
                    uc_seq("\U0001f0b1", 0:13), # hearts
@@ -56,7 +56,12 @@ unicode_chess_neutral180 <- uc_seq("\U0001fa2f", seq.int(0L, -5L))
 unicode_chess_white90 <- uc_seq("\U0001fa38", seq.int(0L, -5L))
 unicode_chess_black90 <- uc_seq("\U0001fa3e", seq.int(0L, -5L))
 unicode_chess_neutral90 <- uc_seq("\U0001fa44", seq.int(0L, -5L))
-#### Chess knights rotated 45 degrees etc.
+
+# Chess knights rotated 45 degrees etc.
+unicode_knights315 <- uc_seq("\U0001fa06", seq.int(0L, 2L))
+unicode_knights225 <- uc_seq("\U0001fa1b", seq.int(0L, 2L))
+unicode_knights135 <- uc_seq("\U0001fa30", seq.int(0L, 2L))
+unicode_knights45 <- uc_seq("\U0001fa45", seq.int(0L, 2L))
 
 unicode_dominoes <- uc_seq("\U0001f030", 0:99)
 ranks <- c(NA_integer_, rep(0L, 7), # 0H
@@ -151,7 +156,17 @@ for (g in c(unicode_chess_black, unicode_chess_black90, unicode_chess_black180, 
 for (g in c(unicode_chess_white, unicode_chess_white90, unicode_chess_white180, unicode_chess_white270)) {
     suit_list[[g]] <- 6L
 }
-#### Neutral chess pieces from Chess Symbols block
+# For now let "neutral" chess pieces be the "red" suit
+for (g in c(unicode_chess_neutral, unicode_chess_neutral90, unicode_chess_neutral180, unicode_chess_neutral270)) {
+    suit_list[[g]] <- 1L
+}
+knight_suits <- c(6L, 2L, 1L)
+for (i in 1:3) {
+    suit_list[[unicode_knights45[i]]] <- knight_suits[i]
+    suit_list[[unicode_knights135[i]]] <- knight_suits[i]
+    suit_list[[unicode_knights225[i]]] <- knight_suits[i]
+    suit_list[[unicode_knights315[i]]] <- knight_suits[i]
+}
 for (g in c(unicode_cards)) {
     suit_list[[g]] <- as.integer(card2suit[[g]])
 }
@@ -287,6 +302,9 @@ for (i in seq.int(6L)) {
     chess_rank_list[[unicode_chess_black270[i]]] <- as.integer(i)
     chess_rank_list[[unicode_chess_neutral270[i]]] <- as.integer(i)
 }
+for (g in c(unicode_knights45, unicode_knights135, unicode_knights225, unicode_knights315)) {
+    chess_rank_list[[g]] <- 2L
+}
 
 # piecepack and dominoes
 # Domino rank is the "top" number
@@ -321,7 +339,6 @@ for (i in seq.int(0, 18)) {
 
 domino_suit_list <- start_from_zero_rank_list
 
-#### add chess angles...
 angle_list <- list(
     "0" = 0,
     "^" = 0,
@@ -338,14 +355,26 @@ angle_list <- list(
 for (g in c(unicode_chess_white, unicode_chess_black, unicode_chess_neutral)) {
     angle_list[[g]] <- 0
 }
+for (g in unicode_knights45) {
+    angle_list[[g]] <- 45
+}
 for (g in c(unicode_chess_white90, unicode_chess_black90, unicode_chess_neutral90)) {
     angle_list[[g]] <- 90
+}
+for (g in unicode_knights135) {
+    angle_list[[g]] <- 135
 }
 for (g in c(unicode_chess_white180, unicode_chess_black180, unicode_chess_neutral180)) {
     angle_list[[g]] <- 180
 }
+for (g in unicode_knights225) {
+    angle_list[[g]] <- 225
+}
 for (g in c(unicode_chess_white270, unicode_chess_black270, unicode_chess_neutral270)) {
     angle_list[[g]] <- 270
+}
+for (g in unicode_knights315) {
+    angle_list[[g]] <- 315
 }
 
 for (i in seq_along(unicode_dominoes)) {
