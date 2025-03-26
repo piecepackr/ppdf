@@ -11,19 +11,22 @@
 \alias{chess_racing_kings}
 \title{Setups for chess variants}
 \usage{
-chess_chess(cell_width = 1)
+chess_chess(cell_width = getOption("ppdf.chess_cell_width", 1))
 
-chess_chess960(seed = NULL, cell_width = 1)
+chess_chess960(seed = NULL, cell_width = getOption("ppdf.chess_cell_width", 1))
 
-chess_fischer_random_chess(seed = NULL, cell_width = 1)
+chess_fischer_random_chess(
+  seed = NULL,
+  cell_width = getOption("ppdf.chess_cell_width", 1)
+)
 
-chess_horde_chess(..., cell_width = 1)
+chess_horde_chess(..., cell_width = getOption("ppdf.chess_cell_width", 1))
 
-chess_international_chess(cell_width = 1)
+chess_international_chess(cell_width = getOption("ppdf.chess_cell_width", 1))
 
-chess_monochrome_chess(cell_width = 1)
+chess_monochrome_chess(cell_width = getOption("ppdf.chess_cell_width", 1))
 
-chess_racing_kings(cell_width = 1)
+chess_racing_kings(cell_width = getOption("ppdf.chess_cell_width", 1))
 }
 \arguments{
 \item{cell_width}{Width of board cell.  Most renderers support \code{1} or \code{2}.}

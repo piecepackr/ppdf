@@ -55,7 +55,7 @@ checker_games_other <- function() {
 
 #' @rdname checker_games_other
 #' @export
-checker_breakthrough <- function(cell_width = 1)
+checker_breakthrough <- function(cell_width = getOption("ppdf.checker_cell_width", 1))
     to_checkers(piecepack_breakthrough(), cell_width)
 
 #' @rdname checker_games_other
@@ -64,12 +64,14 @@ checker_crossings <- checker_breakthrough
 
 #' @rdname checker_games_other
 #' @export
-checker_dao <- function(cell_width = 1)
+checker_dao <- function(cell_width = getOption("ppdf.checker_cell_width", 1))
     to_checkers(piecepack_dao(), cell_width)
 
 #' @rdname checker_games_other
 #' @export
-checker_focus <- function(cell_width = 1) {
+checker_focus <- function(cell_width = getOption("ppdf.checker_cell_width", 1)) {
+    force(cell_width)
+    local_options(ppdf.checker_cell_width = NULL)
     df_board <- checker_board()
     df_w <- checker_bits(suit = 6L, x = rep(2:7, each = 3L),
                           y = c(rep(c(2, 4, 6), 2), rep(c(3, 5, 7), 2), rep(c(2, 4, 6), 2)))
@@ -81,21 +83,21 @@ checker_focus <- function(cell_width = 1) {
 
 #' @rdname checker_games_other
 #' @export
-checker_four_field_kono <- function(cell_width = 1)
+checker_four_field_kono <- function(cell_width = getOption("ppdf.checker_cell_width", 1))
     to_checkers(piecepack_four_field_kono(), cell_width,
                 piece_side = "board_back", suit = 2L)
 
 #' @rdname checker_games_other
 #' @export
-checker_grasshopper <- function(cell_width = 1)
+checker_grasshopper <- function(cell_width = getOption("ppdf.checker_cell_width", 1))
     to_checkers(piecepack_grasshopper(), cell_width)
 
 #' @rdname checker_games_other
 #' @export
-checker_julgonu <- function(cell_width = 1)
+checker_julgonu <- function(cell_width = getOption("ppdf.checker_cell_width", 1))
     to_checkers(piecepack_julgonu(), cell_width, piece_side = "board_back", suit = 2L)
 
 #' @rdname checker_games_other
 #' @export
-checker_lines_of_action <- function(cell_width = 1)
+checker_lines_of_action <- function(cell_width = getOption("ppdf.checker_cell_width", 1))
     to_checkers(piecepack_lines_of_action(), cell_width)

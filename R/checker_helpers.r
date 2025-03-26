@@ -2,7 +2,7 @@ set_cell_width <- function(df, cell_width, system) {
     if (is.null(cell_width)) return(df)
     df <- mutate(df, cfg = paste0(system, cell_width),
            x = cell_width * .data$x,
-           y = cell_width * .data$y) %>% 
+           y = cell_width * .data$y) %>%
         select_piece()
     attr(df, "scale_factor") <- cell_width
     df
@@ -12,7 +12,7 @@ set_cell_width <- function(df, cell_width, system) {
 # use suit = 2 (black) for "black"
 # use suit = 6 (white) for "white"
 # use green checkered board if checkered board and black lined board if not checkered
-to_checkers <- function(df, cell_width = 1, ..., width = NULL,
+to_checkers <- function(df, cell_width = getOption("ppdf.checker_cell_width", 1), ..., width = NULL,
                         n_players = 2, black_first = FALSE) {
     white <- 6L
     black <- 2L

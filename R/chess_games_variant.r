@@ -45,7 +45,9 @@ chess_games_variant <- function() {
 
 #' @rdname chess_games_variant
 #' @export
-chess_chess <- function(cell_width = 1) {
+chess_chess <- function(cell_width = getOption("ppdf.chess_cell_width", 1)) {
+    force(cell_width)
+    local_options(ppdf.chess_cell_width = NULL)
     df_board <- chess_board()
     df_w <- chess_bits(suit = 6L,
                        rank = c(rep(1L, 8L), 4L, 2L, 3L, 5L, 6L, 3L, 2L, 4L),
@@ -61,8 +63,10 @@ chess_chess <- function(cell_width = 1) {
 
 #' @rdname chess_games_variant
 #' @export
-chess_chess960 <- function(seed = NULL, cell_width = 1) {
+chess_chess960 <- function(seed = NULL, cell_width = getOption("ppdf.chess_cell_width", 1)) {
     if (!is.null(seed)) withr::local_seed(seed)
+    force(cell_width)
+    local_options(ppdf.chess_cell_width = NULL)
     df_board <- chess_board()
     ranks <- fischer_random_ranks()
     df_w <- chess_bits(suit = 6L,
@@ -102,8 +106,10 @@ fischer_random_ranks <- function() {
 
 #' @rdname chess_games_variant
 #' @export
-chess_horde_chess <- function(..., cell_width = 1) {
+chess_horde_chess <- function(..., cell_width = getOption("ppdf.chess_cell_width", 1)) {
     check_dots_empty()
+    force(cell_width)
+    local_options(ppdf.chess_cell_width = NULL)
     df_board <- chess_board()
     df_w <- chess_bits(suit = 6L, rank = 1L,
                        x = c(rep(1:8, 4L), 2:3, 6:7),
@@ -124,7 +130,9 @@ chess_international_chess <- chess_chess
 
 #' @rdname chess_games_variant
 #' @export
-chess_monochrome_chess <- function(cell_width = 1) {
+chess_monochrome_chess <- function(cell_width = getOption("ppdf.chess_cell_width", 1)) {
+    force(cell_width)
+    local_options(ppdf.chess_cell_width = NULL)
     df_board <- chess_board()
     df_b <- chess_bits(suit = 6L,
                        rank = c(rep(1L, 8L), 4L, 2L, 3L, 5L, 6L, 3L, 2L, 4L),
@@ -140,7 +148,9 @@ chess_monochrome_chess <- function(cell_width = 1) {
 
 #' @rdname chess_games_variant
 #' @export
-chess_racing_kings <- function(cell_width = 1) {
+chess_racing_kings <- function(cell_width = getOption("ppdf.chess_cell_width", 1)) {
+    force(cell_width)
+    local_options(ppdf.chess_cell_width = NULL)
     df_board <- chess_board()
     df_w <- chess_bits(suit = 6L,
                        rank = c(2L, 3L, 4L, 6L, 2L, 3L, 4L, 5L),

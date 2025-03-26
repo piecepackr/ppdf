@@ -220,6 +220,8 @@ Bug fixes and minor improvements
   your checker data frames to swap black with red pieces (#56).
 * `piecepack_julgonu()` suit colors swapped places to give better checkers results.
 * `checker_dao()` suit colors swapped to better match the original setups.
+* Default checker cell widths can now be set by the `ppdf.checker_cell_width` option.
+* Default chess cell widths can now be set by the `ppdf.chess_cell_width` option.
 
 ppdf 0.1.1
 ==========

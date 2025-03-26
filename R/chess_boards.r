@@ -29,7 +29,7 @@ NULL
 #' @export
 chess_board <- function(nrows = 8L, ncols = nrows, x0 = 1, y0 = 1, ...,
                         side = "face", piece_side = paste0("board_", side),
-                        suit = "green", angle = 0, cell_width = 1) {
+                        suit = "green", angle = 0, cell_width = getOption("ppdf.chess_cell_width", 1)) {
     stopifnot("Don't support non-square checkers boards yet" = nrows == ncols)
     check_dots_empty()
     x <- x0 - 0.5 + 0.5 * ncols
@@ -51,7 +51,7 @@ chess_bits <- function(...,
                        x = rep(1:6, 6L),
                        y = rep(1:6, each = 6L),
                        angle = 0,
-                       cell_width = 1,
+                       cell_width = getOption("ppdf.chess_cell_width", 1),
                        length.out = NA_integer_) {
     check_dots_empty()
     df_bits <- tibble(piece_side = rep("bit_face", length.out = length.out),

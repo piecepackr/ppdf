@@ -12,21 +12,21 @@
 \alias{checker_lines_of_action}
 \title{Setups for other games playable with a checkers set}
 \usage{
-checker_breakthrough(cell_width = 1)
+checker_breakthrough(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_crossings(cell_width = 1)
+checker_crossings(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_dao(cell_width = 1)
+checker_dao(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_focus(cell_width = 1)
+checker_focus(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_four_field_kono(cell_width = 1)
+checker_four_field_kono(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_grasshopper(cell_width = 1)
+checker_grasshopper(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_julgonu(cell_width = 1)
+checker_julgonu(cell_width = getOption("ppdf.checker_cell_width", 1))
 
-checker_lines_of_action(cell_width = 1)
+checker_lines_of_action(cell_width = getOption("ppdf.checker_cell_width", 1))
 }
 \arguments{
 \item{cell_width}{Width of board cell.  Most renderers support \code{1} or \code{2}.}
