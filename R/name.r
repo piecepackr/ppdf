@@ -24,6 +24,7 @@ normalize_name <- function(x, sep = "_") {
     x <- gsub(paste0("^go", sep), "", x)
     x <- gsub(paste0("^piecepack", sep), "", x)
     x <- gsub(paste0("^stackpack", sep), "", x)
+    x <- gsub(paste0("^reversi", sep), "", x)
     x <- gsub(paste0("^tarot", sep), "", x)
     x
 }
@@ -37,7 +38,7 @@ known_game_systems <- c(
     "go",
     "icehouse", "icehouse_pieces", "icehouse_pyramids", "looney_pyramids",
     "marble", "marbles",
-    "morris", "tarot"
+    "morris", "reversi", "tarot"
 )
 
 normalize_system <- function(system) {
@@ -60,6 +61,7 @@ normalize_system <- function(system) {
            morris = "morris",
            piecepack = "piecepack",
            piecepack_stackpack = "stackpack",
+           reversi = "reversi",
            stackpack = "stackpack",
            tarot = "tarot",
            {
@@ -157,6 +159,13 @@ morris_setup_by_name <- function(name, ...,
 piecepack_setup_by_name <- function(name, ...,
                           getter = function(x) get(x, envir=getNamespace("ppdf"))) {
     setup_by_name(name, "piecepack", ..., getter = getter)
+}
+
+#' @rdname setup_by_name
+#' @export
+reversi_setup_by_name <- function(name, ...,
+                          getter = function(x) get(x, envir=getNamespace("ppdf"))) {
+    setup_by_name(name, "reversi", ..., getter = getter)
 }
 
 #' @rdname setup_by_name

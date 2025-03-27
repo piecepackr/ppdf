@@ -38,9 +38,9 @@ piecepack_rectangular_board(
 
 \item{piece_side}{Either "tile_face" or "tile_back".}
 
-\item{suit}{Vector of suit values to use for tile back (will be repeated and coerced by \code{\link[=piecepack_suit]{piecepack_suit()}}).}
+\item{suit}{Vector of suit values to use for tile back (will be repeated and coerced by \code{\link[=piece_suit]{piece_suit()}}).}
 
-\item{rank}{Vector of rank values to use for tile back (will be repeated and coerced by \code{\link[=piecepack_rank]{piecepack_rank()}}).}
+\item{rank}{Vector of rank values to use for tile back (will be repeated and coerced by \code{\link[=piece_rank]{piece_rank()}}).}
 
 \item{cfg}{"piecepack" or perhaps "playing_cards_expansion", "dual_piecepacks_expansion", or "subpack".}
 
@@ -51,7 +51,7 @@ X coordinate for center of bottom-left tile for \code{piecepack_donut_board()}.}
 Y coordinate for center of bottom-left tile for \code{piecepack_donut_board()}.}
 
 \item{angle}{Rotation of piece (numeric vector of degrees, counter-clockwise).
-Will be coerced by \code{\link[=piecepack_angle]{piecepack_angle()}}.}
+Will be coerced by \code{\link[=piece_angle]{piece_angle()}}.}
 
 \item{nrows}{Number of rows in game board}
 

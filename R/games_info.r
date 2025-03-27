@@ -85,6 +85,13 @@ piecepack_games <- function() {
 
 #' @rdname games_info
 #' @export
+reversi_games <- function() {
+    bind_rows(reversi_games_variant()) %>%
+        arrange_games()
+}
+
+#' @rdname games_info
+#' @export
 stackpack_games <- function() {
     bind_rows(stackpack_games_other()) %>%
         arrange_games()

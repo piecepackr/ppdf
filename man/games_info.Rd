@@ -10,6 +10,7 @@
 \alias{marble_games}
 \alias{morris_games}
 \alias{piecepack_games}
+\alias{reversi_games}
 \alias{stackpack_games}
 \alias{tarot_games}
 \title{Data frames with game info}
@@ -29,6 +30,8 @@ marble_games()
 morris_games()
 
 piecepack_games()
+
+reversi_games()
 
 stackpack_games()
 

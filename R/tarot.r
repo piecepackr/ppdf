@@ -11,7 +11,7 @@
 #'             Trump suits are from `1L` to `21L` plus a `22L` fool/excuse.
 #'             Will be coerced by [tarot_rank()].
 #' @param angle Rotation of piece (numeric vector of degrees, counter-clockwise).
-#'              Will be coerced by [tarot_angle()].
+#'              Will be coerced by [piece_angle()].
 #' @inheritParams piecepack_tiles
 #' @return `r return_df()`
 #' @name tarot_pieces
@@ -35,7 +35,7 @@ tarot_cards <- function(...,
            cfg = rep("playing_cards_tarot", length.out = length.out),
            x = rep(as.double(x), length.out = length.out),
            y = rep(as.double(y), length.out = length.out),
-           angle = rep(tarot_angle(angle), length.out = length.out))
+           angle = rep(piece_angle(angle), length.out = length.out))
 }
 
 tarot_games_variant <- function() {

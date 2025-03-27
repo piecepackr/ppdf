@@ -8,12 +8,10 @@
 #' @param angle A numeric or character vector of angle values.
 #' @return An double vector of angle values.
 #' @examples
-#' domino_angle(c("\U0001f06e", "\U0001f038"))
-#' piecepack_angle(c("^", "<", "v", ">"))
-#' @name angle_helper
-NULL
-
-angle_helper <- function(angle) {
+#' piece_angle(c("^", "<", "v", ">"))
+#' piece_angle(c("\U0001f06e", "\U0001f038"))
+#' @export
+piece_angle <- function(angle) {
     if (is.numeric(angle)) {
         as.double(angle)
     } else {
@@ -26,19 +24,3 @@ angle_helper <- function(angle) {
                }, FUN.VALUE = numeric(1L), USE.NAMES = FALSE)
     }
 }
-
-#' @rdname angle_helper
-#' @export
-chess_angle <- angle_helper
-
-#' @rdname angle_helper
-#' @export
-domino_angle <- angle_helper
-
-#' @rdname angle_helper
-#' @export
-piecepack_angle <- angle_helper
-
-#' @rdname angle_helper
-#' @export
-tarot_angle <- angle_helper

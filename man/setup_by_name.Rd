@@ -10,6 +10,7 @@
 \alias{marble_setup_by_name}
 \alias{morris_setup_by_name}
 \alias{piecepack_setup_by_name}
+\alias{reversi_setup_by_name}
 \alias{stackpack_setup_by_name}
 \alias{tarot_setup_by_name}
 \title{Setups by game name}
@@ -64,6 +65,12 @@ morris_setup_by_name(
 )
 
 piecepack_setup_by_name(
+  name,
+  ...,
+  getter = function(x) get(x, envir = getNamespace("ppdf"))
+)
+
+reversi_setup_by_name(
   name,
   ...,
   getter = function(x) get(x, envir = getNamespace("ppdf"))

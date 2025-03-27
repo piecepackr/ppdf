@@ -72,36 +72,28 @@ New features
 
   + `alquerque_bits()`
   + `alquerque_board()`
-  + `alquerque_suit()`
   + `checker_bits()`
-  + `checker_suit()`
-  + `chess_angle()`
   + `chess_bits()`
   + `chess_rank()`
-  + `chess_suit()`
-  + `domino_angle()`
-  + `domino_rank()`
   + `domino_suit()`
   + `go_bits()`
   + `go_board()`
-  + `go_suit()`
   + `marble_bits()`
   + `marble_board()`
-  + `marble_suit()`
   + `morris_bits()`
   + `morris_board()`
-  + `morris_suit()`
-  + `piecepack_angle()`
+  + `piece_angle()`
+  + `piece_rank()`
+  + `piece_suit()`
   + `piecepack_coins()`
   + `piecepack_dice()`
   + `piecepack_donut_board()`
   + `piecepack_matchsticks()`
   + `piecepack_pawns()`
-  + `piecepack_rank()`
   + `piecepack_rectangular_board()`
-  + `piecepack_suit()`
   + `piecepack_tiles()`
-  + `tarot_angle()`
+  + `reversi_bits()`
+  + `reversi_board()`
   + `tarot_cards()`
   + `tarot_rank()`
   + `tarot_suit()`
@@ -180,12 +172,18 @@ New features
   + `morris_ten_mens_morris()` aka `morris_lasker_morris()`
   + `morris_twelve_mens_morris()`
 
+* The following functions generate data frames to setup games playable with reversi sets:
+
+  + `reversi_reversi()`
+  + `reversi_ming_mang()`
+
 * The following functions generate data frames with zero rows:
 
   + `alquerque_none()`
   + `go_none()`
   + `marble_none()`
   + `morris_none()`
+  + `reversi_none()`
   + `tarot_none()`
 
 * The following functions generate data frames by game name:
@@ -194,6 +192,7 @@ New features
   + `go_setup_by_name()`
   + `marble_setup_by_name()`
   + `morris_setup_by_name()`
+  + `reversi_setup_by_name()`
   + `tarot_setup_by_name()`
 
 * The following functions generate data frames with info about the games whose setups are
@@ -203,6 +202,7 @@ New features
   + `go_games()`
   + `marble_games()`
   + `morris_games()`
+  + `reversi_games()`
   + `tarot_games()`
 
 Bug fixes and minor improvements

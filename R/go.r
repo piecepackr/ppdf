@@ -8,7 +8,7 @@
 #' @param ... Should be left empty.
 #' @param suit Suit value (color) of board/bit.
 #'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".
-#'             Will be coerced by [go_suit()].
+#'             Will be coerced by [piece_suit()].
 #' @return `r return_df()`
 #' @name go_pieces
 NULL
@@ -23,7 +23,7 @@ go_board <- function(nrows = 19L, ncols = nrows, x0 = 1, y0 = 1, ..., suit = "bl
     x <- x0 - 0.5 + 0.5 * ncols
     y <- y0 - 0.5 + 0.5 * nrows
     df_board <- tibble(piece_side = "board_face",
-                       suit = go_suit(suit),
+                       suit = piece_suit(suit),
                        rank = as.integer(nrows),
                        cfg = "go",
                        x = as.double(x),
@@ -42,7 +42,7 @@ go_bits <- function(...,
                     length.out = NA_integer_) {
     check_dots_empty()
     df_bits <- tibble(piece_side = rep("bit_back", length.out = length.out),
-                      suit = rep(go_suit(suit), length.out = length.out),
+                      suit = rep(piece_suit(suit), length.out = length.out),
                       rank = rep(1L, length.out = length.out),
                       cfg = rep("go", length.out = length.out),
                       x = rep(as.double(x), length.out = length.out),
