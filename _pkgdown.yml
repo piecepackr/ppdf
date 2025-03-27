@@ -58,6 +58,11 @@ reference:
       desc: "Functions that generate data frames to setup piecepack stackpack pieces."
       contents:
         - stackpack_xiangqi
+    - title: "Setups for reversi sets"
+      desc: "Functions that generate data frames to setup reversi sets."
+      contents:
+        - reversi_board
+        - reversi_reversi
     - title: "Setups for tarot playing cards"
       desc: "Functions that generate data frames to setup tarot playing cards."
       contents:
@@ -69,9 +74,9 @@ reference:
     - title: "Rank/suit/angle helpers"
       desc: "Functions to help cast to suitable rank, suit, and angle values."
       contents:
-        - chess_rank
-        - checker_suit
-        - domino_angle
+        - piece_angle
+        - piece_rank
+        - piece_suit
     - title: "Utilities for developers"
       desc: "Other utility functions intended for developers"
       contents:

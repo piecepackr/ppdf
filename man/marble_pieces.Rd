@@ -39,7 +39,7 @@ marble_bits(
 
 \item{suit}{Suit value (color) of board and bits.
 \code{1L} is "red", \code{2L} is "black", \code{3L} is "green", \code{4L} is "blue", \code{5L} is "yellow", and \code{6L} is "white".
-Will be coerced by \code{\link[=marble_suit]{marble_suit()}}.}
+Will be coerced by \code{\link[=piece_suit]{piece_suit()}}.}
 
 \item{scale_factor}{Used by \code{{ppn}}.  Should usually be \code{0.5} for square pyramidal games but could be \code{1} if not playing a pyramidal game.}
 
@@ -49,7 +49,7 @@ The default is 1.0 inch diameter marbles which match the holed boards.}
 \item{x, y}{Cartesian coordinates (numeric vectors)}
 
 \item{angle}{Rotation of piece (numeric vector of degrees, counter-clockwise).
-Will be coerced by \code{\link[=piecepack_angle]{piecepack_angle()}}.}
+Will be coerced by \code{\link[=piece_angle]{piece_angle()}}.}
 
 \item{length.out}{The number of pieces.
 Not needed if all the arguments are the same length (or of length one)

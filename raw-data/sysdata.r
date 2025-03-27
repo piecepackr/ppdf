@@ -193,6 +193,13 @@ for (g in c(unicode_cards)) {
     suit_list[[g]] <- as.integer(card2suit[[g]])
 }
 
+# Spades/Clubs conflicts with Suns/Crowns
+tarot_suit_list <- suit_list
+tarot_suit_list[["h"]] <- 1L
+tarot_suit_list[["s"]] <- 2L
+tarot_suit_list[["c"]] <- 3L
+tarot_suit_list[["d"]] <- 4L
+
 #### Percentile dice
 #### Fudge dice
 
@@ -413,4 +420,5 @@ save(angle_list, # angles
      start_from_zero_rank_list, # piecepack/domino ranks
      suit_list, # non-domino suits
      tarot_rank_list, # (tarot) playing card ranks
+     tarot_suit_list, # (tarot) playing card suits
      file = "R/sysdata.rda", version = 2)

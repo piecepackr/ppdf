@@ -10,26 +10,22 @@
 #' @examples
 #' chess_rank(c("P", "N", "B", "R", "Q", "K"))
 #' chess_rank(c("\u265f", "\u265e", "\u265d", "\u265c", "\u265b", "\u265a"))
-#' piecepack_rank(c("n", "a", "2", "3", "4", "5"))
-#' domino_rank(c("\U0001f06e", "\U0001f038"))
-#' domino_rank(c("zero", "one", "eighteen"))
+#' piece_rank(c("n", "a", "2", "3", "4", "5"))
+#' piece_rank(c("\U0001f06e", "\U0001f038"))
+#' piece_rank(c("zero", "one", "eighteen"))
 #' tarot_rank(c("ace", "ten", "jack", "queen", "knight", "king"))
-#' @name rank_helper
+#' @name piece_rank
 NULL
 
-#' @rdname rank_helper
+#' @rdname piece_rank
 #' @export
 chess_rank <- function(rank) rank_helper(rank, chess_rank_list)
 
-#' @rdname rank_helper
+#' @rdname piece_rank
 #' @export
-domino_rank <- function(rank) rank_helper(rank, start_from_zero_rank_list)
+piece_rank <- function(rank) rank_helper(rank, start_from_zero_rank_list)
 
-#' @rdname rank_helper
-#' @export
-piecepack_rank <- function(rank) rank_helper(rank, start_from_zero_rank_list)
-
-#' @rdname rank_helper
+#' @rdname piece_rank
 #' @export
 tarot_rank <- function(rank) rank_helper(rank, tarot_rank_list)
 

@@ -12,8 +12,8 @@
 #' @param y0 Y coordinate for the center of the first cell/point for `piecepack_rectangular_board()`.
 #'           Y coordinate for center of bottom-left tile for `piecepack_donut_board()`.
 #' @param max_tiles Maximum number of tiles that can be used
-#' @param suit Vector of suit values to use for tile back (will be repeated and coerced by [piecepack_suit()]).
-#' @param rank Vector of rank values to use for tile back (will be repeated and coerced by [piecepack_rank()]).
+#' @param suit Vector of suit values to use for tile back (will be repeated and coerced by [piece_suit()]).
+#' @param rank Vector of rank values to use for tile back (will be repeated and coerced by [piece_rank()]).
 #' @inheritParams piecepack_tiles
 #' @name piecepack_board
 #' @return `r return_df()`
@@ -34,12 +34,12 @@ piecepack_donut_board <- function(...,
                                   angle = 0) {
     check_dots_empty()
     tibble(piece_side = piece_side,
-           suit = piecepack_suit(suit),
-           rank = piecepack_rank(rank),
+           suit = piece_suit(suit),
+           rank = piece_rank(rank),
            cfg = cfg,
            x = x0 + 0.5 + c(rep(seq(0, 8, 2), 2), 0, 2, 6, 8, rep(seq(0, 8, 2), 2)),
            y = y0 + 0.5 + c(rep(8, 5), rep(6, 5), rep(4, 4), rep(2, 5), rep(0, 5)),
-           angle = piecepack_angle(angle))
+           angle = piece_angle(angle))
 }
 
 #' @rdname piecepack_board
@@ -82,10 +82,10 @@ piecepack_rectangular_board <- function(nrows = 8L, ncols = 8L, x0 = 1, y0 = 1,
     xr <- x0 + rep(x, length(y))
     yr <- y0 + rep(y, each = length(x))
     df <- tibble(piece_side = "tile_back", x = xr, y = yr)
-    df$suit <- rep(piecepack_suit(suit), length.out = nrow(df))
-    df$rank <- rep(piecepack_rank(rank), length.out = nrow(df))
+    df$suit <- rep(piece_suit(suit), length.out = nrow(df))
+    df$rank <- rep(piece_rank(rank), length.out = nrow(df))
     df$cfg <- cfg
-    df$angle <- rep(piecepack_angle(angle), length.out = nrow(df))
+    df$angle <- rep(piece_angle(angle), length.out = nrow(df))
     select_piece(df)
 }
 

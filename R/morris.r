@@ -8,7 +8,7 @@
 #' @param y0 Y coordinate for the center of the first point
 #' @param ... Should be left empty.
 #' @param suit Suit value (color) of board/bit.
-#'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".  Will be coerced by [morris_suit()].
+#'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".  Will be coerced by [piece_suit()].
 #' @return `r return_df()`
 #' @name morris_pieces
 NULL
@@ -28,7 +28,7 @@ morris_board <- function(n = 9L, x0 = 1, y0 = 1, ..., suit = "green") {
         y <- y0 + 3
     }
     df_board <- tibble(piece_side = "board_face",
-                       suit = morris_suit(suit),
+                       suit = piece_suit(suit),
                        rank = as.integer(n),
                        cfg = "morris",
                        x = as.double(x),
@@ -46,7 +46,7 @@ morris_bits <- function(...,
                         length.out = NA_integer_) {
     check_dots_empty()
     df_bits <- tibble(piece_side = rep("bit_back", length.out = length.out),
-                      suit = rep(morris_suit(suit), length.out = length.out),
+                      suit = rep(piece_suit(suit), length.out = length.out),
                       rank = rep(1L, length.out = length.out),
                       cfg = rep("morris", length.out = length.out),
                       x = rep(as.double(x), length.out = length.out),

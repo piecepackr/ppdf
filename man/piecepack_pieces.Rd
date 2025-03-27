@@ -80,17 +80,17 @@ piecepack_tiles(
 
 \item{suit}{Integer vector with values between \code{1L} and \code{4L}.
 \code{1L} is "suns", \code{2L} is "moons", \code{3L} is "crowns", \code{4L} is "arms".
-Will be coerced by \code{\link[=piecepack_suit]{piecepack_suit()}}.}
+Will be coerced by \code{\link[=piece_suit]{piece_suit()}}.}
 
 \item{rank}{Integer vector with values between \code{1L} (null) and \code{6L} (five).
-Will be coerced by \code{\link[=piecepack_rank]{piecepack_rank()}}.}
+Will be coerced by \code{\link[=piece_rank]{piece_rank()}}.}
 
 \item{cfg}{"piecepack" or perhaps "playing_cards_expansion", "dual_piecepacks_expansion", or "subpack".}
 
 \item{x, y}{Cartesian coordinates (numeric vectors)}
 
 \item{angle}{Rotation of piece (numeric vector of degrees, counter-clockwise).
-Will be coerced by \code{\link[=piecepack_angle]{piecepack_angle()}}.}
+Will be coerced by \code{\link[=piece_angle]{piece_angle()}}.}
 
 \item{length.out}{The number of pieces.
 Not needed if all the arguments are the same length (or of length one)

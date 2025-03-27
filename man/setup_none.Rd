@@ -10,6 +10,7 @@
 \alias{marble_none}
 \alias{morris_none}
 \alias{piecepack_none}
+\alias{reversi_none}
 \alias{stackpack_none}
 \alias{tarot_none}
 \title{Zero-row data frames}
@@ -29,6 +30,8 @@ marble_none()
 morris_none()
 
 piecepack_none()
+
+reversi_none()
 
 stackpack_none()
 

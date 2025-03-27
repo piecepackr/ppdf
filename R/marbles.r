@@ -10,7 +10,7 @@
 #' @param ... Should be left empty.
 #' @param suit Suit value (color) of board and bits.
 #'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".
-#'             Will be coerced by [marble_suit()].
+#'             Will be coerced by [piece_suit()].
 #' @param rank Determines the size of the marble from 0.5 inch diameter (rank 1) to 1.0 inch diamter (rank 9).
 #'             The default is 1.0 inch diameter marbles which match the holed boards.
 #' @param scale_factor Used by `{ppn}`.  Should usually be `0.5` for square pyramidal games but could be `1` if not playing a pyramidal game.
@@ -44,7 +44,7 @@ marble_board <- function(nrows = 4L, ncols = nrows,
     x <- x0 - 0.5 + 0.5 * ncols
     y <- y0 - 0.5 + 0.5 * nrows
     df_board <- tibble(piece_side = "board_face", 
-                       suit = marble_suit(suit), 
+                       suit = piece_suit(suit), 
                        rank = as.integer(nrows),
                        cfg = "marbles",
                        x = as.double(x), 
@@ -66,7 +66,7 @@ marble_bits <- function(...,
                          length.out = NA_integer_) {
     check_dots_empty()
     df_bits <- tibble(piece_side = rep("bit_back", length.out = length.out),
-                      suit = rep(marble_suit(suit), length.out = length.out),
+                      suit = rep(piece_suit(suit), length.out = length.out),
                       rank = rep(as.integer(rank), length.out = length.out),
                       cfg = rep("marbles", length.out = length.out),
                       x = rep(as.double(x), length.out = length.out),

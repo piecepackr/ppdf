@@ -2,6 +2,19 @@
 % Please edit documentation in R/ppdf-deprecated.r
 \name{ppdf-deprecated}
 \alias{ppdf-deprecated}
+\alias{chess_angle}
+\alias{domino_angle}
+\alias{piecepack_angle}
+\alias{tarot_angle}
+\alias{alquerque_suit}
+\alias{checker_suit}
+\alias{chess_suit}
+\alias{go_suit}
+\alias{marble_suit}
+\alias{morris_suit}
+\alias{piecepack_suit}
+\alias{domino_rank}
+\alias{piecepack_rank}
 \alias{checkers_american_checkers}
 \alias{checkers_american_pool_checkers}
 \alias{checkers_board}
@@ -54,6 +67,32 @@
 \alias{stackpack_by_name}
 \title{Deprecated functions}
 \usage{
+chess_angle(angle)
+
+domino_angle(angle)
+
+piecepack_angle(angle)
+
+tarot_angle(angle)
+
+alquerque_suit(suit)
+
+checker_suit(suit)
+
+chess_suit(suit)
+
+go_suit(suit)
+
+marble_suit(suit)
+
+morris_suit(suit)
+
+piecepack_suit(suit)
+
+domino_rank(rank)
+
+piecepack_rank(rank)
+
 checkers_american_checkers(cell_width = 1)
 
 checkers_american_pool_checkers(cell_width = 1)
@@ -194,6 +233,12 @@ stackpack_by_name(
 )
 }
 \arguments{
+\item{angle}{Rotation of dominoes (numeric vector of degrees, counter-clockwise).  Will be coerced by \code{\link[=piece_angle]{piece_angle()}}.}
+
+\item{suit}{"Bottom" half of domino.  Will be coerced by \code{\link[=domino_suit]{domino_suit()}}.}
+
+\item{rank}{"Top" half of domino.  Will be coerced by \code{\link[=piece_rank]{piece_rank()}}.}
+
 \item{cell_width}{Width of board cell.  Most renderers support \code{1} or \code{2}.}
 
 \item{name}{Game name.  Will be normalized by \code{\link[=normalize_name]{normalize_name()}}.}
@@ -213,15 +258,9 @@ wrapper around \code{\link[=get]{get()}} with a custom \code{envir} argument.}
 
 \item{piece_side}{Either "tile_face" or "tile_back".}
 
-\item{suit}{"Bottom" half of domino.  Will be coerced by \code{\link[=domino_suit]{domino_suit()}}.}
-
-\item{rank}{"Top" half of domino.  Will be coerced by \code{\link[=domino_rank]{domino_rank()}}.}
-
 \item{cfg}{"dominoes" or perhaps "dominoes_black", "dominoes_blue", "dominoes_green", "dominoes_red", "dominoes_white", or "dominoes_yellow".}
 
 \item{x, y}{Cartesian coordinates (numeric vectors)}
-
-\item{angle}{Rotation of dominoes (numeric vector of degrees, counter-clockwise).  Will be coerced by \code{\link[=domino_angle]{domino_angle()}}.}
 
 \item{tiles}{String of tile layout}
 

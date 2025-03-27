@@ -150,10 +150,10 @@ domino_the_jubilee <- function(seed = NULL) {
 #' @param side Either "face" or "back".
 #' @param piece_side Either "tile_face" or "tile_back".
 #' @param suit "Bottom" half of domino.  Will be coerced by [domino_suit()].
-#' @param rank "Top" half of domino.  Will be coerced by [domino_rank()].
+#' @param rank "Top" half of domino.  Will be coerced by [piece_rank()].
 #' @param cfg "dominoes" or perhaps "dominoes_black", "dominoes_blue", "dominoes_green", "dominoes_red", "dominoes_white", or "dominoes_yellow".
 #' @param x,y Cartesian coordinates (numeric vectors)
-#' @param angle Rotation of dominoes (numeric vector of degrees, counter-clockwise).  Will be coerced by [domino_angle()].
+#' @param angle Rotation of dominoes (numeric vector of degrees, counter-clockwise).  Will be coerced by [piece_angle()].
 #' @return `r return_df()`
 #' @examples
 #' df_double6 <- domino_tiles()
@@ -177,9 +177,9 @@ domino_tiles <- function(n = 7, ...,
     check_dots_empty()
     tibble(piece_side = piece_side,
            suit = domino_suit(suit),
-           rank = domino_rank(rank),
+           rank = piece_rank(rank),
            cfg = cfg,
            x = as.double(x),
            y = as.double(y),
-           angle = domino_angle(angle))
+           angle = piece_angle(angle))
 }

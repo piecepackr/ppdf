@@ -36,7 +36,7 @@ Will be coerced by \code{\link[=tarot_rank]{tarot_rank()}}.}
 \item{x, y}{Cartesian coordinates (numeric vectors)}
 
 \item{angle}{Rotation of piece (numeric vector of degrees, counter-clockwise).
-Will be coerced by \code{\link[=tarot_angle]{tarot_angle()}}.}
+Will be coerced by \code{\link[=piece_angle]{piece_angle()}}.}
 
 \item{length.out}{The number of pieces.
 Not needed if all the arguments are the same length (or of length one)

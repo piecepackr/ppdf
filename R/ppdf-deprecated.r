@@ -8,6 +8,101 @@
 #' @name ppdf-deprecated
 NULL
 
+## Unreleased angle helpers
+#' @rdname ppdf-deprecated
+#' @export
+chess_angle <- function(angle) {
+    .Deprecated("piece_angle")
+    piece_angle(angle)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+domino_angle <- function(angle) {
+    .Deprecated("piece_angle")
+    piece_angle(angle)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+piecepack_angle <- function(angle) {
+    .Deprecated("piece_angle")
+    piece_angle(angle)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+tarot_angle <- function(angle) {
+    .Deprecated("piece_angle")
+    piece_angle(angle)
+}
+
+## Unreleased suit helpers
+#' @rdname ppdf-deprecated
+#' @export
+alquerque_suit <- function(suit) {
+    .Deprecated("piece_suit")
+    piece_suit(suit)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+checker_suit <- function(suit) {
+    .Deprecated("piece_suit")
+    piece_suit(suit)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+chess_suit <- function(suit) {
+    .Deprecated("piece_suit")
+    piece_suit(suit)
+}
+
+
+#' @rdname ppdf-deprecated
+#' @export
+go_suit <- function(suit) {
+    .Deprecated("piece_suit")
+    piece_suit(suit)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+marble_suit <- function(suit) {
+    .Deprecated("piece_suit")
+    piece_suit(suit)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+morris_suit <- function(suit) {
+    .Deprecated("piece_suit")
+    piece_suit(suit)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+piecepack_suit <- function(suit) {
+    .Deprecated("piece_suit")
+    piece_suit(suit)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+domino_rank <- function(rank) {
+    .Deprecated("piece_rank")
+    piece_rank(rank)
+}
+
+#' @rdname ppdf-deprecated
+#' @export
+piecepack_rank <- function(rank) {
+    .Deprecated("piece_rank")
+    piece_rank(rank)
+}
+
+## In an official release
 #' @rdname ppdf-deprecated
 #' @inheritParams checker_american_checkers
 #' @export
