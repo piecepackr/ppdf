@@ -14,6 +14,8 @@ test_that("setup_by_name()", {
     expect_snapshot(cat_piece(piecepack_setup_by_name("Fuji-san", seed = 42)))
     expect_snapshot(cat_piece(stackpack_setup_by_name("Salta")))
     expect_snapshot(cat_piece(setup_by_name("Four Field Kono")))
+    expect_snapshot(cat_piece(stackpack_setup_by_name("Checkers")))
+    expect_snapshot(cat_piece(domino_setup_by_name("Dominoids")))
 })
 
 test_that("normalize_system()", {

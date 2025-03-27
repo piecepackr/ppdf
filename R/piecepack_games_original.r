@@ -607,7 +607,7 @@ piecepack_dominoids <- function(..., seed = NULL) {
                x = c(3.5, 3, 5.5, 6), y = c(3, 5.5, 6, 3.5))
     df_td <- piecepack_tiles(x = 10.5, y = c(7.5, 2.5), suit = c(4L, 3L), rank = c(1L, 6L))
     df_d <- piecepack_dice(x = c(10, 11, 11, 10), y = c(3, 3, 2, 2), rank = random_dice())
-    df <- bind_rows(df_board, df_pawns, df_coins, df_dt, df_db, df_td, df_d)
+    bind_rows(df_board, df_pawns, df_coins, df_dt, df_db, df_td, df_d)
 }
 
 #' @rdname piecepack_games_original
