@@ -93,8 +93,14 @@ setup_by_name <- function(name, system = known_game_systems, ...,
     game <- normalize_name(name)
     system <- normalize_system(system)
     fn_name <- paste0(system, "_", game)
-    fn <- getter(fn_name)
-    do.call(fn, list(...))
+    # fall back on piecepack setups if no special setup exists
+    tryCatch({
+                 fn <- getter(fn_name)
+                 do.call(fn, list(...))
+    }, error = function(e1) {
+             tryCatch(setup_by_name(name, "piecepack", ..., getter = getter),
+                      error = function(e2) stop(e1))
+    })
 }
 
 #' @rdname setup_by_name

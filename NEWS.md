@@ -222,6 +222,8 @@ Bug fixes and minor improvements
 * `checker_dao()` suit colors swapped to better match the original setups.
 * Default checker cell widths can now be set by the `ppdf.checker_cell_width` option.
 * Default chess cell widths can now be set by the `ppdf.chess_cell_width` option.
+* If the setup function for a given game doesn't exist for the target `system`
+  then `setup_by_name()` now falls back on a piecepack setup if it exists (#43).
 
 ppdf 0.1.1
 ==========
