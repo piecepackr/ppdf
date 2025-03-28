@@ -25,6 +25,10 @@ reference:
       contents:
         - chess_board
         - chess_international_chess
+    - title: "Setups for various dice"
+      desc: "Functions that generate data frames to setup dice."
+      contents:
+        - dice_dice
     - title: "Setups for domino sets"
       desc: "Functions that generate data frames to setup dominoes."
       contents:

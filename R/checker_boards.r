@@ -20,6 +20,19 @@
 #'                   [piecepackr::game_systems()] supports `1` or `2`.
 #'                   If `NULL` then don't set it yet.
 #' @return `r return_df()`
+#' @examples
+#' dfb <- checker_board(nrows = 4L, ncol = 4L)
+#' df1 <- checker_bits(suit = "white", x = c(1, 3), y = 1)
+#' df2 <- checker_bits(suit = "white", x = c(2, 4), y = 2)
+#' df3 <- checker_bits(suit = "black", x = c(1, 3), y = 3)
+#' df4 <- checker_bits(suit = "black", x = c(2, 4), y = 4)
+#' df <- rbind(dfb, df1, df2, df3, df4)
+#' if (require("piecepackr", quietly = TRUE) &&
+#'     packageVersion("piecepackr") >= "1.15.0-1") {
+#'   grid::grid.newpage()
+#'   envir = game_systems()
+#'   pmap_piece(df, envir = envir, default.units = "in", op_scale = 0.01)
+#' }
 #' @name checker_pieces
 NULL
 
@@ -45,6 +58,8 @@ checker_board <- function(nrows = 8L, ncols = nrows, x0 = 1, y0 = 1, ...,
 #' @rdname checker_pieces
 #' @export
 checker_bits <- function(...,
+                         side = "back",
+                         piece_side = paste0("bit_", side),
                          suit = 1:6,
                          x = as.double(1:6),
                          y = 1,
@@ -52,7 +67,7 @@ checker_bits <- function(...,
                          cell_width = getOption("ppdf.checker_cell_width", 1),
                          length.out = NA_integer_) {
     check_dots_empty()
-    df_bits <- tibble(piece_side = rep("bit_back", length.out = length.out),
+    df_bits <- tibble(piece_side = rep(piece_side, length.out = length.out),
                       suit = rep(piece_suit(suit), length.out = length.out),
                       rank = rep(1L, length.out = length.out),
                       x = rep(as.double(x), length.out = length.out),

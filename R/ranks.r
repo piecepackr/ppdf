@@ -10,12 +10,20 @@
 #' @examples
 #' chess_rank(c("P", "N", "B", "R", "Q", "K"))
 #' chess_rank(c("\u265f", "\u265e", "\u265d", "\u265c", "\u265b", "\u265a"))
+#' dice_rank(c("1", "2", "6"))
+#' dice_rank(c("\u2680", "\u2681", "\u2685"))
+#' fudge_dice_rank(c("-", " ", "+"))
+#' percentile_dice_rank(c("00", "10", "90"))
 #' piece_rank(c("n", "a", "2", "3", "4", "5"))
 #' piece_rank(c("\U0001f06e", "\U0001f038"))
 #' piece_rank(c("zero", "one", "eighteen"))
-#' tarot_rank(c("ace", "ten", "jack", "queen", "knight", "king"))
+#' tarot_rank(c("ace", "ten", "jack", "knight", "queen", "king"))
 #' @name piece_rank
 NULL
+
+#' @rdname piece_rank
+#' @export
+piece_rank <- function(rank) rank_helper(rank, start_from_zero_rank_list)
 
 #' @rdname piece_rank
 #' @export
@@ -23,7 +31,15 @@ chess_rank <- function(rank) rank_helper(rank, chess_rank_list)
 
 #' @rdname piece_rank
 #' @export
-piece_rank <- function(rank) rank_helper(rank, start_from_zero_rank_list)
+dice_rank <- function(rank) rank_helper(rank, dice_rank_list)
+
+#' @rdname piece_rank
+#' @export
+fudge_dice_rank <- function(rank) rank_helper(rank, fudge_dice_rank_list)
+
+#' @rdname piece_rank
+#' @export
+percentile_dice_rank <- function(rank) rank_helper(rank, percentile_dice_rank_list)
 
 #' @rdname piece_rank
 #' @export

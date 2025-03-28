@@ -21,6 +21,8 @@ checker_board(
 
 checker_bits(
   ...,
+  side = "back",
+  piece_side = paste0("bit_", side),
   suit = 1:6,
   x = as.double(1:6),
   y = 1,
@@ -79,4 +81,18 @@ This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepac
 \description{
 \code{checker_board()} returns a square checkers board of desired size and type.
 \code{checker_bits()} returns checkers discs.
+}
+\examples{
+dfb <- checker_board(nrows = 4L, ncol = 4L)
+df1 <- checker_bits(suit = "white", x = c(1, 3), y = 1)
+df2 <- checker_bits(suit = "white", x = c(2, 4), y = 2)
+df3 <- checker_bits(suit = "black", x = c(1, 3), y = 3)
+df4 <- checker_bits(suit = "black", x = c(2, 4), y = 4)
+df <- rbind(dfb, df1, df2, df3, df4)
+if (require("piecepackr", quietly = TRUE) &&
+    packageVersion("piecepackr") >= "1.15.0-1") {
+  grid::grid.newpage()
+  envir = game_systems()
+  pmap_piece(df, envir = envir, default.units = "in", op_scale = 0.01)
+}
 }
