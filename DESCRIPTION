@@ -2,7 +2,7 @@ Encoding: UTF-8
 Package: ppdf
 Type: Package
 Title: Board Game Setups
-Version: 0.2.0-17
+Version: 0.2.0-18
 Authors@R: c(person("Trevor L.", "Davis", role=c("aut", "cre"),
              email="trevor.l.davis@gmail.com",
              comment = c(ORCID = "0000-0001-6341-4639")))
@@ -25,8 +25,9 @@ Imports:
 Suggests:
     knitr,
     piecepackr (>= 1.15.0-5),
-    ppcli (>= 0.2.0-7),
+    ppcli (>= 0.2.0-8),
     snakecase,
+    systemfonts,
     testthat,
     vdiffr
 Remotes: piecepackr/piecepackr, piecepackr/ppcli

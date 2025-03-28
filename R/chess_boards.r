@@ -22,6 +22,25 @@
 #'                   [piecepackr::game_systems()] supports `1` or `2`.
 #' @inheritParams piecepack_tiles
 #' @return `r return_df()`
+#' @examples
+#' dfb <- chess_board(nrows = 4L, ncol = 4L)
+#' df1 <- chess_bits(suit = "white", rank = c("B", "Q", "K", "R"),
+#'                   x = 1:4, y= 1)
+#' df2 <- chess_bits(suit = "white", rank = "P", x = 1:4, y= 2)
+#' df3 <- chess_bits(suit = "black", rank = "P", x = 1:4, y= 3)
+#' df4 <- chess_bits(suit = "black", rank = c("n", "q", "k", "r"),
+#'                   x = 1:4, y= 4)
+#' df <- rbind(dfb, df1, df2, df3, df4)
+#' if (require("piecepackr", quietly = TRUE) &&
+#'     packageVersion("piecepackr") >= "1.15.0-1" &&
+#'     requireNamespace("systemfonts", quietly = TRUE) &&
+#'     piecepackr::has_font("Dejavu Sans") &&
+#'     piecepackr:::device_supports_unicode()) {
+#'   grid::grid.newpage()
+#'   envir = game_systems("dejavu")
+#'   pmap_piece(df, envir = envir, default.units = "in", op_scale = 0.01)
+#' }
+#' 
 #' @name chess_pieces
 NULL
 
@@ -39,7 +58,7 @@ chess_board <- function(nrows = 8L, ncols = nrows, x0 = 1, y0 = 1, ...,
                        rank = as.integer(nrows),
                        x = as.double(x),
                        y = as.double(y),
-                       angle = as.double(angle))
+                       angle = piece_angle(angle))
     set_cell_width(df_board, cell_width, "chess")
 }
 

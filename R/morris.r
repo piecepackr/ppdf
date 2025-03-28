@@ -51,7 +51,7 @@ morris_bits <- function(...,
                       cfg = rep("morris", length.out = length.out),
                       x = rep(as.double(x), length.out = length.out),
                       y = rep(as.double(y), length.out = length.out),
-                      angle = rep(as.double(angle), length.out = length.out))
+                      angle = rep(piece_angle(angle), length.out = length.out))
     df_bits
 }
 

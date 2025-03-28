@@ -75,13 +75,25 @@ New features
   + `checker_bits()`
   + `chess_bits()`
   + `chess_rank()`
+  + `d4_dice()`
+  + `d8_dice()`
+  + `d10_dice()`
+  + `d12_dice()`
+  + `d20_dice()`
+  + `dice_dice()`
+  + `dice_rank()`
   + `domino_suit()`
+  + `fudge_dice()`
+  + `fudge_dice_rank()`
   + `go_bits()`
   + `go_board()`
   + `marble_bits()`
   + `marble_board()`
   + `morris_bits()`
   + `morris_board()`
+  + `numeral_dice()`
+  + `percentile_dice()`
+  + `percentile_dice_rank()`
   + `piece_angle()`
   + `piece_rank()`
   + `piece_suit()`

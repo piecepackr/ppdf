@@ -3,12 +3,21 @@
 \name{piece_rank}
 \alias{piece_rank}
 \alias{chess_rank}
+\alias{dice_rank}
+\alias{fudge_dice_rank}
+\alias{percentile_dice_rank}
 \alias{tarot_rank}
 \title{Cast to rank integers}
 \usage{
+piece_rank(rank)
+
 chess_rank(rank)
 
-piece_rank(rank)
+dice_rank(rank)
+
+fudge_dice_rank(rank)
+
+percentile_dice_rank(rank)
 
 tarot_rank(rank)
 }
@@ -28,8 +37,12 @@ input is character try to cast to a reasonable value.
 \examples{
 chess_rank(c("P", "N", "B", "R", "Q", "K"))
 chess_rank(c("\u265f", "\u265e", "\u265d", "\u265c", "\u265b", "\u265a"))
+dice_rank(c("1", "2", "6"))
+dice_rank(c("\u2680", "\u2681", "\u2685"))
+fudge_dice_rank(c("-", " ", "+"))
+percentile_dice_rank(c("00", "10", "90"))
 piece_rank(c("n", "a", "2", "3", "4", "5"))
 piece_rank(c("\U0001f06e", "\U0001f038"))
 piece_rank(c("zero", "one", "eighteen"))
-tarot_rank(c("ace", "ten", "jack", "queen", "knight", "king"))
+tarot_rank(c("ace", "ten", "jack", "knight", "queen", "king"))
 }

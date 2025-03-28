@@ -108,6 +108,11 @@ suit_list <- list(
     "\u2661" = 1L,
     cups = 1L,
     cup = 1L,
+    goblets = 1L,
+    goblet = 1L,
+    vessels = 1L,
+    vessel = 1L,
+    goblet = 1L,
     shields = 1L,
     shield = 1L,
     spades = 2L,
@@ -122,20 +127,40 @@ suit_list <- list(
     rose = 2L,
     pikes = 2L,
     pike = 2L,
+    blades = 2L,
+    blade = 2L,
     clubs = 3L,
     club = 3L,
     "\u2667" = 3L,
     "\u2663" = 3L,
     acorns = 3L,
     acorn = 3L,
+    batons = 3L,
+    baton = 3L,
     clovers = 3L,
     clover = 3L,
+    cudgels = 3L,
+    cudgel = 3L,
+    wands = 3L,
+    wand = 3L,
+    rods = 3L,
+    rod = 3L,
+    staffs = 3L,
+    staff = 3L,
+    staves = 3L,
+    stave = 3L,
     diamonds = 4L,
     diamond = 4L,
     "\u2666" = 4L,
     "\u2662" = 4L,
     coins = 4L,
     coin = 4L,
+    discs = 4L,
+    disc = 4L,
+    disks = 4L,
+    disk = 4L,
+    pentacles = 4L,
+    pentacle = 4L,
     bells = 4L,
     bell = 4L,
     tiles = 4L,
@@ -200,37 +225,57 @@ tarot_suit_list[["s"]] <- 2L
 tarot_suit_list[["c"]] <- 3L
 tarot_suit_list[["d"]] <- 4L
 
-#### Percentile dice
-#### Fudge dice
-
 # Can't be combined with tarot rank list due to 0 being 10 on d10's
 # Can't be combined with percentile dice due to 10
 dice_rank_list <- list(
     zero = 10L,
+    zeroes = 10L,
+    zeros = 10L,
     `0` = 10L,
     one = 1L,
+    ones = 1L,
     ace = 1L,
+    aces = 1L,
     a = 1L,
     two = 2L,
+    twos = 2L,
     deuce = 2L,
     three = 3L,
+    threes = 3L,
     four = 4L,
+    fours = 4L,
     five = 5L,
+    fives = 5L,
     six = 6L,
+    sixes = 6L,
     seven = 7L,
+    sevens = 7L,
     eight = 8L,
+    eights = 8L,
     nine = 9L,
+    nines = 9L,
     ten = 10L,
+    tens = 10L,
     eleven = 11L,
+    elevens = 11L,
     twelve = 12L,
+    twelves = 12L,
     thirteen = 13L,
+    thirteens = 13L,
     fourteen = 14L,
+    fourteens = 14L,
     fifteen = 15L,
+    fifteens = 15L,
     sixteen = 16L,
+    sixteens = 16L,
     seventeen = 17L,
+    seventeens = 17L,
     eighteen = 18L,
+    eighteens = 18L,
     nineteen = 19L,
-    twenty = 20L
+    nineteens = 19L,
+    twenty = 20L,
+    twenties = 20L
 )
 for (i in seq.int(20L)) { # d20
     dice_rank_list[[as.character(i)]] <- as.integer(i)
@@ -239,60 +284,166 @@ for (i in seq_along(unicode_dice)) {
     dice_rank_list[[unicode_dice[i]]] <- as.integer(i)
 }
 
+percentile_dice_rank_list <- list(
+    `0` = 10L,
+    `00` = 10L,
+    `00%` = 10L,
+    zero = 10L,
+    zeros = 10L,
+    zeroes = 10L,
+    one = 1L,
+    ones = 1L,
+    ten = 1L,
+    tens = 1L,
+    two = 2L,
+    twos = 2L,
+    twenty = 2L,
+    twenties = 2L,
+    three = 3L,
+    threes = 3L,
+    three = 3L,
+    threes = 3L,
+    thirty = 3L,
+    thirties = 3L,
+    four = 4L,
+    fours = 4L,
+    forty = 4L,
+    forties = 4L,
+    five = 5L,
+    fives = 5L,
+    fifty = 5L,
+    fifties = 5L,
+    six = 6L,
+    sixes = 6L,
+    sixty = 6L,
+    sixties = 6L,
+    seven = 7L,
+    sevens = 7L,
+    seventy = 7L,
+    seventies = 7L,
+    eight = 8L,
+    eights = 8L,
+    eighty = 8L,
+    eighties = 8L,
+    nine = 9L,
+    nines = 9L,
+    ninety = 9L,
+    nineties = 9L
+)
+for (i in 1:9) {
+    percentile_dice_rank_list[[as.character(i)]] <- as.integer(i)
+    percentile_dice_rank_list[[as.character(10 * i)]] <- as.integer(i)
+    percentile_dice_rank_list[[paste0(as.character(10 * i), "%")]] <- as.integer(i)
+}
+
+fudge_dice_rank_list <- list(
+      "-" = 1L
+    , "\u2212" = 1L
+    , "-1" = 1L
+    , minus = 1L
+    , minuses = 1L
+    , " " = 2L
+    , "0" = 2L
+    , blank = 2L
+    , blanks = 2L
+    , "+" = 3L
+    , "+1" = 3L
+    , plus = 3L
+    , plusses = 3L
+)
+
 # assume `tolower()` will have been used on keys
 # Can't be combined with chess ranks due to knight/queen/king
 # Can't be combined with dice ranks due to 0 being fool (22L)
 tarot_rank_list <- list(
     zero = 22L, # the fool/excuse
+    zeroes = 22L, # the fool/excuse
+    zeros = 22L, # the fool/excuse
     `0` = 22L, # the fool/excuse
     excuse = 22L,
     e = 22L,
     fool = 22L,
     f = 22L,
     one = 1L,
+    ones = 1L,
     ace = 1L,
     a = 1L,
     two = 2L,
+    twos = 2L,
     deuce = 2L,
     three = 3L,
+    threes = 3L,
     four = 4L,
+    fours = 4L,
     five = 5L,
+    fives = 5L,
     six = 6L,
+    sixes = 6L,
     seven = 7L,
+    sevens = 7L,
     eight = 8L,
+    eights = 8L,
     nine = 9L,
+    nines = 9L,
     ten = 10L,
+    tens = 10L,
     eleven = 11L,
+    elevens = 11L,
     jack = 11L,
+    jacks = 11L,
+    knave = 11L,
+    knaves = 11L,
+    page = 11L,
+    pages = 11L,
+    princess = 11L,
+    princesses = 11L,
     j = 11L,
     valet = 11L,
     v = 11L,
     twelve = 12L,
+    twelves = 12L,
     knight = 12L,
+    knights = 12L,
+    prince = 12L,
+    princes = 12L,
     n = 12L,
     cavalier = 12L,
+    cavaliers = 12L,
     chevalier = 12L,
     c = 12L,
     thirteen = 13L,
+    thirteens = 13L,
     queen = 13L,
+    queens = 13L,
     q = 13L,
     dame = 13L,
     d = 13L,
     fourteen = 14L,
+    fourteens = 14L,
     king = 14L,
+    kings = 14L,
     k = 14L,
     roi = 14L,
     r = 14L,
     fifteen = 15L,
+    fifteens = 15L,
     joker = 15L, # can't use `j`
+    jokers = 15L, # can't use `j`
     sixteen = 16L,
+    sixteens = 16L,
     seventeen = 17L,
+    seventeens = 17L,
     eighteen = 18L,
+    eighteens = 18L,
     nineteen = 19L,
+    nineteens = 19L,
     twenty = 20L,
+    twenties = 20L,
     "twenty-one" = 21L,
+    "twenty-ones" = 21L,
     "twenty one" = 21L,
     "twenty-two" = 22L,
+    "twenty-twos" = 22L,
     "twenty two" = 22L
 )
 for (i in seq.int(22L)) { # 22 tarot trump cards
@@ -304,16 +455,22 @@ for (g in c(unicode_cards)) {
 
 # Can't be combined with tarot ranks due to knight/queen/king
 chess_rank_list <- list(
+    pawns = 1L,
     pawn = 1L,
     p = 1L,
+    knights = 2L,
     knight = 2L,
     n = 2L,
+    bishops = 3L,
     bishop = 3L,
     b = 3L,
+    rooks = 4L,
     rook = 4L,
     r = 4L,
+    queens = 5L,
     queen = 5L,
     q = 5L,
+    kings = 6L,
     king = 6L,
     k = 6L
 )
@@ -339,28 +496,50 @@ for (g in c(unicode_knights45, unicode_knights135, unicode_knights225, unicode_k
 # Domino rank is the "top" number
 start_from_zero_rank_list <- list(
     zero = 1L,
+    zeroes = 1L,
+    zeros = 1L,
     null = 1L,
+    nulls = 1L,
     n = 1L,
     one = 2L,
+    ones = 2L,
     ace = 2L,
+    aces = 2L,
     a = 2L,
     two = 3L,
+    twos = 3L,
     three = 4L,
+    threes = 4L,
     four = 5L,
+    fours = 5L,
     five = 6L,
+    fives = 6L,
     six = 7L,
+    sixes = 7L,
     seven = 8L,
+    sevens = 8L,
     eight = 9L,
+    eights = 9L,
     nine = 10L,
+    nines = 10L,
     ten = 11L,
+    tens = 11L,
     eleven = 12L,
+    elevens = 12L,
     twelve = 13L,
+    twelves = 13L,
     thirteen = 14L,
+    thirteens = 14L,
     fourteen = 15L,
+    fourteens = 15L,
     fifteen = 16L,
+    fifteens = 16L,
     sixteen = 17L,
+    sixteens = 17L,
     seventeen = 18L,
-    eighteen = 19L
+    seventeens = 18L,
+    eighteen = 19L,
+    eighteens = 19L
 )
 for (i in seq.int(0, 18)) {
     start_from_zero_rank_list[[as.character(i)]] <- as.integer(i + 1L)
@@ -371,15 +550,23 @@ domino_suit_list <- start_from_zero_rank_list
 angle_list <- list(
     "0" = 0,
     "^" = 0,
+    "45" = 45,
+    "-315" = 45,
     "90" = 90,
     "-270" = 90,
     "<" = 90,
+    "135" = 135,
+    "-225" = 135,
     "180" = 180,
     "-180" = 180,
     "v" = 180,
+    "225" = 225,
+    "-135" = 225,
     "270" = 270,
     "-90" = 270,
-    ">" = 270
+    ">" = 270,
+    "315" = 315,
+    "-45" = 315
 )
 for (g in c(unicode_chess_white, unicode_chess_black, unicode_chess_neutral)) {
     angle_list[[g]] <- 0
@@ -417,6 +604,8 @@ save(angle_list, # angles
      chess_rank_list, # chess ranks
      dice_rank_list, # dice ranks
      domino_suit_list, # domino suits
+     fudge_dice_rank_list, # fudge dice
+     percentile_dice_rank_list, # percentile dice ranks
      start_from_zero_rank_list, # piecepack/domino ranks
      suit_list, # non-domino suits
      tarot_rank_list, # (tarot) playing card ranks
