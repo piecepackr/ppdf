@@ -14,6 +14,15 @@
 #'              Will be coerced by [piece_angle()].
 #' @inheritParams piecepack_tiles
 #' @return `r return_df()`
+#' @examples
+#' df <- tarot_cards(suit = "clubs", rank = "nine", x = 1.5, y = 2)
+#' if (require("piecepackr", quietly = TRUE) &&
+#'     packageVersion("piecepackr") >= "1.15.0-1" &&
+#'     piecepackr:::device_supports_unicode()) {
+#'   grid::grid.newpage()
+#'   envir = game_systems()
+#'   pmap_piece(df, envir = envir, default.units = "in")
+#' }
 #' @name tarot_pieces
 NULL
 
