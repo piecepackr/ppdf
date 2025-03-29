@@ -59,8 +59,13 @@ Here are links for more information about the various games:\tabular{ll}{
 }
 }
 \examples{
+df <- morris_nine_mens_morris()
+if (requireNamespace("ppcli", quietly = TRUE) &&
+    packageVersion("ppcli") >= "0.2.0-8") {
+  ppcli::cat_piece(df, annotate = TRUE)
+}
 df <- morris_three_mens_morris()
 if (requireNamespace("piecepackr", quietly = TRUE)) {
-  piecepackr::render_piece(df, open_device = FALSE)
+  piecepackr::render_piece(df, open_device = FALSE, annotate = TRUE)
 }
 }

@@ -89,6 +89,7 @@ New features
   + `go_board()`
   + `marble_bits()`
   + `marble_board()`
+  + `meeple_bits()`
   + `morris_bits()`
   + `morris_board()`
   + `numeral_dice()`

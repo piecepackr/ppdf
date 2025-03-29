@@ -59,3 +59,13 @@ This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepac
 \description{
 \code{tarot_cards()} returns tarot cards.
 }
+\examples{
+df <- tarot_cards(suit = "clubs", rank = "nine", x = 1.5, y = 2)
+if (require("piecepackr", quietly = TRUE) &&
+    packageVersion("piecepackr") >= "1.15.0-1" &&
+    piecepackr:::device_supports_unicode()) {
+  grid::grid.newpage()
+  envir = game_systems()
+  pmap_piece(df, envir = envir, default.units = "in")
+}
+}

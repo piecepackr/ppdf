@@ -93,6 +93,6 @@ if (require("piecepackr", quietly = TRUE) &&
     packageVersion("piecepackr") >= "1.15.0-1") {
   grid::grid.newpage()
   envir = game_systems()
-  pmap_piece(df, envir = envir, default.units = "in", op_scale = 0.01)
+  pmap_piece(df, envir = envir, default.units = "in")
 }
 }

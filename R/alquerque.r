@@ -9,6 +9,12 @@
 #' @param suit Suit value (color) of board/bit.
 #'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".  Will be coerced by [piece_suit()].
 #' @return `r return_df()`
+#' @examples
+#' df <- alquerque_board()
+#' if (requireNamespace("ppcli", quietly = TRUE) &&
+#'     packageVersion("ppcli") >= "0.2.0-1") {
+#'   ppcli::cat_piece(df)
+#' }
 #' @name alquerque_pieces
 NULL
 
@@ -42,7 +48,7 @@ alquerque_bits <- function(...,
                       cfg = rep("alquerque", length.out = length.out),
                       x = rep(as.double(x), length.out = length.out),
                       y = rep(as.double(y), length.out = length.out),
-                      angle = rep(as.double(angle), length.out = length.out))
+                      angle = rep(piece_angle(angle), length.out = length.out))
     df_bits
 }
 

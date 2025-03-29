@@ -31,7 +31,7 @@
 #'     packageVersion("piecepackr") >= "1.15.0-1") {
 #'   grid::grid.newpage()
 #'   envir = game_systems()
-#'   pmap_piece(df, envir = envir, default.units = "in", op_scale = 0.01)
+#'   pmap_piece(df, envir = envir, default.units = "in")
 #' }
 #' @name checker_pieces
 NULL
@@ -50,7 +50,7 @@ checker_board <- function(nrows = 8L, ncols = nrows, x0 = 1, y0 = 1, ...,
                        rank = as.integer(nrows),
                        x = as.double(x),
                        y = as.double(y),
-                       angle = as.double(angle))
+                       angle = piece_angle(angle))
     set_cell_width(df_board, cell_width, "checkers")
 }
 
@@ -72,6 +72,6 @@ checker_bits <- function(...,
                       rank = rep(1L, length.out = length.out),
                       x = rep(as.double(x), length.out = length.out),
                       y = rep(as.double(y), length.out = length.out),
-                      angle = rep(as.double(angle), length.out = length.out))
+                      angle = rep(piece_angle(angle), length.out = length.out))
     set_cell_width(df_bits, cell_width, "checkers")
 }

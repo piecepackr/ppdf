@@ -54,3 +54,10 @@ This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepac
 \code{alquerque_board()} returns an alquerque board.
 \code{alquerque_bits()} returns alquerque pieces.
 }
+\examples{
+df <- alquerque_board()
+if (requireNamespace("ppcli", quietly = TRUE) &&
+    packageVersion("ppcli") >= "0.2.0-1") {
+  ppcli::cat_piece(df)
+}
+}

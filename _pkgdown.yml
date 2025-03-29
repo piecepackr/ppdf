@@ -43,6 +43,10 @@ reference:
       desc: "Functions that generate data frames to setup marble games."
       contents:
         - marble_board
+    - title: "Setups for meeples sets"
+      desc: "Functions that generate data frames to setup meeples."
+      contents:
+        - meeple_bits
     - title: "Setups for morris sets"
       desc: "Functions that generate data frames to setup morris sets."
       contents:

@@ -10,6 +10,16 @@
 #' @param suit Suit value (color) of board/bit.
 #'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".  Will be coerced by [piece_suit()].
 #' @return `r return_df()`
+#' @examples
+#' df <- morris_board(9L)
+#' if (requireNamespace("ppcli", quietly = TRUE) &&
+#'     packageVersion("ppcli") >= "0.2.0-8") {
+#'   ppcli::cat_piece(df, annotate = TRUE)
+#' }
+#' df <- morris_board(n = 3L)
+#' if (requireNamespace("piecepackr", quietly = TRUE)) {
+#'   piecepackr::render_piece(df, open_device = FALSE, annotate = TRUE)
+#' }
 #' @name morris_pieces
 NULL
 
@@ -68,9 +78,14 @@ morris_bits <- function(...,
 #' @rdname morris_games_variant
 #' @return `r return_df()`
 #' @examples
+#' df <- morris_nine_mens_morris()
+#' if (requireNamespace("ppcli", quietly = TRUE) &&
+#'     packageVersion("ppcli") >= "0.2.0-8") {
+#'   ppcli::cat_piece(df, annotate = TRUE)
+#' }
 #' df <- morris_three_mens_morris()
 #' if (requireNamespace("piecepackr", quietly = TRUE)) {
-#'   piecepackr::render_piece(df, open_device = FALSE)
+#'   piecepackr::render_piece(df, open_device = FALSE, annotate = TRUE)
 #' }
 NULL
 
