@@ -100,8 +100,11 @@ setup_by_name <- function(name, system = known_game_systems, ...,
                  fn <- getter(fn_name)
                  do.call(fn, list(...))
     }, error = function(e1) {
-             tryCatch(setup_by_name(name, "piecepack", ..., getter = getter),
-                      error = function(e2) stop(e1))
+             tryCatch({
+                          fn_name <- paste0("piecepack", "_", game)
+                          fn <- getter(fn_name)
+                          do.call(fn, list(...))
+                      }, error = function(e2) stop(e1))
     })
 }
 
