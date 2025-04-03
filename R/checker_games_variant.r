@@ -75,7 +75,7 @@ checker_games_variant <- function() {
             , NA_character_
             , "http://www.lasca.org"
             , "Malaysian Checkers AKA Singaporean Checkers"
-            , "``checker_malaysian_checkers()`` aka ``checker_singaporean_checkers()"
+            , "``checker_malaysian_checkers()`` aka ``checker_singaporean_checkers()``"
             , NA_character_
             , "https://brainking.com/en/GameRules?tp=31"
             , "One Way Checkers AKA One Way Draughts"
