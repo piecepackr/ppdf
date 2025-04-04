@@ -12,7 +12,7 @@ marble_board(
   x0 = 1 * scale_factor,
   y0 = 1 * scale_factor,
   ...,
-  suit = "blue",
+  suit = "cyan",
   scale_factor = 0.5
 )
 

@@ -36,7 +36,7 @@ marble_board <- function(nrows = 4L, ncols = nrows,
                           x0 = 1.0 * scale_factor, 
                           y0 = 1.0 * scale_factor,
                           ..., 
-                          suit = "blue",
+                          suit = "cyan",
                           scale_factor = 0.5) {
     check_dots_empty()
     stopifnot("Don't support non-square marbles boards yet" = nrows == ncols)

@@ -190,6 +190,12 @@ suit_list <- list(
     whites = 6L,
     white = 6L,
     w = 6L,
+    cyans = 7L,
+    cyan = 7L,
+    magentas = 8L,
+    magenta = 8L,
+    oranges = 9L,
+    orange = 9L,
     "\u25cb" <- 6L, # white (default go) bit
     "\u25cf" <- 2L, # black (default go) bit
     "\u26c0" <- 6L, # white checkers bit
