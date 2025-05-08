@@ -1,5 +1,5 @@
-ppdf 0.2.0 (development)
-========================
+ppdf 0.2.1
+==========
 
 Breaking changes
 ----------------
