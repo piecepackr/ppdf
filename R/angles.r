@@ -12,15 +12,20 @@
 #' piece_angle(c("\U0001f06e", "\U0001f038"))
 #' @export
 piece_angle <- function(angle) {
-    if (is.numeric(angle)) {
-        as.double(angle)
-    } else {
-        vapply(tolower(angle), function(s) {
-                   v <- angle_list[[s]]
-                   if (is.null(v))
-                       abort(paste("Unknown angle", dQuote(s)),
-                             class = "ppdf_unknown_angle")
-                   v
-               }, FUN.VALUE = numeric(1L), USE.NAMES = FALSE)
-    }
+	if (is.numeric(angle)) {
+		as.double(angle)
+	} else {
+		vapply(
+			tolower(angle),
+			function(s) {
+				v <- angle_list[[s]]
+				if (is.null(v)) {
+					abort(paste("Unknown angle", dQuote(s)), class = "ppdf_unknown_angle")
+				}
+				v
+			},
+			FUN.VALUE = numeric(1L),
+			USE.NAMES = FALSE
+		)
+	}
 }

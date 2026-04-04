@@ -26,43 +26,51 @@ NULL
 #' @rdname morris_pieces
 #' @export
 morris_board <- function(n = 9L, x0 = 1, y0 = 1, ..., suit = "green") {
-    check_dots_empty()
-    if (n < 5L) {
-        x <- x0 + 1
-        y <- y0 + 1
-    } else if (n < 8L) {
-        x <- x0 + 2
-        y <- y0 + 2
-    } else {
-        x <- x0 + 3
-        y <- y0 + 3
-    }
-    df_board <- tibble(piece_side = "board_face",
-                       suit = piece_suit(suit),
-                       rank = as.integer(n),
-                       cfg = "morris",
-                       x = as.double(x),
-                       y = as.double(y),
-                       angle = 0.0)
-    df_board
+	check_dots_empty()
+	if (n < 5L) {
+		x <- x0 + 1
+		y <- y0 + 1
+	} else if (n < 8L) {
+		x <- x0 + 2
+		y <- y0 + 2
+	} else {
+		x <- x0 + 3
+		y <- y0 + 3
+	}
+	df_board <- tibble(
+		piece_side = "board_face",
+		suit = piece_suit(suit),
+		rank = as.integer(n),
+		cfg = "morris",
+		x = as.double(x),
+		y = as.double(y),
+		angle = 0.0
+	)
+	df_board
 }
 
 #' @inheritParams piecepack_tiles
 #' @rdname morris_pieces
 #' @export
-morris_bits <- function(...,
-                        suit = 1:6, x = as.double(1:6), y = 1,
-                        angle = 0,
-                        length.out = NA_integer_) {
-    check_dots_empty()
-    df_bits <- tibble(piece_side = rep("bit_back", length.out = length.out),
-                      suit = rep(piece_suit(suit), length.out = length.out),
-                      rank = rep(1L, length.out = length.out),
-                      cfg = rep("morris", length.out = length.out),
-                      x = rep(as.double(x), length.out = length.out),
-                      y = rep(as.double(y), length.out = length.out),
-                      angle = rep(piece_angle(angle), length.out = length.out))
-    df_bits
+morris_bits <- function(
+	...,
+	suit = 1:6,
+	x = as.double(1:6),
+	y = 1,
+	angle = 0,
+	length.out = NA_integer_
+) {
+	check_dots_empty()
+	df_bits <- tibble(
+		piece_side = rep("bit_back", length.out = length.out),
+		suit = rep(piece_suit(suit), length.out = length.out),
+		rank = rep(1L, length.out = length.out),
+		cfg = rep("morris", length.out = length.out),
+		x = rep(as.double(x), length.out = length.out),
+		y = rep(as.double(y), length.out = length.out),
+		angle = rep(piece_angle(angle), length.out = length.out)
+	)
+	df_bits
 }
 
 #' Setups for morris variants
@@ -90,7 +98,7 @@ morris_bits <- function(...,
 NULL
 
 morris_games_variant <- function() {
-    tribble(~game
+	tribble(~game
             , ~methods
             , ~comment
             , ~url

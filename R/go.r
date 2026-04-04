@@ -40,37 +40,44 @@ NULL
 #' }
 #' @export
 go_board <- function(nrows = 19L, ncols = nrows, x0 = 1, y0 = 1, ..., suit = "black") {
-    stopifnot("Don't support non-square go boards yet" = nrows == ncols)
-    check_dots_empty()
-    x <- x0 - 0.5 + 0.5 * ncols
-    y <- y0 - 0.5 + 0.5 * nrows
-    df_board <- tibble(piece_side = "board_face",
-                       suit = piece_suit(suit),
-                       rank = as.integer(nrows),
-                       cfg = "go",
-                       x = as.double(x),
-                       y = as.double(y),
-                       angle = 0.0)
-    df_board
+	stopifnot("Don't support non-square go boards yet" = nrows == ncols)
+	check_dots_empty()
+	x <- x0 - 0.5 + 0.5 * ncols
+	y <- y0 - 0.5 + 0.5 * nrows
+	df_board <- tibble(
+		piece_side = "board_face",
+		suit = piece_suit(suit),
+		rank = as.integer(nrows),
+		cfg = "go",
+		x = as.double(x),
+		y = as.double(y),
+		angle = 0.0
+	)
+	df_board
 }
 
 #' @inheritParams piecepack_tiles
 #' @rdname go_pieces
 #' @export
-go_bits <- function(...,
-                    suit = 1:6,
-                    x = as.double(1:6), y = 1,
-                    angle = 0,
-                    length.out = NA_integer_) {
-    check_dots_empty()
-    df_bits <- tibble(piece_side = rep("bit_back", length.out = length.out),
-                      suit = rep(piece_suit(suit), length.out = length.out),
-                      rank = rep(1L, length.out = length.out),
-                      cfg = rep("go", length.out = length.out),
-                      x = rep(as.double(x), length.out = length.out),
-                      y = rep(as.double(y), length.out = length.out),
-                      angle = rep(piece_angle(angle), length.out = length.out))
-    df_bits
+go_bits <- function(
+	...,
+	suit = 1:6,
+	x = as.double(1:6),
+	y = 1,
+	angle = 0,
+	length.out = NA_integer_
+) {
+	check_dots_empty()
+	df_bits <- tibble(
+		piece_side = rep("bit_back", length.out = length.out),
+		suit = rep(piece_suit(suit), length.out = length.out),
+		rank = rep(1L, length.out = length.out),
+		cfg = rep("go", length.out = length.out),
+		x = rep(as.double(x), length.out = length.out),
+		y = rep(as.double(y), length.out = length.out),
+		angle = rep(piece_angle(angle), length.out = length.out)
+	)
+	df_bits
 }
 
 #' Setups for go variants
@@ -94,7 +101,7 @@ go_bits <- function(...,
 NULL
 
 go_games_variant <- function() {
-    tribble(~game
+	tribble(~game
             , ~methods
             , ~comment
             , ~url
@@ -114,11 +121,11 @@ go_games_variant <- function() {
 #' @param ncols Number of columns (lines) in game board
 #' @export
 go_go <- function(nrows = 19L, ncols = nrows) {
-    go_board(nrows, ncols)
+	go_board(nrows, ncols)
 }
 
 #' @rdname go_games_variant
 #' @export
 go_gomoku <- function(nrows = 15L, ncols = nrows) {
-    go_board(nrows, ncols)
+	go_board(nrows, ncols)
 }

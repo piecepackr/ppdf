@@ -25,92 +25,93 @@ NULL
 #' @rdname games_info
 #' @export
 alquerque_games <- function() {
-    bind_rows(alquerque_games_variant()) %>%
-        arrange_games()
+	bind_rows(alquerque_games_variant()) %>%
+		arrange_games()
 }
 
 #' @rdname games_info
 #' @export
 chess_games <- function() {
-    bind_rows(chess_games_variant()) %>%
-        arrange_games()
+	bind_rows(chess_games_variant()) %>%
+		arrange_games()
 }
 
 #' @rdname games_info
 #' @export
 checker_games <- function() {
-    bind_rows(checker_games_variant(),
-              checker_games_other()) %>%
-        arrange_games()
+	bind_rows(checker_games_variant(), checker_games_other()) %>%
+		arrange_games()
 }
 
 #' @rdname games_info
 #' @export
 domino_games <- function() {
-    bind_rows(domino_games_variant()) %>%
-        arrange_games()
+	bind_rows(domino_games_variant()) %>%
+		arrange_games()
 }
 
 #' @rdname games_info
 #' @export
 go_games <- function() {
-    bind_rows(go_games_variant()) %>%
-        arrange_games()
+	bind_rows(go_games_variant()) %>%
+		arrange_games()
 }
 
 #' @rdname games_info
 #' @export
 marble_games <- function() {
-    bind_rows(marble_games_variant()) %>%
-        arrange_games()
+	bind_rows(marble_games_variant()) %>%
+		arrange_games()
 }
 
 #' @rdname games_info
 #' @export
 morris_games <- function() {
-    bind_rows(morris_games_variant()) %>%
-        arrange_games()
+	bind_rows(morris_games_variant()) %>%
+		arrange_games()
 }
 
 #' @rdname games_info
 #' @export
 piecepack_games <- function() {
-    bind_rows(piecepack_games_checkers(),
-              piecepack_games_chess(),
-              piecepack_games_original(),
-              piecepack_games_other(),
-              piecepack_games_traditional()) %>%
-        arrange_games()
+	bind_rows(
+		piecepack_games_checkers(),
+		piecepack_games_chess(),
+		piecepack_games_original(),
+		piecepack_games_other(),
+		piecepack_games_traditional()
+	) %>%
+		arrange_games()
 }
 
 #' @rdname games_info
 #' @export
 reversi_games <- function() {
-    bind_rows(reversi_games_variant()) %>%
-        arrange_games()
+	bind_rows(reversi_games_variant()) %>%
+		arrange_games()
 }
 
 #' @rdname games_info
 #' @export
 stackpack_games <- function() {
-    bind_rows(stackpack_games_other()) %>%
-        arrange_games()
+	bind_rows(stackpack_games_other()) %>%
+		arrange_games()
 }
 
 #' @rdname games_info
 #' @export
 tarot_games <- function() {
-    bind_rows(tarot_games_variant()) %>%
-        arrange_games()
+	bind_rows(tarot_games_variant()) %>%
+		arrange_games()
 }
 
 arrange_games <- function(df) {
-    mutate(df, name = gsub("\\(|\\)", "", .data$game)) %>%
-        arrange(.data$name) %>%
-        select(-"name")
+	mutate(df, name = gsub("\\(|\\)", "", .data$game)) %>%
+		arrange(.data$name) %>%
+		select(-"name")
 }
 
 readme_markdown_list <- function(df) {
-    stopifnot(requireNamespace("knitr", quietly = TRUE))
-    paste(paste("*", stringr::str_glue_data(df, "[{game}]({url})")), collapse = "\n")
+	stopifnot(requireNamespace("knitr", quietly = TRUE))
+	paste(paste("*", stringr::str_glue_data(df, "[{game}]({url})")), collapse = "\n")
 }

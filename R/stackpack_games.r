@@ -15,7 +15,7 @@
 NULL
 
 stackpack_games_other <- function() {
-    tribble(~game
+	tribble(~game
             , ~methods
             , ~comment
             , ~url
@@ -81,8 +81,8 @@ stackpack_chess <- function() piecepack_chess(TRUE)
 #' @rdname stackpack_games_other
 #' @export
 stackpack_chess960 <- function(..., seed = NULL) {
-    check_dots_empty()
-    piecepack_chess960(seed = seed, has_stackpack = TRUE)
+	check_dots_empty()
+	piecepack_chess960(seed = seed, has_stackpack = TRUE)
 }
 
 #' @rdname stackpack_games_other
@@ -100,19 +100,38 @@ stackpack_four_seasons_chess <- function() piecepack_four_seasons_chess(TRUE)
 #' @rdname stackpack_games_other
 #' @export
 stackpack_horde_chess <- function() {
-    df_board <- piecepack_rectangular_board(8L, 8L)
-    df_bb <- piecepack_tiles(x = 1:8, y = 8, angle = 180,
-                             suit = rep(1:4, 2L),
-                             rank = c(4L, 2L, 3L, 5L, 6L, 3L, 2L, 4L),
-                             cfg = "subpack")
-    df_bf <- piecepack_pawns(x = 1:8, y = 7, angle = 180, suit = rep(4:1, 2L),
-                             cfg = rep(c("piecepack", "subpack"), 4L))
-    df_p1 <- piecepack_coins(suit = rep(1:4, 6L), rank = rep(1:6, each = 4L),
-                             x = c(1:8, 8:1, 1:8), y = rep(1:3, each = 8L), side = "back")
-    df_p2 <- piecepack_coins(x = c(1:8, 2:3, 6:7), y = c(rep.int(4, 8), rep.int(5, 4)),
-                             suit = rep(1:4, 3), rank = rep(1:6, each = 2), side = "back",
-                             cfg = "subpack")
-    bind_rows(df_board, df_bb, df_bf, df_p1, df_p2)
+	df_board <- piecepack_rectangular_board(8L, 8L)
+	df_bb <- piecepack_tiles(
+		x = 1:8,
+		y = 8,
+		angle = 180,
+		suit = rep(1:4, 2L),
+		rank = c(4L, 2L, 3L, 5L, 6L, 3L, 2L, 4L),
+		cfg = "subpack"
+	)
+	df_bf <- piecepack_pawns(
+		x = 1:8,
+		y = 7,
+		angle = 180,
+		suit = rep(4:1, 2L),
+		cfg = rep(c("piecepack", "subpack"), 4L)
+	)
+	df_p1 <- piecepack_coins(
+		suit = rep(1:4, 6L),
+		rank = rep(1:6, each = 4L),
+		x = c(1:8, 8:1, 1:8),
+		y = rep(1:3, each = 8L),
+		side = "back"
+	)
+	df_p2 <- piecepack_coins(
+		x = c(1:8, 2:3, 6:7),
+		y = c(rep.int(4, 8), rep.int(5, 4)),
+		suit = rep(1:4, 3),
+		rank = rep(1:6, each = 2),
+		side = "back",
+		cfg = "subpack"
+	)
+	bind_rows(df_board, df_bb, df_bf, df_p1, df_p2)
 }
 
 #' @rdname stackpack_games_other

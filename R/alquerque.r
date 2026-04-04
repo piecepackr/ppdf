@@ -21,35 +21,43 @@ NULL
 #' @rdname alquerque_pieces
 #' @export
 alquerque_board <- function(x0 = 1, y0 = 1, ..., suit = "green") {
-    check_dots_empty()
-    x <- x0 + 2
-    y <- y0 + 2
-    df_board <- tibble(piece_side = "board_face", 
-                       suit = piece_suit(suit), 
-                       rank = as.integer(1L),
-                       cfg = "alquerque",
-                       x = as.double(x), 
-                       y = as.double(y), 
-                       angle = 0.0)
-    df_board
+	check_dots_empty()
+	x <- x0 + 2
+	y <- y0 + 2
+	df_board <- tibble(
+		piece_side = "board_face",
+		suit = piece_suit(suit),
+		rank = as.integer(1L),
+		cfg = "alquerque",
+		x = as.double(x),
+		y = as.double(y),
+		angle = 0.0
+	)
+	df_board
 }
 
 #' @inheritParams piecepack_tiles
 #' @rdname alquerque_pieces
 #' @export
-alquerque_bits <- function(...,
-                          suit = 1:6, x = as.double(1:6), y = 1,
-                          angle = 0,
-                          length.out = NA_integer_) {
-    check_dots_empty()
-    df_bits <- tibble(piece_side = rep("bit_back", length.out = length.out),
-                      suit = rep(piece_suit(suit), length.out = length.out),
-                      rank = rep(1L, length.out = length.out),
-                      cfg = rep("alquerque", length.out = length.out),
-                      x = rep(as.double(x), length.out = length.out),
-                      y = rep(as.double(y), length.out = length.out),
-                      angle = rep(piece_angle(angle), length.out = length.out))
-    df_bits
+alquerque_bits <- function(
+	...,
+	suit = 1:6,
+	x = as.double(1:6),
+	y = 1,
+	angle = 0,
+	length.out = NA_integer_
+) {
+	check_dots_empty()
+	df_bits <- tibble(
+		piece_side = rep("bit_back", length.out = length.out),
+		suit = rep(piece_suit(suit), length.out = length.out),
+		rank = rep(1L, length.out = length.out),
+		cfg = rep("alquerque", length.out = length.out),
+		x = rep(as.double(x), length.out = length.out),
+		y = rep(as.double(y), length.out = length.out),
+		angle = rep(piece_angle(angle), length.out = length.out)
+	)
+	df_bits
 }
 
 #' Setups for alquerque variants
@@ -73,7 +81,7 @@ alquerque_bits <- function(...,
 NULL
 
 alquerque_games_variant <- function() {
-    tribble(~game
+	tribble(~game
             , ~methods
             , ~comment
             , ~url
@@ -91,22 +99,23 @@ alquerque_games_variant <- function() {
 #' @rdname alquerque_games_variant
 #' @export
 alquerque_alquerque <- function() {
-    bind_rows(alquerque_board(suit = 3L),
-              alquerque_bits(x = c(1:5, 1:5, 4:5),
-                             y = rep.int(1:3, c(5L, 5L, 2L)),
-                             suit = 6L),
-              alquerque_bits(x = c(1:5, 1:5, 1:2),
-                             y = rep.int(5:3, c(5L, 5L, 2L)),
-                             angle = 180,
-                             suit = 2L))
+	bind_rows(
+		alquerque_board(suit = 3L),
+		alquerque_bits(x = c(1:5, 1:5, 4:5), y = rep.int(1:3, c(5L, 5L, 2L)), suit = 6L),
+		alquerque_bits(
+			x = c(1:5, 1:5, 1:2),
+			y = rep.int(5:3, c(5L, 5L, 2L)),
+			angle = 180,
+			suit = 2L
+		)
+	)
 }
 
 #' @rdname alquerque_games_variant
 #' @export
 alquerque_baghchal <- function() {
-    bind_rows(alquerque_board(suit = 3L),
-              alquerque_bits(x = c(1, 5, 5, 1),
-                             y = c(5, 5, 1, 1),
-                             angle = 180,
-                             suit = 2L))
+	bind_rows(
+		alquerque_board(suit = 3L),
+		alquerque_bits(x = c(1, 5, 5, 1), y = c(5, 5, 1, 1), angle = 180, suit = 2L)
+	)
 }
