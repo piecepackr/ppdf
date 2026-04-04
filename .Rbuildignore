@@ -7,6 +7,7 @@
 ^data-raw$
 ^tmp$
 ^\.air.toml$
+^\.claude$
 ^\.editorconfig$
 ^\.git$
 ^\.github$
