@@ -1,0 +1,15 @@
+test_that("piecepack chess games work as expected", {
+	skip_if_not_installed("ppcli")
+	skip_on_os("windows")
+
+	expect_snapshot(cat_piece(piecepack_alice_chess()))
+	expect_snapshot(cat_piece(piecepack_chaturaji(), reorient = "all"))
+	expect_snapshot(cat_piece(piecepack_fischer_random_chess(seed = 42)))
+	expect_snapshot(cat_piece(piecepack_four_seasons_chess(), reorient = "all"))
+	expect_snapshot(cat_piece(piecepack_international_chess()))
+	expect_snapshot(cat_piece(piecepack_minishogi(), reorient = "all"))
+	expect_snapshot(cat_piece(piecepack_racing_kings(), reorient = "symbols"))
+	expect_snapshot(cat_piece(piecepack_shogi(), reorient = "all"))
+	expect_snapshot(cat_piece(piecepack_ultima()))
+	expect_snapshot(cat_piece(piecepack_xiangqi(), annotate = "cartesian"))
+})

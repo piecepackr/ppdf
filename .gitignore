@@ -1,11 +1,12 @@
 README.html
-*.swp 
+*.swp
 tmp/
 pkgdown/
+.claude/
 .rake_tasks~
 codecov.yml
 
- 
+
 # History files
 .Rhistory
 .Rapp.history
