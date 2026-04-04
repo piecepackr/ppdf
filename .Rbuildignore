@@ -6,7 +6,11 @@
 ^README.html$
 ^raw-data$
 ^tmp$
+^\.air.toml$
+^\.editorconfig$
+^\.git$
 ^\.github$
+^\.pre-commit-config.yaml$
 ^cran-comments\.md$
 ^codecov\.yml$
 ^R/roxygen2_inline.R$

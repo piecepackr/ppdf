@@ -1,3 +1,8 @@
+ppdf 0.2.2 (development)
+========================
+
+* No user-facing changes.
+
 ppdf 0.2.1
 ==========
 
