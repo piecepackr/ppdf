@@ -23,9 +23,15 @@ jobs:
         with:
           use-public-rspm: true
 
+      - name: Install Dejavu Sans on Ubuntu
+        if: runner.os == 'Linux'
+        run: |
+            sudo apt-get install -y fonts-dejavu-core
+        shell: bash
+
       - uses: r-lib/actions/setup-r-dependencies@v2
         with:
-          extra-packages: covr
+          extra-packages: covr, systemfonts
 
       - name: Test coverage
         run: covr::codecov()

@@ -95,7 +95,6 @@ test_that("piecepack original games work as expected", {
 	expect_snapshot(cat_piece(piecepack_wormholes()))
 
 	# graphic checks
-	skip_on_ci()
 	skip_on_cran()
 	skip_if_not_installed("vdiffr")
 	expect_doppelganger <- vdiffr::expect_doppelganger
