@@ -17,7 +17,6 @@ test_that("piecepack traditional games work as expected", {
 	expect_equal(nrow(piecepack_tablut(0.50)), 45L)
 
 	# graphic checks
-	skip_on_ci()
 	skip_on_cran()
 	skip_if_not_installed("vdiffr")
 	expect_doppelganger <- vdiffr::expect_doppelganger
