@@ -4,7 +4,7 @@
 ^Rakefile$
 ^README.Rmd$
 ^README.html$
-^raw-data$
+^data-raw$
 ^tmp$
 ^\.air.toml$
 ^\.editorconfig$
