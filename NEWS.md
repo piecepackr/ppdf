@@ -1,7 +1,10 @@
 ppdf 0.2.2 (development)
 ========================
 
-* No user-facing changes.
+Bug fixes and minor improvements
+--------------------------------
+
+* Fix `stackpack_chess960()` and `stackpack_fischer_random_chess()`.
 
 ppdf 0.2.1
 ==========

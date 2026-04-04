@@ -82,12 +82,12 @@ stackpack_chess <- function() piecepack_chess(TRUE)
 #' @export
 stackpack_chess960 <- function(..., seed = NULL) {
 	check_dots_empty()
-	piecepack_chess960(seed = seed, has_stackpack = TRUE)
+	piecepack_chess960(seed = seed, has_subpack = TRUE)
 }
 
 #' @rdname stackpack_games_other
 #' @export
-stackpack_fischer_random_chess <- piecepack_chess960
+stackpack_fischer_random_chess <- stackpack_chess960
 
 #' @rdname stackpack_games_other
 #' @export

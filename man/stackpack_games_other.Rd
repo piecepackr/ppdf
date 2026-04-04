@@ -29,7 +29,7 @@ stackpack_chess()
 
 stackpack_chess960(..., seed = NULL)
 
-stackpack_fischer_random_chess(..., seed = NULL, has_subpack = FALSE)
+stackpack_fischer_random_chess(..., seed = NULL)
 
 stackpack_chinese_chess()
 
@@ -55,8 +55,6 @@ stackpack_xiangqi()
 \item{...}{Should be left empty.}
 
 \item{seed}{Seed that determines setup, either an integer or \code{NULL}}
-
-\item{has_subpack}{Has a piecepack subpack}
 }
 \value{
 A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:
