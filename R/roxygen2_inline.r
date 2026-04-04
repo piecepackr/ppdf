@@ -1,14 +1,14 @@
 # nocov start
 man_markdown_table <- function(df) {
-    stopifnot(requireNamespace("knitr", quietly = TRUE))
-    df$url <- paste0("<", df$url, ">")
-    df <- dplyr::select(df, -.data$comment, -.data$methods)
-    names(df) <- c("**Game**", "**URL**")
-    knitr::kable(df, "pipe")
+	stopifnot(requireNamespace("knitr", quietly = TRUE))
+	df$url <- paste0("<", df$url, ">")
+	df <- dplyr::select(df, -.data$comment, -.data$methods)
+	names(df) <- c("**Game**", "**URL**")
+	knitr::kable(df, "pipe")
 }
 
 return_df <- function() {
-'A [tibble::tibble()] data frame with the following columns:
+	'A [tibble::tibble()] data frame with the following columns:
 
 * "piece_side"
 * "suit"
@@ -22,7 +22,7 @@ This data frame is compatible with [piecepackr::render_piece()] and likely [ppcl
 }
 
 deprecated_table <- function() {
-    df <- tribble(~deprecated
+	df <- tribble(~deprecated
             , ~replacement
             , "``checkers_by_name()``"
             , "``checkers_setup_by_name()``"
@@ -71,7 +71,7 @@ deprecated_table <- function() {
             , "``stackpack_by_name()``"
             , "``stackpack_setup_by_name()``"
     )
-    names(df) <- c("**Deprecated function**", "**Replacement function**")
-    knitr::kable(df, "pipe")
+	names(df) <- c("**Deprecated function**", "**Replacement function**")
+	knitr::kable(df, "pipe")
 }
 # nocov end

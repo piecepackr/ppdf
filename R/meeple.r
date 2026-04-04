@@ -23,19 +23,25 @@ NULL
 #' @inheritParams piecepack_tiles
 #' @rdname meeple_pieces
 #' @export
-meeple_bits <- function(...,
-                        side = "face",
-                        piece_side = paste0("bit_", side),
-                        suit = 1:6, x = as.double(1:6), y = 1,
-                        angle = 0,
-                        length.out = NA_integer_) {
-    check_dots_empty()
-    df_bits <- tibble(piece_side = rep(piece_side, length.out = length.out),
-                      suit = rep(piece_suit(suit), length.out = length.out),
-                      rank = rep(1L, length.out = length.out),
-                      cfg = rep("meeples", length.out = length.out),
-                      x = rep(as.double(x), length.out = length.out),
-                      y = rep(as.double(y), length.out = length.out),
-                      angle = rep(piece_angle(angle), length.out = length.out))
-    df_bits
+meeple_bits <- function(
+	...,
+	side = "face",
+	piece_side = paste0("bit_", side),
+	suit = 1:6,
+	x = as.double(1:6),
+	y = 1,
+	angle = 0,
+	length.out = NA_integer_
+) {
+	check_dots_empty()
+	df_bits <- tibble(
+		piece_side = rep(piece_side, length.out = length.out),
+		suit = rep(piece_suit(suit), length.out = length.out),
+		rank = rep(1L, length.out = length.out),
+		cfg = rep("meeples", length.out = length.out),
+		x = rep(as.double(x), length.out = length.out),
+		y = rep(as.double(y), length.out = length.out),
+		angle = rep(piece_angle(angle), length.out = length.out)
+	)
+	df_bits
 }

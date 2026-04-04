@@ -10,10 +10,15 @@
 NULL
 
 df_none <- function() {
-    tibble::tibble(piece_side = character(0L),
-                   suit = integer(0L), rank = integer(0L),
-                   cfg = character(0),
-                   x = numeric(0), y = numeric(0), angle = numeric(0))
+	tibble::tibble(
+		piece_side = character(0L),
+		suit = integer(0L),
+		rank = integer(0L),
+		cfg = character(0),
+		x = numeric(0),
+		y = numeric(0),
+		angle = numeric(0)
+	)
 }
 
 #' @rdname setup_none

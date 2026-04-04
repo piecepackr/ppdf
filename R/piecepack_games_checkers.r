@@ -13,7 +13,7 @@
 NULL
 
 piecepack_games_checkers <- function() {
-    tribble(~game
+	tribble(~game
             , ~methods
             , ~comment
             , ~url
@@ -91,13 +91,14 @@ piecepack_games_checkers <- function() {
 #' @rdname piecepack_games_checkers
 #' @export
 piecepack_american_checkers <- function() {
-    df_t <- piecepack_rectangular_board(8, 8)
-    df_c <- piecepack_coins(side = "back",
-                   x = c(2,4,1,3,2,4,  6,8,5,7,6,8,
-                       5,7,6,8,5,7,  1,3,2,4,1,3),
-                   y = rep(c(8,7,6,8,7,6,3,2,1,3,2,1), each = 2),
-                   angle = rep(c(180,0), each = 12))
-    bind_rows(df_t, df_c)
+	df_t <- piecepack_rectangular_board(8, 8)
+	df_c <- piecepack_coins(
+		side = "back",
+		x = c(2, 4, 1, 3, 2, 4, 6, 8, 5, 7, 6, 8, 5, 7, 6, 8, 5, 7, 1, 3, 2, 4, 1, 3),
+		y = rep(c(8, 7, 6, 8, 7, 6, 3, 2, 1, 3, 2, 1), each = 2),
+		angle = rep(c(180, 0), each = 12)
+	)
+	bind_rows(df_t, df_c)
 }
 
 #' @rdname piecepack_games_checkers
@@ -123,14 +124,14 @@ piecepack_column_checkers <- piecepack_bashni
 #' @rdname piecepack_games_checkers
 #' @export
 piecepack_corner_checkers <- function() {
-    df_t <- piecepack_rectangular_board(8, 8)
-    df_c <- piecepack_coins(side = "back",
-                   x = c(1,1,1,2,2,2,  3,3,4,4,5,6,
-                       8,8,8,7,7,7,  6,6,5,5,4,3),
-                   y = c(3,5,7,4,6,8,  5,7,6,8,7,8,
-                         6,4,2,5,3,1,  4,2,3,1,2,1),
-                   angle = rep(c(180,0), each = 12))
-    bind_rows(df_t, df_c)
+	df_t <- piecepack_rectangular_board(8, 8)
+	df_c <- piecepack_coins(
+		side = "back",
+		x = c(1, 1, 1, 2, 2, 2, 3, 3, 4, 4, 5, 6, 8, 8, 8, 7, 7, 7, 6, 6, 5, 5, 4, 3),
+		y = c(3, 5, 7, 4, 6, 8, 5, 7, 6, 8, 7, 8, 6, 4, 2, 5, 3, 1, 4, 2, 3, 1, 2, 1),
+		angle = rep(c(180, 0), each = 12)
+	)
+	bind_rows(df_t, df_c)
 }
 
 #' @rdname piecepack_games_checkers
@@ -144,28 +145,34 @@ piecepack_english_checkers <- piecepack_american_checkers
 #' @rdname piecepack_games_checkers
 #' @export
 piecepack_gothic_checkers <- function() {
-    df_t <- piecepack_rectangular_board(8L, 8L)
-    df_p <- piecepack_pawns(x = c(1, 8, 8, 1), y = c(7, 7, 2, 2),
-                            angle = c(180, 180, 0, 0))
-    df_d <- piecepack_dice(x = c(1, 8, 8, 1), y = c(8, 8, 1, 1),
-                           angle = c(180, 180, 0, 0), rank = 2)
-    df_c <- piecepack_coins(side = "back",
-                            x = rep(c(2:7, 7:2), each=2),
-                            y = c(rep(c(8, 7), 6), rep(c(2, 1), 6)),
-                            angle = rep(c(180, 0), each=12))
-    bind_rows(df_t, df_p, df_d, df_c)
+	df_t <- piecepack_rectangular_board(8L, 8L)
+	df_p <- piecepack_pawns(x = c(1, 8, 8, 1), y = c(7, 7, 2, 2), angle = c(180, 180, 0, 0))
+	df_d <- piecepack_dice(
+		x = c(1, 8, 8, 1),
+		y = c(8, 8, 1, 1),
+		angle = c(180, 180, 0, 0),
+		rank = 2
+	)
+	df_c <- piecepack_coins(
+		side = "back",
+		x = rep(c(2:7, 7:2), each = 2),
+		y = c(rep(c(8, 7), 6), rep(c(2, 1), 6)),
+		angle = rep(c(180, 0), each = 12)
+	)
+	bind_rows(df_t, df_p, df_d, df_c)
 }
 
 #' @rdname piecepack_games_checkers
 #' @export
 piecepack_italian_checkers <- function() {
-    df_t <- piecepack_rectangular_board(8L, 8L)
-    df_c <- piecepack_coins(side = "back",
-                   x = c(1,3,2,4,1,3,  5,7,6,8,5,7,
-                       6,8,5,7,6,8,  2,4,1,3,2,4),
-                   y = rep(c(8,7,6,8,7,6,3,2,1,3,2,1), each = 2),
-                   angle = rep(c(180, 0), each = 12))
-    bind_rows(df_t, df_c)
+	df_t <- piecepack_rectangular_board(8L, 8L)
+	df_c <- piecepack_coins(
+		side = "back",
+		x = c(1, 3, 2, 4, 1, 3, 5, 7, 6, 8, 5, 7, 6, 8, 5, 7, 6, 8, 2, 4, 1, 3, 2, 4),
+		y = rep(c(8, 7, 6, 8, 7, 6, 3, 2, 1, 3, 2, 1), each = 2),
+		angle = rep(c(180, 0), each = 12)
+	)
+	bind_rows(df_t, df_c)
 }
 
 #' @rdname piecepack_games_checkers
@@ -175,13 +182,14 @@ piecepack_jamaican_checkers <- piecepack_italian_checkers
 #' @rdname piecepack_games_checkers
 #' @export
 piecepack_one_way_checkers <- function() {
-    df_t <- piecepack_rectangular_board(8, 8)
-    df_c <- piecepack_coins(side = "back",
-                   x = c(6,8,5,7,6,8,  5,7,6,8,5,7,
-                       1,3,2,4,1,3,  2,4,1,3,2,4),
-                   y = rep(c(6:1, 1:6), each = 2),
-                   angle = rep(c(180, 0), each = 12))
-    bind_rows(df_t, df_c)
+	df_t <- piecepack_rectangular_board(8, 8)
+	df_c <- piecepack_coins(
+		side = "back",
+		x = c(6, 8, 5, 7, 6, 8, 5, 7, 6, 8, 5, 7, 1, 3, 2, 4, 1, 3, 2, 4, 1, 3, 2, 4),
+		y = rep(c(6:1, 1:6), each = 2),
+		angle = rep(c(180, 0), each = 12)
+	)
+	bind_rows(df_t, df_c)
 }
 
 
@@ -200,29 +208,36 @@ piecepack_spanish_checkers <- piecepack_italian_checkers
 #' @rdname piecepack_games_checkers
 #' @export
 piecepack_thai_checkers <- function() {
-    df_t <- piecepack_rectangular_board(8, 8)
-    df_c <- piecepack_coins(side = "back",
-                   suit = rep(1:4, each = 4),
-                   rank = rep(1:4, 4),
-                   x = c(2,4,1,3,  6,8,5,7,
-                       6,8,5,7,  2,4,1,3),
-                   y = rep(c(8,7,8,7,2,1,2,1), each = 2),
-                   angle = rep(c(180,0), each = 8))
-    bind_rows(df_t, df_c)
+	df_t <- piecepack_rectangular_board(8, 8)
+	df_c <- piecepack_coins(
+		side = "back",
+		suit = rep(1:4, each = 4),
+		rank = rep(1:4, 4),
+		x = c(2, 4, 1, 3, 6, 8, 5, 7, 6, 8, 5, 7, 2, 4, 1, 3),
+		y = rep(c(8, 7, 8, 7, 2, 1, 2, 1), each = 2),
+		angle = rep(c(180, 0), each = 8)
+	)
+	bind_rows(df_t, df_c)
 }
 
 #' @rdname piecepack_games_checkers
 #' @export
 piecepack_turkish_checkers <- function() {
-    df_t <- piecepack_rectangular_board(8, 8)
-    df_p <- piecepack_pawns(x = c(1, 8, 8, 1), y = c(6, 6, 3, 3), angle = c(180, 180, 0, 0))
-    df_d <- piecepack_dice(x = c(1, 8, 8, 1), y = c(7, 7, 2, 2),
-                           angle = c(180, 180, 0, 0), rank = 2L)
-    df_c <- piecepack_coins(side = "back",
-                            x = rep(c(2:7, 7:2), each=2),
-                            y = c(rep(c(7, 6), 6), rep(c(3, 2), 6)),
-                            angle = rep(c(180, 0), each=12))
-    bind_rows(df_t, df_p, df_d, df_c)
+	df_t <- piecepack_rectangular_board(8, 8)
+	df_p <- piecepack_pawns(x = c(1, 8, 8, 1), y = c(6, 6, 3, 3), angle = c(180, 180, 0, 0))
+	df_d <- piecepack_dice(
+		x = c(1, 8, 8, 1),
+		y = c(7, 7, 2, 2),
+		angle = c(180, 180, 0, 0),
+		rank = 2L
+	)
+	df_c <- piecepack_coins(
+		side = "back",
+		x = rep(c(2:7, 7:2), each = 2),
+		y = c(rep(c(7, 6), 6), rep(c(3, 2), 6)),
+		angle = rep(c(180, 0), each = 12)
+	)
+	bind_rows(df_t, df_p, df_d, df_c)
 }
 
 #' @rdname piecepack_games_checkers

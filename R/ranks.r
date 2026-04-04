@@ -46,15 +46,20 @@ percentile_dice_rank <- function(rank) rank_helper(rank, percentile_dice_rank_li
 tarot_rank <- function(rank) rank_helper(rank, tarot_rank_list)
 
 rank_helper <- function(rank, rank_list) {
-    if (is.numeric(rank)) {
-        as.integer(rank)
-    } else {
-        vapply(tolower(rank), function(r) {
-                   v <- rank_list[[r]]
-                   if (is.null(v))
-                       abort(paste("Unknown rank", dQuote(r)),
-                             class = "ppdf_unknown_rank")
-                   v
-               }, FUN.VALUE = integer(1L), USE.NAMES = FALSE)
-    }
+	if (is.numeric(rank)) {
+		as.integer(rank)
+	} else {
+		vapply(
+			tolower(rank),
+			function(r) {
+				v <- rank_list[[r]]
+				if (is.null(v)) {
+					abort(paste("Unknown rank", dQuote(r)), class = "ppdf_unknown_rank")
+				}
+				v
+			},
+			FUN.VALUE = integer(1L),
+			USE.NAMES = FALSE
+		)
+	}
 }

@@ -21,17 +21,22 @@
 piece_suit <- function(suit) suit_helper(suit, suit_list)
 
 suit_helper <- function(suit, suit_list) {
-    if (is.numeric(suit)) {
-        as.integer(suit)
-    } else {
-        vapply(tolower(suit), function(s) {
-                   v <- suit_list[[s]]
-                   if (is.null(v))
-                       abort(paste("Unknown suit", dQuote(s)),
-                             class = "ppdf_unknown_suit")
-                   v
-               }, FUN.VALUE = integer(1L), USE.NAMES = FALSE)
-    }
+	if (is.numeric(suit)) {
+		as.integer(suit)
+	} else {
+		vapply(
+			tolower(suit),
+			function(s) {
+				v <- suit_list[[s]]
+				if (is.null(v)) {
+					abort(paste("Unknown suit", dQuote(s)), class = "ppdf_unknown_suit")
+				}
+				v
+			},
+			FUN.VALUE = integer(1L),
+			USE.NAMES = FALSE
+		)
+	}
 }
 
 #' @rdname piece_suit
