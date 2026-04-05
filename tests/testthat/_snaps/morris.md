@@ -1,6 +1,16 @@
 # morris games work as expected
 
     Code
+      cat_piece(morris_bits(suit = 1:8, x = 1:8, y = 1))
+    Output
+                        
+        ● ● ● ● ● ○ ● ● 
+                        
+                        
+
+---
+
+    Code
       cat_piece(morris_three_mens_morris())
     Output
         ┌─┬─┐

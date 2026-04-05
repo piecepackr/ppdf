@@ -352,6 +352,11 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Three Men's Morris](https://en.wikipedia.org/wiki/Three_men%27s_morris)
 * [Twelve Men's Morris](https://en.wikipedia.org/wiki/Morabaraba)
 
+`{ppdf}` supports the following 2 games playable with an reversi set
+
+* [Ming Mang](https://boardgamegeek.com/boardgame/40573/ming-mang)
+* [Reversi](https://en.wikipedia.org/wiki/Reversi)
+
 
 ## <a name="links">External links</a>
 
