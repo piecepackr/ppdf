@@ -90,7 +90,7 @@ alquerque_games_variant <- function() {
             , NA_character_
             , "https://en.wikipedia.org/wiki/Alquerque"
             , "Bagh-chal"
-            , "``alquerque_bagchal()``"
+            , "``alquerque_baghchal()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Bagh-chal"
     )
