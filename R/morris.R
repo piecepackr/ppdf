@@ -123,7 +123,7 @@ morris_games_variant <- function() {
             , NA_character_
             , "https://en.wikipedia.org/wiki/Nine_men%27s_morris"
             , "Ten Men's Morris aka Lasker Morris"
-            , "``morris_six_mens_morris()`` aka ``morris_lasker_morris()``"
+            , "``morris_ten_mens_morris()`` aka ``morris_lasker_morris()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Nine_men%27s_morris#Lasker_morris"
             , "Twelve Men's Morris"
@@ -159,7 +159,7 @@ morris_ten_mens_morris <- function() morris_board(10L)
 
 #' @rdname morris_games_variant
 #' @export
-morris_lasker_morris <- function() morris_board(10L)
+morris_lasker_morris <- morris_ten_mens_morris
 
 #' @rdname morris_games_variant
 #' @export
