@@ -36,7 +36,7 @@ stackpack_games_other <- function() {
             , NA_character_
             , "https://www.chessvariants.com/historic.dir/4seiz.html"
             , "Horde Chess"
-            , "``chess_horde_chess()``"
+            , "``stackpack_horde_chess()``"
             , NA_character_
             , "https://lichess.org/variant/horde"
             , "(International) Chess"
