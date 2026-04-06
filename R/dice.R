@@ -6,8 +6,7 @@
 #'
 #' @param ... Should be left empty.
 #' @param suit Suit value (color) of dice.
-#'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".
-#'             Will be coerced by [piece_suit()].
+#'             `r color_suit_values()`
 #' @param rank Rank value of dice from `1L` (one) on up.
 #'             d10 zeroes are `10L`.
 #'             Will be coerced by [dice_rank()] except `percentile_dice()` will coerce with [percentile_dice_rank()] and `fudge_dice()` will coerce with [fudge_dice_rank()].

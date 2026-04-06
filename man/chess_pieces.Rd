@@ -47,8 +47,7 @@ chess_bits(
 If \code{"board_back"} a lined board (as in Turkish Checkers).}
 
 \item{suit}{Suit value (color) of board and pieces.
-\code{1L} is "red", \code{2L} is "black", \code{3L} is "green", \code{4L} is "blue", \code{5L} is "yellow", and \code{6L} is "white".
-Will be coerced by \code{\link[=piece_suit]{piece_suit()}}.}
+\code{1L} is "red", \code{2L} is "black", \code{3L} is "green", \code{4L} is "blue", \code{5L} is "yellow", and \code{6L} is "white".  Will be coerced by \code{\link[=piece_suit]{piece_suit()}}.}
 
 \item{angle}{Rotation of bit/board (numeric vector of degrees, counter-clockwise).
 Will be coerced by \code{\link[=piece_angle]{piece_angle()}}.}

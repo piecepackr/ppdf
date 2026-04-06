@@ -9,8 +9,7 @@
 #' @param y0 Y coordinate for the center of the first hole
 #' @param ... Should be left empty.
 #' @param suit Suit value (color) of board and bits.
-#'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".
-#'             Will be coerced by [piece_suit()].
+#'             `r color_suit_values()`
 #' @param rank Determines the size of the marble from 0.5 inch diameter (rank 1) to 1.0 inch diamter (rank 9).
 #'             The default is 1.0 inch diameter marbles which match the holed boards.
 #' @param scale_factor Used by `{ppn}`.  Should usually be `0.5` for square pyramidal games but could be `1` if not playing a pyramidal game.
