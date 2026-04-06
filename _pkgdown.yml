@@ -14,6 +14,10 @@ reference:
       contents:
         - alquerque_board
         - alquerque_alquerque
+    - title: "Setups for cube sets"
+      desc: "Functions that generate data frames to setup cubes."
+      contents:
+        - cube_bits
     - title: "Setups for checkers/draughts sets"
       desc: "Functions that generate data frames to setup checkers/draughts sets."
       contents:

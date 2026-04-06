@@ -1,5 +1,10 @@
-ppdf 0.2.2 (development)
+ppdf 0.3.0 (development)
 ========================
+
+New features
+------------
+
+* New `cube_bits()` function that generates cubes (#76).
 
 Bug fixes and minor improvements
 --------------------------------
