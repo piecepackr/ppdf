@@ -15,6 +15,7 @@ test_that("piecepack traditional games work as expected", {
 	expect_snapshot(cat_piece(piecepack_tablut(), reorient = "all"))
 	expect_equal(nrow(piecepack_tablut(0.75)), 42L)
 	expect_equal(nrow(piecepack_tablut(0.50)), 45L)
+	expect_snapshot(cat_piece(piecepack_yote()))
 
 	# graphic checks
 	skip_on_cran()

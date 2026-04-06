@@ -5,10 +5,12 @@ New features
 ------------
 
 * New `cube_bits()` function that generates cubes (#76).
+* New `piecepack_yote()` function that generates a Yoté setup (#23).
 
 Bug fixes and minor improvements
 --------------------------------
 
+* `normalize_name()` now strips accents (e.g. "Yoté" is normalized to "yote") (#23).
 * Fix `stackpack_chess960()` and `stackpack_fischer_random_chess()`.
 
 ppdf 0.2.1

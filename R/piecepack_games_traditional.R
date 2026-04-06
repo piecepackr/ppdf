@@ -74,6 +74,10 @@ piecepack_games_traditional <- function() {
             , "``piecepack_tablut()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Tablut"
+            , "Yot\u00e9"
+            , "``piecepack_yote()``"
+            , NA_character_
+            , "https://en.wikipedia.org/wiki/Yot%C3%A9"
             )
 }
 
@@ -487,3 +491,9 @@ piecepack_tablut <- function(die_width = 0.63) {
 #' @rdname piecepack_games_traditional
 #' @export
 piecepack_twelve_mens_morris <- piecepack_nine_mens_morris
+
+#' @rdname piecepack_games_traditional
+#' @export
+piecepack_yote <- function() {
+	piecepack_rectangular_board(5L, 6L)
+}

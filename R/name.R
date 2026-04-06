@@ -14,6 +14,7 @@
 #' @export
 normalize_name <- function(x, sep = "_") {
 	assert_suggested("snakecase")
+	x <- iconv(x, from = "UTF-8", to = "ASCII//TRANSLIT") # e.g. Yoté -> Yote
 	x <- gsub('"|\'|-', "", x) # e.g. The "In" Crowd -> the_in_crowd
 	x <- snakecase::to_snake_case(x, sep_out = sep, numerals = "left")
 	x <- gsub("draughts", "checkers", x)
