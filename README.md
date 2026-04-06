@@ -226,7 +226,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following 101 games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following 102 games playable with a piecepack deck (plus possibly additional components):
 
 * [12345ive!](https://boardgamegeek.com/boardgame/154644/12345ive)
 * [Alice Chess](https://en.wikipedia.org/wiki/Alice_chess)
@@ -328,6 +328,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Unified Pool Checkers](https://wiegerw.github.io/pdn/gametype.html)
 * [Wormholes](https://www.ludism.org/ppwiki/Wormholes)
 * [Xiangqi AKA Chinese Chess](https://www.ludism.org/ppwiki/Xiangqi)
+* [Yoté](https://en.wikipedia.org/wiki/Yot%C3%A9)
 * [Zimbabwean Pool Checkers](https://wiegerw.github.io/pdn/gametype.html)
 
 ### <a name="other">Other games</a>
