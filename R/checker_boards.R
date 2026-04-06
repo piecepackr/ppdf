@@ -12,8 +12,7 @@
 #' @param piece_side If `"board_face"` a checkered board (as in American Checkers).
 #'                   If `"board_back"` a lined board (as in Turkish Checkers).
 #' @param suit Suit value (color) of board/checkers.
-#'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".
-#'             Will be coerced by [piece_suit()].
+#'             `r color_suit_values()`
 #' @param angle Angle of board in degrees.
 #'              Italian Checkers rotates its board 90 degrees compared to other checkers variants.
 #' @param cell_width Width of board cell.

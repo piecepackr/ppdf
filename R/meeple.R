@@ -4,7 +4,7 @@
 #'
 #' @param ... Should be left empty.
 #' @param suit Suit value (color) of meeples.
-#'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".  Will be coerced by [piece_suit()].
+#'             `r color_suit_values()`
 #' @examples
 #' a <- c(0, 90, 180, 270, 0, 90)
 #' df1 <- meeple_bits(side = "face", suit = 1:6, x = 1:6, y = 1, angle = a)

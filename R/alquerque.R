@@ -7,7 +7,7 @@
 #' @param y0 Y coordinate for the center of the first point
 #' @param ... Should be left empty.
 #' @param suit Suit value (color) of board/bit.
-#'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".  Will be coerced by [piece_suit()].
+#'             `r color_suit_values()`
 #' @return `r return_df()`
 #' @examples
 #' df <- alquerque_board()

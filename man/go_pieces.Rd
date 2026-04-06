@@ -29,8 +29,7 @@ go_bits(
 \item{...}{Should be left empty.}
 
 \item{suit}{Suit value (color) of board/bit.
-\code{1L} is "red", \code{2L} is "black", \code{3L} is "green", \code{4L} is "blue", \code{5L} is "yellow", and \code{6L} is "white".
-Will be coerced by \code{\link[=piece_suit]{piece_suit()}}.}
+\code{1L} is "red", \code{2L} is "black", \code{3L} is "green", \code{4L} is "blue", \code{5L} is "yellow", and \code{6L} is "white".  Will be coerced by \code{\link[=piece_suit]{piece_suit()}}.}
 
 \item{x, y}{Cartesian coordinates (numeric vectors)}
 

@@ -1,4 +1,8 @@
 # nocov start
+color_suit_values <- function() {
+	'`1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".  Will be coerced by [piece_suit()].'
+}
+
 man_markdown_table <- function(df) {
 	stopifnot(requireNamespace("knitr", quietly = TRUE))
 	df$url <- paste0("<", df$url, ">")
@@ -22,55 +26,33 @@ This data frame is compatible with [piecepackr::render_piece()] and likely [ppcl
 }
 
 deprecated_table <- function() {
-	df <- tribble(~deprecated
-            , ~replacement
-            , "``checkers_by_name()``"
-            , "``checkers_setup_by_name()``"
-            , "``chess_by_name()``"
-            , "``chess_setup_by_name()``"
-            , "``dominoes_by_name()``"
-            , "``domino_setup_by_name()``"
-            , "``dominoes_concentration()``"
-            , "``domino_concentration()``"
-            , "``dominoes_domino_finder()``"
-            , "``domino_finder()``"
-            , "``dominoes_domino_runners()``"
-            , "``domino_runners()``"
-            , "``dominoes_fujisan()``"
-            , "``domino_fujisan()``"
-            , "``dominoes_luzon()``"
-            , "``domino_luzon()``"
-            , "``dominoes_none()``"
-            , "``domino_none()``"
-            , "``dominoes_patience()``"
-            , "``domino_patience()``"
-            , "``dominoes_the_jubilee()``"
-            , "``domino_the_jubilee()``"
-            , "``dominoes_tiles()``"
-            , "``domino_tiles()``"
-            , "``games_checkers()``"
-            , "``checkers_games()``"
-            , "``games_chess()``"
-            , "``chess_games()``"
-            , "``games_dominoes()``"
-            , "``domino_games()``"
-            , "``games_piecepack()``"
-            , "``piecepack_games()``"
-            , "``games_stackpack()``"
-            , "``stackpack_games()``"
-            , "``piecepack_by_name()``"
-            , "``piecepack_setup_by_name()``"
-            , "``piecepack_piecepack_accordion()``"
-            , "``piecepack_accordion()``"
-            , "``piecepack_piecepack_halma()``"
-            , "``piecepack_halma()``"
-            , "``piecepack_piecepack_klondike()``"
-            , "``piecepack_klondike()``"
-            , "``piecepack_rect_board_tiles()``"
-            , "``piecepack_rectangular_board()``"
-            , "``stackpack_by_name()``"
-            , "``stackpack_setup_by_name()``"
-    )
+	# fmt: skip
+	df <- tribble(
+		~deprecated,                            ~replacement,
+		"``checkers_by_name()``",               "``checkers_setup_by_name()``",
+		"``chess_by_name()``",                  "``chess_setup_by_name()``",
+		"``dominoes_by_name()``",               "``domino_setup_by_name()``",
+		"``dominoes_concentration()``",         "``domino_concentration()``",
+		"``dominoes_domino_finder()``",         "``domino_finder()``",
+		"``dominoes_domino_runners()``",        "``domino_runners()``",
+		"``dominoes_fujisan()``",               "``domino_fujisan()``",
+		"``dominoes_luzon()``",                 "``domino_luzon()``",
+		"``dominoes_none()``",                  "``domino_none()``",
+		"``dominoes_patience()``",              "``domino_patience()``",
+		"``dominoes_the_jubilee()``",           "``domino_the_jubilee()``",
+		"``dominoes_tiles()``",                 "``domino_tiles()``",
+		"``games_checkers()``",                 "``checkers_games()``",
+		"``games_chess()``",                    "``chess_games()``",
+		"``games_dominoes()``",                 "``domino_games()``",
+		"``games_piecepack()``",                "``piecepack_games()``",
+		"``games_stackpack()``",                "``stackpack_games()``",
+		"``piecepack_by_name()``",              "``piecepack_setup_by_name()``",
+		"``piecepack_piecepack_accordion()``",  "``piecepack_accordion()``",
+		"``piecepack_piecepack_halma()``",      "``piecepack_halma()``",
+		"``piecepack_piecepack_klondike()``",   "``piecepack_klondike()``",
+		"``piecepack_rect_board_tiles()``",     "``piecepack_rectangular_board()``",
+		"``stackpack_by_name()``",              "``stackpack_setup_by_name()``",
+	)
 	names(df) <- c("**Deprecated function**", "**Replacement function**")
 	knitr::kable(df, "pipe")
 }

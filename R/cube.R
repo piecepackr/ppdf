@@ -4,7 +4,7 @@
 #'
 #' @param ... Should be left empty.
 #' @param suit Suit value (color) of cubes.
-#'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".  Will be coerced by [piece_suit()].
+#'             `r color_suit_values()`
 #' @param rank Determines the size of the cube from 8mm (rank 1) to 25mm (rank 6).  Default is 10mm cubes.
 #' @examples
 #' df <- cube_bits(suit = 6:1, rank = 6:1, x = 6:1, y = 1)

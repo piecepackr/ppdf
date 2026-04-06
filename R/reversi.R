@@ -12,7 +12,7 @@
 #' @param piece_side If `"board_face"` a lined board.
 #'                   If `"board_back"` a checkered board.
 #' @param suit Suit value (color) of board/bit.
-#'             `1L` is "red", `2L` is "black", `3L` is "green", `4L` is "blue", `5L` is "yellow", and `6L` is "white".  Will be coerced by [piece_suit()].
+#'             `r color_suit_values()`
 #' @param angle Angle of board in degrees.
 #' @return `r return_df()`
 #' @name reversi_pieces
