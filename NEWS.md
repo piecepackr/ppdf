@@ -5,6 +5,7 @@ New features
 ------------
 
 * New `cube_bits()` function that generates cubes (#76).
+* New `domino_freecell()` function that generates a Dominoes Freecell setup (#47).
 * New `piecepack_yote()` function that generates a Yoté setup (#23).
 
 Bug fixes and minor improvements

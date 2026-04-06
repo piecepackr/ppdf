@@ -13,7 +13,7 @@
 #'   ppcli::cat_piece(df)
 #' }
 #' if (require("piecepackr", quietly = TRUE) &&
-#'     packageVersion("piecepackr") >= "1.15.0-1") {
+#'     packageVersion("piecepackr") >= "1.16.0-3") {
 #'   grid::grid.newpage()
 #'   envir = game_systems()
 #'   pmap_piece(df, envir = envir, default.units = "in", op_scale = 0.5)

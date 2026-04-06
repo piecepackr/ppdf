@@ -4,10 +4,11 @@
 \alias{domino_games_variant}
 \alias{domino_concentration}
 \alias{domino_finder}
-\alias{domino_runners}
+\alias{domino_freecell}
 \alias{domino_fujisan}
 \alias{domino_luzon}
 \alias{domino_patience}
+\alias{domino_runners}
 \alias{domino_the_jubilee}
 \title{Setups for dominoes variants}
 \usage{
@@ -15,7 +16,7 @@ domino_concentration(seed = NULL)
 
 domino_finder(seed = NULL)
 
-domino_runners(seed = NULL)
+domino_freecell(n = 7, seed = NULL)
 
 domino_fujisan(seed = NULL)
 
@@ -23,10 +24,15 @@ domino_luzon(seed = NULL)
 
 domino_patience(seed = NULL)
 
+domino_runners(seed = NULL)
+
 domino_the_jubilee(seed = NULL)
 }
 \arguments{
 \item{seed}{Seed that determines setup, either an integer or \code{NULL}}
+
+\item{n}{The number of doubles in a set e.g. \code{n = 7} for double-6 set,
+\code{n = 10} for a double-9 set, \code{n = 13} for a double-12 set.}
 }
 \value{
 A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:
@@ -43,7 +49,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 7 dominoes variants.
+\code{tibble} data frames of setups for 8 dominoes variants.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -51,10 +57,11 @@ Here are links for more information about the various games:\tabular{ll}{
    \strong{Game} \tab \strong{URL} \cr
    Concentration \tab \url{http://www.domino-play.com/Games/Concentration.htm} \cr
    Domino Finder \tab \url{https://donkirkby.github.io/donimoes/rules.html#domino-finder} \cr
-   Domino Runners \tab \url{https://donkirkby.github.io/donimoes/rules.html#domino-runners} \cr
+   Dominoes Freecell \tab \url{https://www.pagat.com/invented/domfreecell.html} \cr
    (Domino) Fuji-san \tab \url{http://donkirkby.github.io/donimoes/rules.html#fujisan} \cr
    Luzon \tab \url{http://www.domino-play.com/Games/Luzon.htm} \cr
    (Domino) Patience \tab \url{http://www.domino-play.com/Games/Patience.htm} \cr
+   Domino Runners \tab \url{https://donkirkby.github.io/donimoes/rules.html#domino-runners} \cr
    The Jubilee \tab \url{http://www.domino-play.com/Games/Jubilee.htm} \cr
 }
 }

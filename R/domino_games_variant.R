@@ -7,6 +7,8 @@
 #'
 #' `r man_markdown_table(domino_games_variant())`
 #'
+#' @param n The number of doubles in a set e.g. `n = 7` for double-6 set,
+#'   `n = 10` for a double-9 set, `n = 13` for a double-12 set.
 #' @param seed Seed that determines setup, either an integer or \code{NULL}
 #' @name domino_games_variant
 #' @return `r return_df()`
@@ -35,10 +37,10 @@ domino_games_variant <- function() {
             , "``domino_finder()``"
             , NA_character_
             , "https://donkirkby.github.io/donimoes/rules.html#domino-finder"
-            , "Domino Runners"
-            , "``domino_runners()``"
+            , "Dominoes Freecell"
+            , "``domino_freecell()``"
             , NA_character_
-            , "https://donkirkby.github.io/donimoes/rules.html#domino-runners"
+            , "https://www.pagat.com/invented/domfreecell.html"
             , "(Domino) Fuji-san"
             , "``domino_fujisan()``"
             , NA_character_
@@ -51,6 +53,10 @@ domino_games_variant <- function() {
             , "``domino_patience()``"
             , NA_character_
             , "http://www.domino-play.com/Games/Patience.htm"
+            , "Domino Runners"
+            , "``domino_runners()``"
+            , NA_character_
+            , "https://donkirkby.github.io/donimoes/rules.html#domino-runners"
             , "The Jubilee"
             , "``domino_the_jubilee()``"
             , NA_character_
@@ -92,14 +98,56 @@ domino_finder <- function(seed = NULL) {
 
 #' @rdname domino_games_variant
 #' @export
-domino_runners <- function(seed = NULL) {
+domino_freecell <- function(n = 7, seed = NULL) {
 	if (!is.null(seed)) {
 		withr::local_seed(seed)
 	}
-	df_tiles <- domino_tiles(x = 2 * rep.int(1:4, 7L) - 0.5, y = 1 * rep(7:1, each = 4L)) %>%
+
+	# n*(n-1)/2 non-blank tiles distributed across n-1 non-empty columns.
+	# Column 0 starts empty (only its header tile is placed).
+	total_non_blank <- (n * (n - 1L)) %/% 2L
+	non_empty_cols <- n - 1L
+	base_count <- total_non_blank %/% non_empty_cols
+	extra_cols <- total_non_blank %% non_empty_cols
+
+	max_tiles <- base_count + if (extra_cols > 0L) 1L else 0L
+	header_y <- 2L * max_tiles + 2L
+
+	df_all <- domino_tiles(n = n)
+
+	# Header tiles: rank == 1 (blank top half), one per column, ordered by suit
+	# suit=1 -> [0-0] (col 0), suit=2 -> [1-0] (col 1), etc.
+	# angle=180 puts the higher pip (suit) at the top
+	df_headers <- df_all %>%
+		filter(.data$rank == 1L) %>%
+		mutate(
+			x = as.double(seq_len(n)),
+			y = as.double(header_y),
+			angle = 180
+		)
+
+	# Non-blank tiles: rank >= 2 (both ends non-blank)
+	# Rightmost extra_cols non-empty columns get base_count+1 tiles, rest get base_count,
+	# so the partial row appears at the bottom right
+	col_counts <- c(
+		rep(base_count, non_empty_cols - extra_cols),
+		rep(base_count + 1L, extra_cols)
+	)
+	# Non-empty columns are at x = 2, 3, ..., n
+	col_x <- rep(seq_len(non_empty_cols) + 1L, times = col_counts)
+	# Tiles stack downward from the header so shorter columns have empty space at bottom
+	y_within <- unlist(lapply(col_counts, function(cnt) header_y - 2L * seq_len(cnt)))
+
+	df_non_blank <- df_all %>%
+		filter(.data$rank >= 2L) %>%
 		slice_sample_piece() %>%
-		mutate(angle = sample(c(90, 270), 28, replace = TRUE))
-	df_tiles
+		mutate(
+			x = as.double(col_x),
+			y = as.double(y_within),
+			angle = 180
+		)
+
+	bind_rows(df_headers, df_non_blank)
 }
 
 #' @rdname domino_games_variant
@@ -148,6 +196,18 @@ domino_patience <- function(seed = NULL) {
 		slice_sample_piece() %>%
 		mutate(angle = sample(c(0, 180), 28, replace = TRUE))
 	df_tiles[c(1, 8, 14, 19, 23, 26, 28), "piece_side"] <- "tile_face"
+	df_tiles
+}
+
+#' @rdname domino_games_variant
+#' @export
+domino_runners <- function(seed = NULL) {
+	if (!is.null(seed)) {
+		withr::local_seed(seed)
+	}
+	df_tiles <- domino_tiles(x = 2 * rep.int(1:4, 7L) - 0.5, y = 1 * rep(7:1, each = 4L)) %>%
+		slice_sample_piece() %>%
+		mutate(angle = sample(c(90, 270), 28, replace = TRUE))
 	df_tiles
 }
 
