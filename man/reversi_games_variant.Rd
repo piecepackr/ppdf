@@ -40,3 +40,10 @@ Here are links for more information about the various games:\tabular{ll}{
    Reversi \tab \url{https://en.wikipedia.org/wiki/Reversi} \cr
 }
 }
+\examples{
+df <- reversi_reversi()
+if (requireNamespace("ppcli", quietly = TRUE) &&
+    packageVersion("ppcli") >= "0.3.0-1") {
+  ppcli::cat_piece(df, annotate = TRUE)
+}
+}

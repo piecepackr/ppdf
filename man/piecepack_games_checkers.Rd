@@ -104,3 +104,10 @@ Here are links for more information about the various checkers variants:\tabular
    Zimbabwean Pool Checkers \tab \url{https://wiegerw.github.io/pdn/gametype.html} \cr
 }
 }
+\examples{
+df <- piecepack_american_checkers()
+if (requireNamespace("ppcli", quietly = TRUE) &&
+    packageVersion("ppcli") >= "0.3.0-1") {
+  ppcli::cat_piece(df, annotate = TRUE)
+}
+}

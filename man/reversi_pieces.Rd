@@ -74,3 +74,12 @@ This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepac
 \code{reversi_board()} returns various reversi boards.
 \code{reversi_bits()} returns reversi pieces.
 }
+\examples{
+dfb <- reversi_board()
+dfp <- reversi_bits(suit = c("black", "white"), x = c(4, 5), y = c(4, 4))
+df <- rbind(dfb, dfp)
+if (requireNamespace("ppcli", quietly = TRUE) &&
+    packageVersion("ppcli") >= "0.3.0-1") {
+  ppcli::cat_piece(df, annotate = TRUE)
+}
+}

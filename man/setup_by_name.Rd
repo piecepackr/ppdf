@@ -120,3 +120,10 @@ This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepac
 \code{dominoes_setup_by_name()}, \code{marble_setup_by_name()}, \code{piecepack_setup_by_name()}
 and \code{stackpack_setup_by_name()} are aliases that set the game system.
 }
+\examples{
+df <- chess_setup_by_name("chess")
+if (requireNamespace("ppcli", quietly = TRUE) &&
+    packageVersion("ppcli") >= "0.3.0-1") {
+  ppcli::cat_piece(df, annotate = TRUE)
+}
+}

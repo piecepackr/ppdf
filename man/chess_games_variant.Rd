@@ -63,3 +63,10 @@ Here are links for more information about the various games:\tabular{ll}{
    Racing Kings \tab \url{https://www.chessvariants.com/diffobjective.dir/racing.html} \cr
 }
 }
+\examples{
+df <- chess_international_chess()
+if (requireNamespace("ppcli", quietly = TRUE) &&
+    packageVersion("ppcli") >= "0.3.0-1") {
+  ppcli::cat_piece(df, annotate = TRUE)
+}
+}

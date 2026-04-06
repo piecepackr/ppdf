@@ -17,6 +17,12 @@
 #' @inheritParams piecepack_tiles
 #' @name piecepack_board
 #' @return `r return_df()`
+#' @examples
+#' df <- piecepack_rectangular_board(4L, 4L)
+#' if (requireNamespace("ppcli", quietly = TRUE) &&
+#'     packageVersion("ppcli") >= "0.3.0-1") {
+#'   ppcli::cat_piece(df, annotate = TRUE)
+#' }
 NULL
 
 # 24 tiles arranged 5x5 with hole in middle, center of bottom-left tile at (x0, y0)

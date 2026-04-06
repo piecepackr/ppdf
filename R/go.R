@@ -17,7 +17,7 @@ NULL
 #' @param ncols Number of columns in game board
 #' @examples
 #' dfb <- go_board()
-#' dfw <- go_bits(suit = "white", x = 1:19, y = 1:19)
+#' dfw <- go_bits(suit = "white", x = c(1:9, 11:19), y = c(1:9, 11:19))
 #' dfk <- go_bits(suit = "black", x = 1:19, y = 19:1)
 #' df <- rbind(dfb, dfw, dfk)
 #' if (requireNamespace("ppcli", quietly = TRUE) &&
@@ -29,10 +29,7 @@ NULL
 #' dfk <- go_bits(suit = "black", x = 1:4, y = 4:1)
 #' df <- rbind(dfb, dfw, dfk)
 #' if (require("piecepackr", quietly = TRUE) &&
-#'     packageVersion("piecepackr") >= "1.15.0-9" &&
-#'     requireNamespace("systemfonts", quietly = TRUE) &&
-#'     piecepackr::has_font("Dejavu Sans") &&
-#'     piecepackr:::device_supports_unicode()) {
+#'     packageVersion("piecepackr") >= "1.15.0-9") {
 #'   grid::grid.newpage()
 #'   envir = game_systems(background_color = "burlywood")
 #'   pmap_piece(df, envir = envir, default.units = "in")

@@ -19,6 +19,12 @@
 #' @rdname piecepack_games_original
 #' @return `r return_df()`
 #' @name piecepack_games_original
+#' @examples
+#' df <- piecepack_relativity(seed = 42)
+#' if (requireNamespace("ppcli", quietly = TRUE) &&
+#'     packageVersion("ppcli") >= "0.3.0-1") {
+#'   ppcli::cat_piece(df, annotate = TRUE)
+#' }
 NULL
 
 piecepack_games_original <- function() {

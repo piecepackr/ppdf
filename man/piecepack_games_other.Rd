@@ -72,3 +72,10 @@ Here are links for more information about the various other games:\tabular{ll}{
    Quatri \tab \url{https://www.ludism.org/ppwiki/Quatri} \cr
 }
 }
+\examples{
+df <- piecepack_dao()
+if (requireNamespace("ppcli", quietly = TRUE) &&
+    packageVersion("ppcli") >= "0.3.0-1") {
+  ppcli::cat_piece(df, annotate = TRUE)
+}
+}

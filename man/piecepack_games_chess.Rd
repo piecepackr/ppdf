@@ -93,3 +93,10 @@ Here are links for more information about the various chess variants:\tabular{ll
    Xiangqi AKA Chinese Chess \tab \url{https://www.ludism.org/ppwiki/Xiangqi} \cr
 }
 }
+\examples{
+df <- piecepack_chess()
+if (requireNamespace("ppcli", quietly = TRUE) &&
+    packageVersion("ppcli") >= "0.3.0-1") {
+  ppcli::cat_piece(df, annotate = TRUE)
+}
+}

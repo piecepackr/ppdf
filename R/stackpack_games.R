@@ -12,6 +12,12 @@
 #' @rdname stackpack_games_other
 #' @name stackpack_games_other
 #' @return `r return_df()`
+#' @examples
+#' df <- stackpack_chess()
+#' if (requireNamespace("ppcli", quietly = TRUE) &&
+#'     packageVersion("ppcli") >= "0.3.0-1") {
+#'   ppcli::cat_piece(df, annotate = TRUE)
+#' }
 NULL
 
 stackpack_games_other <- function() {
