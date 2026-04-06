@@ -252,7 +252,8 @@ wrapper around \code{\link[=get]{get()}} with a custom \code{envir} argument.}
 
 \item{seed}{Seed that determines setup, either an integer or \code{NULL}}
 
-\item{n}{The number of doubles in a set e.g. \code{n = 7} for double-6 set, \code{n = 10} for a double-9 set, \code{n = 13} for a double-12 set.}
+\item{n}{The number of doubles in a set e.g. \code{n = 7} for double-6 set,
+\code{n = 10} for a double-9 set, \code{n = 13} for a double-12 set.}
 
 \item{side}{Either "face" or "back".}
 

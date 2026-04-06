@@ -214,13 +214,14 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="dominoes">Dominoes</a>
 
-`{ppdf}` supports the following 7 games playable with a (usually double-6) dominoes set (plus possibly additional components):
+`{ppdf}` supports the following 8 games playable with a (usually double-6) dominoes set (plus possibly additional components):
 
 * [Concentration](http://www.domino-play.com/Games/Concentration.htm)
 * [Domino Finder](https://donkirkby.github.io/donimoes/rules.html#domino-finder)
 * [(Domino) Fuji-san](http://donkirkby.github.io/donimoes/rules.html#fujisan)
 * [(Domino) Patience](http://www.domino-play.com/Games/Patience.htm)
 * [Domino Runners](https://donkirkby.github.io/donimoes/rules.html#domino-runners)
+* [Dominoes Freecell](https://www.pagat.com/invented/domfreecell.html)
 * [Luzon](http://www.domino-play.com/Games/Luzon.htm)
 * [The Jubilee](http://www.domino-play.com/Games/Jubilee.htm)
 
