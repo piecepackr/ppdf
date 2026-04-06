@@ -79,3 +79,10 @@ made using a maximum number of piecepack tiles.
 It will use either \dQuote{cells}, \dQuote{points}, and/or \dQuote{rivers} as necessary.
 \code{piecepack_donut_board()} returns 24 tiles arranged 5x5 with hole in middle.
 }
+\examples{
+df <- piecepack_rectangular_board(4L, 4L)
+if (requireNamespace("ppcli", quietly = TRUE) &&
+    packageVersion("ppcli") >= "0.3.0-1") {
+  ppcli::cat_piece(df, annotate = TRUE)
+}
+}

@@ -106,6 +106,12 @@ normalize_system <- function(system) {
 #'               a developer may want to consider [dynGet()] or a
 #'               wrapper around [get()] with a custom `envir` argument.
 #' @return `r return_df()`
+#' @examples
+#' df <- chess_setup_by_name("chess")
+#' if (requireNamespace("ppcli", quietly = TRUE) &&
+#'     packageVersion("ppcli") >= "0.3.0-1") {
+#'   ppcli::cat_piece(df, annotate = TRUE)
+#' }
 #' @export
 setup_by_name <- function(
 	name,

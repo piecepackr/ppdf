@@ -88,3 +88,10 @@ Here are links for more information about the various other traditional games:\t
    Tablut \tab \url{https://www.ludism.org/ppwiki/Tablut} \cr
 }
 }
+\examples{
+df <- piecepack_four_field_kono()
+if (requireNamespace("ppcli", quietly = TRUE) &&
+    packageVersion("ppcli") >= "0.3.0-1") {
+  ppcli::cat_piece(df, annotate = TRUE)
+}
+}

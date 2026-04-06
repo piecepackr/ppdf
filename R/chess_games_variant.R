@@ -13,6 +13,12 @@
 #' @name chess_games_variant
 #' @rdname chess_games_variant
 #' @return `r return_df()`
+#' @examples
+#' df <- chess_international_chess()
+#' if (requireNamespace("ppcli", quietly = TRUE) &&
+#'     packageVersion("ppcli") >= "0.3.0-1") {
+#'   ppcli::cat_piece(df, annotate = TRUE)
+#' }
 NULL
 
 chess_games_variant <- function() {

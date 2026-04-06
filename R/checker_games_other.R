@@ -11,6 +11,13 @@
 #' @name checker_games_other
 #' @rdname checker_games_other
 #' @return `r return_df()`
+#' @examples
+#' df <- checker_four_field_kono()
+#' if (require("piecepackr", quietly = TRUE) &&
+#'     packageVersion("piecepackr") >= "1.15.0-1") {
+#'   grid::grid.newpage()
+#'   render_piece(df, open_device = FALSE, annotate = TRUE)
+#' }
 NULL
 
 checker_games_other <- function() {

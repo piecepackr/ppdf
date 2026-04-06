@@ -62,3 +62,11 @@ Here are links for more information about the various games:\tabular{ll}{
    Lines of Action \tab \url{https://en.wikipedia.org/wiki/Lines_of_Action} \cr
 }
 }
+\examples{
+df <- checker_four_field_kono()
+if (require("piecepackr", quietly = TRUE) &&
+    packageVersion("piecepackr") >= "1.15.0-1") {
+  grid::grid.newpage()
+  render_piece(df, open_device = FALSE, annotate = TRUE)
+}
+}

@@ -150,3 +150,10 @@ Here are links for more information about the various games:\tabular{ll}{
    Zimbabwean Pool Checkers \tab \url{https://wiegerw.github.io/pdn/gametype.html} \cr
 }
 }
+\examples{
+df <- checker_american_checkers()
+if (requireNamespace("ppcli", quietly = TRUE) &&
+    packageVersion("ppcli") >= "0.3.0-1") {
+  ppcli::cat_piece(df, annotate = TRUE)
+}
+}

@@ -11,6 +11,12 @@
 #' @name checker_games_variant
 #' @rdname checker_games_variant
 #' @return `r return_df()`
+#' @examples
+#' df <- checker_american_checkers()
+#' if (requireNamespace("ppcli", quietly = TRUE) &&
+#'     packageVersion("ppcli") >= "0.3.0-1") {
+#'   ppcli::cat_piece(df, annotate = TRUE)
+#' }
 NULL
 
 checker_games_variant <- function() {

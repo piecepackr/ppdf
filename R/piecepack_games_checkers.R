@@ -10,6 +10,12 @@
 #' @rdname piecepack_games_checkers
 #' @name piecepack_games_checkers
 #' @return `r return_df()`
+#' @examples
+#' df <- piecepack_american_checkers()
+#' if (requireNamespace("ppcli", quietly = TRUE) &&
+#'     packageVersion("ppcli") >= "0.3.0-1") {
+#'   ppcli::cat_piece(df, annotate = TRUE)
+#' }
 NULL
 
 piecepack_games_checkers <- function() {

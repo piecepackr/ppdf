@@ -11,6 +11,15 @@
 #' @name domino_games_variant
 #' @return `r return_df()`
 #' @rdname domino_games_variant
+#' @examples
+#' df <- domino_the_jubilee()
+#' if (require("piecepackr", quietly = TRUE) &&
+#'     packageVersion("piecepackr") >= "1.15.0-9") {
+#'   grid::grid.newpage()
+#'   envir = game_systems(round = TRUE)
+#'   pmap_piece(df, envir = envir, default.units = "in",
+#'              trans = op_transform, op_scale = 0.5)
+#' }
 NULL
 
 domino_games_variant <- function() {

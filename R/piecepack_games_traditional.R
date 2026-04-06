@@ -13,6 +13,12 @@
 #' @rdname piecepack_games_traditional
 #' @name piecepack_games_traditional
 #' @return `r return_df()`
+#' @examples
+#' df <- piecepack_four_field_kono()
+#' if (requireNamespace("ppcli", quietly = TRUE) &&
+#'     packageVersion("ppcli") >= "0.3.0-1") {
+#'   ppcli::cat_piece(df, annotate = TRUE)
+#' }
 NULL
 
 piecepack_games_traditional <- function() {

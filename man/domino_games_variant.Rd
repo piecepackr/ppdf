@@ -58,3 +58,13 @@ Here are links for more information about the various games:\tabular{ll}{
    The Jubilee \tab \url{http://www.domino-play.com/Games/Jubilee.htm} \cr
 }
 }
+\examples{
+df <- domino_the_jubilee()
+if (require("piecepackr", quietly = TRUE) &&
+    packageVersion("piecepackr") >= "1.15.0-9") {
+  grid::grid.newpage()
+  envir = game_systems(round = TRUE)
+  pmap_piece(df, envir = envir, default.units = "in",
+             trans = op_transform, op_scale = 0.5)
+}
+}

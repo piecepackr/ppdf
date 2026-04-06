@@ -12,6 +12,12 @@
 #' @rdname piecepack_games_other
 #' @name piecepack_games_other
 #' @return `r return_df()`
+#' @examples
+#' df <- piecepack_dao()
+#' if (requireNamespace("ppcli", quietly = TRUE) &&
+#'     packageVersion("ppcli") >= "0.3.0-1") {
+#'   ppcli::cat_piece(df, annotate = TRUE)
+#' }
 NULL
 
 piecepack_games_other <- function() {

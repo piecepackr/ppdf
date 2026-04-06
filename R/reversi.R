@@ -16,6 +16,14 @@
 #' @param angle Angle of board in degrees.
 #' @return `r return_df()`
 #' @name reversi_pieces
+#' @examples
+#' dfb <- reversi_board()
+#' dfp <- reversi_bits(suit = c("black", "white"), x = c(4, 5), y = c(4, 4))
+#' df <- rbind(dfb, dfp)
+#' if (requireNamespace("ppcli", quietly = TRUE) &&
+#'     packageVersion("ppcli") >= "0.3.0-1") {
+#'   ppcli::cat_piece(df, annotate = TRUE)
+#' }
 NULL
 
 #' @rdname reversi_pieces
@@ -86,6 +94,12 @@ reversi_bits <- function(
 #' @param ncols Number of columns in game board
 #' @rdname reversi_games_variant
 #' @return `r return_df()`
+#' @examples
+#' df <- reversi_reversi()
+#' if (requireNamespace("ppcli", quietly = TRUE) &&
+#'     packageVersion("ppcli") >= "0.3.0-1") {
+#'   ppcli::cat_piece(df, annotate = TRUE)
+#' }
 NULL
 
 reversi_games_variant <- function() {

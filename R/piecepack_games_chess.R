@@ -14,6 +14,12 @@
 #' @rdname piecepack_games_chess
 #' @name piecepack_games_chess
 #' @return `r return_df()`
+#' @examples
+#' df <- piecepack_chess()
+#' if (requireNamespace("ppcli", quietly = TRUE) &&
+#'     packageVersion("ppcli") >= "0.3.0-1") {
+#'   ppcli::cat_piece(df, annotate = TRUE)
+#' }
 NULL
 
 piecepack_games_chess <- function() {
