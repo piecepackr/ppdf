@@ -4,9 +4,18 @@ ppdf 0.3.0 (development)
 New features
 ------------
 
-* New `cube_bits()` function that generates cubes (#76).
-* New `domino_freecell()` function that generates a Dominoes Freecell setup (#47).
-* New `piecepack_yote()` function that generates a Yoté setup (#23).
+* The following functions generate data frames to setup cubes (#76):
+
+  + `cube_bits()`
+
+* The following functions generate data frames to setup dominoes (#21):
+
+  + `domino_bee_donimoes()`
+  + `domino_freecell()`
+
+* The following functions generate data frames to setup piecepack sets (#23):
+
+  + `piecepack_yote()`
 
 Bug fixes and minor improvements
 --------------------------------
