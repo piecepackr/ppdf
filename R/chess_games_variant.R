@@ -67,7 +67,7 @@ chess_chess <- function(cell_width = getOption("ppdf.chess_cell_width", 1)) {
 		x = rep(1:8, 2L),
 		y = rep(7:8, each = 8L)
 	)
-	bind_rows(df_board, df_w, df_b) %>%
+	bind_rows(df_board, df_w, df_b) |>
 		set_cell_width(cell_width, "chess")
 }
 
@@ -93,7 +93,7 @@ chess_chess960 <- function(seed = NULL, cell_width = getOption("ppdf.chess_cell_
 		x = rep(1:8, 2L),
 		y = rep(7:8, each = 8L)
 	)
-	bind_rows(df_board, df_w, df_b) %>%
+	bind_rows(df_board, df_w, df_b) |>
 		set_cell_width(cell_width, "chess")
 }
 
@@ -138,7 +138,7 @@ chess_horde_chess <- function(..., cell_width = getOption("ppdf.chess_cell_width
 		x = rep(1:8, 2L),
 		y = rep(7:8, each = 8L)
 	)
-	bind_rows(df_board, df_w, df_b) %>%
+	bind_rows(df_board, df_w, df_b) |>
 		set_cell_width(cell_width, "chess")
 }
 
@@ -165,7 +165,7 @@ chess_monochrome_chess <- function(cell_width = getOption("ppdf.chess_cell_width
 		x = rep(1:8, 2L),
 		y = rep(7:8, each = 8L)
 	)
-	bind_rows(df_board, df_b, df_t) %>%
+	bind_rows(df_board, df_b, df_t) |>
 		set_cell_width(cell_width, "chess")
 }
 
@@ -187,6 +187,6 @@ chess_racing_kings <- function(cell_width = getOption("ppdf.chess_cell_width", 1
 		x = rep(1:4, 2L),
 		y = rep(2:1, each = 4L)
 	)
-	bind_rows(df_board, df_w, df_b) %>%
+	bind_rows(df_board, df_w, df_b) |>
 		set_cell_width(cell_width, "chess")
 }

@@ -101,20 +101,20 @@ random_dice <- function(n_dice = 4L, n_ranks = 6L) {
 }
 
 fill_piece_rank <- function(df) {
-	df %>%
-		separate_piece_side() %>%
-		group_by(.data$piece, .data$suit) %>%
-		mutate(rank = replace_na_piece(.data$rank)) %>%
-		ungroup() %>%
+	df |>
+		separate_piece_side() |>
+		group_by(.data$piece, .data$suit) |>
+		mutate(rank = replace_na_piece(.data$rank)) |>
+		ungroup() |>
 		unite_piece_side()
 }
 
 fill_piece_suit <- function(df) {
-	df %>%
-		separate_piece_side() %>%
-		group_by(.data$piece, .data$rank) %>%
-		mutate(suit = replace_na_piece(.data$suit)) %>%
-		ungroup() %>%
+	df |>
+		separate_piece_side() |>
+		group_by(.data$piece, .data$rank) |>
+		mutate(suit = replace_na_piece(.data$suit)) |>
+		ungroup() |>
 		unite_piece_side()
 }
 

@@ -92,7 +92,7 @@ checker_focus <- function(cell_width = getOption("ppdf.checker_cell_width", 1)) 
 		x = rep(2:7, each = 3L),
 		y = c(rep(c(3, 5, 7), 2), rep(c(2, 4, 6), 2), rep(c(3, 5, 7), 2))
 	)
-	bind_rows(df_board, df_w, df_b) %>%
+	bind_rows(df_board, df_w, df_b) |>
 		set_cell_width(cell_width, "checkers")
 }
 

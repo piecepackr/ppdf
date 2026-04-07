@@ -70,8 +70,8 @@ domino_concentration <- function(seed = NULL) {
 	if (!is.null(seed)) {
 		withr::local_seed(seed)
 	}
-	df_tiles <- domino_tiles(side = "back", x = 1 * rep(1:7, each = 4), y = 2 * rep(1:4, 7)) %>%
-		slice_sample_piece() %>%
+	df_tiles <- domino_tiles(side = "back", x = 1 * rep(1:7, each = 4), y = 2 * rep(1:4, 7)) |>
+		slice_sample_piece() |>
 		mutate(angle = sample(c(0, 180), 28, replace = TRUE))
 	df_tiles
 }
@@ -82,15 +82,15 @@ domino_finder <- function(seed = NULL) {
 	if (!is.null(seed)) {
 		withr::local_seed(seed)
 	}
-	df_tiles <- domino_tiles(side = "back") %>%
-		mutate(angle = sample(c(90, 270), 28, replace = TRUE)) %>%
+	df_tiles <- domino_tiles(side = "back") |>
+		mutate(angle = sample(c(90, 270), 28, replace = TRUE)) |>
 		# First 7 tiles are the ones with a null side
-		slice(c(sample.int(7), 7 + sample.int(21))) %>%
+		slice(c(sample.int(7), 7 + sample.int(21))) |>
 		# Each 4 tiles will have one tile with a null side
 		slice(sequence(
 			rep(c(1, 3), 7),
 			from = c(1, 8, 2, 11, 3, 14, 4, 17, 5, 20, 6, 23, 7, 26)
-		)) %>%
+		)) |>
 		# Within a row shuffle each 4 tiles (with exactly one tile with a null side)
 		mutate(x = 2 * as.integer(replicate(7, sample.int(4))) - 0.5, y = 1 * rep(7:1, each = 4))
 	df_tiles
@@ -118,8 +118,8 @@ domino_freecell <- function(n = 7, seed = NULL) {
 	# Header tiles: rank == 1 (blank top half), one per column, ordered by suit
 	# suit=1 -> [0-0] (col 0), suit=2 -> [1-0] (col 1), etc.
 	# angle=180 puts the higher pip (suit) at the top
-	df_headers <- df_all %>%
-		filter(.data$rank == 1L) %>%
+	df_headers <- df_all |>
+		filter(.data$rank == 1L) |>
 		mutate(
 			x = as.double(seq_len(n)),
 			y = as.double(header_y),
@@ -138,9 +138,9 @@ domino_freecell <- function(n = 7, seed = NULL) {
 	# Tiles stack downward from the header so shorter columns have empty space at bottom
 	y_within <- unlist(lapply(col_counts, function(cnt) header_y - 2L * seq_len(cnt)))
 
-	df_non_blank <- df_all %>%
-		filter(.data$rank >= 2L) %>%
-		slice_sample_piece() %>%
+	df_non_blank <- df_all |>
+		filter(.data$rank >= 2L) |>
+		slice_sample_piece() |>
 		mutate(
 			x = as.double(col_x),
 			y = as.double(y_within),
@@ -156,9 +156,9 @@ domino_fujisan <- function(seed = NULL) {
 	if (!is.null(seed)) {
 		withr::local_seed(seed)
 	}
-	df_tiles <- domino_tiles(n = 6) %>%
-		filter(.data$suit != .data$rank) %>%
-		slice_sample_piece() %>%
+	df_tiles <- domino_tiles(n = 6) |>
+		filter(.data$suit != .data$rank) |>
+		slice_sample_piece() |>
 		mutate(
 			x = c(7.5, 7.5, 7.5, seq(2, 13, 1)),
 			y = c(c(0.5, 1.5, 2.5), rep_len(1.5, 12)),
@@ -180,8 +180,8 @@ domino_luzon <- function(seed = NULL) {
 		side = "face",
 		x = 2 * c(rep(1:5, 5), 7, 7, 7),
 		y = c(rep(1:5, each = 5), 1, 3, 5)
-	) %>%
-		slice_sample_piece() %>%
+	) |>
+		slice_sample_piece() |>
 		mutate(angle = sample(c(90, 270), 28L, replace = TRUE))
 	df_tiles
 }
@@ -192,8 +192,8 @@ domino_patience <- function(seed = NULL) {
 	if (!is.null(seed)) {
 		withr::local_seed(seed)
 	}
-	df_tiles <- domino_tiles(side = "back") %>%
-		slice_sample_piece() %>%
+	df_tiles <- domino_tiles(side = "back") |>
+		slice_sample_piece() |>
 		mutate(angle = sample(c(0, 180), 28, replace = TRUE))
 	df_tiles[c(1, 8, 14, 19, 23, 26, 28), "piece_side"] <- "tile_face"
 	df_tiles
@@ -205,8 +205,8 @@ domino_runners <- function(seed = NULL) {
 	if (!is.null(seed)) {
 		withr::local_seed(seed)
 	}
-	df_tiles <- domino_tiles(x = 2 * rep.int(1:4, 7L) - 0.5, y = 1 * rep(7:1, each = 4L)) %>%
-		slice_sample_piece() %>%
+	df_tiles <- domino_tiles(x = 2 * rep.int(1:4, 7L) - 0.5, y = 1 * rep(7:1, each = 4L)) |>
+		slice_sample_piece() |>
 		mutate(angle = sample(c(90, 270), 28, replace = TRUE))
 	df_tiles
 }
@@ -217,8 +217,8 @@ domino_the_jubilee <- function(seed = NULL) {
 	if (!is.null(seed)) {
 		withr::local_seed(seed)
 	}
-	df_tiles <- domino_tiles(side = "back", y = 2) %>%
-		slice_sample_piece() %>%
+	df_tiles <- domino_tiles(side = "back", y = 2) |>
+		slice_sample_piece() |>
 		mutate(angle = sample(c(0, 180), 28, replace = TRUE))
 	df_tiles[c(1, 8, 14, 19, 23, 26, 28), "piece_side"] <- "tile_face"
 	df_tiles
