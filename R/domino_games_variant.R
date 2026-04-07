@@ -29,6 +29,10 @@ domino_games_variant <- function() {
             , ~methods
             , ~comment
             , ~url
+            , "Bee Donimoes"
+            , "``domino_bee_donimoes()``"
+            , NA_character_
+            , "https://donkirkby.github.io/donimoes/rules.html#bee-donimoes"
             , "Concentration"
             , "``domino_concentration()``"
             , NA_character_
@@ -74,6 +78,55 @@ domino_concentration <- function(seed = NULL) {
 		slice_sample_piece() |>
 		mutate(angle = sample(c(0, 180), 28, replace = TRUE))
 	df_tiles
+}
+
+#' @rdname domino_games_variant
+#' @export
+domino_bee_donimoes <- function(n = 7, seed = NULL) {
+	if (n > 7L) {
+		rlang::abort("n > 7 is not currently supported.")
+	}
+	if (!is.null(seed)) {
+		withr::local_seed(seed)
+	}
+	n_tiles <- (n * (n + 1L)) %/% 2L
+	# Grid is n rows x (n+1) cols of domino halves.
+	# n odd:  all horizontal tiles, (n+1)/2 per row.
+	# n even: all vertical tiles,   (n+1) per row of tile-pairs.
+	if (n %% 2L == 1L) {
+		tiles_per_row <- (n + 1L) %/% 2L
+		x_centers <- 2 * seq_len(tiles_per_row) - 0.5
+		y_vals <- seq_len(n)
+		df_tiles <- domino_tiles(n = n) |>
+			slice_sample_piece() |>
+			mutate(
+				x = as.double(rep(x_centers, times = n)),
+				y = as.double(rep(y_vals, each = tiles_per_row)),
+				angle = sample(c(90, 270), n_tiles, replace = TRUE)
+			)
+		# angle=90: suit at right (x+0.5); angle=270: suit at left (x-0.5).
+		df_starters <- filter(df_tiles, .data$rank == 1L, .data$suit > 1L)
+		die_x <- ifelse(df_starters$angle == 90, df_starters$x + 0.5, df_starters$x - 0.5)
+		die_y <- df_starters$y
+	} else {
+		n_tile_rows <- n %/% 2L
+		x_vals <- seq_len(n + 1L)
+		y_centers <- 2 * seq_len(n_tile_rows) - 0.5
+		df_tiles <- domino_tiles(n = n) |>
+			slice_sample_piece() |>
+			mutate(
+				x = as.double(rep(x_vals, times = n_tile_rows)),
+				y = as.double(rep(y_centers, each = n + 1L)),
+				angle = sample(c(0, 180), n_tiles, replace = TRUE)
+			)
+		# angle=0: suit at bottom (y-0.5); angle=180: suit at top (y+0.5).
+		df_starters <- filter(df_tiles, .data$rank == 1L, .data$suit > 1L)
+		die_x <- df_starters$x
+		die_y <- ifelse(df_starters$angle == 0, df_starters$y - 0.5, df_starters$y + 0.5)
+	}
+	die_rank <- df_starters$suit - 1L
+	df_dice <- dice_dice(suit = 6L, rank = die_rank, x = die_x, y = die_y)
+	bind_rows(df_tiles, df_dice)
 }
 
 #' @rdname domino_games_variant
