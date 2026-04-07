@@ -137,12 +137,12 @@ piecepack_baroque_chess <- function(has_subpack = FALSE) {
 		angle = c(180, 0)
 	)
 	if (has_subpack) {
-		df_sb <- bind_rows(df_n, mutate(df_b, rank = 3L), df_q, df_k) %>%
+		df_sb <- bind_rows(df_n, mutate(df_b, rank = 3L), df_q, df_k) |>
 			mutate(piece_side = "tile_face", cfg = "subpack")
 	} else {
 		df_sb <- bind_rows(df_n, df_b, df_q, df_k)
 	}
-	df <- bind_rows(df_t, df_p1, df_p2, df_r, df_sb) %>% fill_piece_rank()
+	df <- bind_rows(df_t, df_p1, df_p2, df_r, df_sb) |> fill_piece_rank()
 	df
 }
 
@@ -182,12 +182,12 @@ piecepack_chaturaji <- function(has_subpack = FALSE) {
 	)
 	df_k <- piecepack_pawns(x = c(1, 5, 8, 4), y = c(5, 8, 4, 1), angle = c(-90, 180, 90, 0))
 	if (has_subpack) {
-		df_sb <- bind_rows(df_b, df_h, df_r, mutate(df_k, rank = 6L)) %>%
+		df_sb <- bind_rows(df_b, df_h, df_r, mutate(df_k, rank = 6L)) |>
 			mutate(piece_side = "tile_face", cfg = "subpack")
 	} else {
 		df_sb <- bind_rows(df_b, df_h, df_r, df_k)
 	}
-	df <- bind_rows(df_t, df_p, df_sb) %>% fill_piece_rank()
+	df <- bind_rows(df_t, df_p, df_sb) |> fill_piece_rank()
 	df
 }
 
@@ -320,7 +320,7 @@ piecepack_four_seasons_chess <- function(has_subpack = FALSE) {
 		angle = angles
 	)
 	if (has_subpack) {
-		df_sb <- bind_rows(df_k %>% mutate(rank = 6L), df_r, df_b, df_n) %>%
+		df_sb <- bind_rows(df_k |> mutate(rank = 6L), df_r, df_b, df_n) |>
 			mutate(piece_side = "tile_face", cfg = "subpack")
 	} else {
 		df_sb <- bind_rows(df_k, df_r, df_b, df_n)
@@ -432,8 +432,8 @@ piecepack_japanese_chess <- function(has_subpack = FALSE, cfg2 = "piecepack") {
 
 	# pawns
 	df_pb <- piecepack_coins(side = "back", x = 1:9, y = 3, suit = 1:9 %% 4 + 1, rank = NA_integer_)
-	df_pt <- df_pb %>% mutate(y = 7, angle = 180)
-	df_p <- bind_rows(df_pb, df_pt) %>% fill_piece_rank()
+	df_pt <- df_pb |> mutate(y = 7, angle = 180)
+	df_p <- bind_rows(df_pb, df_pt) |> fill_piece_rank()
 
 	# bishops
 	df_b <- piecepack_coins(

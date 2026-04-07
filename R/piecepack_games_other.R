@@ -104,7 +104,7 @@ piecepack_change_change <- function(seed = NULL, coins = NULL) {
 		y = rep.int(3:1, c(4, 4, 3)),
 		suit = suits,
 		rank = NA_integer_
-	) %>%
+	) |>
 		fill_piece_rank()
 	df
 }

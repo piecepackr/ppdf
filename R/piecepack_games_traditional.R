@@ -206,8 +206,8 @@ piecepack_backgammon <- function() {
                      "coin_back", x_08-0.5, y_top+0.5, 1L,
                      "coin_back", x_08-0.5, y_top-0.5, 2L)
 	df_c2$angle <- 180
-	df_c <- bind_rows(df_c1, df_c2) %>%
-		mutate(cfg = "piecepack", rank = NA_integer_) %>%
+	df_c <- bind_rows(df_c1, df_c2) |>
+		mutate(cfg = "piecepack", rank = NA_integer_) |>
 		fill_piece_rank()
 
 	# pawns
@@ -288,7 +288,7 @@ piecepack_brandubh <- function() {
 piecepack_cribbage <- function() {
 	df_l <- piecepack_rectangular_board(30, 3, x0 = 1, y0 = 3, max_tiles = 12L)
 	df_r <- piecepack_rectangular_board(30, 3, x0 = 6, y0 = 3, max_tiles = 12L)
-	df_t <- bind_rows(df_l, df_r) %>%
+	df_t <- bind_rows(df_l, df_r) |>
 		mutate(suit = rep(1:4, each = 6L), rank = rep.int(1:6, 4L))
 	df_c <- piecepack_coins(
 		side = "face",

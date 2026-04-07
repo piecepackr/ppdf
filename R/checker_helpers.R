@@ -7,7 +7,7 @@ set_cell_width <- function(df, cell_width, system) {
 		cfg = paste0(system, cell_width),
 		x = cell_width * .data$x,
 		y = cell_width * .data$y
-	) %>%
+	) |>
 		select_piece()
 	attr(df, "scale_factor") <- cell_width
 	df
@@ -32,7 +32,7 @@ to_checkers <- function(
 		width <- max(dft$x) - min(dft$x) + 2L
 	}
 	df_board <- checker_board(width, cell_width = NULL, ...)
-	df_pieces <- filter(df, !grepl("tile", .data$piece_side)) %>%
+	df_pieces <- filter(df, !grepl("tile", .data$piece_side)) |>
 		mutate(piece_side = "bit_back", angle = 0, rank = 1L)
 	old_suits <- df_pieces$suit
 	if (n_players == 2) {
@@ -53,6 +53,6 @@ to_checkers <- function(
 			df_pieces$suit[-i_white] <- white
 		}
 	}
-	bind_rows(df_board, df_pieces) %>%
+	bind_rows(df_board, df_pieces) |>
 		set_cell_width(cell_width, "checkers")
 }

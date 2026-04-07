@@ -2,7 +2,7 @@ Encoding: UTF-8
 Package: ppdf
 Type: Package
 Title: Board Game Setups
-Version: 0.3.0-3
+Version: 0.3.0-4
 Authors@R: c(person("Trevor L.", "Davis", role=c("aut", "cre"),
              email="trevor.l.davis@gmail.com",
              comment = c(ORCID = "0000-0001-6341-4639")))
@@ -12,7 +12,7 @@ License: MIT + file LICENSE
 URL: https://github.com/piecepackr/ppdf, https://trevorldavis.com/R/ppdf/
 BugReports: https://github.com/piecepackr/ppdf/issues
 LazyLoad: yes
-Depends: R (>= 3.4.0)
+Depends: R (>= 4.1.0)
 Imports:
     dplyr,
     purrr,

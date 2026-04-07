@@ -155,7 +155,7 @@ checker_canadian_checkers <- function(cell_width = getOption("ppdf.checker_cell_
 		x = c(rep(seq.int(1L, 11L, 2L), 2L), rep(seq.int(2L, 12L, 2L), 3L)),
 		y = rep(c(9, 11, 8, 10, 12), each = 6L)
 	)
-	bind_rows(df_board, df_w, df_b) %>%
+	bind_rows(df_board, df_w, df_b) |>
 		set_cell_width(cell_width, "checkers")
 }
 
@@ -185,7 +185,7 @@ checker_dameo <- function(cell_width = getOption("ppdf.checker_cell_width", 1)) 
 	df_board <- checker_board(8L)
 	df_w <- checker_bits(suit = 6L, x = c(1:8, 2:7, 3:6), y = rep.int(1:3, c(8, 6, 4)))
 	df_b <- checker_bits(suit = 2L, x = c(3:6, 2:7, 1:8), y = rep.int(6:8, c(4, 6, 8)))
-	bind_rows(df_board, df_w, df_b) %>%
+	bind_rows(df_board, df_w, df_b) |>
 		set_cell_width(cell_width, "checkers")
 }
 
@@ -209,7 +209,7 @@ checker_frisian_checkers <- function(cell_width = getOption("ppdf.checker_cell_w
 		x = rep(c(seq.int(1L, 9L, 2L), seq.int(2L, 10L, 2L)), 2L),
 		y = rep(7:10, each = 5L)
 	)
-	bind_rows(df_board, df_w, df_b) %>%
+	bind_rows(df_board, df_w, df_b) |>
 		set_cell_width(cell_width, "checkers")
 }
 
@@ -247,7 +247,7 @@ checker_lasca <- function(cell_width = getOption("ppdf.checker_cell_width", 1)) 
 		x = c(1, 3, 2, 4, 1, 3, 5, 7, 6, 5, 7),
 		y = c(7, 7, 6, 6, 5, 5, 7, 7, 6, 5, 5)
 	)
-	bind_rows(df_board, df_w, df_b) %>%
+	bind_rows(df_board, df_w, df_b) |>
 		set_cell_width(cell_width, "checkers")
 }
 
