@@ -74,9 +74,7 @@ chess_chess <- function(cell_width = getOption("ppdf.chess_cell_width", 1)) {
 #' @rdname chess_games_variant
 #' @export
 chess_chess960 <- function(seed = NULL, cell_width = getOption("ppdf.chess_cell_width", 1)) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	force(cell_width)
 	local_options(ppdf.chess_cell_width = NULL)
 	df_board <- chess_board()
