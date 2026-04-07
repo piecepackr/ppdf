@@ -1,5 +1,6 @@
-pre {
-    font-family: Dejavu Sans Mono,FreeMono,monospace;
+pre.sourceCode {
+    font-family: DejaVu Sans Mono, FreeMono, "Noto Sans Mono", monospace;
     line-height: 1.0;
     font-size: 100%;
+    overflow-x: auto;
 }
