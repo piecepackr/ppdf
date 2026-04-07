@@ -1,5 +1,13 @@
-test_that("piecepack_games()", {
-	expect_equal(nrow(domino_games()), 9L)
-
+test_that("*_games() row counts", {
+	expect_equal(nrow(alquerque_games()), 2L)
+	expect_equal(nrow(checker_games()), 31L)
+	expect_equal(nrow(chess_games()), 5L)
+	expect_equal(nrow(domino_games()), 10L)
+	expect_equal(nrow(go_games()), 2L)
+	expect_equal(nrow(marble_games()), 0L)
+	expect_equal(nrow(morris_games()), 7L)
 	expect_equal(nrow(piecepack_games()), 102L)
+	expect_equal(nrow(reversi_games()), 2L)
+	expect_equal(nrow(stackpack_games()), 10L)
+	expect_equal(nrow(tarot_games()), 0L)
 })
