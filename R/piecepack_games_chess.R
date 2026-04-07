@@ -203,9 +203,7 @@ piecepack_chess <- function(has_subpack = FALSE) {
 #' @export
 piecepack_chess960 <- function(..., seed = NULL, has_subpack = FALSE) {
 	check_dots_empty()
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	ranks <- fischer_random_ranks()
 	df_t <- piecepack_rectangular_board(8L, 8L)
 	df_p <- piecepack_chess_pieces(has_subpack, ranks = ranks)

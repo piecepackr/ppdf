@@ -264,9 +264,7 @@ piecepack_games_original <- function() {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_alien_city <- function(seed = NULL, tiles = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_t1 <- tibble(
 		piece_side = "tile_face",
 		x = 0.5 + rep(seq(1, 7, 2), 5),
@@ -289,9 +287,7 @@ piecepack_alien_city <- function(seed = NULL, tiles = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_black_pawn_trucking <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- piecepack_tiles(
 		side = "face",
 		x = c(7, 9, 8, 10, 8, 10, 3, 5, 9, 11, 2, 4, 10, 12, 2, 4, 14, 8, 10, 12, 14, 10, 12, 8) -
@@ -313,9 +309,7 @@ piecepack_black_pawn_trucking <- function(seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_brain_burn <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- tibble(
 		piece_side = "tile_face",
 		cfg = "piecepack",
@@ -343,9 +337,7 @@ piecepack_brain_burn <- function(seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_burbuja <- function(seed = NULL, tiles = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	sra <- process_tiles(tiles)
 	df_tiles <- piecepack_donut_board(
 		suit = sra$suit,
@@ -373,9 +365,7 @@ piecepack_burbuja <- function(seed = NULL, tiles = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_cardinals_guards <- function(seed = NULL, tiles = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	sra <- process_tiles(tiles)
 	df_tiles <- piecepack_donut_board(
 		suit = sra$suit,
@@ -407,9 +397,7 @@ piecepack_cardinals_guards <- function(seed = NULL, tiles = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_cell_management <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 
 	# hexagon distances
 	#    between closest vertices: 2
@@ -507,9 +495,7 @@ piecepack_halma <- piecepack_chinese_checkers
 #' @rdname piecepack_games_original
 #' @export
 piecepack_coin_collectors <- function(seed = NULL, tiles = NULL, coins = NULL, dice = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	sra <- process_tiles(tiles)
 	df_tiles <- piecepack_donut_board(
 		suit = sra$suit,
@@ -536,9 +522,7 @@ piecepack_coin_collectors <- function(seed = NULL, tiles = NULL, coins = NULL, d
 #' @rdname piecepack_games_original
 #' @export
 piecepack_climbing_man <- function(seed = NULL, variant = c("Basic", "Free")) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	variant <- match.arg(variant)
 	if (variant == "Free") {
 		df_none()
@@ -579,9 +563,7 @@ any_adjacent_coins <- function(df) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_crocodile_hop <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- piecepack_tiles(
 		side = rep.int(c("back", "face", "back"), c(19, 2, 3)),
 		x = rep.int(rep(c(1, 3, 6.5, 8.5, 10.5), 2), c(8, 8, rep(1, 8))),
@@ -615,9 +597,7 @@ piecepack_crocodile_hop <- function(seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_desfases <- function(seed = NULL, tiles = NULL, dice = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_txy <- tibble(
 		piece_side = "tile_face",
 		x = 2 + rep(seq(1, by = 3, length.out = 5), 5),
@@ -675,9 +655,7 @@ piecepack_desfases <- function(seed = NULL, tiles = NULL, dice = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_dominoids <- function(..., seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	check_dots_empty()
 	df_board <- piecepack_rectangular_board(
 		8L,
@@ -733,9 +711,7 @@ piecepack_dominoids <- function(..., seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_easy_slider <- function(seed = NULL, tiles = NULL, coins = NULL, pawns = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_txy <- tibble(
 		piece_side = "tile_face",
 		x = 2 + c(rep(seq(0, 8, 2), 4), 0, 2, 4, 6),
@@ -811,9 +787,7 @@ piecepack_froggy_bottom <- function() piecepack_rectangular_board(ncols = 6, nro
 #' @rdname piecepack_games_original
 #' @export
 piecepack_fujisan <- function(seed = NULL, coins = NULL, dice = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	if (is.null(coins)) {
 		coins <- random_fujisan_coins()
 	} else if (is.character(coins)) {
@@ -875,9 +849,7 @@ random_fujisan_coins <- function() {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_galaxy_express <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_board <- piecepack_rectangular_board(
 		nrows = 6,
 		ncols = 8,
@@ -916,9 +888,7 @@ piecepack_galaxy_express <- function(seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_iceberg <- function(seed = NULL, tiles = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	sra <- process_tiles(tiles)
 	piecepack_donut_board(
 		suit = sra$suit,
@@ -948,9 +918,7 @@ piecepack_ice_floe <- function() {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_japan <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- piecepack_tiles(
 		side = "back",
 		x = 0.5 +
@@ -994,9 +962,7 @@ piecepack_japan <- function(seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_klondike <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- piecepack_tiles(
 		side = c(rep_len("back", 15L), rep_len("face", 6L), rep_len("back", 3L)),
 		x = c(seq(4, 12, 2), seq(6, 12, 2), seq(8, 12, 2), 10, 12, 12, seq(2, 12, 2), rep(2, 3)),
@@ -1011,9 +977,7 @@ piecepack_klondike <- function(seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_lab_rats <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- piecepack_tiles(side = "back", x = 1.5, y = 1.5)
 	repeat {
 		x0 <- 1.5
@@ -1097,9 +1061,7 @@ is_legal_labrats <- function(df) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_landlocked <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- piecepack_tiles(
 		side = rep(c("back", "face"), each = 12),
 		x = 0.5 + c(seq(3, 9, 2), rep(seq(1, 9, 2), 4)),
@@ -1123,9 +1085,7 @@ piecepack_ley_lines <- function() {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_mathrix <- function(seed = NULL, coins = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- piecepack_rectangular_board(nrows = 4, ncols = 6)
 	df_coins <- piecepack_coins(
 		side = "face",
@@ -1142,9 +1102,7 @@ piecepack_mathrix <- function(seed = NULL, coins = NULL) {
 #' @export
 piecepack_pawns_crossing <- function(..., seed = NULL, n_players = 2L) {
 	check_dots_empty()
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	stopifnot(n_players >= 2L && n_players <= 4L)
 	df_t <- piecepack_tiles(
 		suit = rep(1:4, each = 4L),
@@ -1235,9 +1193,7 @@ piecepack_pawns_crossing <- function(..., seed = NULL, n_players = 2L) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_piecepackman <- function(seed = NULL, variant = "Roundabout") {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- piecepack_tiles(
 		side = "back",
 		x = 0.5 + c(rep(seq(1, 9, 2), 4), seq(2, 8, 2)),
@@ -1258,9 +1214,7 @@ piecepack_piecepackman <- function(seed = NULL, variant = "Roundabout") {
 	x_y <- setdiff(df_x_y$x_y, x_y_omit)
 
 	# Set seed again so backwards compatible with new sampling in `piecepack_roundabout()`
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	x_y_nulls <- str_split(sample(x_y, 24), "_", simplify = TRUE)
 	df_n <- piecepack_matchsticks(
 		rank = 1L,
@@ -1320,9 +1274,7 @@ piecepack_roundabout <- function(seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_one_man_thrag <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_board <- piecepack_rectangular_board(4, 4, x0 = 1, y0 = 1, suit = 1:4, rank = 1L)
 	df_tiles <- piecepack_tiles(
 		side = "back",
@@ -1358,9 +1310,7 @@ piecepack_pass_the_food <- function() {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_piece_gaps <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df <- piecepack_tiles(
 		side = "face",
 		x = rep.int(seq.int(2L, 12L, 2L), 4L),
@@ -1375,9 +1325,7 @@ piecepack_piece_gaps <- function(seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_piece_packing_pirates <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	new <- "0_0"
 	tiles_xy <- new
 	impossible <- c()
@@ -1423,9 +1371,7 @@ new_possible <- function(x_y) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_plans_of_action <- function(seed = NULL, coins = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- piecepack_rectangular_board(nrows = 8L, ncols = 8L)
 	if (is.null(coins)) {
 		suits <- sample(rep.int(1:4, 6L), 24L)
@@ -1448,9 +1394,7 @@ piecepack_plans_of_action <- function(seed = NULL, coins = NULL) {
 piecepack_relativity <- function(seed = NULL, coins = NULL) {
 	df_tiles <- piecepack_rectangular_board(nrows = 4, ncols = 6)
 	if (is.null(coins)) {
-		if (!is.null(seed)) {
-			withr::local_seed(seed)
-		}
+		maybe_local_seed(seed)
 		ranks <- c(sample.int(6L), sample.int(6L), sample.int(6L), sample.int(6L))
 		while (should_resample_relativity(ranks)) {
 			ranks <- c(sample.int(6L), sample.int(6L), sample.int(6L), sample.int(6L))
@@ -1483,9 +1427,7 @@ piecepack_san_andreas <- function() {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_sarcophagus <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_sarcophagus <- piecepack_tiles(
 		side = "back",
 		suit = c(4, 3, 4:1),
@@ -1524,9 +1466,7 @@ piecepack_sarcophagus <- function(seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_ship_it <- function(..., seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	check_dots_empty()
 	df_tiles <- piecepack_tiles(
 		x = NA_integer_,
@@ -1635,9 +1575,7 @@ ship_it_city_x <- function(row, col, city_row, city_col) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_shopping_mall <- function(seed = NULL, cfg2 = "go") {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	i_tf <- sample.int(20)
 	df_tf <- tibble(
 		piece_side = "tile_face",
@@ -1672,9 +1610,7 @@ piecepack_shopping_mall <- function(seed = NULL, cfg2 = "go") {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_skyscrapers <- function(seed = NULL, tiles = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	sra <- process_tiles(tiles)
 	#### If four null tiles border four sides of center hole then exchange crowns null/ace tiles
 	df_tiles <- piecepack_donut_board(
@@ -1713,9 +1649,7 @@ piecepack_slides_of_action <- function() {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_speedy_towers <- function(n_players = 2, seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	stopifnot(n_players >= 2, n_players <= 6)
 	if (n_players == 2) {
 		df_tiles <- piecepack_tiles(
@@ -1756,9 +1690,7 @@ piecepack_speedy_towers <- function(n_players = 2, seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_steppin_stones <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles_faces <- piecepack_tiles(
 		side = "face",
 		suit = 1:4,
@@ -1801,9 +1733,7 @@ piecepack_the_in_crowd <- function() {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_the_magic_bag <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	piecepack_tiles(
 		x = 0.5 + c(rep(1, 9), rep(3, 7), rep(5, 5), rep(7, 3)),
 		y = 0.5 + c(seq(17, 1, -2), seq(13, 1, -2), seq(9, 1, -2), seq(5, 1, -2))
@@ -1814,9 +1744,7 @@ piecepack_the_magic_bag <- function(seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_the_penguin_game <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- piecepack_rectangular_board(4, 4)
 	df_coins <- piecepack_coins(
 		side = "back",
@@ -1830,9 +1758,7 @@ piecepack_the_penguin_game <- function(seed = NULL) {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_tower_of_babel <- function(seed = NULL, tiles = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	if (is.null(tiles)) {
 		df <- expand.grid(suit = 1:4, rank = 1:6)[sample.int(24L), ]
 	} else {
@@ -1861,9 +1787,7 @@ piecepack_tracers <- function() {
 #' @rdname piecepack_games_original
 #' @export
 piecepack_triactor <- function(seed = NULL, cfg2 = "playing_cards_expansion") {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tb <- piecepack_tiles(
 		side = "back",
 		x = 0.5 + rep(c(seq(5, 15, 2), 1, 2, 18, 19), 2),
@@ -1911,9 +1835,7 @@ piecepack_tula <- function(
 	variant = c("Original", "Variant 1", "Variant 2", "Variant 3", "Variant 4")
 ) {
 	variant <- match.arg(variant)
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	if (is.null(tiles)) {
 		if (variant %in% c("Original", "Variant 1")) {
 			df_tsr <- expand.grid(suit = 1:4, rank = 1:6)[sample.int(24L), ]

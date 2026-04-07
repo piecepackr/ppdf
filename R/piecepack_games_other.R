@@ -90,9 +90,7 @@ piecepack_breakthrough <- piecepack_gothic_checkers
 #' @rdname piecepack_games_other
 #' @export
 piecepack_change_change <- function(seed = NULL, coins = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	if (is.null(coins)) {
 		suits <- rep.int(1:4, c(1, 2, 4, 4))[sample.int(11L)]
 	} else {

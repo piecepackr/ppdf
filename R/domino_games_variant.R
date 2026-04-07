@@ -71,9 +71,7 @@ domino_games_variant <- function() {
 #' @rdname domino_games_variant
 #' @export
 domino_concentration <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- domino_tiles(side = "back", x = 1 * rep(1:7, each = 4), y = 2 * rep(1:4, 7)) |>
 		slice_sample_piece() |>
 		mutate_sample_angle(c(0, 180))
@@ -86,9 +84,7 @@ domino_bee_donimoes <- function(n = 7, seed = NULL) {
 	if (n > 7L) {
 		rlang::abort("n > 7 is not currently supported.")
 	}
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	n_tiles <- (n * (n + 1L)) %/% 2L
 	# Grid is n rows x (n+1) cols of domino halves.
 	# n odd:  all horizontal tiles, (n+1)/2 per row.
@@ -132,9 +128,7 @@ domino_bee_donimoes <- function(n = 7, seed = NULL) {
 #' @rdname domino_games_variant
 #' @export
 domino_finder <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- domino_tiles(side = "back") |>
 		mutate_sample_angle(c(90, 270)) |>
 		# First 7 tiles are the ones with a null side
@@ -152,9 +146,7 @@ domino_finder <- function(seed = NULL) {
 #' @rdname domino_games_variant
 #' @export
 domino_freecell <- function(n = 7, seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 
 	# n*(n-1)/2 non-blank tiles distributed across n-1 non-empty columns.
 	# Column 0 starts empty (only its header tile is placed).
@@ -206,9 +198,7 @@ domino_freecell <- function(n = 7, seed = NULL) {
 #' @rdname domino_games_variant
 #' @export
 domino_fujisan <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- domino_tiles(n = 6) |>
 		filter(.data$suit != .data$rank) |>
 		slice_sample_piece() |>
@@ -226,9 +216,7 @@ domino_fujisan <- function(seed = NULL) {
 #' @rdname domino_games_variant
 #' @export
 domino_luzon <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- domino_tiles(
 		side = "face",
 		x = 2 * c(rep(1:5, 5), 7, 7, 7),
@@ -242,9 +230,7 @@ domino_luzon <- function(seed = NULL) {
 #' @rdname domino_games_variant
 #' @export
 domino_patience <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- domino_tiles(side = "back") |>
 		slice_sample_piece() |>
 		mutate_sample_angle(c(0, 180))
@@ -255,9 +241,7 @@ domino_patience <- function(seed = NULL) {
 #' @rdname domino_games_variant
 #' @export
 domino_runners <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- domino_tiles(x = 2 * rep.int(1:4, 7L) - 0.5, y = 1 * rep(7:1, each = 4L)) |>
 		slice_sample_piece() |>
 		mutate_sample_angle(c(90, 270))
@@ -267,9 +251,7 @@ domino_runners <- function(seed = NULL) {
 #' @rdname domino_games_variant
 #' @export
 domino_the_jubilee <- function(seed = NULL) {
-	if (!is.null(seed)) {
-		withr::local_seed(seed)
-	}
+	maybe_local_seed(seed)
 	df_tiles <- domino_tiles(side = "back", y = 2) |>
 		slice_sample_piece() |>
 		mutate_sample_angle(c(0, 180))

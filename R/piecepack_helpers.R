@@ -143,6 +143,12 @@ select_piece <- function(df) {
 	dplyr::select(df, "piece_side", "suit", "rank", "cfg", "x", "y", "angle")
 }
 
+maybe_local_seed <- function(seed, .local_envir = parent.frame()) {
+	if (!is.null(seed)) {
+		withr::local_seed(seed, .local_envir = .local_envir)
+	}
+}
+
 mutate_sample_angle <- function(df, angles = c(0, 90, 180, 270)) {
 	mutate(df, angle = sample(angles, nrow(df), replace = TRUE))
 }
