@@ -112,6 +112,5 @@ arrange_games <- function(df) {
 }
 
 readme_markdown_list <- function(df) {
-	stopifnot(requireNamespace("knitr", quietly = TRUE))
 	paste(paste("*", stringr::str_glue_data(df, "[{game}]({url})")), collapse = "\n")
 }
