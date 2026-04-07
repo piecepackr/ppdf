@@ -70,6 +70,10 @@ piecepack_games_traditional <- function() {
             , "``piecepack_salta()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Salta_(game)"
+            , "Seega"
+            , "``piecepack_seega()``"
+            , NA_character_
+            , "http://www.cyningstan.com/game/120/seega"
             , "Tablan"
             , "``piecepack_tablan()``"
             , NA_character_
@@ -456,6 +460,12 @@ piecepack_salta <- function(has_subpack = FALSE) {
 	}
 	df$cfg <- ifelse(is.na(df$cfg), "piecepack", df$cfg)
 	df
+}
+
+#' @rdname piecepack_games_traditional
+#' @export
+piecepack_seega <- function() {
+	piecepack_rectangular_board(5L, 5L)
 }
 
 #' @rdname piecepack_games_traditional
