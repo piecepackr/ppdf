@@ -11,6 +11,7 @@
 \alias{domino_patience}
 \alias{domino_runners}
 \alias{domino_the_jubilee}
+\alias{domino_the_sultan}
 \title{Setups for dominoes variants}
 \usage{
 domino_concentration(seed = NULL)
@@ -30,6 +31,8 @@ domino_patience(seed = NULL)
 domino_runners(seed = NULL)
 
 domino_the_jubilee(seed = NULL)
+
+domino_the_sultan(seed = NULL)
 }
 \arguments{
 \item{seed}{Seed that determines setup, either an integer or \code{NULL}}
@@ -52,7 +55,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 9 dominoes variants.
+\code{tibble} data frames of setups for 10 dominoes variants.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -67,6 +70,7 @@ Here are links for more information about the various games:\tabular{ll}{
    (Domino) Patience \tab \url{http://www.domino-play.com/Games/Patience.htm} \cr
    Domino Runners \tab \url{https://donkirkby.github.io/donimoes/rules.html#domino-runners} \cr
    The Jubilee \tab \url{http://www.domino-play.com/Games/Jubilee.htm} \cr
+   The Sultan \tab \url{http://www.domino-play.com/Games/Sultan.htm} \cr
 }
 }
 \examples{

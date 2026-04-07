@@ -16,6 +16,7 @@ test_that("dominoes setups work as expected", {
 	expect_snapshot(cat_piece(domino_patience(seed = 12)))
 	expect_snapshot(cat_piece(domino_runners(seed = 12), annotate = TRUE))
 	expect_snapshot(cat_piece(domino_the_jubilee(seed = 12)))
+	expect_snapshot(cat_piece(domino_the_sultan(seed = 12)))
 
 	expect_equal(nrow(domino_tiles()), 28L) # Double-6
 	expect_equal(nrow(domino_tiles(n = 10)), 55L) # Double-9

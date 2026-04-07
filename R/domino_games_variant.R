@@ -65,6 +65,10 @@ domino_games_variant <- function() {
             , "``domino_the_jubilee()``"
             , NA_character_
             , "http://www.domino-play.com/Games/Jubilee.htm"
+            , "The Sultan"
+            , "``domino_the_sultan()``"
+            , NA_character_
+            , "http://www.domino-play.com/Games/Sultan.htm"
     )
 }
 
@@ -256,6 +260,16 @@ domino_the_jubilee <- function(seed = NULL) {
 		slice_sample_piece() |>
 		mutate_sample_angle(c(0, 180))
 	df_tiles[c(1, 8, 14, 19, 23, 26, 28), "piece_side"] <- "tile_face"
+	df_tiles
+}
+
+#' @rdname domino_games_variant
+#' @export
+domino_the_sultan <- function(seed = NULL) {
+	maybe_local_seed(seed)
+	df_tiles <- domino_tiles(x = as.double(1:28), y = 1) |>
+		slice_sample_piece() |>
+		mutate_sample_angle(c(0, 180))
 	df_tiles
 }
 

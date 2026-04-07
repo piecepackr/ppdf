@@ -12,6 +12,7 @@ New features
 
   + `domino_bee_donimoes()`
   + `domino_freecell()`
+  + `domino_the_sultan()`
 
 * The following functions generate data frames to setup piecepack sets (#23):
 
