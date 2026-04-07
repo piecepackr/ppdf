@@ -10,4 +10,6 @@ test_that("*_games() row counts", {
 	expect_equal(nrow(reversi_games()), 2L)
 	expect_equal(nrow(stackpack_games()), 10L)
 	expect_equal(nrow(tarot_games()), 0L)
+
+	expect_length(readme_markdown_list(alquerque_games()), 1L)
 })
