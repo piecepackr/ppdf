@@ -14,8 +14,9 @@ New features
   + `domino_freecell()`
   + `domino_the_sultan()`
 
-* The following functions generate data frames to setup piecepack sets (#23):
+* The following functions generate data frames to setup piecepack sets (#23, #50):
 
+  + `piecepack_seega()`
   + `piecepack_tablan()`
   + `piecepack_yote()`
 

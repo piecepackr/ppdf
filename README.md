@@ -229,7 +229,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following 103 games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following 104 games playable with a piecepack deck (plus possibly additional components):
 
 * [12345ive!](https://boardgamegeek.com/boardgame/154644/12345ive)
 * [Alice Chess](https://en.wikipedia.org/wiki/Alice_chess)
@@ -308,6 +308,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Salta](https://en.wikipedia.org/wiki/Salta_(game))
 * [San Andreas](https://www.ludism.org/ppwiki/SanAndreas)
 * [Sarcophagus](https://www.ludism.org/ppwiki/Sarcophagus)
+* [Seega](http://www.cyningstan.com/game/120/seega)
 * [Ship It!](https://ludism.org/ppwiki/Ship_It)
 * [Shogi AKA Japanese Chess](https://www.ludism.org/ppwiki/Shogi)
 * [Shopping Mall](https://www.ludism.org/ppwiki/ShoppingMall)
@@ -347,7 +348,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Go](https://en.wikipedia.org/wiki/Go_(game))
 * [Gomoku](https://en.wikipedia.org/wiki/Gomoku)
 
-`{ppdf}` supports the following 7 games playable with an morris set
+`{ppdf}` supports the following 7 games playable with a morris set
 
 * [Five Men's Morris](https://en.wikipedia.org/wiki/Nine_men%27s_morris#Six_men's_morris)
 * [Nine Men's Morris](https://en.wikipedia.org/wiki/Nine_men%27s_morris)
@@ -357,7 +358,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Three Men's Morris](https://en.wikipedia.org/wiki/Three_men%27s_morris)
 * [Twelve Men's Morris](https://en.wikipedia.org/wiki/Morabaraba)
 
-`{ppdf}` supports the following 2 games playable with an reversi set
+`{ppdf}` supports the following 2 games playable with a reversi set
 
 * [Ming Mang](https://boardgamegeek.com/boardgame/40573/ming-mang)
 * [Reversi](https://en.wikipedia.org/wiki/Reversi)
