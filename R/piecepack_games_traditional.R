@@ -70,6 +70,10 @@ piecepack_games_traditional <- function() {
             , "``piecepack_salta()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Salta_(game)"
+            , "Tablan"
+            , "``piecepack_tablan()``"
+            , NA_character_
+            , "http://www.cyningstan.com/game/229/tablan"
             , "Tablut"
             , "``piecepack_tablut()``"
             , NA_character_
@@ -329,7 +333,7 @@ piecepack_julgonu <- function() {
 		side = "back",
 		suit = rep(1:2, each = 4),
 		rank = rep(3:6, 2),
-		x = 1 * c(1:4, 1:4),
+		x = c(1:4, 1:4),
 		y = rep(c(1, 4), each = 4),
 		angle = rep(c(180, 0), each = 4)
 	)
@@ -452,6 +456,19 @@ piecepack_salta <- function(has_subpack = FALSE) {
 	}
 	df$cfg <- ifelse(is.na(df$cfg), "piecepack", df$cfg)
 	df
+}
+
+#' @rdname piecepack_games_traditional
+#' @export
+piecepack_tablan <- function() {
+	df_t <- piecepack_rectangular_board(4L, 12L)
+	df_c <- piecepack_coins(
+		side = "back",
+		x = c(1:12, 12:1),
+		y = rep(c(4, 1), each = 12),
+		angle = rep(c(180, 0), each = 12)
+	)
+	bind_rows(df_t, df_c)
 }
 
 #' @rdname piecepack_games_traditional

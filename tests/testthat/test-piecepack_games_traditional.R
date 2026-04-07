@@ -12,6 +12,7 @@ test_that("piecepack traditional games work as expected", {
 	expect_snapshot(cat_piece(piecepack_julgonu()))
 	expect_snapshot(cat_piece(piecepack_nine_mens_morris(has_matchsticks = TRUE)))
 	expect_snapshot(cat_piece(piecepack_salta()))
+	expect_snapshot(cat_piece(piecepack_tablan(), reorient = "all"))
 	expect_snapshot(cat_piece(piecepack_tablut(), reorient = "all"))
 	expect_equal(nrow(piecepack_tablut(0.75)), 42L)
 	expect_equal(nrow(piecepack_tablut(0.50)), 45L)

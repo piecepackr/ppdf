@@ -14,6 +14,7 @@
 \alias{piecepack_ludo}
 \alias{piecepack_nine_mens_morris}
 \alias{piecepack_salta}
+\alias{piecepack_tablan}
 \alias{piecepack_tablut}
 \alias{piecepack_twelve_mens_morris}
 \alias{piecepack_yote}
@@ -43,6 +44,8 @@ piecepack_nine_mens_morris(has_matchsticks = FALSE)
 
 piecepack_salta(has_subpack = FALSE)
 
+piecepack_tablan()
+
 piecepack_tablut(die_width = 0.63)
 
 piecepack_twelve_mens_morris(has_matchsticks = FALSE)
@@ -71,7 +74,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 13 other traditional games playable with a piecepack.
+\code{tibble} data frames of setups for 14 other traditional games playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -88,6 +91,7 @@ Here are links for more information about the various other traditional games:\t
    Ludo \tab \url{https://en.wikipedia.org/wiki/Ludo_(board_game)} \cr
    Nine Men's Morris \tab \url{https://en.wikipedia.org/wiki/Nine_men\%27s_morris} \cr
    Salta \tab \url{https://en.wikipedia.org/wiki/Salta_(game)} \cr
+   Tablan \tab \url{http://www.cyningstan.com/game/229/tablan} \cr
    Tablut \tab \url{https://www.ludism.org/ppwiki/Tablut} \cr
    Yoté \tab \url{https://en.wikipedia.org/wiki/Yot\%C3\%A9} \cr
 }

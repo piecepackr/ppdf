@@ -16,6 +16,7 @@ New features
 
 * The following functions generate data frames to setup piecepack sets (#23):
 
+  + `piecepack_tablan()`
   + `piecepack_yote()`
 
 Bug fixes and minor improvements

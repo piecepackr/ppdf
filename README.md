@@ -229,7 +229,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following 102 games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following 103 games playable with a piecepack deck (plus possibly additional components):
 
 * [12345ive!](https://boardgamegeek.com/boardgame/154644/12345ive)
 * [Alice Chess](https://en.wikipedia.org/wiki/Alice_chess)
@@ -316,6 +316,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Spanish Checkers AKA Spanish Draughts](https://mindsports.nl/index.php/on-the-evolution-of-draughts-variants/draughts-variants/497-dama_s)
 * [Speedy Towers](https://ludism.org/ppwiki/SpeedyTowers)
 * [Steppin' Stones](https://ludism.org/ppwiki/Steppin'_Stones)
+* [Tablan](http://www.cyningstan.com/game/229/tablan)
 * [Tablut](https://www.ludism.org/ppwiki/Tablut)
 * [Thai Checkers AKA Thai Draughts AKA Mak-hot AKA Makhos](https://checkers.fandom.com/wiki/Mak-hot)
 * [The "In" Crowd](https://www.ludism.org/ppwiki/TheInCrowd)
