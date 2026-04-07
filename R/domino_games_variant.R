@@ -76,7 +76,7 @@ domino_concentration <- function(seed = NULL) {
 	}
 	df_tiles <- domino_tiles(side = "back", x = 1 * rep(1:7, each = 4), y = 2 * rep(1:4, 7)) |>
 		slice_sample_piece() |>
-		mutate(angle = sample(c(0, 180), 28, replace = TRUE))
+		mutate_sample_angle(c(0, 180))
 	df_tiles
 }
 
@@ -101,9 +101,9 @@ domino_bee_donimoes <- function(n = 7, seed = NULL) {
 			slice_sample_piece() |>
 			mutate(
 				x = as.double(rep(x_centers, times = n)),
-				y = as.double(rep(y_vals, each = tiles_per_row)),
-				angle = sample(c(90, 270), n_tiles, replace = TRUE)
-			)
+				y = as.double(rep(y_vals, each = tiles_per_row))
+			) |>
+			mutate_sample_angle(c(90, 270))
 		# angle=90: suit at right (x+0.5); angle=270: suit at left (x-0.5).
 		df_starters <- filter(df_tiles, .data$rank == 1L, .data$suit > 1L)
 		die_x <- ifelse(df_starters$angle == 90, df_starters$x + 0.5, df_starters$x - 0.5)
@@ -116,9 +116,9 @@ domino_bee_donimoes <- function(n = 7, seed = NULL) {
 			slice_sample_piece() |>
 			mutate(
 				x = as.double(rep(x_vals, times = n_tile_rows)),
-				y = as.double(rep(y_centers, each = n + 1L)),
-				angle = sample(c(0, 180), n_tiles, replace = TRUE)
-			)
+				y = as.double(rep(y_centers, each = n + 1L))
+			) |>
+			mutate_sample_angle(c(0, 180))
 		# angle=0: suit at bottom (y-0.5); angle=180: suit at top (y+0.5).
 		df_starters <- filter(df_tiles, .data$rank == 1L, .data$suit > 1L)
 		die_x <- df_starters$x
@@ -136,7 +136,7 @@ domino_finder <- function(seed = NULL) {
 		withr::local_seed(seed)
 	}
 	df_tiles <- domino_tiles(side = "back") |>
-		mutate(angle = sample(c(90, 270), 28, replace = TRUE)) |>
+		mutate_sample_angle(c(90, 270)) |>
 		# First 7 tiles are the ones with a null side
 		slice(c(sample.int(7), 7 + sample.int(21))) |>
 		# Each 4 tiles will have one tile with a null side
@@ -235,7 +235,7 @@ domino_luzon <- function(seed = NULL) {
 		y = c(rep(1:5, each = 5), 1, 3, 5)
 	) |>
 		slice_sample_piece() |>
-		mutate(angle = sample(c(90, 270), 28L, replace = TRUE))
+		mutate_sample_angle(c(90, 270))
 	df_tiles
 }
 
@@ -247,7 +247,7 @@ domino_patience <- function(seed = NULL) {
 	}
 	df_tiles <- domino_tiles(side = "back") |>
 		slice_sample_piece() |>
-		mutate(angle = sample(c(0, 180), 28, replace = TRUE))
+		mutate_sample_angle(c(0, 180))
 	df_tiles[c(1, 8, 14, 19, 23, 26, 28), "piece_side"] <- "tile_face"
 	df_tiles
 }
@@ -260,7 +260,7 @@ domino_runners <- function(seed = NULL) {
 	}
 	df_tiles <- domino_tiles(x = 2 * rep.int(1:4, 7L) - 0.5, y = 1 * rep(7:1, each = 4L)) |>
 		slice_sample_piece() |>
-		mutate(angle = sample(c(90, 270), 28, replace = TRUE))
+		mutate_sample_angle(c(90, 270))
 	df_tiles
 }
 
@@ -272,7 +272,7 @@ domino_the_jubilee <- function(seed = NULL) {
 	}
 	df_tiles <- domino_tiles(side = "back", y = 2) |>
 		slice_sample_piece() |>
-		mutate(angle = sample(c(0, 180), 28, replace = TRUE))
+		mutate_sample_angle(c(0, 180))
 	df_tiles[c(1, 8, 14, 19, 23, 26, 28), "piece_side"] <- "tile_face"
 	df_tiles
 }

@@ -276,9 +276,9 @@ piecepack_alien_city <- function(seed = NULL, tiles = NULL) {
 	if (is.null(tiles)) {
 		df_t2 <- tibble(
 			suit = rep(1:4, each = 5),
-			rank = rep.int(1:5, 4L) + 1L,
-			angle = 90 * (sample(4, 20, replace = TRUE) - 1)
-		)
+			rank = rep.int(1:5, 4L) + 1L
+		) |>
+			mutate_sample_angle()
 		df_t2 <- df_t2[sample.int(20L), ]
 	} else {
 		df_t2 <- process_tiles(tiles, 20)
@@ -711,7 +711,8 @@ piecepack_dominoids <- function(..., seed = NULL) {
 	df_d <- domino_tiles(6L) |> slice(-seq.int(6L)) |> slice_sample_piece()
 	df_dt <- df_d |>
 		slice(-seq.int(4L)) |>
-		mutate(x = 1:11, y = 12L, angle = sample(c(0, 180), 11L, replace = TRUE))
+		mutate(x = 1:11, y = 12L) |>
+		mutate_sample_angle(c(0, 180))
 	df_db <- df_d |>
 		slice(seq.int(4L)) |>
 		mutate(
@@ -1150,8 +1151,8 @@ piecepack_pawns_crossing <- function(..., seed = NULL, n_players = 2L) {
 		rank = rep(2:5, 4L),
 		x = rep(3 * 1:4, each = 4L) - 1.5,
 		y = rep(3 * 1:4, 4L) - 1.5,
-		angle = sample(c(0, 90, 180, 270), 16L, replace = TRUE)
 	) |>
+		mutate_sample_angle() |>
 		slice_sample_piece()
 	df_d <- domino_tiles() |>
 		mutate(sr = paste0(.data$suit, .data$rank)) |>
@@ -1161,17 +1162,17 @@ piecepack_pawns_crossing <- function(..., seed = NULL, n_players = 2L) {
 	df_dv <- df_d |>
 		slice(seq.int(13L)) |>
 		mutate(
-			angle = sample(c(0, 180), 13L, replace = TRUE),
 			x = c(rep(3 * 1:3, each = 4L), 13),
 			y = c(rep(3 * 1:4, 3L) - 1.5, 6)
-		)
+		) |>
+		mutate_sample_angle(c(0, 180))
 	df_dh <- df_d |>
 		slice(-seq.int(13L)) |>
 		mutate(
-			angle = sample(c(90, 270), 12L, replace = TRUE),
 			x = c(rep(3 * 1:4, 3L) - 1.5),
 			y = c(rep(3 * 1:3, 4L))
-		)
+		) |>
+		mutate_sample_angle(c(90, 270))
 	if (n_players == 2L) {
 		df_cxy <- filter(df_t, .data$rank == 2L) |> arrange(.data$suit)
 		df_c <- piecepack_coins(
@@ -1397,8 +1398,8 @@ piecepack_piece_packing_pirates <- function(seed = NULL) {
 		y = y - min(y) + 1.5,
 		suit = rep.int(1:4, 6L), # reverse-compatible random
 		rank = rep(1:6, each = 4L),
-		angle = sample(c(0, 90, 180, 270), 24L, replace = TRUE)
 	) |>
+		mutate_sample_angle() |>
 		slice_sample_piece()
 	df_tiles
 }
@@ -1528,10 +1529,10 @@ piecepack_ship_it <- function(..., seed = NULL) {
 	}
 	check_dots_empty()
 	df_tiles <- piecepack_tiles(
-		angle = sample(c(0, 90, 180, 270), 24L, replace = TRUE),
 		x = NA_integer_,
 		y = NA_integer_
 	) |>
+		mutate_sample_angle() |>
 		slice_sample_piece()
 	df_coins <- piecepack_coins(
 		side = "back",
@@ -1621,8 +1622,8 @@ piecepack_ship_it <- function(..., seed = NULL) {
 		side = "back",
 		y = max(df_tiles$y) - 0.5 - rep(seq(0, by = 3, length.out = 4L), 7L),
 		x = max(df_tiles$x) + 5.5 + rep(seq(1, by = 2, length.out = 7L), each = 4L),
-		angle = sample(c(0, 180), 28L, replace = TRUE)
 	) |>
+		mutate_sample_angle(c(0, 180)) |>
 		slice_sample_piece()
 	bind_rows(df_tiles, df_coins, df_pawns, df_dice, df_dominoes)
 }
@@ -1645,8 +1646,8 @@ piecepack_shopping_mall <- function(seed = NULL, cfg2 = "go") {
 		cfg = "piecepack",
 		x = 3 + c(1, 5, 9, 11, 13, 5, 1, 5, 9, 13, 1, 3, 7, 9, 13, 1, 3, 7, 11, 13),
 		y = 3 + rep.int(c(13, 11, 9, 5, 1), c(5, 1, 4, 5, 5)),
-		angle = sample(c(0, 90, 180, 270), 20, replace = TRUE)
-	)
+	) |>
+		mutate_sample_angle()
 	df_pennies <- tibble(
 		piece_side = "bit_face",
 		suit = 1L,
