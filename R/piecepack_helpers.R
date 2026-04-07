@@ -143,6 +143,10 @@ select_piece <- function(df) {
 	dplyr::select(df, "piece_side", "suit", "rank", "cfg", "x", "y", "angle")
 }
 
+mutate_sample_angle <- function(df, angles = c(0, 90, 180, 270)) {
+	mutate(df, angle = sample(angles, nrow(df), replace = TRUE))
+}
+
 # randomly shuffle paired suit/rank within a data frame
 # but keep x,y,angle,piece_side fixed
 slice_sample_piece <- function(df, ..., n = nrow(df), size = n, names = c("rank", "suit")) {
