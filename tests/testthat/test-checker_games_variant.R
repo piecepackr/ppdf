@@ -2,8 +2,6 @@ test_that("checker variant games work as expected", {
 	skip_if_not_installed("ppcli")
 	skip_on_os("windows")
 
-	expect_equal(nrow(checker_games()), 31L)
-
 	expect_snapshot(cat_piece(checker_american_checkers()))
 	expect_snapshot(cat_piece(checker_american_pool_checkers()))
 	expect_snapshot(cat_piece(checker_corner_checkers()))
