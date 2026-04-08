@@ -201,7 +201,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 52 games playable with a piecepack.
+\code{tibble} data frames of setups for 51 games playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -257,7 +257,6 @@ Here are links for more information about the various games:\tabular{ll}{
    Tracers \tab \url{https://www.ludism.org/ppwiki/Tracers} \cr
    Triactor \tab \url{https://www.ludism.org/ppwiki/Triactor} \cr
    Tula \tab \url{https://www.ludism.org/ppwiki/Tula} \cr
-   Twelve Men's Morris \tab \url{https://en.wikipedia.org/wiki/Morabaraba} \cr
    Wormholes \tab \url{https://www.ludism.org/ppwiki/Wormholes} \cr
 }
 }

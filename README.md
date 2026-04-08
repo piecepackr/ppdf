@@ -229,7 +229,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following 105 games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following 107 games playable with a piecepack deck (plus possibly additional components):
 
 * [12345ive!](https://boardgamegeek.com/boardgame/154644/12345ive)
 * [Achi](https://en.wikipedia.org/wiki/Achi_(game))
@@ -262,6 +262,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Crossings](https://en.wikipedia.org/wiki/Crossings_(game))
 * [Czech Checkers AKA Czech Draughts](https://en.wikipedia.org/wiki/Czech_draughts)
 * [Dao](https://boardgamegeek.com/boardgame/948/dao)
+* [Dara](http://www.cyningstan.com/game/148/dara)
 * [Desfases](https://www.ludism.org/ppwiki/Desfases)
 * [Dominoids](https://ludism.org/ppwiki/Dominoids)
 * [Easy Slider](https://www.ludism.org/ppwiki/EasySlider)
@@ -324,12 +325,13 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [The "In" Crowd](https://www.ludism.org/ppwiki/TheInCrowd)
 * [The Magic Bag](https://www.ludism.org/ppwiki/The_Magic_Bag)
 * [The Penguin Game](https://www.ludism.org/ppwiki/PenguinGame)
+* [Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe)
 * [Tower of Babel AKA (Piecepack) Accordion](https://www.ludism.org/ppwiki/TowerOfBabel)
 * [Tracers](https://www.ludism.org/ppwiki/Tracers)
 * [Triactor](https://www.ludism.org/ppwiki/Triactor)
 * [Tula](https://www.ludism.org/ppwiki/Tula)
 * [Turkish Checkers AKA Turkish Draughts AKA Dama](https://en.wikipedia.org/wiki/Turkish_draughts)
-* [Twelve Men's Morris](https://en.wikipedia.org/wiki/Morabaraba)
+* [Twelve Men's Morris](http://www.cyningstan.com/game/111/twelve-mens-morris)
 * [Ultima AKA Baroque Chess](https://en.wikipedia.org/wiki/Baroque_chess)
 * [Unified Pool Checkers](https://wiegerw.github.io/pdn/gametype.html)
 * [Wormholes](https://www.ludism.org/ppwiki/Wormholes)

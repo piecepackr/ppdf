@@ -232,10 +232,6 @@ piecepack_games_original <- function() {
             , "``piecepack_tula()``"
             , "Also supports Tim Schutz's variants 1--4"
             , "https://www.ludism.org/ppwiki/Tula"
-            , "Twelve Men's Morris"
-            , "``piecepack_twelve_mens_morris()``"
-            , NA_character_
-            , "https://en.wikipedia.org/wiki/Morabaraba"
             , "Wormholes"
             , "``piecepack_wormholes()``"
             , NA_character_
