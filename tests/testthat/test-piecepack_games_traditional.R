@@ -2,6 +2,7 @@ test_that("piecepack traditional games work as expected", {
 	skip_if_not_installed("ppcli")
 	skip_on_os("windows")
 
+	expect_snapshot(cat_piece(piecepack_achi(), annotate = TRUE))
 	expect_snapshot(cat_piece(piecepack_alquerque(), annotate = TRUE))
 	expect_snapshot(cat_piece(piecepack_alquerque(TRUE), annotate = TRUE))
 	expect_snapshot(cat_piece(piecepack_backgammon()))

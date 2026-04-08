@@ -16,6 +16,7 @@ New features
 
 * The following functions generate data frames to setup piecepack sets (#23, #50):
 
+  + `piecepack_achi()`
   + `piecepack_seega()`
   + `piecepack_tablan()`
   + `piecepack_yote()`
