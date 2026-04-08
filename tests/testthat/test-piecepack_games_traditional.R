@@ -10,6 +10,7 @@ test_that("piecepack traditional games work as expected", {
 	expect_snapshot(cat_piece(piecepack_baghchal(TRUE), annotate = TRUE))
 	expect_snapshot(cat_piece(piecepack_brandubh(), annotate = TRUE, reorient = "all"))
 	expect_snapshot(cat_piece(piecepack_cribbage_board()))
+	expect_snapshot(cat_piece(piecepack_dara(), annotate = TRUE))
 	expect_snapshot(cat_piece(piecepack_julgonu(), annotate = TRUE))
 	expect_snapshot(cat_piece(piecepack_nine_mens_morris(has_matchsticks = TRUE)))
 	expect_snapshot(cat_piece(piecepack_salta(), annotate = TRUE))
@@ -18,6 +19,7 @@ test_that("piecepack traditional games work as expected", {
 	expect_snapshot(cat_piece(piecepack_tablut(), annotate = TRUE, reorient = "all"))
 	expect_equal(nrow(piecepack_tablut(0.75)), 42L)
 	expect_equal(nrow(piecepack_tablut(0.50)), 45L)
+	expect_snapshot(cat_piece(piecepack_tic_tac_toe(), annotate = TRUE, reorient = "all"))
 	expect_snapshot(cat_piece(piecepack_yote(), annotate = TRUE))
 
 	# graphic checks

@@ -54,6 +54,10 @@ piecepack_games_traditional <- function() {
             , "``piecepack_cribbage()`` aka ``piecepack_cribbage_board()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Cribbage"
+            , "Dara"
+            , "``piecepack_dara()``"
+            , NA_character_
+            , "http://www.cyningstan.com/game/148/dara"
             , "Four Field Kono"
             , "``piecepack_four_field_kono()``"
             , NA_character_
@@ -86,6 +90,14 @@ piecepack_games_traditional <- function() {
             , "``piecepack_tablut()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Tablut"
+            , "Tic-tac-toe"
+            , "``piecepack_tic_tac_toe()``"
+            , NA_character_
+            , "https://en.wikipedia.org/wiki/Tic-tac-toe"
+            , "Twelve Men's Morris"
+            , "``piecepack_twelve_mens_morris()``"
+            , NA_character_
+            , "http://www.cyningstan.com/game/111/twelve-mens-morris"
             , "Yot\u00e9"
             , "``piecepack_yote()``"
             , NA_character_
@@ -326,6 +338,12 @@ piecepack_cribbage_board <- piecepack_cribbage
 
 #' @rdname piecepack_games_traditional
 #' @export
+piecepack_dara <- function() {
+	piecepack_rectangular_board(5L, 6L)
+}
+
+#' @rdname piecepack_games_traditional
+#' @export
 piecepack_four_field_kono <- function() {
 	df_t <- piecepack_rectangular_board(4L, 4L)
 	df_c <- piecepack_coins(
@@ -523,6 +541,12 @@ piecepack_tablut <- function(die_width = 0.63) {
 	}
 	df_p <- piecepack_pawns(suit = 3L, x = 5, y = 5)
 	bind_rows(df_t, df_cf, df_cb, df_d, df_p)
+}
+
+#' @rdname piecepack_games_traditional
+#' @export
+piecepack_tic_tac_toe <- function() {
+	piecepack_rectangular_board(3L, 3L)
 }
 
 #' @rdname piecepack_games_traditional

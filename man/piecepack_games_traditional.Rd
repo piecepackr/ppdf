@@ -10,6 +10,7 @@
 \alias{piecepack_brandubh}
 \alias{piecepack_cribbage}
 \alias{piecepack_cribbage_board}
+\alias{piecepack_dara}
 \alias{piecepack_four_field_kono}
 \alias{piecepack_julgonu}
 \alias{piecepack_ludo}
@@ -18,6 +19,7 @@
 \alias{piecepack_seega}
 \alias{piecepack_tablan}
 \alias{piecepack_tablut}
+\alias{piecepack_tic_tac_toe}
 \alias{piecepack_twelve_mens_morris}
 \alias{piecepack_yote}
 \title{Setups for other traditional games playable with a piecepack}
@@ -38,6 +40,8 @@ piecepack_cribbage()
 
 piecepack_cribbage_board()
 
+piecepack_dara()
+
 piecepack_four_field_kono()
 
 piecepack_julgonu()
@@ -53,6 +57,8 @@ piecepack_seega()
 piecepack_tablan()
 
 piecepack_tablut(die_width = 0.63)
+
+piecepack_tic_tac_toe()
 
 piecepack_twelve_mens_morris(has_matchsticks = FALSE)
 
@@ -80,7 +86,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 16 other traditional games playable with a piecepack.
+\code{tibble} data frames of setups for 19 other traditional games playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -93,6 +99,7 @@ Here are links for more information about the various other traditional games:\t
    Bagh-chal \tab \url{https://www.ludism.org/ppwiki/Bagh_Chal} \cr
    Brandubh AKA Brandub \tab \url{http://www.cyningstan.com/game/125/brandub} \cr
    Cribbage \tab \url{https://www.ludism.org/ppwiki/Cribbage} \cr
+   Dara \tab \url{http://www.cyningstan.com/game/148/dara} \cr
    Four Field Kono \tab \url{https://www.ludism.org/ppwiki/FourFieldKono} \cr
    Jul-Gonu \tab \url{https://www.ludism.org/ppwiki/JulGonu} \cr
    Ludo \tab \url{https://en.wikipedia.org/wiki/Ludo_(board_game)} \cr
@@ -101,6 +108,8 @@ Here are links for more information about the various other traditional games:\t
    Seega \tab \url{http://www.cyningstan.com/game/120/seega} \cr
    Tablan \tab \url{http://www.cyningstan.com/game/229/tablan} \cr
    Tablut \tab \url{https://www.ludism.org/ppwiki/Tablut} \cr
+   Tic-tac-toe \tab \url{https://en.wikipedia.org/wiki/Tic-tac-toe} \cr
+   Twelve Men's Morris \tab \url{http://www.cyningstan.com/game/111/twelve-mens-morris} \cr
    Yoté \tab \url{https://en.wikipedia.org/wiki/Yot\%C3\%A9} \cr
 }
 }
