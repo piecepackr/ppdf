@@ -26,6 +26,10 @@ piecepack_games_traditional <- function() {
             , ~methods
             , ~comment
             , ~url
+            , "Achi"
+            , "``piecepack_achi()``"
+            , NA_character_
+            , "https://en.wikipedia.org/wiki/Achi_(game)"
             , "Alquerque AKA Qirkat"
             , "``piecepack_alquerque()``"
             , NA_character_
@@ -87,6 +91,12 @@ piecepack_games_traditional <- function() {
             , NA_character_
             , "https://en.wikipedia.org/wiki/Yot%C3%A9"
             )
+}
+
+#' @rdname piecepack_games_traditional
+#' @export
+piecepack_achi <- function() {
+	piecepack_rectangular_board(3L, 3L)
 }
 
 #' @rdname piecepack_games_traditional

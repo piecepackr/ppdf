@@ -229,9 +229,10 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following 104 games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following 105 games playable with a piecepack deck (plus possibly additional components):
 
 * [12345ive!](https://boardgamegeek.com/boardgame/154644/12345ive)
+* [Achi](https://en.wikipedia.org/wiki/Achi_(game))
 * [Alice Chess](https://en.wikipedia.org/wiki/Alice_chess)
 * [Alien City](https://www.ludism.org/ppwiki/AlienCity)
 * [Alquerque AKA Qirkat](https://en.wikipedia.org/wiki/Alquerque)

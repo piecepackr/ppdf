@@ -2,6 +2,7 @@
 % Please edit documentation in R/piecepack_games_traditional.R
 \name{piecepack_games_traditional}
 \alias{piecepack_games_traditional}
+\alias{piecepack_achi}
 \alias{piecepack_alquerque}
 \alias{piecepack_awithlaknannai_mosona}
 \alias{piecepack_backgammon}
@@ -21,6 +22,8 @@
 \alias{piecepack_yote}
 \title{Setups for other traditional games playable with a piecepack}
 \usage{
+piecepack_achi()
+
 piecepack_alquerque(has_matchsticks = FALSE)
 
 piecepack_awithlaknannai_mosona(has_matchsticks = FALSE)
@@ -77,12 +80,13 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 15 other traditional games playable with a piecepack.
+\code{tibble} data frames of setups for 16 other traditional games playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
 Here are links for more information about the various other traditional games:\tabular{ll}{
    \strong{Game} \tab \strong{URL} \cr
+   Achi \tab \url{https://en.wikipedia.org/wiki/Achi_(game)} \cr
    Alquerque AKA Qirkat \tab \url{https://en.wikipedia.org/wiki/Alquerque} \cr
    Awithlaknannai Mosona \tab \url{https://en.wikipedia.org/wiki/Awithlaknannai_Mosona} \cr
    Backgammon \tab \url{https://www.ludism.org/ppwiki/Backgammon} \cr

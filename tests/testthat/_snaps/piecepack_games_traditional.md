@@ -1,6 +1,19 @@
 # piecepack traditional games work as expected
 
     Code
+      cat_piece(piecepack_achi(), annotate = TRUE)
+    Output
+      3 ┌─┰─┐
+        │ ┃ │
+      2 ┝━╋━┥
+        │ ┃ │
+      1 └─┸─┘
+             
+        a b c
+
+---
+
+    Code
       cat_piece(piecepack_alquerque(), annotate = TRUE)
     Output
                   
