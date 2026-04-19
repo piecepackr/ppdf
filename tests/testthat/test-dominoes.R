@@ -12,6 +12,16 @@ test_that("dominoes setups work as expected", {
 	expect_snapshot(cat_piece(domino_finder(seed = 12), annotate = TRUE))
 	expect_snapshot(cat_piece(domino_freecell(n = 7, seed = 12)))
 	expect_snapshot(cat_piece(domino_fujisan(seed = 12), annotate = TRUE, ybreaks = 1:2))
+	expect_snapshot(cat_piece(
+		domino_fujisan(pips = "123452345345/000001111222"),
+		annotate = TRUE,
+		ybreaks = 1:2
+	))
+	expect_snapshot(cat_piece(
+		domino_fujisan(seed = 1, pawns = "1S10M1/1A10C1"),
+		annotate = TRUE,
+		ybreaks = 1:2
+	))
 	expect_snapshot(cat_piece(domino_luzon(seed = 12)))
 	expect_snapshot(cat_piece(domino_patience(seed = 12)))
 	expect_snapshot(cat_piece(domino_runners(seed = 12), annotate = TRUE))

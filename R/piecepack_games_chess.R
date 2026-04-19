@@ -1,13 +1,13 @@
 #' Setups for chess variants playable with a piecepack
 #'
-#' \code{tibble} data frames of setups for `r nrow(piecepack_games_chess())` chess variants playable with a piecepack.
-#'   Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
+#' `tibble` data frames of setups for `r nrow(piecepack_games_chess())` chess variants playable with a piecepack.
+#'   Data frame output can usually be plotted with `pmap_piece(df, default.units = "in")`.
 #'
 #' Here are links for more information about the various chess variants:
 #'
 #' `r man_markdown_table(piecepack_games_chess())`
 #'
-#' @param cfg2 A string of a piecepack expansion (or perhaps \code{"piecepack"} for a second piecepack)
+#' @param cfg2 A string of a piecepack expansion (or perhaps `"piecepack"` for a second piecepack)
 #' @param has_subpack Has a piecepack subpack
 #' @param max_tiles Maximum number of (piecepack) tiles available to build boards
 #' @inheritParams piecepack_dominoids
@@ -205,8 +205,8 @@ piecepack_chess960 <- function(..., seed = NULL, has_subpack = FALSE) {
 	check_dots_empty()
 	maybe_local_seed(seed)
 	ranks <- fischer_random_ranks()
-	df_t <- piecepack_rectangular_board(8L, 8L)
 	df_p <- piecepack_chess_pieces(has_subpack, ranks = ranks)
+	df_t <- piecepack_rectangular_board(8L, 8L)
 	bind_rows(df_t, df_p)
 }
 
@@ -326,6 +326,7 @@ piecepack_four_seasons_chess <- function(has_subpack = FALSE) {
 	df <- bind_rows(df_t, df_p, df_sb)
 	df
 }
+
 
 piecepack_chess_pieces <- function(
 	has_subpack = FALSE,

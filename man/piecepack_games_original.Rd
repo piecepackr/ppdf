@@ -93,7 +93,7 @@ piecepack_four_blind_mice()
 
 piecepack_froggy_bottom()
 
-piecepack_fujisan(seed = NULL, coins = NULL, dice = NULL)
+piecepack_fujisan(seed = NULL, coins = NULL, dice = NULL, pawns = "S12M/A12C")
 
 piecepack_galaxy_express(seed = NULL)
 
@@ -180,7 +180,8 @@ piecepack_wormholes()
 
 \item{...}{Should be left empty.}
 
-\item{pawns}{String of pawns layout}
+\item{pawns}{A FEN-like string of the initial pawn placement.
+The four pawns \code{S}, \code{M}, \code{C}, and \code{A} are represented by their letter and empty spaces by a number.}
 
 \item{n_players}{Number of players}
 

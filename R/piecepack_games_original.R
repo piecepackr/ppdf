@@ -1,18 +1,19 @@
 #' Setups for various original piecepack games
 #'
-#' \code{tibble} data frames of setups for `r nrow(piecepack_games_original())` games playable with a piecepack.
-#'   Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
+#' `tibble` data frames of setups for `r nrow(piecepack_games_original())` games playable with a piecepack.
+#'   Data frame output can usually be plotted with `pmap_piece(df, default.units = "in")`.
 #'
 #' Here are links for more information about the various games:
 #'
 #' `r man_markdown_table(piecepack_games_original())`
 #'
-#' @param seed Seed that determines setup, either an integer or \code{NULL}
-#' @param cfg2 A string of a piecepack expansion (or perhaps \code{"piecepack"} for a second piecepack)
+#' @param seed Seed that determines setup, either an integer or `NULL`
+#' @param cfg2 A string of a piecepack expansion (or perhaps `"piecepack"` for a second piecepack)
 #' @param tiles String of tile layout
 #' @param coins String of coin layout
 #' @param dice String of dice layout
-#' @param pawns String of pawns layout
+#' @param pawns A FEN-like string of the initial pawn placement.
+#'   The four pawns `S`, `M`, `C`, and `A` are represented by their letter and empty spaces by a number.
 #' @param n_players Number of players
 #' @param variant Name of variant
 #' @param ... Should be left empty.
@@ -782,7 +783,7 @@ piecepack_froggy_bottom <- function() piecepack_rectangular_board(ncols = 6, nro
 
 #' @rdname piecepack_games_original
 #' @export
-piecepack_fujisan <- function(seed = NULL, coins = NULL, dice = NULL) {
+piecepack_fujisan <- function(seed = NULL, coins = NULL, dice = NULL, pawns = "S12M/A12C") {
 	maybe_local_seed(seed)
 	if (is.null(coins)) {
 		coins <- random_fujisan_coins()
@@ -804,7 +805,8 @@ piecepack_fujisan <- function(seed = NULL, coins = NULL, dice = NULL) {
 		suit = suit,
 		rank = c(coins[2, ], coins[1, ]) + 1
 	)
-	df_p <- piecepack_pawns(x = c(1, 14, 14, 1), y = c(2, 2, 1, 1))
+	df_pawns_pos <- df_parse_fen_pieces(pawns)
+	df_p <- piecepack_pawns(suit = df_pawns_pos$char, x = df_pawns_pos$x, y = df_pawns_pos$y)
 	if (first_move_needs_dice(coins)) {
 		if (is.null(dice)) {
 			dice <- random_dice()

@@ -1,7 +1,7 @@
 #' Setups for games playable with a piecepack stackpack
 #'
-#' \code{tibble} data frames of setups for `r nrow(stackpack_games_other())` other games playable with a piecepack stackpack.
-#'   Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
+#' `tibble` data frames of setups for `r nrow(stackpack_games_other())` other games playable with a piecepack stackpack.
+#'   Data frame output can usually be plotted with `pmap_piece(df, default.units = "in")`.
 #'
 #' Here are links for more information about the games:
 #'
@@ -82,7 +82,7 @@ stackpack_chaturaji <- function() piecepack_chaturaji(TRUE)
 
 #' @rdname stackpack_games_other
 #' @export
-stackpack_chess <- function() piecepack_chess(TRUE)
+stackpack_chess <- function() piecepack_chess(has_subpack = TRUE)
 
 #' @rdname stackpack_games_other
 #' @export

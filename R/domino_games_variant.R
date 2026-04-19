@@ -1,7 +1,7 @@
 #' Setups for dominoes variants
 #'
-#' \code{tibble} data frames of setups for `r nrow(domino_games_variant())` dominoes variants.
-#' Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
+#' `tibble` data frames of setups for `r nrow(domino_games_variant())` dominoes variants.
+#' Data frame output can usually be plotted with `pmap_piece(df, default.units = "in")`.
 #'
 #' Here are links for more information about the various games:
 #'
@@ -9,7 +9,13 @@
 #'
 #' @param n The number of doubles in a set e.g. `n = 7` for double-6 set,
 #'   `n = 10` for a double-9 set, `n = 13` for a double-12 set.
-#' @param seed Seed that determines setup, either an integer or \code{NULL}
+#' @param seed Seed that determines setup, either an integer or `NULL`
+#' @param ... Should be left empty.
+#' @param pips A vector or matrix of Fuji-san pip layout, or `NULL` for a random layout.
+#'   Can also be a string of integers with the rows separated by a `/`.
+#'   The first row is the top row (y=2) and the second is the bottom row (y=1).
+#' @param pawns A FEN-like string of the initial pawn placement.
+#'   The four pawns `S`, `M`, `C`, and `A` are represented by their letter and empty spaces by a number.
 #' @name domino_games_variant
 #' @return `r return_df()`
 #' @rdname domino_games_variant
@@ -201,19 +207,55 @@ domino_freecell <- function(n = 7, seed = NULL) {
 
 #' @rdname domino_games_variant
 #' @export
-domino_fujisan <- function(seed = NULL) {
+domino_fujisan <- function(seed = NULL, ..., pips = NULL, pawns = "S12M/A12C") {
+	check_dots_empty()
 	maybe_local_seed(seed)
-	df_tiles <- domino_tiles(n = 6) |>
-		filter(.data$suit != .data$rank) |>
-		slice_sample_piece() |>
-		mutate(
-			x = c(7.5, 7.5, 7.5, seq(2, 13, 1)),
-			y = c(c(0.5, 1.5, 2.5), rep_len(1.5, 12)),
-			angle = c(90, 90, 90, sample(c(180, 0), 12, replace = TRUE))
+	all_tiles <- domino_tiles(n = 6) |>
+		filter(.data$suit != .data$rank)
+	if (is.null(pips)) {
+		df_tiles <- all_tiles |>
+			slice_sample_piece() |>
+			mutate(
+				x = c(7.5, 7.5, 7.5, seq(2, 13, 1)),
+				y = c(c(0.5, 1.5, 2.5), rep_len(1.5, 12)),
+				angle = c(90, 90, 90, sample(c(180, 0), 12, replace = TRUE))
+			)
+		df_tiles[1:3, "piece_side"] <- "tile_back"
+	} else {
+		if (is.character(pips)) {
+			pips <- process_ranks(pips) - 1
+		}
+		if (is.vector(pips)) {
+			pips <- matrix(pips, nrow = 2, byrow = TRUE)
+		}
+		top_pips <- pips[1, ]
+		bot_pips <- pips[2, ]
+		# angle=180 puts suit (larger pip) at top (y=2), rank at bottom (y=1)
+		suit_vals <- pmax(top_pips, bot_pips) + 1L
+		rank_vals <- pmin(top_pips, bot_pips) + 1L
+		angle_vals <- ifelse(top_pips >= bot_pips, 180, 0)
+		main_idx <- match(
+			paste(suit_vals, rank_vals),
+			paste(all_tiles$suit, all_tiles$rank)
 		)
-	df_tiles[1:3, "piece_side"] <- "tile_back"
-	#### Where best to get pawns from?
-	df_pawns <- piecepack_pawns(suit = c(4, 1, 3, 2), x = rep(c(1, 14), each = 2), y = rep(1:2, 2))
+		df_mountain <- all_tiles[-main_idx, ] |>
+			slice_sample_piece() |>
+			mutate(
+				piece_side = "tile_back",
+				x = 7.5,
+				y = c(0.5, 1.5, 2.5),
+				angle = 90
+			)
+		df_board <- all_tiles[main_idx, ] |>
+			mutate(
+				x = as.double(seq(2, 13, 1)),
+				y = 1.5,
+				angle = angle_vals
+			)
+		df_tiles <- bind_rows(df_mountain, df_board)
+	}
+	df_pawns_pos <- df_parse_fen_pieces(pawns)
+	df_pawns <- piecepack_pawns(suit = df_pawns_pos$char, x = df_pawns_pos$x, y = df_pawns_pos$y)
 	bind_rows(df_tiles, df_pawns)
 }
 

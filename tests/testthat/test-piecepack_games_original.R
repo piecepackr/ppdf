@@ -32,6 +32,8 @@ test_that("piecepack original games work as expected", {
 	expect_snapshot(cat_piece(piecepack_everest()))
 	expect_snapshot(cat_piece(piecepack_froggy_bottom()))
 	expect_snapshot(cat_piece(piecepack_four_blind_mice()))
+	expect_snapshot(cat_piece(piecepack_fujisan(seed = 42)))
+	expect_snapshot(cat_piece(piecepack_fujisan(seed = 42, pawns = "1S10M1/1A10C1")))
 	expect_snapshot(cat_piece(piecepack_galaxy_express(seed = 42)))
 	expect_snapshot({
 		df <- piecepack_iceberg(seed = 42)
