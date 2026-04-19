@@ -46,6 +46,7 @@
 \alias{piecepack_slides_of_action}
 \alias{piecepack_speedy_towers}
 \alias{piecepack_steppin_stones}
+\alias{piecepack_tariffs}
 \alias{piecepack_the_in_crowd}
 \alias{piecepack_the_magic_bag}
 \alias{piecepack_the_penguin_game}
@@ -145,6 +146,10 @@ piecepack_speedy_towers(n_players = 2, seed = NULL)
 
 piecepack_steppin_stones(seed = NULL)
 
+piecepack_tariffs(
+  variant = c("simple zones", "grouped zones", "scattered zones")
+)
+
 piecepack_the_in_crowd()
 
 piecepack_the_magic_bag(seed = NULL)
@@ -202,7 +207,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 51 games playable with a piecepack.
+\code{tibble} data frames of setups for 52 games playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -251,6 +256,7 @@ Here are links for more information about the various games:\tabular{ll}{
    Slides of Action \tab \url{https://www.ludism.org/ppwiki/SlidesOfAction} \cr
    Speedy Towers \tab \url{https://ludism.org/ppwiki/SpeedyTowers} \cr
    Steppin' Stones \tab \url{https://ludism.org/ppwiki/Steppin'_Stones} \cr
+   Tariffs \tab \url{https://www.ludism.org/ppwiki/Tariffs} \cr
    The "In" Crowd \tab \url{https://www.ludism.org/ppwiki/TheInCrowd} \cr
    The Magic Bag \tab \url{https://www.ludism.org/ppwiki/The_Magic_Bag} \cr
    The Penguin Game \tab \url{https://www.ludism.org/ppwiki/PenguinGame} \cr

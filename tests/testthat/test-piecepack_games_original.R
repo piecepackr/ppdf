@@ -77,6 +77,9 @@ test_that("piecepack original games work as expected", {
 	expect_snapshot(cat_piece(piecepack_slides_of_action()))
 	expect_snapshot(cat_piece(piecepack_speedy_towers(seed = 42), reorient = "all"))
 	expect_snapshot(cat_piece(piecepack_steppin_stones(seed = 42), reorient = "symbols"))
+	expect_snapshot(cat_piece(piecepack_tariffs(), annotate = TRUE))
+	expect_snapshot(cat_piece(piecepack_tariffs(variant = "grouped zones"), annotate = TRUE))
+	expect_snapshot(cat_piece(piecepack_tariffs(variant = "scattered zones"), annotate = TRUE))
 	expect_snapshot(cat_piece(piecepack_the_in_crowd()))
 	expect_snapshot(cat_piece(piecepack_the_magic_bag(seed = 27)))
 	expect_snapshot({

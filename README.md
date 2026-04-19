@@ -229,7 +229,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following 107 games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following 108 games playable with a piecepack deck (plus possibly additional components):
 
 * [12345ive!](https://boardgamegeek.com/boardgame/154644/12345ive)
 * [Achi](https://en.wikipedia.org/wiki/Achi_(game))
@@ -321,6 +321,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Steppin' Stones](https://ludism.org/ppwiki/Steppin'_Stones)
 * [Tablan](http://www.cyningstan.com/game/229/tablan)
 * [Tablut](https://www.ludism.org/ppwiki/Tablut)
+* [Tariffs](https://www.ludism.org/ppwiki/Tariffs)
 * [Thai Checkers AKA Thai Draughts AKA Mak-hot AKA Makhos](https://checkers.fandom.com/wiki/Mak-hot)
 * [The "In" Crowd](https://www.ludism.org/ppwiki/TheInCrowd)
 * [The Magic Bag](https://www.ludism.org/ppwiki/The_Magic_Bag)
