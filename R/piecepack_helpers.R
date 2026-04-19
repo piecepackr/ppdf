@@ -100,45 +100,6 @@ random_dice <- function(n_dice = 4L, n_ranks = 6L) {
 	sample.int(n_ranks, n_dice, replace = TRUE)
 }
 
-fill_piece_rank <- function(df) {
-	df |>
-		separate_piece_side() |>
-		group_by(.data$piece, .data$suit) |>
-		mutate(rank = replace_na_piece(.data$rank)) |>
-		ungroup() |>
-		unite_piece_side()
-}
-
-fill_piece_suit <- function(df) {
-	df |>
-		separate_piece_side() |>
-		group_by(.data$piece, .data$rank) |>
-		mutate(suit = replace_na_piece(.data$suit)) |>
-		ungroup() |>
-		unite_piece_side()
-}
-
-# Avoids importing {stats}
-na_omit <- function(x) Filter(Negate(is.na), x)
-
-replace_na_piece <- function(x) {
-	ina <- which(is.na(x))
-	if (length(ina)) {
-		x[ina] <- sample(setdiff(seq.int(length(x)), as.integer(na_omit(x))), length(ina))
-		x
-	} else {
-		x
-	}
-}
-
-separate_piece_side <- function(df) {
-	tidyr::separate_wider_delim(df, "piece_side", "_", names = c("piece", "side"))
-}
-
-unite_piece_side <- function(df) {
-	tidyr::unite(df, "piece_side", "piece", "side")
-}
-
 select_piece <- function(df) {
 	dplyr::select(df, "piece_side", "suit", "rank", "cfg", "x", "y", "angle")
 }

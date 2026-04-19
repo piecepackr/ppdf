@@ -1,4 +1,4 @@
-#' @importFrom dplyr bind_rows mutate slice
+#' @importFrom dplyr anti_join bind_rows group_modify mutate slice
 #' @importFrom rlang .data %||% abort check_dots_empty local_options
 #' @importFrom tibble tibble tribble
 #' @importFrom utils hasName packageVersion
