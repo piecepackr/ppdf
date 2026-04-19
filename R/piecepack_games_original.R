@@ -205,6 +205,10 @@ piecepack_games_original <- function() {
             , "``piecepack_steppin_stones()``"
             , NA_character_
             , "https://ludism.org/ppwiki/Steppin'_Stones"
+            , "Tariffs"
+            , "``piecepack_tariffs()``"
+            , NA_character_
+            , "https://www.ludism.org/ppwiki/Tariffs"
             , "The \"In\" Crowd"
             , "``piecepack_the_in_crowd()``"
             , NA_character_
@@ -1717,6 +1721,73 @@ piecepack_steppin_stones <- function(seed = NULL) {
 		angle = c(180, 90, 0, -90)
 	)
 	bind_rows(df_tiles_faces, df_tiles_backs, df_coins, df_pawns)
+}
+
+#' @rdname piecepack_games_original
+#' @export
+piecepack_tariffs <- function(variant = c("simple zones", "grouped zones", "scattered zones")) {
+	variant <- match.arg(variant)
+	if (variant == "simple zones") {
+		piecepack_tiles(
+			suit = rep(1:4, each = 6L),
+			rank = rep.int(1:6, 4L),
+			x = rep(2 * 1:6 - 0.5, 4L),
+			y = rep(c(7.5, 5.5, 3.5, 1.5), each = 6L)
+		)
+	} else if (variant == "grouped zones") {
+		# fmt: skip
+		suit <- c(2L, 1L, 4L, 1L, 3L, 2L,
+				  3L, 4L, 3L, 2L, 4L, 3L,
+				  1L, 2L, 1L, 1L, 3L, 2L,
+				  4L, 3L, 4L, 2L, 4L, 1L
+		)
+		# fmt: skip
+		rank <- c(2L, 3L, 3L, 4L, 4L, 4L,
+				  2L, 2L, 3L, 3L, 4L, 5L,
+				  2L, 1L, 1L, 6L, 6L, 5L,
+				  1L, 1L, 6L, 6L, 5L, 5L
+		)
+		piecepack_tiles(
+			suit = suit,
+			rank = rank,
+			x = rep(2 * 1:6 - 0.5, 4L),
+			y = rep(c(7.5, 5.5, 3.5, 1.5), each = 6L)
+		)
+	} else {
+		# fmt: skip
+		suit <- c(4L, 3L,
+			  4L, 4L, 3L, 3L,
+		  4L, 4L, 4L, 3L, 3L, 3L,
+		  1L, 1L, 1L, 2L, 2L, 2L,
+			  1L, 1L, 2L, 2L,
+				  1L, 2L
+		)
+		# fmt: skip
+		rank <- c(6L, 6L,
+			  5L, 3L, 4L, 5L,
+		  2L, 4L, 1L, 1L, 3L, 2L,
+		  2L, 3L, 1L, 1L, 4L, 2L,
+			  5L, 4L, 3L, 5L,
+				  6L, 6L
+		)
+		# fmt: skip
+		x <- c(5.5, 7.5,
+		  3.5, 5.5, 7.5, 9.5,
+	 1.5, 3.5, 5.5, 7.5, 9.5, 11.5,
+	 1.5, 3.5, 5.5, 7.5, 9.5, 11.5,
+		  3.5, 5.5, 7.5, 9.5,
+			   5.5, 7.5
+		)
+		y <- c(
+			rep(11.5, 2),
+			rep(9.5, 4),
+			rep(7.5, 6),
+			rep(5.5, 6),
+			rep(3.5, 4),
+			rep(1.5, 2)
+		)
+		piecepack_tiles(suit = suit, rank = rank, x = x, y = y)
+	}
 }
 
 #' @rdname piecepack_games_original
