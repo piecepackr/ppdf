@@ -4,6 +4,8 @@ test_that("piecepack chess games work as expected", {
 
 	expect_snapshot(cat_piece(piecepack_alice_chess()))
 	expect_snapshot(cat_piece(piecepack_chaturaji(), reorient = "all"))
+	expect_snapshot(cat_piece(piecepack_chess()))
+	expect_snapshot(cat_piece(piecepack_chess960(seed = 42)))
 	expect_snapshot(cat_piece(piecepack_fischer_random_chess(seed = 42)))
 	expect_snapshot(cat_piece(piecepack_four_seasons_chess(), reorient = "all"))
 	expect_snapshot(cat_piece(piecepack_international_chess()))

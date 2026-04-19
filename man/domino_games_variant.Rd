@@ -22,7 +22,7 @@ domino_finder(seed = NULL)
 
 domino_freecell(n = 7, seed = NULL)
 
-domino_fujisan(seed = NULL)
+domino_fujisan(seed = NULL, ..., pips = NULL, pawns = "S12M/A12C")
 
 domino_luzon(seed = NULL)
 
@@ -39,6 +39,15 @@ domino_the_sultan(seed = NULL)
 
 \item{n}{The number of doubles in a set e.g. \code{n = 7} for double-6 set,
 \code{n = 10} for a double-9 set, \code{n = 13} for a double-12 set.}
+
+\item{...}{Should be left empty.}
+
+\item{pips}{A vector or matrix of Fuji-san pip layout, or \code{NULL} for a random layout.
+Can also be a string of integers with the rows separated by a \code{/}.
+The first row is the top row (y=2) and the second is the bottom row (y=1).}
+
+\item{pawns}{A FEN-like string of the initial pawn placement.
+The four pawns \code{S}, \code{M}, \code{C}, and \code{A} are represented by their letter and empty spaces by a number.}
 }
 \value{
 A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:

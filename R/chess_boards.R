@@ -96,3 +96,37 @@ chess_bits <- function(
 	)
 	set_cell_width(df_bits, cell_width, "chess")
 }
+
+df_parse_fen_pieces <- function(fen) {
+	placement <- strsplit(fen, " ", fixed = TRUE)[[1L]][1L]
+	rows <- strsplit(placement, "/", fixed = TRUE)[[1L]]
+	char <- character(0)
+	x <- integer(0)
+	y <- integer(0)
+	for (i in seq_along(rows)) {
+		yi <- length(rows) + 1L - as.integer(i)
+		xi <- 1L
+		tokens <- regmatches(rows[i], gregexpr("[A-Za-z]|[0-9]+", rows[i]))[[1L]]
+		for (tok in tokens) {
+			if (grepl("^[0-9]+$", tok)) {
+				xi <- xi + as.integer(tok)
+			} else {
+				char <- c(char, tok)
+				x <- c(x, xi)
+				y <- c(y, yi)
+				xi <- xi + 1L
+			}
+		}
+	}
+	tibble(char = char, x = x, y = y)
+}
+
+fen_to_chess_bits <- function(fen) {
+	df <- df_parse_fen_pieces(fen)
+	chess_bits(
+		suit = ifelse(str_detect(df$char, "[[:upper:]]"), 6L, 2L),
+		rank = df$char,
+		x = df$x,
+		y = df$y
+	)
+}

@@ -1,14 +1,16 @@
 #' Setups for chess variants
 #'
-#' \code{tibble} data frames of setups for `r nrow(chess_games_variant())` chess variants.
-#' Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
+#' `tibble` data frames of setups for `r nrow(chess_games_variant())` chess variants.
+#' Data frame output can usually be plotted with `pmap_piece(df, default.units = "in")`.
 #'
 #' Here are links for more information about the various games:
 #'
 #' `r man_markdown_table(chess_games_variant())`
 #'
 #' @param cell_width Width of board cell.  Most renderers support `1` or `2`.
-#' @param seed Seed that determines setup, either an integer or \code{NULL}
+#' @param fen A FEN string specifying the piece placement.
+#'   Only the piece placement portion (the first field) of the FEN string is used.
+#' @param seed Seed that determines setup, either an integer or `NULL`
 #' @param ... Should be left empty.
 #' @name chess_games_variant
 #' @rdname chess_games_variant
@@ -51,47 +53,51 @@ chess_games_variant <- function() {
 
 #' @rdname chess_games_variant
 #' @export
-chess_chess <- function(cell_width = getOption("ppdf.chess_cell_width", 1)) {
+chess_chess <- function(
+	cell_width = getOption("ppdf.chess_cell_width", 1),
+	...,
+	fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+) {
+	check_dots_empty()
 	force(cell_width)
 	local_options(ppdf.chess_cell_width = NULL)
 	df_board <- chess_board()
-	df_w <- chess_bits(
-		suit = 6L,
-		rank = c(rep(1L, 8L), 4L, 2L, 3L, 5L, 6L, 3L, 2L, 4L),
-		x = rep(1:8, 2L),
-		y = rep(2:1, each = 8L)
-	)
-	df_b <- chess_bits(
-		suit = 2L,
-		rank = c(rep(1L, 8L), 4L, 2L, 3L, 5L, 6L, 3L, 2L, 4L),
-		x = rep(1:8, 2L),
-		y = rep(7:8, each = 8L)
-	)
-	bind_rows(df_board, df_w, df_b) |>
+	bind_rows(df_board, fen_to_chess_bits(fen)) |>
 		set_cell_width(cell_width, "chess")
 }
 
 #' @rdname chess_games_variant
 #' @export
-chess_chess960 <- function(seed = NULL, cell_width = getOption("ppdf.chess_cell_width", 1)) {
-	maybe_local_seed(seed)
+chess_chess960 <- function(
+	seed = NULL,
+	cell_width = getOption("ppdf.chess_cell_width", 1),
+	...,
+	fen = NULL
+) {
+	check_dots_empty()
 	force(cell_width)
 	local_options(ppdf.chess_cell_width = NULL)
 	df_board <- chess_board()
-	ranks <- fischer_random_ranks()
-	df_w <- chess_bits(
-		suit = 6L,
-		rank = c(rep(1L, 8L), ranks),
-		x = rep(1:8, 2L),
-		y = rep(2:1, each = 8L)
-	)
-	df_b <- chess_bits(
-		suit = 2L,
-		rank = c(rep(1L, 8L), ranks),
-		x = rep(1:8, 2L),
-		y = rep(7:8, each = 8L)
-	)
-	bind_rows(df_board, df_w, df_b) |>
+	if (is.null(fen)) {
+		maybe_local_seed(seed)
+		ranks <- fischer_random_ranks()
+		df_w <- chess_bits(
+			suit = 6L,
+			rank = c(rep(1L, 8L), ranks),
+			x = rep(1:8, 2L),
+			y = rep(2:1, each = 8L)
+		)
+		df_b <- chess_bits(
+			suit = 2L,
+			rank = c(rep(1L, 8L), ranks),
+			x = rep(1:8, 2L),
+			y = rep(7:8, each = 8L)
+		)
+		df_pieces <- bind_rows(df_w, df_b)
+	} else {
+		df_pieces <- fen_to_chess_bits(fen)
+	}
+	bind_rows(df_board, df_pieces) |>
 		set_cell_width(cell_width, "chess")
 }
 
@@ -119,24 +125,16 @@ fischer_random_ranks <- function() {
 
 #' @rdname chess_games_variant
 #' @export
-chess_horde_chess <- function(..., cell_width = getOption("ppdf.chess_cell_width", 1)) {
+chess_horde_chess <- function(
+	...,
+	cell_width = getOption("ppdf.chess_cell_width", 1),
+	fen = "rnbqkbnr/pppppppp/8/1PP2PP1/PPPPPPPP/PPPPPPPP/PPPPPPPP/PPPPPPPP w kq - 0 1"
+) {
 	check_dots_empty()
 	force(cell_width)
 	local_options(ppdf.chess_cell_width = NULL)
 	df_board <- chess_board()
-	df_w <- chess_bits(
-		suit = 6L,
-		rank = 1L,
-		x = c(rep(1:8, 4L), 2:3, 6:7),
-		y = c(rep(1:4, each = 8L), rep_len(5L, 4L))
-	)
-	df_b <- chess_bits(
-		suit = 2L,
-		rank = c(rep(1L, 8L), 4L, 2L, 3L, 5L, 6L, 3L, 2L, 4L),
-		x = rep(1:8, 2L),
-		y = rep(7:8, each = 8L)
-	)
-	bind_rows(df_board, df_w, df_b) |>
+	bind_rows(df_board, fen_to_chess_bits(fen)) |>
 		set_cell_width(cell_width, "chess")
 }
 
@@ -147,44 +145,30 @@ chess_international_chess <- chess_chess
 
 #' @rdname chess_games_variant
 #' @export
-chess_monochrome_chess <- function(cell_width = getOption("ppdf.chess_cell_width", 1)) {
+chess_monochrome_chess <- function(
+	cell_width = getOption("ppdf.chess_cell_width", 1),
+	...,
+	fen = "RNBQKBNR/PPPPPPPP/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+) {
+	check_dots_empty()
 	force(cell_width)
 	local_options(ppdf.chess_cell_width = NULL)
 	df_board <- chess_board()
-	df_b <- chess_bits(
-		suit = 6L,
-		rank = c(rep(1L, 8L), 4L, 2L, 3L, 5L, 6L, 3L, 2L, 4L),
-		x = rep(1:8, 2L),
-		y = rep(2:1, each = 8L)
-	)
-	df_t <- chess_bits(
-		suit = 6L,
-		rank = c(rep(1L, 8L), 4L, 2L, 3L, 5L, 6L, 3L, 2L, 4L),
-		x = rep(1:8, 2L),
-		y = rep(7:8, each = 8L)
-	)
-	bind_rows(df_board, df_b, df_t) |>
+	bind_rows(df_board, fen_to_chess_bits(fen)) |>
 		set_cell_width(cell_width, "chess")
 }
 
 #' @rdname chess_games_variant
 #' @export
-chess_racing_kings <- function(cell_width = getOption("ppdf.chess_cell_width", 1)) {
+chess_racing_kings <- function(
+	cell_width = getOption("ppdf.chess_cell_width", 1),
+	...,
+	fen = "8/8/8/8/8/8/krbnNBRK/qrbnNBRQ w - - 0 1"
+) {
+	check_dots_empty()
 	force(cell_width)
 	local_options(ppdf.chess_cell_width = NULL)
 	df_board <- chess_board()
-	df_w <- chess_bits(
-		suit = 6L,
-		rank = c(2L, 3L, 4L, 6L, 2L, 3L, 4L, 5L),
-		x = rep(5:8, 2L),
-		y = rep(2:1, each = 4L)
-	)
-	df_b <- chess_bits(
-		suit = 2L,
-		rank = c(6L, 4L, 3L, 2L, 5L, 4L, 3L, 2L),
-		x = rep(1:4, 2L),
-		y = rep(2:1, each = 4L)
-	)
-	bind_rows(df_board, df_w, df_b) |>
+	bind_rows(df_board, fen_to_chess_bits(fen)) |>
 		set_cell_width(cell_width, "chess")
 }

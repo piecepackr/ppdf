@@ -4,6 +4,8 @@ test_that("piecepack stackpack diagrams work as expected", {
 
 	expect_snapshot(cat_piece(stackpack_alice_chess(), reorient = "all"))
 	expect_snapshot(cat_piece(stackpack_chaturaji(), reorient = "all"))
+	expect_snapshot(cat_piece(stackpack_chess()))
+	expect_snapshot(cat_piece(stackpack_chess960(seed = 42)))
 	expect_snapshot(cat_piece(stackpack_fischer_random_chess(seed = 42)))
 	expect_snapshot(cat_piece(stackpack_four_seasons_chess(), reorient = "all"))
 	expect_snapshot(cat_piece(stackpack_horde_chess(), reorient = "symbols"))

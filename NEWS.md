@@ -26,6 +26,9 @@ New features
 Bug fixes and minor improvements
 --------------------------------
 
+* `chess_chess()`, `chess_chess960()`, `chess_horde_chess()`, `chess_monochrome_chess()`, and `chess_racing_kings()` now accept a `fen` argument to set up a position from a FEN string (#25).
+* `domino_fujisan()` now accepts a `pips` argument to specify the pip layout using a matrix or string (similar to the `coins` argument of `piecepack_fujisan()`).
+* `domino_fujisan()` and `piecepack_fujisan()` now accept a `pawns` argument to specify the initial pawn placement using a FEN-like string (#29).
 * `normalize_name()` now strips accents (e.g. "Yoté" is normalized to "yote") (#23).
 * Fix `stackpack_chess960()` and `stackpack_fischer_random_chess()`.
 

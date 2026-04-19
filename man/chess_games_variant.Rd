@@ -11,29 +11,59 @@
 \alias{chess_racing_kings}
 \title{Setups for chess variants}
 \usage{
-chess_chess(cell_width = getOption("ppdf.chess_cell_width", 1))
+chess_chess(
+  cell_width = getOption("ppdf.chess_cell_width", 1),
+  ...,
+  fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+)
 
-chess_chess960(seed = NULL, cell_width = getOption("ppdf.chess_cell_width", 1))
+chess_chess960(
+  seed = NULL,
+  cell_width = getOption("ppdf.chess_cell_width", 1),
+  ...,
+  fen = NULL
+)
 
 chess_fischer_random_chess(
   seed = NULL,
-  cell_width = getOption("ppdf.chess_cell_width", 1)
+  cell_width = getOption("ppdf.chess_cell_width", 1),
+  ...,
+  fen = NULL
 )
 
-chess_horde_chess(..., cell_width = getOption("ppdf.chess_cell_width", 1))
+chess_horde_chess(
+  ...,
+  cell_width = getOption("ppdf.chess_cell_width", 1),
+  fen = "rnbqkbnr/pppppppp/8/1PP2PP1/PPPPPPPP/PPPPPPPP/PPPPPPPP/PPPPPPPP w kq - 0 1"
+)
 
-chess_international_chess(cell_width = getOption("ppdf.chess_cell_width", 1))
+chess_international_chess(
+  cell_width = getOption("ppdf.chess_cell_width", 1),
+  ...,
+  fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+)
 
-chess_monochrome_chess(cell_width = getOption("ppdf.chess_cell_width", 1))
+chess_monochrome_chess(
+  cell_width = getOption("ppdf.chess_cell_width", 1),
+  ...,
+  fen = "RNBQKBNR/PPPPPPPP/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+)
 
-chess_racing_kings(cell_width = getOption("ppdf.chess_cell_width", 1))
+chess_racing_kings(
+  cell_width = getOption("ppdf.chess_cell_width", 1),
+  ...,
+  fen = "8/8/8/8/8/8/krbnNBRK/qrbnNBRQ w - - 0 1"
+)
 }
 \arguments{
 \item{cell_width}{Width of board cell.  Most renderers support \code{1} or \code{2}.}
 
-\item{seed}{Seed that determines setup, either an integer or \code{NULL}}
-
 \item{...}{Should be left empty.}
+
+\item{fen}{A FEN string specifying the piece placement.
+Only the piece placement portion (the first field) of the FEN string is used.}
+
+\item{seed}{Seed that determines setup, either an integer or \code{NULL}}
 }
 \value{
 A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:
