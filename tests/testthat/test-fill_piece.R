@@ -66,6 +66,25 @@ test_that("fill_piece() pawns fill suit", {
 	expect_equal(result$rank, rep(1L, 4L))
 })
 
+test_that("fill_piece() saucers fill suit", {
+	withr::local_seed(42)
+	df <- piecepack_saucers(suit = NA_integer_)
+	result <- fill_piece(df)
+	expect_false(anyNA(result$suit))
+	expect_setequal(result$suit, 1:4)
+	expect_equal(result$rank, rep(1L, 4L))
+})
+
+test_that("fill_piece() saucer with one known suit assigns different suit to NA", {
+	for (i in 1:20) {
+		df <- piecepack_saucers(suit = c(1L, NA_integer_), x = c(1, 2), side = c("face", "back"))
+		result <- fill_piece(df)
+		expect_false(anyNA(result$suit))
+		expect_equal(result$suit[1L], 1L)
+		expect_false(result$suit[2L] == 1L)
+	}
+})
+
 test_that("fill_piece() dice fill suit and set rank to 1", {
 	withr::local_seed(42)
 	df <- piecepack_dice(suit = NA_integer_, rank = NA_integer_)
