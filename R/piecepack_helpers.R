@@ -131,6 +131,8 @@ slice_sample_piece <- function(df, ..., n = nrow(df), size = n, names = c("rank"
 #' `piecepack_dice()` generates a data frame of piecepack dice.
 #' `piecepack_matchsticks()` generates a data frame of piecepack matchsticks.
 #' `piecepack_pawns()` generates a data frame of piecepack pawns.
+#' `piecepack_pyramids()` generates a data frame of piecepack pyramids.
+#' `piecepack_saucers()` generates a data frame of piecepack saucers.
 #' `piecepack_tiles()` generates a data frame of piecepack tiles.
 #' @param ... Should be left empty.
 #' @param side Either "face" or "back".
@@ -152,6 +154,8 @@ slice_sample_piece <- function(df, ..., n = nrow(df), size = n, names = c("rank"
 #' df_coins <- piecepack_coins()
 #' df_dice <- piecepack_dice()
 #' df_pawns <- piecepack_pawns()
+#' df_pyramids <- piecepack_pyramids()
+#' df_saucers <- piecepack_saucers()
 #' df_tiles <- piecepack_tiles()
 #' @name piecepack_pieces
 NULL
@@ -238,6 +242,57 @@ piecepack_pawns <- function(
 	...,
 	side = "face",
 	piece_side = paste0("pawn_", side),
+	suit = 1:4,
+	cfg = "piecepack",
+	x = as.double(1:4),
+	y = 1,
+	angle = 0,
+	length.out = NA_integer_
+) {
+	check_dots_empty()
+	tibble(
+		piece_side = rep(piece_side, length.out = length.out),
+		suit = rep(piece_suit(suit), length.out = length.out),
+		rank = rep(1L, length.out = length.out),
+		cfg = rep(cfg, length.out = length.out),
+		x = rep(as.double(x), length.out = length.out),
+		y = rep(as.double(y), length.out = length.out),
+		angle = rep(piece_angle(angle), length.out = length.out)
+	)
+}
+
+#' @rdname piecepack_pieces
+#' @export
+piecepack_pyramids <- function(
+	...,
+	side = "top",
+	piece_side = paste0("pyramid_", side),
+	suit = rep(1:4, each = 6L),
+	rank = rep.int(1:6, 4L),
+	cfg = "piecepack",
+	x = as.double(rep.int(1:6, 4L)),
+	y = as.double(rep(4:1, each = 6L)),
+	angle = 0,
+	length.out = NA_integer_
+) {
+	check_dots_empty()
+	tibble(
+		piece_side = rep(piece_side, length.out = length.out),
+		suit = rep(piece_suit(suit), length.out = length.out),
+		rank = rep(piece_rank(rank), length.out = length.out),
+		cfg = rep(cfg, length.out = length.out),
+		x = rep(as.double(x), length.out = length.out),
+		y = rep(as.double(y), length.out = length.out),
+		angle = rep(piece_angle(angle), length.out = length.out)
+	)
+}
+
+#' @rdname piecepack_pieces
+#' @export
+piecepack_saucers <- function(
+	...,
+	side = "face",
+	piece_side = paste0("saucer_", side),
 	suit = 1:4,
 	cfg = "piecepack",
 	x = as.double(1:4),
