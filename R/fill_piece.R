@@ -12,7 +12,7 @@ fill_piece_group <- function(d, piece) {
 	if (!length(needs_idx)) {
 		return(d)
 	}
-	if (piece %in% c("pawn", "die")) {
+	if (piece %in% c("die", "pawn", "saucer")) {
 		d$suit <- replace_na_piece(d$suit)
 		d$rank[is.na(d$rank)] <- 1L
 		return(d)
@@ -93,7 +93,8 @@ na_omit <- function(x) Filter(Negate(is.na), x)
 replace_na_piece <- function(x) {
 	ina <- which(is.na(x))
 	if (length(ina)) {
-		x[ina] <- sample(setdiff(seq.int(length(x)), as.integer(na_omit(x))), length(ina))
+		avail <- setdiff(seq.int(length(x)), as.integer(na_omit(x)))
+		x[ina] <- avail[sample.int(length(avail), length(ina))]
 		x
 	} else {
 		x
