@@ -6,6 +6,8 @@
 \alias{piecepack_dice}
 \alias{piecepack_matchsticks}
 \alias{piecepack_pawns}
+\alias{piecepack_pyramids}
+\alias{piecepack_saucers}
 \alias{piecepack_tiles}
 \title{Generate piecepack pieces}
 \usage{
@@ -50,6 +52,31 @@ piecepack_pawns(
   ...,
   side = "face",
   piece_side = paste0("pawn_", side),
+  suit = 1:4,
+  cfg = "piecepack",
+  x = as.double(1:4),
+  y = 1,
+  angle = 0,
+  length.out = NA_integer_
+)
+
+piecepack_pyramids(
+  ...,
+  side = "top",
+  piece_side = paste0("pyramid_", side),
+  suit = rep(1:4, each = 6L),
+  rank = rep.int(1:6, 4L),
+  cfg = "piecepack",
+  x = as.double(rep.int(1:6, 4L)),
+  y = as.double(rep(4:1, each = 6L)),
+  angle = 0,
+  length.out = NA_integer_
+)
+
+piecepack_saucers(
+  ...,
+  side = "face",
+  piece_side = paste0("saucer_", side),
   suit = 1:4,
   cfg = "piecepack",
   x = as.double(1:4),
@@ -115,11 +142,15 @@ This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepac
 \code{piecepack_dice()} generates a data frame of piecepack dice.
 \code{piecepack_matchsticks()} generates a data frame of piecepack matchsticks.
 \code{piecepack_pawns()} generates a data frame of piecepack pawns.
+\code{piecepack_pyramids()} generates a data frame of piecepack pyramids.
+\code{piecepack_saucers()} generates a data frame of piecepack saucers.
 \code{piecepack_tiles()} generates a data frame of piecepack tiles.
 }
 \examples{
 df_coins <- piecepack_coins()
 df_dice <- piecepack_dice()
 df_pawns <- piecepack_pawns()
+df_pyramids <- piecepack_pyramids()
+df_saucers <- piecepack_saucers()
 df_tiles <- piecepack_tiles()
 }

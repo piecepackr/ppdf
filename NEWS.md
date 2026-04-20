@@ -14,6 +14,7 @@ New features
   + `domino_freecell()`
   + `domino_the_sultan()`
 
+* `piecepack_pyramids()` and `piecepack_saucers()` are new helper functions to generate data frames of piecepack pyramids and saucers.
 * The following functions generate data frames to setup piecepack sets (#23, #40, #50):
 
   + `piecepack_achi()`
