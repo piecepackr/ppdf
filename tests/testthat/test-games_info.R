@@ -6,7 +6,7 @@ test_that("*_games() row counts", {
 	expect_equal(nrow(go_games()), 2L)
 	expect_equal(nrow(marble_games()), 0L)
 	expect_equal(nrow(morris_games()), 7L)
-	expect_equal(nrow(piecepack_games()), 109L)
+	expect_equal(nrow(piecepack_games()), 110L)
 	expect_equal(nrow(reversi_games()), 2L)
 	expect_equal(nrow(stackpack_games()), 10L)
 	expect_equal(nrow(tarot_games()), 0L)

@@ -50,6 +50,7 @@
 \alias{piecepack_the_in_crowd}
 \alias{piecepack_the_magic_bag}
 \alias{piecepack_the_penguin_game}
+\alias{piecepack_tornado_vs_trailer_park}
 \alias{piecepack_tower_of_babel}
 \alias{piecepack_accordion}
 \alias{piecepack_tracers}
@@ -156,6 +157,8 @@ piecepack_the_magic_bag(seed = NULL)
 
 piecepack_the_penguin_game(seed = NULL)
 
+piecepack_tornado_vs_trailer_park()
+
 piecepack_tower_of_babel(seed = NULL, tiles = NULL)
 
 piecepack_accordion(seed = NULL, tiles = NULL)
@@ -207,7 +210,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 52 games playable with a piecepack.
+\code{tibble} data frames of setups for 53 games playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -260,6 +263,7 @@ Here are links for more information about the various games:\tabular{ll}{
    The "In" Crowd \tab \url{https://www.ludism.org/ppwiki/TheInCrowd} \cr
    The Magic Bag \tab \url{https://www.ludism.org/ppwiki/The_Magic_Bag} \cr
    The Penguin Game \tab \url{https://www.ludism.org/ppwiki/PenguinGame} \cr
+   Tornado vs. Trailer Park \tab \url{https://www.ludism.org/ppwiki/Tornado_vs._Trailer_Park} \cr
    Tower of Babel AKA (Piecepack) Accordion \tab \url{https://www.ludism.org/ppwiki/TowerOfBabel} \cr
    Tracers \tab \url{https://www.ludism.org/ppwiki/Tracers} \cr
    Triactor \tab \url{https://www.ludism.org/ppwiki/Triactor} \cr

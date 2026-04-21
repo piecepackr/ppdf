@@ -28,6 +28,7 @@ New features
   + `piecepack_tablan()`
   + `piecepack_tariffs()`
   + `piecepack_tic_tac_toe()`
+  + `piecepack_tornado_vs_trailer_park()`
   + `piecepack_yote()`
 
 * The following functions are helper functions for setup functions (#32):

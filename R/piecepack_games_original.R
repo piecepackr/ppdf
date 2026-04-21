@@ -221,6 +221,10 @@ piecepack_games_original <- function() {
             , "``piecepack_the_penguin_game()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/PenguinGame"
+            , "Tornado vs. Trailer Park"
+            , "``piecepack_tornado_vs_trailer_park()``"
+            , NA_character_
+            , "https://www.ludism.org/ppwiki/Tornado_vs._Trailer_Park"
             , "Tower of Babel AKA (Piecepack) Accordion"
             , "``piecepack_tower_of_babel()`` aka ``piecepack_accordion()``"
             , NA_character_
@@ -1822,6 +1826,22 @@ piecepack_the_penguin_game <- function(seed = NULL) {
 	) |>
 		slice_sample_piece()
 	bind_rows(df_tiles, df_coins)
+}
+
+#' @rdname piecepack_games_original
+#' @export
+piecepack_tornado_vs_trailer_park <- function() {
+	df_t <- piecepack_rectangular_board(6L, 10L)
+	df_c <- piecepack_coins(
+		side = "face",
+		x = 1,
+		y = 6:1,
+		suit = 2L,
+		rank = 1:6
+	)
+	df_pawn <- piecepack_pawns(suit = 2L, x = 0, y = 2)
+	df_die <- piecepack_dice(suit = 2L, x = 0, y = 1, rank = 1L)
+	bind_rows(df_t, df_c, df_pawn, df_die)
 }
 
 #' @rdname piecepack_games_original
