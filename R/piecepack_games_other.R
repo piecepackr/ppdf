@@ -7,6 +7,9 @@
 #'
 #' `r man_markdown_table(piecepack_games_other())`
 #'
+#' @param nrows Number of rows (and columns) in game board.
+#' @param variant Either `"vout"` (red/suns on the left side, green/arms on the bottom)
+#'   or `"schoessow"` (red/suns on the left side, green/arms on the right side).
 #' @param seed Seed that determines setup, either an integer or \code{NULL}
 #' @param coins String of coin layout
 #' @rdname piecepack_games_other
@@ -45,6 +48,10 @@ piecepack_games_other <- function() {
             , "``piecepack_dao()``"
             , NA_character_
             , "https://boardgamegeek.com/boardgame/948/dao"
+            , "Dodgem"
+            , "``piecepack_dodgem()``"
+            , NA_character_
+            , "https://en.wikipedia.org/wiki/Dodgem"
             , "Grasshopper"
             , "``piecepack_grasshopper()``"
             , NA_character_
@@ -122,6 +129,43 @@ piecepack_dao <- function() {
 		suit = rep(c(1L, 2L), each = 4L),
 		rank = rep.int(1:4, 2L),
 		angle = rep(c(180, 0), each = 4L)
+	)
+	bind_rows(df_t, df_c)
+}
+
+#' @rdname piecepack_games_other
+#' @export
+piecepack_dodgem <- function(nrows = 6L, variant = "vout") {
+	nrows <- as.integer(nrows)
+	stopifnot("`nrows` must be 12 or less" = nrows <= 12)
+	variant <- match.arg(variant, c("vout", "schoessow"))
+	n_pieces <- nrows - 1L
+	df_t <- piecepack_rectangular_board(nrows, nrows)
+	if (n_pieces <= 6L) {
+		rank_seq <- seq_len(n_pieces)
+		suit_left <- rep(1L, n_pieces)
+		suit_right <- rep(4L, n_pieces)
+	} else {
+		rank_seq <- c(1:6, seq_len(n_pieces - 6L))
+		suit_left <- c(rep(1L, 6L), rep(2L, n_pieces - 6L))
+		suit_right <- c(rep(4L, 6L), rep(3L, n_pieces - 6L))
+	}
+	if (variant == "vout") {
+		x <- c(rep(1L, n_pieces), seq.int(2L, nrows))
+		y <- c(seq.int(2L, nrows), rep(1L, n_pieces))
+		angle <- c(rep(270, n_pieces), rep(0, n_pieces))
+	} else {
+		x <- c(rep(1L, n_pieces), rep(nrows, n_pieces))
+		y <- c(seq_len(n_pieces), seq.int(2L, nrows))
+		angle <- c(rep(270, n_pieces), rep(90, n_pieces))
+	}
+	df_c <- piecepack_coins(
+		side = "back",
+		x = x,
+		y = y,
+		suit = c(suit_left, suit_right),
+		rank = c(rank_seq, rank_seq),
+		angle = angle
 	)
 	bind_rows(df_t, df_c)
 }

@@ -4,6 +4,10 @@ ppdf 0.3.0 (development)
 New features
 ------------
 
+* The following functions generate data frames to setup checkers sets (#49):
+
+  + `checker_dodgem()`
+
 * The following functions generate data frames to setup cubes (#76):
 
   + `cube_bits()`
@@ -14,17 +18,22 @@ New features
   + `domino_freecell()`
   + `domino_the_sultan()`
 
-* `piecepack_preview()` generates a data frame to preview a standard piecepack set (#35).
-* `piecepack_pyramids()` and `piecepack_saucers()` are new helper functions to generate data frames of piecepack pyramids and saucers.
-* The following functions generate data frames to setup piecepack sets (#23, #40, #50):
+* The following functions generate data frames to setup piecepack sets (#23, #35, #40, #49, #50):
 
   + `piecepack_achi()`
   + `piecepack_dara()`
+  + `piecepack_dodgem()`
+  + `piecepack_preview()`
   + `piecepack_seega()`
   + `piecepack_tablan()`
   + `piecepack_tariffs()`
   + `piecepack_tic_tac_toe()`
   + `piecepack_yote()`
+
+* The following functions are helper functions for setup functions (#32):
+
+  + `piecepack_pyramids()`
+  + `piecepack_saucers()`
 
 Bug fixes and minor improvements
 --------------------------------

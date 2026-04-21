@@ -7,6 +7,7 @@
 #'
 #' `r man_markdown_table(checker_games_other())`
 #'
+#' @param nrows Number of rows (and columns) in game board.
 #' @param cell_width Width of board cell.  Most renderers support `1` or `2`.
 #' @name checker_games_other
 #' @rdname checker_games_other
@@ -37,6 +38,10 @@ checker_games_other <- function() {
             , "``piecepack_dao()``"
             , NA_character_
             , "https://boardgamegeek.com/boardgame/948/dao"
+            , "Dodgem"
+            , "``checker_dodgem()``"
+            , NA_character_
+            , "https://en.wikipedia.org/wiki/Dodgem"
             , "Focus"
             , "``checker_focus()``"
             , NA_character_
@@ -74,6 +79,20 @@ checker_crossings <- checker_breakthrough
 #' @export
 checker_dao <- function(cell_width = getOption("ppdf.checker_cell_width", 1)) {
 	to_checkers(piecepack_dao(), cell_width)
+}
+
+#' @rdname checker_games_other
+#' @export
+checker_dodgem <- function(nrows = 3L, cell_width = getOption("ppdf.checker_cell_width", 1)) {
+	force(cell_width)
+	local_options(ppdf.checker_cell_width = NULL)
+	nrows <- as.integer(nrows)
+	n_pieces <- nrows - 1L
+	df_board <- checker_board(nrows)
+	df_w <- checker_bits(suit = 6L, x = rep(1L, n_pieces), y = seq.int(2L, nrows))
+	df_b <- checker_bits(suit = 2L, x = seq.int(2L, nrows), y = rep(1L, n_pieces))
+	bind_rows(df_board, df_w, df_b) |>
+		set_cell_width(cell_width, "checkers")
 }
 
 #' @rdname checker_games_other

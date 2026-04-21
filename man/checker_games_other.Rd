@@ -5,6 +5,7 @@
 \alias{checker_breakthrough}
 \alias{checker_crossings}
 \alias{checker_dao}
+\alias{checker_dodgem}
 \alias{checker_focus}
 \alias{checker_four_field_kono}
 \alias{checker_grasshopper}
@@ -18,6 +19,11 @@ checker_crossings(cell_width = getOption("ppdf.checker_cell_width", 1))
 
 checker_dao(cell_width = getOption("ppdf.checker_cell_width", 1))
 
+checker_dodgem(
+  nrows = 3L,
+  cell_width = getOption("ppdf.checker_cell_width", 1)
+)
+
 checker_focus(cell_width = getOption("ppdf.checker_cell_width", 1))
 
 checker_four_field_kono(cell_width = getOption("ppdf.checker_cell_width", 1))
@@ -30,6 +36,8 @@ checker_lines_of_action(cell_width = getOption("ppdf.checker_cell_width", 1))
 }
 \arguments{
 \item{cell_width}{Width of board cell.  Most renderers support \code{1} or \code{2}.}
+
+\item{nrows}{Number of rows (and columns) in game board.}
 }
 \value{
 A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:
@@ -46,7 +54,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 8 other games playable with a checkers set.
+\code{tibble} data frames of setups for 9 other games playable with a checkers set.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -55,6 +63,7 @@ Here are links for more information about the various games:\tabular{ll}{
    Breakthrough \tab \url{https://en.wikipedia.org/wiki/Breakthrough_(board_game)} \cr
    Crossings \tab \url{https://en.wikipedia.org/wiki/Crossings_(game)} \cr
    Dao \tab \url{https://boardgamegeek.com/boardgame/948/dao} \cr
+   Dodgem \tab \url{https://en.wikipedia.org/wiki/Dodgem} \cr
    Focus \tab \url{https://en.wikipedia.org/wiki/Focus_(board_game)} \cr
    Four Field Kono \tab \url{https://en.wikipedia.org/wiki/Four_Field_Kono} \cr
    Grasshopper \tab \url{http://www.cyningstan.com/game/71/grasshopper} \cr
