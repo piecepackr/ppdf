@@ -89,6 +89,7 @@ test_that("piecepack original games work as expected", {
 		cat_piece(df)
 	})
 	expect_snapshot(cat_piece(piecepack_the_penguin_game(seed = 42)))
+	expect_snapshot(cat_piece(piecepack_tornado_vs_trailer_park(), annotate = TRUE))
 	expect_snapshot(cat_piece(piecepack_tracers()))
 	expect_snapshot(cat_piece(piecepack_triactor(seed = 42), reorient = "all"))
 	expect_snapshot({
