@@ -168,7 +168,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="checkers">Checkers Sets</a>
 
-`{ppdf}` supports the following 31 games playable with a (possibly non-8x8) checkers set:
+`{ppdf}` supports the following 32 games playable with a (possibly non-8x8) checkers set:
 
 * [(American) Checkers AKA (English) Draughts](https://en.wikipedia.org/wiki/Draughts)
 * [American Pool Checkers](https://draughts.github.io/american-pool-checkers.html)
@@ -181,6 +181,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Czech Checkers AKA Czech Draughts](https://en.wikipedia.org/wiki/Czech_draughts)
 * [Dameo](https://en.wikipedia.org/wiki/Dameo)
 * [Dao](https://boardgamegeek.com/boardgame/948/dao)
+* [Dodgem](https://en.wikipedia.org/wiki/Dodgem)
 * [Focus](https://en.wikipedia.org/wiki/Focus_(board_game))
 * [Four Field Kono](https://en.wikipedia.org/wiki/Four_Field_Kono)
 * [Frisian Checkers AKA Frisian Draughts](https://en.wikipedia.org/wiki/Frisian_draughts)
@@ -229,7 +230,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following 108 games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following 109 games playable with a piecepack deck (plus possibly additional components):
 
 * [12345ive!](https://boardgamegeek.com/boardgame/154644/12345ive)
 * [Achi](https://en.wikipedia.org/wiki/Achi_(game))
@@ -264,6 +265,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Dao](https://boardgamegeek.com/boardgame/948/dao)
 * [Dara](http://www.cyningstan.com/game/148/dara)
 * [Desfases](https://www.ludism.org/ppwiki/Desfases)
+* [Dodgem](https://en.wikipedia.org/wiki/Dodgem)
 * [Dominoids](https://ludism.org/ppwiki/Dominoids)
 * [Easy Slider](https://www.ludism.org/ppwiki/EasySlider)
 * [Evade](https://www.ludism.org/ppwiki/Evade)

@@ -4,6 +4,7 @@ test_that("checker other games work as expected", {
 
 	expect_snapshot(cat_piece(checker_crossings()))
 	expect_snapshot(cat_piece(checker_dao()))
+	expect_snapshot(cat_piece(checker_dodgem()))
 	expect_snapshot(cat_piece(checker_focus()))
 	expect_snapshot(cat_piece(checker_four_field_kono()))
 	expect_snapshot(cat_piece(checker_grasshopper()))
