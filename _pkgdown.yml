@@ -61,6 +61,7 @@ reference:
       contents:
         - piecepack_tiles
         - piecepack_rectangular_board
+        - piecepack_preview
         - piecepack_easy_slider
         - piecepack_checkers
         - piecepack_chess
