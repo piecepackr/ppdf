@@ -10,6 +10,7 @@
 \alias{checker_four_field_kono}
 \alias{checker_grasshopper}
 \alias{checker_julgonu}
+\alias{checker_kangaroo}
 \alias{checker_lines_of_action}
 \title{Setups for other games playable with a checkers set}
 \usage{
@@ -31,6 +32,8 @@ checker_four_field_kono(cell_width = getOption("ppdf.checker_cell_width", 1))
 checker_grasshopper(cell_width = getOption("ppdf.checker_cell_width", 1))
 
 checker_julgonu(cell_width = getOption("ppdf.checker_cell_width", 1))
+
+checker_kangaroo(cell_width = getOption("ppdf.checker_cell_width", 1))
 
 checker_lines_of_action(cell_width = getOption("ppdf.checker_cell_width", 1))
 }
@@ -54,7 +57,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 9 other games playable with a checkers set.
+\code{tibble} data frames of setups for 10 other games playable with a checkers set.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -68,6 +71,7 @@ Here are links for more information about the various games:\tabular{ll}{
    Four Field Kono \tab \url{https://en.wikipedia.org/wiki/Four_Field_Kono} \cr
    Grasshopper \tab \url{http://www.cyningstan.com/game/71/grasshopper} \cr
    Jul-Gonu \tab \url{https://en.wikipedia.org/wiki/Jul-Gonu} \cr
+   Kangaroo \tab \url{https://boardgamegeek.com/boardgame/6132/kangaroo-the-jumping-game} \cr
    Lines of Action \tab \url{https://en.wikipedia.org/wiki/Lines_of_Action} \cr
 }
 }

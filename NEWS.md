@@ -7,6 +7,7 @@ New features
 * The following functions generate data frames to setup checkers sets (#49):
 
   + `checker_dodgem()`
+  + `checker_kangaroo()`
 
 * The following functions generate data frames to setup cubes (#76):
 
@@ -23,6 +24,7 @@ New features
   + `piecepack_achi()`
   + `piecepack_dara()`
   + `piecepack_dodgem()`
+  + `piecepack_kangaroo()`
   + `piecepack_kings_valley()`
   + `piecepack_preview()`
   + `piecepack_seega()`

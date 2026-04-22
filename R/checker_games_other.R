@@ -58,6 +58,10 @@ checker_games_other <- function() {
             , "``checker_julgonu()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Jul-Gonu"
+            , "Kangaroo"
+            , "``checker_kangaroo()``"
+            , NA_character_
+            , "https://boardgamegeek.com/boardgame/6132/kangaroo-the-jumping-game"
             , "Lines of Action"
             , "``checker_lines_of_action()``"
             , NA_character_
@@ -132,6 +136,10 @@ checker_grasshopper <- function(cell_width = getOption("ppdf.checker_cell_width"
 checker_julgonu <- function(cell_width = getOption("ppdf.checker_cell_width", 1)) {
 	to_checkers(piecepack_julgonu(), cell_width, piece_side = "board_back", suit = 2L)
 }
+
+#' @rdname checker_games_other
+#' @export
+checker_kangaroo <- checker_breakthrough
 
 #' @rdname checker_games_other
 #' @export
