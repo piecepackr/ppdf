@@ -26,6 +26,7 @@ New features
   + `piecepack_dodgem()`
   + `piecepack_kangaroo()`
   + `piecepack_kings_valley()`
+  + `piecepack_leapfrog()`
   + `piecepack_preview()`
   + `piecepack_seega()`
   + `piecepack_tablan()`

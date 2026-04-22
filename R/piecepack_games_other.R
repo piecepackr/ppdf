@@ -67,6 +67,10 @@ piecepack_games_other <- function() {
             , "``piecepack_kings_valley()``"
             , NA_character_
             , "https://www.logygames.com/english/kingsvalley.html"
+            , "Leapfrog"
+            , "``piecepack_leapfrog()``"
+            , NA_character_
+            , "https://youtu.be/LWuVDFmPkZs"
             , "Lines of Action"
             , "``piecepack_lines_of_action()``"
             , NA_character_
@@ -216,6 +220,21 @@ piecepack_kings_valley <- function(variant = "standard") {
 	df <- bind_rows(df_t, df_sc, df_sp, df_ac, df_ap)
 	attr(df, "scale_factor") <- 2
 	df
+}
+
+#' @rdname piecepack_games_other
+#' @export
+piecepack_leapfrog <- function() {
+	df_t <- piecepack_rectangular_board(8L, 6L)
+	df_c <- piecepack_coins(
+		side = "back",
+		x = rep.int(1:6, 4L),
+		y = rep(c(8L, 7L, 2L, 1L), each = 6L),
+		suit = rep(c(1L, 2L, 3L, 4L), each = 6L),
+		rank = rep.int(1:6, 4L),
+		angle = rep(c(180, 180, 0, 0), each = 6L)
+	)
+	bind_rows(df_t, df_c)
 }
 
 #' @rdname piecepack_games_other
