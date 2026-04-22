@@ -23,6 +23,7 @@ New features
   + `piecepack_achi()`
   + `piecepack_dara()`
   + `piecepack_dodgem()`
+  + `piecepack_kings_valley()`
   + `piecepack_preview()`
   + `piecepack_seega()`
   + `piecepack_tablan()`

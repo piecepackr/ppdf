@@ -9,6 +9,7 @@
 \alias{piecepack_dao}
 \alias{piecepack_dodgem}
 \alias{piecepack_evade}
+\alias{piecepack_kings_valley}
 \alias{piecepack_grasshopper}
 \alias{piecepack_lines_of_action}
 \alias{piecepack_lukawan}
@@ -29,6 +30,8 @@ piecepack_dodgem(nrows = 6L, variant = "vout")
 
 piecepack_evade()
 
+piecepack_kings_valley(variant = "standard")
+
 piecepack_grasshopper()
 
 piecepack_lines_of_action()
@@ -44,8 +47,7 @@ piecepack_quatri()
 
 \item{nrows}{Number of rows (and columns) in game board.}
 
-\item{variant}{Either \code{"vout"} (red/suns on the left side, green/arms on the bottom)
-or \code{"schoessow"} (red/suns on the left side, green/arms on the right side).}
+\item{variant}{Name of variant.}
 }
 \value{
 A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following columns:
@@ -62,7 +64,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 11 other games playable with a piecepack.
+\code{tibble} data frames of setups for 12 other games playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -76,6 +78,7 @@ Here are links for more information about the various other games:\tabular{ll}{
    Dodgem \tab \url{https://en.wikipedia.org/wiki/Dodgem} \cr
    Grasshopper \tab \url{http://www.cyningstan.com/game/71/grasshopper} \cr
    Evade \tab \url{https://www.ludism.org/ppwiki/Evade} \cr
+   King's Valley \tab \url{https://www.logygames.com/english/kingsvalley.html} \cr
    Lines of Action \tab \url{https://en.wikipedia.org/wiki/Lines_of_Action} \cr
    Lukawan \tab \url{https://ludism.org/ppwiki/Lukawan} \cr
    Quatri \tab \url{https://www.ludism.org/ppwiki/Quatri} \cr
