@@ -59,6 +59,10 @@ piecepack_games_other <- function() {
             , "``piecepack_evade()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Evade"
+            , "Kangaroo"
+            , "``piecepack_kangaroo()``"
+            , NA_character_
+            , "https://boardgamegeek.com/boardgame/6132/kangaroo-the-jumping-game"
             , "King's Valley"
             , "``piecepack_kings_valley()``"
             , NA_character_
@@ -176,6 +180,10 @@ piecepack_dodgem <- function(nrows = 6L, variant = "vout") {
 #' @rdname piecepack_games_other
 #' @export
 piecepack_evade <- function() piecepack_rectangular_board(ncols = 6, nrows = 6)
+
+#' @rdname piecepack_games_other
+#' @export
+piecepack_kangaroo <- piecepack_breakthrough
 
 #' @rdname piecepack_games_other
 #' @export

@@ -6,6 +6,7 @@ test_that("piecepack other games work as expected", {
 	expect_snapshot(cat_piece(piecepack_breakthrough(), annotate = TRUE))
 	expect_snapshot(cat_piece(piecepack_change_change(seed = 37), annotate = TRUE))
 	expect_snapshot(cat_piece(piecepack_dao(), annotate = TRUE))
+	expect_snapshot(cat_piece(piecepack_kangaroo(), annotate = TRUE))
 	expect_snapshot(cat_piece(piecepack_kings_valley(), annotate = TRUE))
 	expect_snapshot(cat_piece(
 		piecepack_kings_valley(variant = "retrieve the king"),
