@@ -8,8 +8,7 @@
 #' `r man_markdown_table(piecepack_games_other())`
 #'
 #' @param nrows Number of rows (and columns) in game board.
-#' @param variant Either `"vout"` (red/suns on the left side, green/arms on the bottom)
-#'   or `"schoessow"` (red/suns on the left side, green/arms on the right side).
+#' @param variant Name of variant.
 #' @param seed Seed that determines setup, either an integer or \code{NULL}
 #' @param coins String of coin layout
 #' @rdname piecepack_games_other
@@ -60,6 +59,10 @@ piecepack_games_other <- function() {
             , "``piecepack_evade()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Evade"
+            , "King's Valley"
+            , "``piecepack_kings_valley()``"
+            , NA_character_
+            , "https://www.logygames.com/english/kingsvalley.html"
             , "Lines of Action"
             , "``piecepack_lines_of_action()``"
             , NA_character_
@@ -173,6 +176,39 @@ piecepack_dodgem <- function(nrows = 6L, variant = "vout") {
 #' @rdname piecepack_games_other
 #' @export
 piecepack_evade <- function() piecepack_rectangular_board(ncols = 6, nrows = 6)
+
+#' @rdname piecepack_games_other
+#' @export
+piecepack_kings_valley <- function(variant = "standard") {
+	variant <- match.arg(variant, c("standard", "retrieve the king"))
+	df_t <- piecepack_donut_board(x0 = 1.5, y0 = 1.5)
+	df_sc <- piecepack_coins(
+		side = "back",
+		x = c(2, 4, 8, 10),
+		y = 10,
+		suit = 1L,
+		rank = 1:4,
+		angle = 180
+	)
+	df_ac <- piecepack_coins(
+		side = "back",
+		x = c(2, 4, 8, 10),
+		y = 2,
+		suit = 4L,
+		rank = 1:4,
+		angle = 0
+	)
+	if (variant == "standard") {
+		df_sp <- piecepack_pawns(suit = 1L, x = 6, y = 10, angle = 180)
+		df_ap <- piecepack_pawns(suit = 4L, x = 6, y = 2, angle = 0)
+	} else {
+		df_sp <- piecepack_pawns(suit = 1L, x = 6, y = 2, angle = 180)
+		df_ap <- piecepack_pawns(suit = 4L, x = 6, y = 10, angle = 0)
+	}
+	df <- bind_rows(df_t, df_sc, df_sp, df_ac, df_ap)
+	attr(df, "scale_factor") <- 2
+	df
+}
 
 #' @rdname piecepack_games_other
 #' @export
