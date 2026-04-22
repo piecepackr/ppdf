@@ -11,6 +11,7 @@
 \alias{piecepack_evade}
 \alias{piecepack_kangaroo}
 \alias{piecepack_kings_valley}
+\alias{piecepack_leapfrog}
 \alias{piecepack_grasshopper}
 \alias{piecepack_lines_of_action}
 \alias{piecepack_lukawan}
@@ -34,6 +35,8 @@ piecepack_evade()
 piecepack_kangaroo()
 
 piecepack_kings_valley(variant = "standard")
+
+piecepack_leapfrog()
 
 piecepack_grasshopper()
 
@@ -67,7 +70,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 13 other games playable with a piecepack.
+\code{tibble} data frames of setups for 14 other games playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -83,6 +86,7 @@ Here are links for more information about the various other games:\tabular{ll}{
    Evade \tab \url{https://www.ludism.org/ppwiki/Evade} \cr
    Kangaroo \tab \url{https://boardgamegeek.com/boardgame/6132/kangaroo-the-jumping-game} \cr
    King's Valley \tab \url{https://www.logygames.com/english/kingsvalley.html} \cr
+   Leapfrog \tab \url{https://youtu.be/LWuVDFmPkZs} \cr
    Lines of Action \tab \url{https://en.wikipedia.org/wiki/Lines_of_Action} \cr
    Lukawan \tab \url{https://ludism.org/ppwiki/Lukawan} \cr
    Quatri \tab \url{https://www.ludism.org/ppwiki/Quatri} \cr
