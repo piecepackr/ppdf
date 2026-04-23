@@ -31,6 +31,7 @@ New features
   + `piecepack_seega()`
   + `piecepack_tablan()`
   + `piecepack_tariffs()`
+  + `piecepack_three_musketeers()`
   + `piecepack_tic_tac_toe()`
   + `piecepack_tornado_vs_trailer_park()`
   + `piecepack_yote()`

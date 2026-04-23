@@ -25,4 +25,5 @@ test_that("piecepack other games work as expected", {
 	expect_snapshot(cat_piece(piecepack_lines_of_action(), reorient = "all", annotate = TRUE))
 	expect_snapshot(cat_piece(piecepack_lukawan(), annotate = TRUE))
 	expect_snapshot(cat_piece(piecepack_quatri(), annotate = TRUE))
+	expect_snapshot(cat_piece(piecepack_three_musketeers(), annotate = TRUE))
 })

@@ -231,7 +231,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following 113 games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following 114 games playable with a piecepack deck (plus possibly additional components):
 
 * [12345ive!](https://boardgamegeek.com/boardgame/154644/12345ive)
 * [Achi](https://en.wikipedia.org/wiki/Achi_(game))
@@ -332,6 +332,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [The "In" Crowd](https://www.ludism.org/ppwiki/TheInCrowd)
 * [The Magic Bag](https://www.ludism.org/ppwiki/The_Magic_Bag)
 * [The Penguin Game](https://www.ludism.org/ppwiki/PenguinGame)
+* [Three Musketeers](https://boardgamegeek.com/boardgame/21861/three-musketeers)
 * [Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe)
 * [Tornado vs. Trailer Park](https://www.ludism.org/ppwiki/Tornado_vs._Trailer_Park)
 * [Tower of Babel AKA (Piecepack) Accordion](https://www.ludism.org/ppwiki/TowerOfBabel)
