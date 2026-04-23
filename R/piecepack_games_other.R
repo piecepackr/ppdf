@@ -83,6 +83,10 @@ piecepack_games_other <- function() {
             , "``piecepack_quatri()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Quatri"
+            , "Three Musketeers"
+            , "``piecepack_three_musketeers()``"
+            , NA_character_
+            , "https://boardgamegeek.com/boardgame/21861/three-musketeers"
             )
 }
 
@@ -295,4 +299,24 @@ piecepack_quatri <- function() {
 		angle = c(180, 0, 180, 0, 0, 180, 0, 180)
 	)
 	bind_rows(df_tiles, df_coins)
+}
+
+#' @rdname piecepack_games_other
+#' @export
+piecepack_three_musketeers <- function() {
+	df_t <- piecepack_rectangular_board(5L, 5L)
+	df_p <- piecepack_pawns(
+		suit = c(4L, 3L, 1L),
+		x = c(1L, 3L, 5L),
+		y = c(1L, 3L, 5L),
+		angle = 0
+	)
+	df_c <- piecepack_coins(
+		side = "face",
+		x = rep_len(1:5, length.out = 24L)[-c(1L, 13L)],
+		y = rep.int(1:5, times = c(4L, 5L, 4L, 5L, 4L)),
+		suit = rep.int(1:4, c(6L, 6L, 5L, 5L)),
+		rank = c(1:6, 1:6, 1:5, 1:5)
+	)
+	bind_rows(df_t, df_p, df_c)
 }

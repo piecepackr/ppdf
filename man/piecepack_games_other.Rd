@@ -16,6 +16,7 @@
 \alias{piecepack_lines_of_action}
 \alias{piecepack_lukawan}
 \alias{piecepack_quatri}
+\alias{piecepack_three_musketeers}
 \title{Setups for other modern games playable with a piecepack}
 \usage{
 piecepack_12345ive()
@@ -45,6 +46,8 @@ piecepack_lines_of_action()
 piecepack_lukawan()
 
 piecepack_quatri()
+
+piecepack_three_musketeers()
 }
 \arguments{
 \item{seed}{Seed that determines setup, either an integer or \code{NULL}}
@@ -70,7 +73,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 14 other games playable with a piecepack.
+\code{tibble} data frames of setups for 15 other games playable with a piecepack.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -90,6 +93,7 @@ Here are links for more information about the various other games:\tabular{ll}{
    Lines of Action \tab \url{https://en.wikipedia.org/wiki/Lines_of_Action} \cr
    Lukawan \tab \url{https://ludism.org/ppwiki/Lukawan} \cr
    Quatri \tab \url{https://www.ludism.org/ppwiki/Quatri} \cr
+   Three Musketeers \tab \url{https://boardgamegeek.com/boardgame/21861/three-musketeers} \cr
 }
 }
 \examples{
