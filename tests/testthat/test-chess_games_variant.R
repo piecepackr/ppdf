@@ -10,6 +10,7 @@ test_that("chess variant setups work as expected", {
 	expect_snapshot(cat_piece(chess_international_chess()))
 	expect_snapshot(cat_piece(chess_fischer_random_chess(seed = 12)))
 	expect_snapshot(cat_piece(chess_horde_chess()))
+	expect_snapshot(cat_piece(chess_jeson_mor(), annotate = TRUE))
 	expect_snapshot(cat_piece(chess_monochrome_chess()))
 	expect_snapshot(cat_piece(chess_racing_kings()))
 })

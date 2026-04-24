@@ -8,6 +8,7 @@ test_that("checker other games work as expected", {
 	expect_snapshot(cat_piece(checker_focus()))
 	expect_snapshot(cat_piece(checker_four_field_kono()))
 	expect_snapshot(cat_piece(checker_grasshopper()))
+	expect_snapshot(cat_piece(checker_jeson_mor(), annotate = TRUE))
 	expect_snapshot(cat_piece(checker_julgonu()))
 	expect_snapshot(cat_piece(checker_kangaroo()))
 	expect_snapshot(cat_piece(checker_lines_of_action()))

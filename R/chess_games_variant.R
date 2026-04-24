@@ -40,6 +40,10 @@ chess_games_variant <- function() {
             , "``chess_horde_chess()``"
             , NA_character_
             , "https://lichess.org/variant/horde"
+            , "Jeson Mor"
+            , "``chess_jeson_mor()``"
+            , NA_character_
+            , "https://en.wikipedia.org/wiki/Jeson_Mor"
             , "Monochrome Chess"
             , "``chess_monochrome_chess()``"
             , NA_character_
@@ -142,6 +146,21 @@ chess_horde_chess <- function(
 #' @rdname chess_games_variant
 #' @export
 chess_international_chess <- chess_chess
+
+#' @rdname chess_games_variant
+#' @export
+chess_jeson_mor <- function(
+	cell_width = getOption("ppdf.chess_cell_width", 1),
+	...,
+	fen = "nnnnnnnnn/9/9/9/9/9/9/9/NNNNNNNNN"
+) {
+	check_dots_empty()
+	force(cell_width)
+	local_options(ppdf.chess_cell_width = NULL)
+	df_board <- chess_board(nrows = 9L)
+	bind_rows(df_board, fen_to_chess_bits(fen)) |>
+		set_cell_width(cell_width, "chess")
+}
 
 #' @rdname chess_games_variant
 #' @export
