@@ -54,6 +54,10 @@ checker_games_other <- function() {
             , "``checker_grasshopper()``"
             , NA_character_
             , "http://www.cyningstan.com/game/71/grasshopper"
+            , "Jeson Mor"
+            , "``checker_jeson_mor()``"
+            , NA_character_
+            , "https://en.wikipedia.org/wiki/Jeson_Mor"
             , "Jul-Gonu"
             , "``checker_julgonu()``"
             , NA_character_
@@ -129,6 +133,18 @@ checker_four_field_kono <- function(cell_width = getOption("ppdf.checker_cell_wi
 #' @export
 checker_grasshopper <- function(cell_width = getOption("ppdf.checker_cell_width", 1)) {
 	to_checkers(piecepack_grasshopper(), cell_width)
+}
+
+#' @rdname checker_games_other
+#' @export
+checker_jeson_mor <- function(cell_width = getOption("ppdf.checker_cell_width", 1)) {
+	force(cell_width)
+	local_options(ppdf.checker_cell_width = NULL)
+	df_board <- checker_board(9L, piece_side = "board_back")
+	df_w <- checker_bits(suit = 6L, x = 1:9, y = 1)
+	df_b <- checker_bits(suit = 2L, x = 1:9, y = 9)
+	bind_rows(df_board, df_w, df_b) |>
+		set_cell_width(cell_width, "checkers")
 }
 
 #' @rdname checker_games_other

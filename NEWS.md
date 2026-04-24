@@ -4,10 +4,15 @@ ppdf 0.3.0 (development)
 New features
 ------------
 
-* The following functions generate data frames to setup checkers sets (#49):
+* The following functions generate data frames to setup checkers sets (#49, #50):
 
   + `checker_dodgem()`
+  + `checker_jeson_mor()`
   + `checker_kangaroo()`
+
+* The following functions generate data frames to setup chess sets (#50):
+
+  + `chess_jeson_mor()`
 
 * The following functions generate data frames to setup cubes (#76):
 
@@ -24,6 +29,7 @@ New features
   + `piecepack_achi()`
   + `piecepack_dara()`
   + `piecepack_dodgem()`
+  + `piecepack_jeson_mor()`
   + `piecepack_kangaroo()`
   + `piecepack_kings_valley()`
   + `piecepack_leapfrog()`

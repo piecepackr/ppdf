@@ -7,6 +7,7 @@
 \alias{chess_fischer_random_chess}
 \alias{chess_horde_chess}
 \alias{chess_international_chess}
+\alias{chess_jeson_mor}
 \alias{chess_monochrome_chess}
 \alias{chess_racing_kings}
 \title{Setups for chess variants}
@@ -41,6 +42,12 @@ chess_international_chess(
   cell_width = getOption("ppdf.chess_cell_width", 1),
   ...,
   fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1"
+)
+
+chess_jeson_mor(
+  cell_width = getOption("ppdf.chess_cell_width", 1),
+  ...,
+  fen = "nnnnnnnnn/9/9/9/9/9/9/9/NNNNNNNNN"
 )
 
 chess_monochrome_chess(
@@ -80,7 +87,7 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 5 chess variants.
+\code{tibble} data frames of setups for 6 chess variants.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
@@ -89,6 +96,7 @@ Here are links for more information about the various games:\tabular{ll}{
    (International) Chess \tab \url{https://en.wikipedia.org/wiki/Chess} \cr
    Fischer Random Chess AKA Chess960 \tab \url{https://www.chessvariants.com/diffsetup.dir/fischer.html} \cr
    Horde Chess \tab \url{https://lichess.org/variant/horde} \cr
+   Jeson Mor \tab \url{https://en.wikipedia.org/wiki/Jeson_Mor} \cr
    Monochrome Chess \tab \url{https://wunderland.com/WTS/Andy/Games/monochess.html} \cr
    Racing Kings \tab \url{https://www.chessvariants.com/diffobjective.dir/racing.html} \cr
 }

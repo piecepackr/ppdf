@@ -47,6 +47,10 @@ piecepack_games_chess <- function() {
             , "``piecepack_international_chess()`` aka ``piecepack_chess()``"
             , NA_character_
             , "https://www.ludism.org/ppwiki/Chess"
+            , "Jeson Mor"
+            , "``piecepack_jeson_mor()``"
+            , NA_character_
+            , "https://en.wikipedia.org/wiki/Jeson_Mor"
             , "Minishogi"
             , "``piecepack_minishogi()``"
             , NA_character_
@@ -422,6 +426,29 @@ piecepack_chess_pieces <- function(
 #' @rdname piecepack_games_chess
 #' @export
 piecepack_international_chess <- piecepack_chess
+
+#' @rdname piecepack_games_chess
+#' @export
+piecepack_jeson_mor <- function() {
+	df_t <- piecepack_rectangular_board(9L, 9L)
+	df_cb <- piecepack_coins(
+		side = "back",
+		x = 1:9,
+		y = 9,
+		suit = c(rep(1L, 5L), rep(2L, 4L)),
+		rank = c(1:5, 1:4),
+		angle = 180
+	)
+	df_cw <- piecepack_coins(
+		side = "back",
+		x = 1:9,
+		y = 1,
+		suit = c(rep(4L, 4L), rep(3L, 5L)),
+		rank = c(1:4, 1:5)
+	)
+	df_d <- piecepack_dice(suit = 4L, rank = 2L, x = 5, y = 5)
+	bind_rows(df_t, df_cb, df_cw, df_d)
+}
 
 #' @rdname piecepack_games_chess
 #' @export
