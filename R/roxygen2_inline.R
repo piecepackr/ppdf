@@ -25,11 +25,11 @@ return_df <- function() {
 This data frame is compatible with [piecepackr::render_piece()] and likely [ppcli::cat_piece()].'
 }
 
-deprecated_table <- function() {
+defunct_table <- function() {
 	# fmt: skip
 	df <- tribble(
-		~deprecated,                            ~replacement,
-		"``checkers_by_name()``",               "``checkers_setup_by_name()``",
+		~defunct,                               ~replacement,
+		"``checkers_by_name()``",               "``checker_setup_by_name()``",
 		"``chess_by_name()``",                  "``chess_setup_by_name()``",
 		"``dominoes_by_name()``",               "``domino_setup_by_name()``",
 		"``dominoes_concentration()``",         "``domino_concentration()``",
@@ -41,7 +41,7 @@ deprecated_table <- function() {
 		"``dominoes_patience()``",              "``domino_patience()``",
 		"``dominoes_the_jubilee()``",           "``domino_the_jubilee()``",
 		"``dominoes_tiles()``",                 "``domino_tiles()``",
-		"``games_checkers()``",                 "``checkers_games()``",
+		"``games_checkers()``",                 "``checker_games()``",
 		"``games_chess()``",                    "``chess_games()``",
 		"``games_dominoes()``",                 "``domino_games()``",
 		"``games_piecepack()``",                "``piecepack_games()``",
@@ -53,7 +53,7 @@ deprecated_table <- function() {
 		"``piecepack_rect_board_tiles()``",     "``piecepack_rectangular_board()``",
 		"``stackpack_by_name()``",              "``stackpack_setup_by_name()``",
 	)
-	names(df) <- c("**Deprecated function**", "**Replacement function**")
+	names(df) <- c("**Defunct function**", "**Replacement function**")
 	knitr::kable(df, "pipe")
 }
 # nocov end

@@ -1,6 +1,11 @@
 ppdf 0.3.0 (development)
 ========================
 
+Breaking changes
+----------------
+
+* All 50 functions deprecated in ppdf 0.2.1 (May 8th, 2025) are now defunct and will throw an error if called.
+
 New features
 ------------
 

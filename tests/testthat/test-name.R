@@ -5,11 +5,6 @@ test_that("normalize_name()", {
 	expect_equal(normalize_name("Yoté"), "yote")
 })
 
-test_that("piecepack_by_name()", {
-	expect_equal(piecepack_by_name("Piecepack Halma"), piecepack_halma())
-	expect_equal(piecepack_by_name("Piecepackman", seed = 42), piecepack_piecepackman(seed = 42))
-})
-
 test_that("setup_by_name()", {
 	skip_if_not_installed("ppcli", "0.2.0-1")
 	expect_snapshot(cat_piece(alquerque_setup_by_name("Alquerque")))
