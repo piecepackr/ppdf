@@ -101,6 +101,10 @@ go_games_variant <- function() {
             , ~methods
             , ~comment
             , ~url
+            , "Connect6"
+            , "``go_connect6()``"
+            , NA_character_
+            , "https://en.wikipedia.org/wiki/Connect6"
             , "Go"
             , "``go_go()``"
             , NA_character_
@@ -109,12 +113,22 @@ go_games_variant <- function() {
             , "``go_gomoku()``"
             , NA_character_
             , "https://en.wikipedia.org/wiki/Gomoku"
+            , "Renju"
+            , "``go_renju()``"
+            , NA_character_
+            , "https://en.wikipedia.org/wiki/Renju"
     )
 }
 
 #' @rdname go_games_variant
 #' @param nrows Number of rows (lines) in game board
 #' @param ncols Number of columns (lines) in game board
+#' @export
+go_connect6 <- function(nrows = 19L, ncols = nrows) {
+	go_board(nrows, ncols)
+}
+
+#' @rdname go_games_variant
 #' @export
 go_go <- function(nrows = 19L, ncols = nrows) {
 	go_board(nrows, ncols)
@@ -123,5 +137,11 @@ go_go <- function(nrows = 19L, ncols = nrows) {
 #' @rdname go_games_variant
 #' @export
 go_gomoku <- function(nrows = 15L, ncols = nrows) {
+	go_board(nrows, ncols)
+}
+
+#' @rdname go_games_variant
+#' @export
+go_renju <- function(nrows = 15L, ncols = nrows) {
 	go_board(nrows, ncols)
 }

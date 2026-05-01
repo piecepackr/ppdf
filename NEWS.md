@@ -29,6 +29,11 @@ New features
   + `domino_freecell()`
   + `domino_the_sultan()`
 
+* The following functions generate data frames to setup go sets (#62):
+
+  + `go_connect6()`
+  + `go_renju()`
+
 * The following functions generate data frames to setup piecepack sets (#23, #35, #40, #49, #50):
 
   + `piecepack_achi()`

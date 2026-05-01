@@ -168,7 +168,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="checkers">Checkers Sets</a>
 
-`{ppdf}` supports the following 33 games playable with a (possibly non-8x8) checkers set:
+`{ppdf}` supports the following 34 games playable with a (possibly non-8x8) checkers set:
 
 * [(American) Checkers AKA (English) Draughts](https://en.wikipedia.org/wiki/Draughts)
 * [American Pool Checkers](https://draughts.github.io/american-pool-checkers.html)
@@ -190,6 +190,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [International Checkers AKA International Draughts](https://en.wikipedia.org/wiki/International_draughts)
 * [Italian Checkers AKA Italian Draughts](https://en.wikipedia.org/wiki/Italian_draughts)
 * [Jamaican Checkers AKA Jamaican Draughts](https://web.archive.org/web/20230605023244/http://poolcheckers.com/jamaica/)
+* [Jeson Mor](https://en.wikipedia.org/wiki/Jeson_Mor)
 * [Jul-Gonu](https://en.wikipedia.org/wiki/Jul-Gonu)
 * [Kangaroo](https://boardgamegeek.com/boardgame/6132/kangaroo-the-jumping-game)
 * [Lasca](http://www.lasca.org)
@@ -206,11 +207,12 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="chess">Chess Sets</a>
 
-`{ppdf}` supports the following 5 games playable with a (possibly non-8x8) chess set:
+`{ppdf}` supports the following 6 games playable with a (possibly non-8x8) chess set:
 
 * [Fischer Random Chess AKA Chess960](https://www.chessvariants.com/diffsetup.dir/fischer.html)
 * [Horde Chess](https://lichess.org/variant/horde)
 * [(International) Chess](https://en.wikipedia.org/wiki/Chess)
+* [Jeson Mor](https://en.wikipedia.org/wiki/Jeson_Mor)
 * [Monochrome Chess](https://wunderland.com/WTS/Andy/Games/monochess.html)
 * [Racing Kings](https://www.chessvariants.com/diffobjective.dir/racing.html)
 
@@ -231,7 +233,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 
 ### <a name="piecepack">Piecepacks</a>
 
-`{ppdf}` supports the following 114 games playable with a piecepack deck (plus possibly additional components):
+`{ppdf}` supports the following 115 games playable with a piecepack deck (plus possibly additional components):
 
 * [12345ive!](https://boardgamegeek.com/boardgame/154644/12345ive)
 * [Achi](https://en.wikipedia.org/wiki/Achi_(game))
@@ -286,6 +288,7 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Italian Checkers AKA Italian Draughts](https://en.wikipedia.org/wiki/Italian_draughts)
 * [Jamaican Checkers AKA Jamaican Draughts](https://web.archive.org/web/20230605023244/http://poolcheckers.com/jamaica/)
 * [Japan](https://www.ludism.org/ppwiki/Japan)
+* [Jeson Mor](https://en.wikipedia.org/wiki/Jeson_Mor)
 * [Jul-Gonu](https://www.ludism.org/ppwiki/JulGonu)
 * [Kangaroo](https://boardgamegeek.com/boardgame/6132/kangaroo-the-jumping-game)
 * [King's Valley](https://www.logygames.com/english/kingsvalley.html)
@@ -355,10 +358,12 @@ animate_game(game, file = "man/figures/README-relativity.gif",
 * [Alquerque](https://en.wikipedia.org/wiki/Alquerque)
 * [Bagh-chal](https://en.wikipedia.org/wiki/Bagh-chal)
 
-`{ppdf}` supports the following 2 games playable with a go set
+`{ppdf}` supports the following 4 games playable with a go set
 
+* [Connect6](https://en.wikipedia.org/wiki/Connect6)
 * [Go](https://en.wikipedia.org/wiki/Go_(game))
 * [Gomoku](https://en.wikipedia.org/wiki/Gomoku)
+* [Renju](https://en.wikipedia.org/wiki/Renju)
 
 `{ppdf}` supports the following 7 games playable with a morris set
 

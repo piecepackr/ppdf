@@ -2,13 +2,19 @@
 % Please edit documentation in R/go.R
 \name{go_games_variant}
 \alias{go_games_variant}
+\alias{go_connect6}
 \alias{go_go}
 \alias{go_gomoku}
+\alias{go_renju}
 \title{Setups for go variants}
 \usage{
+go_connect6(nrows = 19L, ncols = nrows)
+
 go_go(nrows = 19L, ncols = nrows)
 
 go_gomoku(nrows = 15L, ncols = nrows)
+
+go_renju(nrows = 15L, ncols = nrows)
 }
 \arguments{
 \item{nrows}{Number of rows (lines) in game board}
@@ -30,14 +36,16 @@ A \code{\link[tibble:tibble]{tibble::tibble()}} data frame with the following co
 This data frame is compatible with \code{\link[piecepackr:render_piece]{piecepackr::render_piece()}} and likely \code{\link[ppcli:cat_piece]{ppcli::cat_piece()}}.
 }
 \description{
-\code{tibble} data frames of setups for 2 go variants.
+\code{tibble} data frames of setups for 4 go variants.
 Data frame output can usually be plotted with \code{pmap_piece(df, default.units = "in")}.
 }
 \details{
 Here are links for more information about the various games:\tabular{ll}{
    \strong{Game} \tab \strong{URL} \cr
+   Connect6 \tab \url{https://en.wikipedia.org/wiki/Connect6} \cr
    Go \tab \url{https://en.wikipedia.org/wiki/Go_(game)} \cr
    Gomoku \tab \url{https://en.wikipedia.org/wiki/Gomoku} \cr
+   Renju \tab \url{https://en.wikipedia.org/wiki/Renju} \cr
 }
 }
 \examples{
